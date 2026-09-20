@@ -1,0 +1,4699 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SLControls</name>
+    </assembly>
+    <members>
+        <member name="T:SLControls.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:SLControls.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:SLControls.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="T:SLControls.PreFillControlsHandler">
+            <summary>
+            PreFillControlsHandler
+            </summary>
+            <param name="aryFields"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SLControls.AfterFillControlsHandler">
+            <summary>
+            AfterFillControlsHandler
+            </summary>
+        </member>
+        <member name="T:SLControls.AfterOKHandler">
+            <summary>
+            AfterOKHandler
+            </summary>
+        </member>
+        <member name="T:SLControls.PreOKHandler">
+            <summary>
+            PreOKHandler
+            </summary>
+            <param name="aryFields"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SLControls.AfterExecuteOKSqlHandler">
+            <summary>
+            AfterExecuteOKSqlHandler
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:SLControls.PreExecuteOKSqlHandler">
+            <summary>
+            PreExecuteOKSqlHandler
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SLControls.BeforeEnterMoveHandler">
+            <summary>
+            BeforeEnterMoveHandler
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SLControls.AfterEnterMoveHandler">
+            <summary>
+            AfterEnterMoveHandler
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:SLControls.BeforeAutoMatchingHandler">
+            <summary>
+            自动匹配之前发生
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:SLControls.AfterAutoMatchingHandler">
+            <summary>
+            自动匹配之后发生
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:SLControls.BeforeAutoRememberHandler">
+            <summary>
+            自动记忆之前发生
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:SLControls.AfterAutoRememberHandler">
+            <summary>
+            自动记忆之后发生
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:SLControls.EnterMoveEventArgs">
+            <summary>
+            EnterMoveEventArgs
+            </summary>
+        </member>
+        <member name="T:SLControls.BeforeAutoRememberEventArgs">
+            <summary>
+            自动记忆之前
+            </summary>
+        </member>
+        <member name="P:SLControls.BeforeAutoRememberEventArgs.TextForRemember">
+            <summary>
+            被自动记忆的文本
+            </summary>
+        </member>
+        <member name="P:SLControls.BeforeAutoRememberEventArgs.Cancel">
+            <summary>
+            是否取消记忆
+            </summary>
+        </member>
+        <member name="T:SLControls.AfterAutoRememberEventArgs">
+            <summary>
+            自动记忆之后
+            </summary>
+        </member>
+        <member name="P:SLControls.AfterAutoRememberEventArgs.NewID">
+            <summary>
+            记忆到某表中，生成的新数据的ID
+            </summary>
+        </member>
+        <member name="P:SLControls.AfterAutoRememberEventArgs.TextForRemember">
+            <summary>
+            被自动记忆的文本
+            </summary>
+        </member>
+        <member name="T:SLControls.BeforeMatchingEventArgs">
+            <summary>
+            匹配之前参数
+            </summary>
+        </member>
+        <member name="P:SLControls.BeforeMatchingEventArgs.Cancel">
+            <summary>
+            是否自动匹配
+            </summary>
+        </member>
+        <member name="T:SLControls.AfterMatchingEventArgs">
+            <summary>
+            匹配之后参数
+            </summary>
+        </member>
+        <member name="P:SLControls.AfterMatchingEventArgs.Cancel">
+            <summary>
+            是否更新控件内容
+            </summary>
+        </member>
+        <member name="F:SLControls.AfterMatchingEventArgs.nMatchingCount">
+            <summary>
+            匹配行数
+            </summary>
+        </member>
+        <member name="P:SLControls.AfterMatchingEventArgs.MatchingCount">
+            <summary>
+            匹配行数
+            </summary>
+        </member>
+        <member name="F:SLControls.AfterMatchingEventArgs.dtMatching">
+            <summary>
+            匹配DataTable
+            </summary>
+        </member>
+        <member name="P:SLControls.AfterMatchingEventArgs.MatchingTable">
+            <summary>
+            匹配DataTable
+            </summary>
+        </member>
+        <member name="P:SLControls.AfterMatchingEventArgs.OldText">
+            <summary>
+            用户输入进去的Text
+            </summary>
+        </member>
+        <member name="P:SLControls.AfterMatchingEventArgs.NewText">
+            <summary>
+            经过数据库查找后返回的Text
+            </summary>
+        </member>
+        <member name="P:SLControls.AfterMatchingEventArgs.PrimaryKeyValue">
+            <summary>
+            查找到的主键的值
+            </summary>
+        </member>
+        <member name="T:SLControls.AfterOKSqlEventArgs">
+            <summary>
+            AfterOKSqlEventArgs
+            </summary>
+        </member>
+        <member name="P:SLControls.AfterOKSqlEventArgs.Successful">
+            <summary>
+            是否成功，若消息响应函数中执行失败，请将该变量设为false
+            </summary>
+        </member>
+        <member name="P:SLControls.AfterOKSqlEventArgs.LastError">
+            <summary>
+            用于弹出错误对话框的文本
+            </summary>
+        </member>
+        <member name="T:SLControls.SLAomTmpForm">
+            <summary>
+            添加修改数据窗口
+            </summary>
+            <summary>
+            模板窗口，实现了回车移动控件等
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmpForm.CloseFormAfterNew">
+            <summary>
+            新增成功后，是否关闭窗口
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmpForm.PreFillControls">
+            <summary>
+            FillControl之前执行的事件，返回false可取消控件内容的自动填充，自行处理
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmpForm.AfterFillControls">
+            <summary>
+            FillControl之后发生的事件
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmpForm.AfterOK">
+            <summary>
+            点OK后产生的事件
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmpForm.PreOK">
+            <summary>
+            点OK之前产生的事件，返回false可取消PressOK的执行（包括合法性检验和向数据库中写值）
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmpForm.PreExecuteOKSql">
+            <summary>
+            OK事件合法性检验后SQL语句执行前产生的事件，返回false可取消SQL语句的执行
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmpForm.AfterExecuteOKSql">
+            <summary>
+            SQL语句刚执行完毕时发生的事件，bSuc表示是否成功
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmpForm.BeforeAutoMatching">
+            <summary>
+            自动匹配之前
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmpForm.AfterAutoMatching">
+            <summary>
+            自动匹配之后
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmpForm.OtherFields">
+            <summary>
+            除了控件表示外，额外的字段及其值，元素类型：SlcFieldInfo
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmpForm.NotClearControls">
+            <summary>
+            除了这些控件，其它控件在点击确定时都会被清空
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmpForm.UseTransation">
+            <summary>
+            在PressOK函数保存时，是否使用事务
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmpForm.CurrentRowID">
+            <summary>
+            当前行的ID
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmpForm.FillControlsCompleted">
+            <summary>
+            自动填充控件是否已完成
+            </summary>
+        </member>
+        <member name="M:SLControls.SLAomTmpForm.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmpForm.DatabaseEngine">
+            <summary>
+            数据据访问引擎，默认为SLOnlyInstOleDb.Services
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmpForm.TableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmpForm.PrimaryKey">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmpForm.OperFlag">
+            <summary>
+            操作方式，新增还是修改
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmpForm.ClearCtrlsOnOK">
+            <summary>
+            新增方式下，点确定按钮时，是否清空控件内容
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmpForm.SaveSuccessful">
+            <summary>
+            是否已保存成功
+            </summary>
+        </member>
+        <member name="M:SLControls.SLAomTmpForm.FillControls">
+            <summary>
+            向控件里填值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLAomTmpForm.FillControls(System.Boolean)">
+            <summary>
+            FillOnly不填充下拉的ComboBox
+            </summary>
+            <param name="bFillOnly">FillOnly不填充下拉的ComboBox</param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLAomTmpForm.PressOK">
+            <summary>
+            按下确定按钮
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLAomTmpForm.ClearControls(System.Boolean,System.Boolean)">
+            <summary>
+            清除控件内容
+            </summary>
+            <param name="bIgnoreClearOnOK">是否忽略属性中的ClearCtrlsOnOK属性</param>
+            <param name="bIgnoreNotClearControls">是否忽略属性中的NotClearControls属性</param>
+        </member>
+        <member name="F:SLControls.SLAomTmpForm.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLControls.SLAomTmpForm.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLControls.SLAomTmpForm.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLControls.SLAomTmpForm.button确定">
+            <summary>
+            确定按钮
+            </summary>
+        </member>
+        <member name="F:SLControls.SLAomTmpForm.button取消">
+            <summary>
+            取消按钮
+            </summary>
+        </member>
+        <member name="T:SLControls.SLAomTmp.SLAomTmpGroupBox">
+            <summary>
+            可添加修改的GroupBox
+            </summary>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpGroupBox.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpGroupBox.SLControlCollection">
+            <summary>
+            SLControls集合
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpGroupBox.PreFillControls">
+            <summary>
+            FillControl之前执行的事件，返回false可取消控件内容的自动填充，自行处理
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpGroupBox.AfterFillControls">
+            <summary>
+            FillControl之后发生的事件
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpGroupBox.AfterOK">
+            <summary>
+            点OK后产生的事件
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpGroupBox.PreOK">
+            <summary>
+            点OK之前产生的事件，返回false可取消PressOK的执行（包括合法性检验和向数据库中写值）
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpGroupBox.PreExecuteOKSql">
+            <summary>
+            OK事件合法性检验后SQL语句执行前产生的事件，返回false可取消SQL语句的执行
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpGroupBox.AfterExecuteOKSql">
+            <summary>
+            SQL语句刚执行完毕时发生的事件，bSuc表示是否成功
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpGroupBox.BeforeAutoMatchingHandler">
+            <summary>
+            自动匹配之前
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpGroupBox.AfterAutoMatchingHandler">
+            <summary>
+            自动匹配之后
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpGroupBox.OtherFields">
+            <summary>
+            除了控件表示外，额外的字段及其值，元素类型：SlcFieldInfo
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpGroupBox.NotClearControls">
+            <summary>
+            除了这些控件，其它控件在点击确定时都会被清空
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpGroupBox.UseTransation">
+            <summary>
+            在PressOK函数保存时，是否使用事务
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpGroupBox.ParentForm">
+            <summary>
+            Panel的父窗口
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpGroupBox.CurrentRowID">
+            <summary>
+            当前行的ID
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpGroupBox.FillControlsCompleted">
+            <summary>
+            自动填充控件是否已完成
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpGroupBox.DatabaseEngine">
+            <summary>
+            数据据访问引擎，默认为SLOnlyInstOleDb.Services
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpGroupBox.TableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpGroupBox.PrimaryKey">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpGroupBox.OperFlag">
+            <summary>
+            操作方式，新增还是修改
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpGroupBox.ClearCtrlsOnOK">
+            <summary>
+            新增方式下，点确定按钮时，是否清空控件内容
+            </summary>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpGroupBox.FillControls(System.Boolean)">
+            <summary>
+            向控件里填值,FillOnly不填充下拉的ComboBox
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpGroupBox.FillControls">
+            <summary>
+            向控件里填值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpGroupBox.FillComboBoxes">
+            <summary>
+            填充所有ComboBox
+            </summary>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpGroupBox.PressOK">
+            <summary>
+            按下确定按钮
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpGroupBox.ClearControls(System.Boolean,System.Boolean)">
+            <summary>
+            清除控件内容
+            </summary>
+            <param name="bIgnoreClearOnOK">是否忽略属性中的ClearCtrlsOnOK属性</param>
+            <param name="bIgnoreNotClearControls">是否忽略属性中的NotClearControls属性</param>
+        </member>
+        <member name="F:SLControls.SLAomTmp.SLAomTmpGroupBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpGroupBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpGroupBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:SLControls.SLAomTmp.SLAomTmpPanel">
+            <summary>
+            Panel模板，不能操作数据库
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpPanel.SLControlCollection">
+            <summary>
+            SLControls集合
+            </summary>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpPanel.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpPanel.PreFillControls">
+            <summary>
+            FillControl之前执行的事件，返回false可取消控件内容的自动填充，自行处理
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpPanel.AfterFillControls">
+            <summary>
+            FillControl之后发生的事件
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpPanel.AfterOK">
+            <summary>
+            点OK后产生的事件
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpPanel.PreOK">
+            <summary>
+            点OK之前产生的事件，返回false可取消PressOK的执行（包括合法性检验和向数据库中写值）
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpPanel.PreExecuteOKSql">
+            <summary>
+            OK事件合法性检验后SQL语句执行前产生的事件，返回false可取消SQL语句的执行
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpPanel.AfterExecuteOKSql">
+            <summary>
+            SQL语句刚执行完毕时发生的事件，bSuc表示是否成功
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpPanel.BeforeAutoMatchingHandler">
+            <summary>
+            自动匹配之前
+            </summary>
+        </member>
+        <member name="E:SLControls.SLAomTmp.SLAomTmpPanel.AfterAutoMatchingHandler">
+            <summary>
+            自动匹配之后
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpPanel.OtherFields">
+            <summary>
+            除了控件表示外，额外的字段及其值，元素类型：SlcFieldInfo
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpPanel.NotClearControls">
+            <summary>
+            除了这些控件，其它控件在点击确定时都会被清空
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpPanel.ParentForm">
+            <summary>
+            Panel的父窗口
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpPanel.CurrentRowID">
+            <summary>
+            当前行的ID
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpPanel.FillControlsCompleted">
+            <summary>
+            自动填充控件是否已完成
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpPanel.DatabaseEngine">
+            <summary>
+            数据据访问引擎，默认为SLOnlyInstOleDb.Services
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpPanel.TableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpPanel.PrimaryKey">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpPanel.OperFlag">
+            <summary>
+            操作方式，新增还是修改
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpPanel.ClearCtrlsOnOK">
+            <summary>
+            新增方式下，点确定按钮时，是否清空控件内容
+            </summary>
+        </member>
+        <member name="P:SLControls.SLAomTmp.SLAomTmpPanel.UseTransation">
+            <summary>
+            在PressOK函数保存时，是否使用事务
+            </summary>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpPanel.FillComboBoxes">
+            <summary>
+            填充所有ComboBox
+            </summary>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpPanel.FillControls(System.Boolean)">
+            <summary>
+            向控件里填值,FillOnly不填充下拉的ComboBox
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpPanel.FillControls">
+            <summary>
+            向控件里填值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpPanel.PressOK">
+            <summary>
+            按下确定按钮
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpPanel.ClearControls(System.Boolean,System.Boolean)">
+            <summary>
+            清除控件内容
+            </summary>
+            <param name="bIgnoreClearOnOK">是否忽略属性中的ClearCtrlsOnOK属性</param>
+            <param name="bIgnoreNotClearControls">是否忽略属性中的NotClearControls属性</param>
+        </member>
+        <member name="F:SLControls.SLAomTmp.SLAomTmpPanel.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpPanel.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLControls.SLAomTmp.SLAomTmpPanel.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLControls.SlcForTmpContainer.m_aryCtrls">
+            <summary>
+            子控件列表
+            </summary>
+        </member>
+        <member name="F:SLControls.SlcForTmpContainer.m_strLastError">
+            <summary>
+            出错信息
+            </summary>
+        </member>
+        <member name="F:SLControls.SlcForTmpContainer.m_bSaveSuccessful">
+            <summary>
+            是否已保存成功
+            </summary>
+        </member>
+        <member name="F:SLControls.SlcForTmpContainer.m_aryFields">
+            <summary>
+            有的字段比较搓灰，用三种基本控件解决不了，所以引入了这个变量，在PreLoad时赋KeyName和KeyType，在PreOK时赋KeyValue,可得用重载的[]
+            </summary>
+        </member>
+        <member name="M:SLControls.SlcForTmpContainer.GetSlControls(System.Windows.Forms.Control)">
+            <summary>
+            得到所有的圣兰控件
+            </summary>
+            <param name="ctlParent"></param>
+        </member>
+        <member name="M:SLControls.SlcForTmpContainer.GetSlControlsUseDiGui(System.Windows.Forms.Control)">
+            <summary>
+            用递归的方法得到所有圣兰控件
+            </summary>
+            <param name="ctlParent"></param>
+        </member>
+        <member name="M:SLControls.SlcForTmpContainer.ControlMatchingProc(System.Object,SLControls.SLGlobal.BeforeFormatEventArgs)">
+            <summary>
+            从数据库里查一下，查到以后填进去，查不到就是空的
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SLControls.SlcForTmpContainer.CheckUnqueValid(System.Boolean)">
+            <summary>
+            检查重复性是否合法
+            </summary>
+            <returns>合法返回true</returns>
+        </member>
+        <member name="M:SLControls.SlcForTmpContainer.ClearControls(System.Boolean,System.Boolean)">
+            <summary>
+            清除所有控件内容
+            </summary>
+        </member>
+        <member name="T:SLControls.PreOKSqlEventArgs">
+            <summary>
+            PreOKSqlEventArgs
+            </summary>
+        </member>
+        <member name="P:SLControls.PreOKSqlEventArgs.SqlText">
+            <summary>
+            程序生成的SQL语句
+            </summary>
+        </member>
+        <member name="P:SLControls.PreOKSqlEventArgs.Params">
+            <summary>
+            SQL参数
+            </summary>
+        </member>
+        <member name="P:SLControls.PreOKSqlEventArgs.LastError">
+            <summary>
+            用于弹出错误对话框的文本
+            </summary>
+        </member>
+        <member name="T:SLControls.SLTmpForm">
+            <summary>
+            对话框模板，不能操作数据库
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTmpForm.EnterToNextCtrl">
+            <summary>
+            按Enter键是否选中下一控件
+            </summary>
+        </member>
+        <member name="E:SLControls.SLTmpForm.BeforeEnterMove">
+            <summary>
+            按回车键后，在移动到下一控件之前发生，返回false将不再移到下一控件
+            </summary>
+        </member>
+        <member name="E:SLControls.SLTmpForm.AfterEnterMove">
+            <summary>
+            按回车键后，在移动到下一控件之后发生
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTmpForm.SLControlCollection">
+            <summary>
+            SLControls集合
+            </summary>
+        </member>
+        <member name="M:SLControls.SLTmpForm.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:SLControls.SLTmpForm.EnableCtrls(System.Boolean)">
+            <summary>
+            该函数必须在Load之后调用
+            </summary>
+            <param name="bEnable"></param>
+        </member>
+        <member name="M:SLControls.SLTmpForm.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>
+            回车键定位到下一控件
+            </summary>
+            <param name="msg"></param>
+            <param name="keyData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLTmpForm.GetSLControls">
+            <summary>
+            用递归方法得到所有控件，并判断控件对应字段在数据库中的数据类型
+            </summary>
+        </member>
+        <member name="F:SLControls.SLTmpForm.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLControls.SLTmpForm.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLControls.SLTmpForm.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:SLControls.ISlControlEx">
+            <summary>
+            SL控件的子类接口，若需要其它控件也能直接修改数据库，可由此继承
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControlEx.AllowEmpty">
+            <summary>
+            是否允许空
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControlEx.TextStyle">
+            <summary>
+            TextBox中数据的类型
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControlEx.ComparisonCollection">
+            <summary>
+            该字段在数据库中是用数字表示的，数字与字符串的对照关系
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControlEx.ForeignTable">
+            <summary>
+            用于内连接的数据库
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControlEx.ForeignKey">
+            <summary>
+            子表中被引用的主键
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControlEx.DispField">
+            <summary>
+            用于显示的字段
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControlEx.AutoMatchingFieldsCollection">
+            <summary>
+            设置或获自动匹配列的列名
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControlEx.AllowAutoRemember">
+            <summary>
+            设置或获取是否自动记忆(即如果用户输入的数据在子表中不存在，自动保存到子表中)
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControlEx.ValueFrom">
+            <summary>
+            存贮在数据库里的是Text的内容还是Tag的内容
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControlEx.DigitFormat">
+            <summary>
+            TextBox中数字的格式，仅在SLTmpForm中有效
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControlEx.BeforeFormatControlTextHandler">
+            <summary>
+            在离开控件后，根据DigitFormat格式化数字之前发生
+            </summary>
+        </member>
+        <member name="M:SLControls.ISlControlEx.Judge">
+            <summary>
+            判断输入的值是否合法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.ISlControlEx.Judge(System.String)">
+            <summary>
+            判断输入的值是否合法
+            </summary>
+            <param name="strText">控件代表的字段名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.ISlControlEx.AutoRememberValue(SLControls.SLDbService.ISLDbEngine)">
+            <summary>
+            自动记忆新值
+            </summary>
+            <returns>是否记忆成功</returns>
+        </member>
+        <member name="T:SLControls.ISlControl">
+            <summary>
+            SL控件的基类接口
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControl.FieldName">
+            <summary>
+            对应的数据库字段
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControl.OperatorMode">
+            <summary>
+            Read表示打开窗口时显示出来，Write表示关闭时写入数据库
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControl.Unique">
+            <summary>
+            该字段在数据库中是否惟一
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControl.FindCondition">
+            <summary>
+            Read表示打开窗口时显示出来，Write表示关闭时写入数据库
+            </summary>
+        </member>
+        <member name="P:SLControls.ISlControl.DataType">
+            <summary>
+            数据库里的数据类型
+            </summary>
+        </member>
+        <member name="T:SLControls.SLComboBox">
+            <summary>
+            SLComboBox
+            </summary>
+        </member>
+        <member name="F:SLControls.SLComboBox.m_beforeFormatHandler">
+            <summary>
+            在离开控件后，根据DigitFormat格式化数字之前发生
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.BeforeFormatControlTextHandler">
+            <summary>
+            在离开控件后，根据DigitFormat格式化数字之前发生
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.Unique">
+            <summary>
+            该字段在数据库中是否惟一
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.ComparisonCollection">
+            <summary>
+            该字段在数据库中是用数字表示的，数字与字符串的对照关系
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.OperatorMode">
+            <summary>
+            Read表示打开窗口时显示出来，Write表示关闭时写入数据库
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.AllowEmpty">
+            <summary>
+            是否允许空
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.TextStyle">
+            <summary>
+            TextBox中数据的类型
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.DigitFormat">
+            <summary>
+            TextBox中数字的格式，仅在SLTmpForm中有效
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.ForeignTable">
+            <summary>
+            设置或获取用于查询的SQL语句
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.DispField">
+            <summary>
+            设置或获取用于显示的字段(字段名或列号)
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.PinYinField">
+            <summary>
+            用于显示的字段
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.AutoMatchingFieldsCollection">
+            <summary>
+            设置或获自动匹配列的列名
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.AllowAutoRemember">
+            <summary>
+            设置或获取是否自动记忆(即如果用户输入的数据在子表中不存在，自动保存到子表中)
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.SelectedRow">
+            <summary>
+            选中行
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.DataType">
+            <summary>
+            数据库里的数据类型
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.ValueFrom">
+            <summary>
+            存贮在数据库里的是Text的内容还是Tag的内容
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.FieldName">
+            <summary>
+            对应的数据库字段
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.ForeignKey">
+            <summary>
+            子表的主键字段
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.FindCondition">
+            <summary>
+            Read表示打开窗口时显示出来，Write表示关闭时写入数据库
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.SLINT">
+            <summary>
+            取控件的INT值
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.SLFLOAT">
+            <summary>
+             取控件的Float值
+            </summary>
+        </member>
+        <member name="P:SLControls.SLComboBox.SLDECIMAL">
+            <summary>
+             取控件的Decimal值
+            </summary>
+        </member>
+        <member name="M:SLControls.SLComboBox.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:SLControls.SLComboBox.Judge">
+            <summary>
+            判断输入的值是否合法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLComboBox.Judge(System.String)">
+            <summary>
+            判断输入的值是否合法
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLComboBox.AutoRememberValue(SLControls.SLDbService.ISLDbEngine)">
+            <summary>
+            自动记忆
+            </summary>
+            <param name="dbEngine"></param>
+            <returns>不需要自动记忆，返回0，需要自动记忆，若成功，返回ID，不成功，返回-1</returns>
+        </member>
+        <member name="T:SLControls.SlpPair">
+            <summary>
+            将DataRow封装
+            </summary>
+        </member>
+        <member name="M:SLControls.SlpPair.#ctor(System.Int32)">
+            <summary>
+            构造
+            </summary>
+            <param name="nCol"></param>
+        </member>
+        <member name="M:SLControls.SlpPair.#ctor(System.String)">
+            <summary>
+            构造
+            </summary>
+            <param name="strCol"></param>
+        </member>
+        <member name="F:SLControls.SlpPair.row">
+            <summary>
+            DataRow
+            </summary>
+        </member>
+        <member name="M:SLControls.SlpPair.ToString">
+            <summary>
+            ToString
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SLControls.SLConfig.SLConfig">
+            <summary>
+            读写配置文件基类
+            </summary>
+        </member>
+        <member name="M:SLControls.SLConfig.SLConfig.WriteString(System.String,System.String,System.String)">
+            <summary>
+            往INI文件里写字符串
+            </summary>
+            <param name="strSection"></param>
+            <param name="strKey"></param>
+            <param name="strValue"></param>
+        </member>
+        <member name="M:SLControls.SLConfig.SLConfig.ReadString(System.String,System.String)">
+            <summary>
+            从INI文件中读字符串
+            </summary>
+            <param name="strSection"></param>
+            <param name="strKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLConfig.SLConfig.WriteInt(System.String,System.String,System.Int32)">
+            <summary>
+            往INI文件里写整型
+            </summary>
+            <param name="strSection"></param>
+            <param name="strKey"></param>
+            <param name="nValue"></param>
+        </member>
+        <member name="M:SLControls.SLConfig.SLConfig.ReadInt(System.String,System.String)">
+            <summary>
+            从INI文件里读整型
+            </summary>
+            <param name="strSection"></param>
+            <param name="strKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLConfig.SLConfig.WriteBool(System.String,System.String,System.Boolean)">
+            <summary>
+            往INI文件里写bool型
+            </summary>
+            <param name="strSection"></param>
+            <param name="strKey"></param>
+            <param name="bValue"></param>
+        </member>
+        <member name="M:SLControls.SLConfig.SLConfig.ReadBool(System.String,System.String)">
+            <summary>
+            从INI文件中读bool型
+            </summary>
+            <param name="strSection"></param>
+            <param name="strKey"></param>
+            <returns></returns>
+        </member>
+        <member name="P:SLControls.SLConfig.SLConfig.GetCompanyInfo">
+            <summary>
+            公司信息
+            </summary>
+        </member>
+        <member name="T:SLControls.SLConfig.SLDbCfg">
+            <summary>
+            放在数据库里的配置信息
+            </summary>
+        </member>
+        <member name="P:SLControls.SLConfig.SLDbCfg.DatabaseEngine">
+            <summary>
+            数据据访问引擎，默认为SLOnlyInstOleDb.Services
+            </summary>
+        </member>
+        <member name="M:SLControls.SLConfig.SLDbCfg.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:SLControls.SLConfig.SLDbCfg.#ctor(System.String)">
+            <summary>
+            构造
+            </summary>
+            <param name="strTableName"></param>
+        </member>
+        <member name="P:SLControls.SLConfig.SLDbCfg.TableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="M:SLControls.SLConfig.SLDbCfg.WriteString(System.String,System.String,System.String)">
+            <summary>
+            写字符串
+            </summary>
+            <param name="strSection"></param>
+            <param name="strKey"></param>
+            <param name="strValue"></param>
+        </member>
+        <member name="M:SLControls.SLConfig.SLDbCfg.ReadString(System.String,System.String)">
+            <summary>
+            读字符串
+            </summary>
+            <param name="strSection"></param>
+            <param name="strKey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SLControls.SLConfig.SLIniCfg">
+            <summary>
+            对配置文件的读写
+            </summary>
+        </member>
+        <member name="M:SLControls.SLConfig.SLIniCfg.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:SLControls.SLConfig.SLIniCfg.#ctor(System.String)">
+            <summary>
+            INIFile Constructor.
+            </summary>
+            <PARAM name="INIPath"></PARAM>
+        </member>
+        <member name="P:SLControls.SLConfig.SLIniCfg.FilePath">
+            <summary>
+            INI文件路径
+            </summary>
+        </member>
+        <member name="M:SLControls.SLConfig.SLIniCfg.AppPath">
+            <summary>
+            返回当前程序目录,例如d:\\app\\
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLConfig.SLIniCfg.WriteString(System.String,System.String,System.String)">
+            <summary>
+            往INI文件里写字符串
+            </summary>
+            <param name="strSection"></param>
+            <param name="strKey"></param>
+            <param name="strValue"></param>
+        </member>
+        <member name="M:SLControls.SLConfig.SLIniCfg.ReadString(System.String,System.String)">
+            <summary>
+            Read Data Value From the Ini File
+            </summary>
+            <param name="strSection"></param>
+            <param name="strKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLConfig.SLIniCfg.ReadInt(System.String,System.String)">
+            <summary>
+            从INI文件里读INT
+            </summary>
+            <param name="strSection"></param>
+            <param name="strKey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SLControls.SLDateTimePicker">
+            <summary>
+            SLDateTimePicker
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDateTimePicker.FormatForStore">
+            <summary>
+            向数据库中存贮时的格式
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDateTimePicker.FieldName">
+            <summary>
+            对应的数据库字段
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDateTimePicker.OperatorMode">
+            <summary>
+            Read表示打开窗口时显示出来，Write表示关闭时写入数据库
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDateTimePicker.Unique">
+            <summary>
+            该字段在数据库中是否惟一
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDateTimePicker.DataType">
+            <summary>
+            数据库里的数据类型
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDateTimePicker.FindCondition">
+            <summary>
+            Read表示打开窗口时显示出来，Write表示关闭时写入数据库
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDateTimePicker.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="T:SLControls.SLEncrypt">
+            <summary>
+            加密解密类
+            </summary>
+        </member>
+        <member name="F:SLControls.SLEncrypt.EncryptKey">
+            <summary>
+            密钥
+            </summary>
+        </member>
+        <member name="F:SLControls.SLEncrypt.EncryptVect">
+            <summary>
+            初始化向量
+            </summary>
+        </member>
+        <member name="M:SLControls.SLEncrypt.DESEncrypt(System.String)">
+            <summary>
+            使用默认的密钥和初始化向量进行加密
+            </summary>
+            <param name="encryptStr">要加密的字符串</param>
+            <returns>加密后的字符串</returns>
+        </member>
+        <member name="M:SLControls.SLEncrypt.DESDecrypt(System.String)">
+            <summary>
+            使用默认的密钥和初始化向量进行解密
+            </summary>
+            <param name="encryptedValue">要解密的字符串</param>
+            <returns>解密后的字符串</returns>
+        </member>
+        <member name="M:SLControls.SLEncrypt.DESEncrypt(System.String,System.String,System.String)">
+            <summary> 
+            使用DES加密指定字符串 
+            </summary> 
+            <param name="encryptStr">待加密的字符串</param> 
+            <param name="key">密钥(最大长度8)</param> 
+            <param name="IV">初始化向量(最大长度8)</param> 
+            <returns>加密后的字符串</returns> 
+        </member>
+        <member name="M:SLControls.SLEncrypt.DESDecrypt(System.String,System.String,System.String)">
+            <summary> 
+            使用DES解密指定字符串 
+            </summary> 
+            <param name="encryptedValue">待解密的字符串</param> 
+            <param name="key">密钥(最大长度8)</param> 
+            <param name="IV">初始化向量(最大长度8)</param> 
+            <returns>解密后的字符串</returns> 
+        </member>
+        <member name="T:SLControls.SLDbService.SLBaseDb">
+            <summary>
+            所有数据库操作类的基类
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.SLBaseDb.AllowCrossThread">
+            <summary>
+            数据库引擎是否允许跨线程使用
+            </summary>
+        </member>
+        <member name="F:SLControls.SLDbService.SLBaseDb.m_bAutoClose">
+            <summary>
+            连接是否使用时自动打开，使用完自动关闭，需在InitDb前赋值
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.SLBaseDb.LogTableName">
+            <summary>
+            日志表的表名，SLControls会将使用ExecuteSql产生的日志否存到日志表
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.SLBaseDb.LogMemo">
+            <summary>
+            日志表的备注字段
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.SLBaseDb.IsAutoClose">
+            <summary>
+            连接是否使用时自动打开，使用完自动关闭，需在InitDb前赋值
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.SLBaseDb.DriverPath">
+            <summary>
+            Oracle驱动的路径
+            </summary>
+        </member>
+        <member name="F:SLControls.SLDbService.SLBaseDb.m_bAutoReconnect">
+            <summary>
+            是否重连
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.SLBaseDb.ConnectString">
+            <summary>
+            连接字串
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.SLBaseDb.AutoReconnect">
+            <summary>
+            是否自动重连
+            </summary>
+        </member>
+        <member name="F:SLControls.SLDbService.SLBaseDb.m_formReceiver">
+            <summary>
+            用于接收信息的Form，如果不需要接收信息，请置null
+            </summary>
+        </member>
+        <member name="E:SLControls.SLDbService.SLBaseDb.OnConnectionBroken">
+            <summary>
+            连接突然失败
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.SLBaseDb.FormReceiver">
+            <summary>
+            用于接收信息的Form，如果不需要接收信息，请置null
+            </summary>
+        </member>
+        <member name="F:SLControls.SLDbService.SLBaseDb.m_bInTransation">
+            <summary>
+            是否在事务中
+            </summary>
+        </member>
+        <member name="F:SLControls.SLDbService.SLBaseDb.m_bAnsyConnecting">
+            <summary>
+            异步方式，正在连接数据库
+            </summary>
+        </member>
+        <member name="F:SLControls.SLDbService.SLBaseDb.m_dbType">
+            <summary>
+            数据库类型
+            </summary>
+        </member>
+        <member name="F:SLControls.SLDbService.SLBaseDb.m_bInited">
+            <summary>
+            数据库是否已初始化
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.SLBaseDb.IsInTransaction">
+            <summary>
+            是否在事务中
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.SLBaseDb.DatabaseType">
+            <summary>
+            使用的数据库类型
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.SLBaseDb.Initialized">
+            <summary>
+            数据库是否已初始化
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.InitDb">
+            <summary>
+            使用程序文件夹下的sysinfo.ini初始化
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.InitDb(System.String)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.InitDb(System.String,System.String,System.String,System.String)">
+            <summary>
+            初始化，仅SQL Server适用
+            </summary>
+            <param name="strServerName">服务器实例名或IP地址</param>
+            <param name="strDatabaseName">数据库名称</param>
+            <param name="strUserName">用户名</param>
+            <param name="strPwd">密码</param>
+            <returns>初始化是否成功</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.InitDb(System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            初始化，仅MySql适用
+            </summary>
+            <param name="strServerName">服务器实例名或IP地址</param>
+            <param name="nPort">端口</param>
+            <param name="strDatabaseName">数据库名称</param>
+            <param name="strUserName">用户名</param>
+            <param name="strPwd">密码</param>
+            <returns>初始化是否成功</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.InitDb(System.String,System.Int32,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            初始化，仅Oracle适用
+            </summary>
+            <param name="strOracleIp">服务器的IP地址</param>
+            <param name="nOraclePort">服务器的端口</param>
+            <param name="strOracleDbName">Oracle服务（数据库）名字</param>
+            <param name="strUserName">用户名</param>
+            <param name="strPwd">密码</param>
+            <param name="bUseMicrosoftDriver">使用微软提供的驱动还是Oracle提供的驱动</param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.InitDb(System.String,System.Int32,System.String,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            初始化，仅Oracle适用
+            </summary>
+            <param name="strOracleIp">服务器的IP地址</param>
+            <param name="nOraclePort">服务器的端口</param>
+            <param name="strOracleDbName">Oracle服务（数据库）名字</param>
+            <param name="strUserName">用户名</param>
+            <param name="strPwd">密码</param>
+            <param name="bUseMicrosoftDriver">使用微软提供的驱动还是Oracle提供的驱动</param>
+            /// <param name="strDriverPath">驱动路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.InitDb(System.String,SLControls.SLGlobal.SleDbType,System.String)">
+            <summary>
+            初始化Oracle连接，同时设置环境变量指向驱动
+            </summary>
+            <param name="strConnectionString"></param>
+            <param name="dbType"></param>
+            <param name="strOracleDriverPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.InitDb(System.String,System.String)">
+            <summary>
+            初始化，使用JET驱动，仅Access适用
+            </summary>
+            <param name="strAccessFileName">Access文件路径</param>
+            <param name="strPwd">Access文件密码</param>
+            <returns>初始化是否成功</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.InitDb(System.String,System.String,System.Boolean)">
+            <summary>
+            初始化，使用JET或ACE驱动，仅Access适用
+            </summary>
+            <param name="strAccessFileName">Access文件路径</param>
+            <param name="strPwd">Access文件密码</param>
+            <param name="bUseJetDriver">是否使用JET驱动，false表示使用ACE驱动</param>
+            <returns>初始化是否成功</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.InitDb(System.String,System.Boolean)">
+            <summary>
+            初始化，仅Excel适用
+            </summary>
+            <param name="strExcelFileName">Excel文件名字</param>
+            <param name="bIMEXMode">IMEX模式下，将数字与字符串混合的列当做字符串列来处理，可读取用Excel保存的普通Excel文件，但效率稍低</param>
+            <returns>初始化是否成功</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.InitDb(System.String,SLControls.SLGlobal.SleDbType,System.Int32)">
+            <summary>
+            初始化，所有数据库适用
+            </summary>
+            <param name="strConnectionString">连接字串</param>
+            <param name="dbType">数据库类型</param>
+            <param name="nReversed">保留字段，赋0即可</param>
+            <returns>初始化是否成功</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.CloseDb">
+            <summary>
+            关闭数据库
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.BeginTran">
+            <summary>
+            开始事务
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.RollBack">
+            <summary>
+            回滚事务
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.Commit">
+            <summary>
+            提交事务
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteSql(System.String)">
+            <summary>
+            执行一条SQL语句，返回受影响的行数，对SELECT语句无效
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <returns>受影响的行数</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteSql(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回受影响的行数，对SELECT语句无效
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>受影响的行数</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteSql(System.String,System.Collections.ArrayList)">
+            <summary>
+            执行一条SQL语句，返回受影响的行数，对SELECT语句无效
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="arySqlParam">Command的参数，元素类型：SlpSqlParam</param>
+            <returns>受影响的行数</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteSql(System.String,System.Collections.ArrayList,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回受影响的行数，对SELECT语句无效
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="arySqlParam">Command的参数，元素类型：SlpSqlParam</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>受影响的行数</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteSql(System.String,System.Collections.ArrayList,System.Boolean,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回受影响的行数，对SELECT语句无效
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="arySqlParam">Command的参数，元素类型：SlpSqlParam</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <param name="bSaveLog">是否将SQL写到日志表</param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ConnectBroken(SLControls.SLDbService.ConnBrokenEventArgs)">
+            <summary>
+            连接突然中断
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteScalar(System.String)">
+            <summary>
+            执行一条SQL语句，返回查询结果的第一行第一列值
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteScalar(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回查询结果的第一行第一列值
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteScalar(System.String,System.Collections.ArrayList,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回查询结果的第一行第一列值
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="arySqlParam">Command的参数，元素类型：SlpSqlParam</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDataTable(System.String)">
+            <summary>
+            执行一条SQL语句，将查询结果放在一个DataTable中
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <returns>填好数据的DataTable</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDataTable(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，将查询结果放在一个DataTable中
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>填好数据的DataTable</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDataTable(System.String,System.Boolean,System.String)">
+            <summary>
+            执行一条SQL语句，将查询结果放在一个DataTable中
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <param name="strTableName">用于填数据的DataTable名字</param>
+            <returns>填好数据的DataTable</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDataTable(System.String,System.String)">
+            <summary>
+            执行一条SQL语句，将查询结果放在一个DataTable中
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="strTableName">用于填数据的DataTable名字</param>
+            <returns>填好数据的DataTable</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDataTable(System.String,System.Collections.ArrayList,System.Boolean)">
+            <summary>
+            执行一条SQL语句，将查询结果放在一个DataTable中
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="arySqlParam">Command的参数，元素类型：SlpSqlParam</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>填好数据的DataTable</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDataTable(System.String,System.Collections.ArrayList,System.Boolean,System.String)">
+            <summary>
+            执行一条SQL语句，将查询结果放在一个DataTable中
+            </summary>
+            <param name="strSql"></param>
+            <param name="arySqlParam"></param>
+            <param name="bThrowException"></param>
+            <param name="strTableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDataTable(System.Data.DataTable@,System.String)">
+            <summary>
+            执行SQL并返回一个DataTable，返回的DataTable是在dtOld上修改产生的，而不是新实例
+            </summary>
+            <param name="dtOld">将要被修改的DataTable，若该DataTable为null，或者不包含ID列，
+            则函数会创建一个新的DataTable，调用时请确保两个DataTable的结构完全一致</param>
+            <param name="strSql"></param>
+            <returns>新老数据是否一致</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDataTable(System.Data.DataTable@,System.String,System.Boolean)">
+            <summary>
+            执行SQL并返回一个DataTable，返回的DataTable是在dtOld上修改产生的，而不是新实例
+            </summary>
+            <param name="dtOld">将要被修改的DataTable，若该DataTable为null，或者不包含ID列，
+            则函数会创建一个新的DataTable，调用时请确保两个DataTable的结构完全一致</param>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>新老数据是否一致</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForCompressedDataTable(System.String,System.Int32@)">
+            <summary>
+            执行一条SQL语句，将查询结果放在一个DataTable中
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="nNormalDataLen">压缩前的数据长度</param>
+            <returns>填好数据的DataTable</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForCompressedDataTable(System.String,System.Boolean,System.Int32@)">
+            <summary>
+            执行一条SQL语句，将查询结果放在一个DataTable中
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <param name="nNormalDataLen">压缩前的数据长度</param>
+            <returns>填好数据的DataTable</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForCompressedDataTable(System.String,System.Boolean,System.String,System.Int32@)">
+            <summary>
+            执行一条SQL语句，将查询结果放在一个DataTable中
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <param name="strTableName">用于填数据的DataTable名字</param>
+            <param name="nNormalDataLen">压缩前的数据长度</param>
+            <returns>填好数据的DataTable</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForCompressedDataTable(System.String,System.String,System.Int32@)">
+            <summary>
+            执行一条SQL语句，将查询结果放在一个DataTable中
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="strTableName">用于填数据的DataTable名字</param>
+            <param name="nNormalDataLen">压缩前的数据长度</param>
+            <returns>填好数据的DataTable</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForCompressedDataTable(System.String,System.Collections.ArrayList,System.Boolean,System.Int32@)">
+            <summary>
+            执行一条SQL语句，将查询结果放在一个DataTable中
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="arySqlParam">Command的参数，元素类型：SlpSqlParam</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <param name="nNormalDataLen">压缩前的数据长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForCompressedDataTable(System.String,System.Collections.ArrayList,System.Boolean,System.String,System.Int32@)">
+            <summary>
+            执行一条SQL语句，将查询结果放在一个DataTable中
+            </summary>
+            <param name="strSql"></param>
+            <param name="arySqlParam"></param>
+            <param name="bThrowException"></param>
+            <param name="strTableName"></param>
+            <param name="nNormalDataLen">压缩前的数据长度</param>
+            <returns></returns>
+        </member>
+        <member name="P:SLControls.SLDbService.SLBaseDb.NeedSendBrokenMsg">
+            <summary>
+            是否可以发送断开信息
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForInt(System.String)">
+            <summary>
+            执行SQL并生成一个Int型，如果查询结果不能转化为Int，返回-1
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForInt(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回Int型，如果查询结果不能转化为Int，返回-1
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForInt(System.String,System.Int32)">
+            <summary>
+            执行一条SQL语句，返回Int型
+            </summary>
+            <param name="strSql"></param>
+            <param name="nDefaultValue">如果查询结果不能转化为Int，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForInt(System.String,System.Boolean,System.Int32)">
+            <summary>
+            执行一条SQL语句，返回Int型
+            </summary>
+            <param name="strSql"></param>
+            <param name="bThrowException">是否抛出异常</param>
+            <param name="nDefaultValue">如果查询结果不能转化为Int，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForLong(System.String)">
+            <summary>
+            执行SQL并生成一个long型，如果查询结果不能转化为long，返回-1
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForLong(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回long型，如果查询结果不能转化为long，返回-1
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForLong(System.String,System.Int64)">
+            <summary>
+            执行一条SQL语句，返回long型
+            </summary>
+            <param name="strSql"></param>
+            <param name="lDefaultValue">如果查询结果不能转化为long，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForLong(System.String,System.Boolean,System.Int64)">
+            <summary>
+            执行一条SQL语句，返回long型
+            </summary>
+            <param name="strSql"></param>
+            <param name="bThrowException">是否抛出异常</param>
+            <param name="lDefaultValue">如果查询结果不能转化为long，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDecimal(System.String)">
+            <summary>
+            执行SQL并生成一个Decimal型，如果查询结果不能转化为Decimal，返回-1.0m
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDecimal(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回Decimal型，如果查询结果不能转化为Decimal，返回-1.0m
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDecimal(System.String,System.Decimal)">
+            <summary>
+            执行一条SQL语句，返回Decimal型
+            </summary>
+            <param name="strSql"></param>
+            <param name="dmDefaultValue">如果查询结果不能转化为Decimal，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDecimal(System.String,System.Boolean,System.Decimal)">
+            <summary>
+            执行一条SQL语句，返回Decimal型
+            </summary>
+            <param name="strSql"></param>
+            <param name="bThrowException">是否抛出异常</param>
+            <param name="dmDefaultValue">如果查询结果不能转化为Decimal，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForString(System.String)">
+            <summary>
+            执行SQL并生成一个String型，如果返回值是null，则返回""
+            </summary>
+            <param name="strSql"></param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForString(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回String型，如果返回值是null，则返回""
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForString(System.String,System.String)">
+            <summary>
+            执行一条SQL语句，返回String型
+            </summary>
+            <param name="strSql"></param>
+            <param name="strDefaultValue">如果查询结果是null，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForString(System.String,System.Boolean,System.String)">
+            <summary>
+            执行一条SQL语句，返回String型
+            </summary>
+            <param name="strSql"></param>
+            <param name="bThrowException">是否抛出异常</param>
+            <param name="strDefaultValue">如果查询结果是null，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForBool(System.String)">
+            <summary>
+            执行SQL并生成一个Bool型，如果返回值不是Bool类型，则返回false
+            </summary>
+            <param name="strSql"></param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForBool(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回Bool型，如果返回值不是Bool类型，则返回false
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForBool(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回Bool型
+            </summary>
+            <param name="strSql"></param>
+            <param name="bThrowException">是否抛出异常</param>
+            <param name="bDefaultValue">如果查询结果不能转化为Bool，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDateTime(System.String)">
+            <summary>
+            执行SQL并生成一个DateTime型，如果返回值无法转化为DateTime类型，则返回DateTime.MinValue
+            </summary>
+            <param name="strSql"></param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDateTime(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回DateTime型，如果返回值无法转化为DateTime类型，则返回DateTime.MinValue
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDateTime(System.String,System.DateTime)">
+            <summary>
+            执行一条SQL语句，返回DateTime型
+            </summary>
+            <param name="strSql"></param>
+            <param name="dtDefaultValue">如果查询结果不能转化为DateTime，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLBaseDb.ExecuteForDateTime(System.String,System.Boolean,System.DateTime)">
+            <summary>
+            执行一条SQL语句，返回DateTime型
+            </summary>
+            <param name="strSql"></param>
+            <param name="bThrowException">是否抛出异常</param>
+            <param name="dtDefaultValue">如果查询结果不能转化为DateTime，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="P:SLControls.SLDbService.SLBaseDb.QueryFilter">
+            <summary>
+            查询过滤器，例如：{is_deleted:0, is_visible: 1}
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.SLBaseDb.QueryFilterSql">
+            <summary>
+            查询过滤SQL，由QueryFilter生成
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.SLBaseDb.LastExecuteError">
+            <summary>
+            最后一次执行的结果
+            </summary>
+        </member>
+        <member name="T:SLControls.SLDbService.SldConnBrokenHandler">
+            <summary>
+            连接中断代理
+            </summary>
+            <param name="sender">实例</param>
+            <param name="e">参数</param>
+        </member>
+        <member name="T:SLControls.SLDbService.ConnBrokenEventArgs">
+            <summary>
+            连接中断参数类
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.ConnBrokenEventArgs.ErrorMsg">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.ConnBrokenEventArgs.SqlText">
+            <summary>
+            执行失败的SQL语句
+            </summary>
+        </member>
+        <member name="T:SLControls.SLDbService.LastError">
+            <summary>
+            最后一次执行SQL的相关信息
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.LastError.ExecuteBeginTime">
+            <summary>
+            开始执行的时间，进入执行SQL的函数时赋值
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.LastError.ExecuteFinishTime">
+            <summary>
+            结束执行的时间，执行完成（无论成功或失败）时赋值
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.LastError.Result">
+            <summary>
+            执行结果，success或exception
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.LastError.Description">
+            <summary>
+            结果描述，如果异常，则为异常信息，如果返回值是DataTable，则表示DataTable的行数，如果是ExecuteSql，则表示受影响条数
+            如果是ExecuteScalar之类的，则表示执行结果
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.LastError.ExecutingSql">
+            <summary>
+            开始执行的SQL，进入执行SQL的函数时赋值
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.LastError.ExecutedSql">
+            <summary>
+            执行结束的SQL，进入执行SQL的函数时赋值
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.LastError.ToString">
+            <summary>
+            转换为字符串，已重写
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SLControls.SLDbService.SLOleDb">
+            <summary>
+            数据库操作类的基类
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.SLOleDb.Connection">
+            <summary>
+            连接实例
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.SLOleDb.InitDb(System.String,SLControls.SLGlobal.SleDbType,System.Int32)">
+            <summary>
+            初始化，所有数据库适用
+            </summary>
+            <param name="strConnectionString">连接字串</param>
+            <param name="dbType">数据库类型</param>
+            <param name="nReversed">保留字段，赋0即可</param>
+            <returns>初始化是否成功</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLOleDb.CloseDb">
+            <summary>
+            关闭数据库
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.SLOleDb.BeginTran">
+            <summary>
+            开始事务
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.SLOleDb.Commit">
+            <summary>
+            提交事务
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.SLOleDb.RollBack">
+            <summary>
+            回滚事务
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.SLOleDb.ExecuteForDataTable(System.String,System.Collections.ArrayList,System.Boolean,System.String)">
+            <summary>
+            执行一条SQL语句，将查询结果放在一个DataTable中
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="arySqlParam">Command的参数，元素类型：SlpSqlParam</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <param name="strTableName">用于填数据的DataTable名字</param>
+            <returns>填好数据的DataTable</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLOleDb.ExecuteScalar(System.String,System.Collections.ArrayList,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回查询结果的第一行第一列值
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="arySqlParam">Command的参数，元素类型：SlpSqlParam</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLOleDb.ExecuteSql(System.String,System.Collections.ArrayList,System.Boolean,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回受影响的行数，对SELECT语句无效
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="arySqlParam">Command的参数，元素类型：SlpSqlParam</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <param name="bSaveLog">是否将SQL写到日志表</param>
+            <returns></returns>
+        </member>
+        <member name="P:SLControls.SLDbService.SLOleDb.NeedSendBrokenMsg">
+            <summary>
+            是否可以发送断开信息
+            </summary>
+        </member>
+        <member name="T:SLControls.SLDbService.SLOleDbFactory">
+            <summary>
+            该类是线程安全的
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.SLOleDbFactory.InitDb">
+            <summary>
+            初始化工厂，并返回一个引擎
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.SLOleDbFactory.InitDb(System.String)">
+            <summary>
+            初始化工厂，并返回一个引擎
+            </summary>
+            <param name="strCfgPath"></param>
+            <returns></returns>
+        </member>
+        <member name="P:SLControls.SLDbService.SLOleDbFactory.NewServices">
+            <summary>
+            创建一个新引擎
+            </summary>
+        </member>
+        <member name="T:SLControls.SLDbService.SLOnlyInstOleDb">
+            <summary>
+            只允许一个实例运行的数据库类
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.SLOnlyInstOleDb.Services">
+            <summary>
+            运行的实例
+            </summary>
+        </member>
+        <member name="T:SLControls.SLDbService.ISLDbEngine">
+            <summary>
+            数据库访问引擎
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.ISLDbEngine.DatabaseType">
+            <summary>
+            使用的数据库类型
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.ISLDbEngine.Initialized">
+            <summary>
+            数据库是否已初始化
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.ISLDbEngine.QueryFilter">
+            <summary>
+            查询过滤器，例如：{is_deleted:0, is_visible: 1}
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.ISLDbEngine.IsInTransaction">
+            <summary>
+            是否在事务中
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.ISLDbEngine.QueryFilterSql">
+            <summary>
+            查询过滤SQL，由QueryFilter生成
+            </summary>
+        </member>
+        <member name="P:SLControls.SLDbService.ISLDbEngine.LastExecuteError">
+            <summary>
+            最后一次执行的结果
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.InitDb(System.String,SLControls.SLGlobal.SleDbType,System.Int32)">
+            <summary>
+            使用程序文件夹下的sysinfo.ini初始化
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteScalar(System.String)">
+            <summary>
+            执行SQL并生成一个数据
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteScalar(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回查询结果的第一行第一列值
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteScalar(System.String,System.Collections.ArrayList,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回查询结果的第一行第一列值
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="arySqlParam">Command的参数，元素类型：SlpSqlParam</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForInt(System.String)">
+            <summary>
+            执行SQL并生成一个Int型，如果查询结果不能转化为Int，返回-1
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForInt(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回Int型，如果查询结果不能转化为Int，返回-1
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForInt(System.String,System.Int32)">
+            <summary>
+            执行一条SQL语句，返回Int型
+            </summary>
+            <param name="strSql"></param>
+            <param name="nDefaultValue">如果查询结果不能转化为Int，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForInt(System.String,System.Boolean,System.Int32)">
+            <summary>
+            执行一条SQL语句，返回Int型
+            </summary>
+            <param name="strSql"></param>
+            <param name="bThrowException">是否抛出异常</param>
+            <param name="nDefaultValue">如果查询结果不能转化为Int，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForLong(System.String)">
+            <summary>
+            执行SQL并生成一个long型，如果查询结果不能转化为long，返回-1
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForLong(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回long型，如果查询结果不能转化为long，返回-1
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForLong(System.String,System.Int64)">
+            <summary>
+            执行一条SQL语句，返回long型
+            </summary>
+            <param name="strSql"></param>
+            <param name="lDefaultValue">如果查询结果不能转化为long，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForLong(System.String,System.Boolean,System.Int64)">
+            <summary>
+            执行一条SQL语句，返回long型
+            </summary>
+            <param name="strSql"></param>
+            <param name="bThrowException">是否抛出异常</param>
+            <param name="lDefaultValue">如果查询结果不能转化为long，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForDecimal(System.String)">
+            <summary>
+            执行SQL并生成一个Decimal型，如果查询结果不能转化为Decimal，返回-1.0m
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForDecimal(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回Decimal型，如果查询结果不能转化为Decimal，返回-1.0m
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForDecimal(System.String,System.Decimal)">
+            <summary>
+            执行一条SQL语句，返回Decimal型
+            </summary>
+            <param name="strSql"></param>
+            <param name="dmDefaultValue">如果查询结果不能转化为Decimal，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForDecimal(System.String,System.Boolean,System.Decimal)">
+            <summary>
+            执行一条SQL语句，返回Decimal型
+            </summary>
+            <param name="strSql"></param>
+            <param name="bThrowException">是否抛出异常</param>
+            <param name="dmDefaultValue">如果查询结果不能转化为Decimal，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForString(System.String)">
+            <summary>
+            执行SQL并生成一个String型，如果返回值是null，则返回""
+            </summary>
+            <param name="strSql"></param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForString(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回String型，如果返回值是null，则返回""
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForString(System.String,System.String)">
+            <summary>
+            执行一条SQL语句，返回String型
+            </summary>
+            <param name="strSql"></param>
+            <param name="strDefaultValue">如果查询结果是null，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForString(System.String,System.Boolean,System.String)">
+            <summary>
+            执行一条SQL语句，返回String型
+            </summary>
+            <param name="strSql"></param>
+            <param name="bThrowException">是否抛出异常</param>
+            <param name="strDefaultValue">如果查询结果是null，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForBool(System.String)">
+            <summary>
+            执行SQL并生成一个Bool型，如果返回值不是Bool类型，则返回false
+            </summary>
+            <param name="strSql"></param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForBool(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回Bool型，如果返回值不是Bool类型，则返回false
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForBool(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回Bool型
+            </summary>
+            <param name="strSql"></param>
+            <param name="bThrowException">是否抛出异常</param>
+            <param name="bDefaultValue">如果查询结果不能转化为Bool，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForDateTime(System.String)">
+            <summary>
+            执行SQL并生成一个DateTime型，如果返回值无法转化为DateTime类型，则返回DateTime.MinValue
+            </summary>
+            <param name="strSql"></param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForDateTime(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回DateTime型，如果返回值无法转化为DateTime类型，则返回DateTime.MinValue
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForDateTime(System.String,System.DateTime)">
+            <summary>
+            执行一条SQL语句，返回DateTime型
+            </summary>
+            <param name="strSql"></param>
+            <param name="dtDefaultValue">如果查询结果不能转化为DateTime，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForDateTime(System.String,System.Boolean,System.DateTime)">
+            <summary>
+            执行一条SQL语句，返回DateTime型
+            </summary>
+            <param name="strSql"></param>
+            <param name="bThrowException">是否抛出异常</param>
+            <param name="dtDefaultValue">如果查询结果不能转化为DateTime，要返回的默认值</param>
+            <returns>结果集第一行第一列的值</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteSql(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回受影响的行数，对SELECT语句无效
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>受影响的行数</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteSql(System.String)">
+            <summary>
+            执行SQL并返回受影响行数
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteSql(System.String,System.Collections.ArrayList)">
+            <summary>
+            执行一条SQL语句，返回受影响的行数，对SELECT语句无效
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="arySqlParam">Command的参数，元素类型：SlpSqlParam</param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteSql(System.String,System.Collections.ArrayList,System.Boolean)">
+            <summary>
+            执行一条SQL语句，返回受影响的行数，对SELECT语句无效
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="arySqlParam">Command的参数，元素类型：SlpSqlParam</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.BeginTran">
+            <summary>
+            开始事务
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.RollBack">
+            <summary>
+            回滚事务
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.Commit">
+            <summary>
+            提交事务
+            </summary>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForDataTable(System.String)">
+            <summary>
+            执行SQL并返回一个DataTable
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForDataTable(System.String,System.Boolean)">
+            <summary>
+            执行一条SQL语句，将查询结果放在一个DataTable中
+            </summary>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>填好数据的DataTable</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForDataTable(System.String,System.Collections.ArrayList,System.Boolean,System.String)">
+            <summary>
+            执行一条SQL语句，将查询结果放在一个DataTable中
+            </summary>
+            <param name="strSql"></param>
+            <param name="arySqlParam"></param>
+            <param name="bThrowException"></param>
+            <param name="strTableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForDataTable(System.Data.DataTable@,System.String)">
+            <summary>
+            执行SQL并返回一个DataTable，返回的DataTable是在dtOld上修改产生的，而不是新实例
+            </summary>
+            <param name="dtOld">将要被修改的DataTable，若该DataTable为null，或者不包含ID列，
+            则函数会创建一个新的DataTable，调用时请确保两个DataTable的结构完全一致</param>
+            <param name="strSql"></param>
+            <returns>新老数据是否一致</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.ExecuteForDataTable(System.Data.DataTable@,System.String,System.Boolean)">
+            <summary>
+            执行SQL并返回一个DataTable，返回的DataTable是在dtOld上修改产生的，而不是新实例
+            </summary>
+            <param name="dtOld">将要被修改的DataTable，若该DataTable为null，或者不包含ID列，
+            则函数会创建一个新的DataTable，调用时请确保两个DataTable的结构完全一致</param>
+            <param name="strSql">SQL语句</param>
+            <param name="bThrowException">有SQL异常的话是否抛出</param>
+            <returns>新老数据是否一致</returns>
+        </member>
+        <member name="M:SLControls.SLDbService.ISLDbEngine.CloseDb">
+            <summary>
+            关闭数据库
+            </summary>
+        </member>
+        <member name="T:SLControls.PreQueryHandler">
+            <summary>
+            查询前发生
+            </summary>
+            <param name="strFindSql"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SLControls.SLFindTmpForm">
+            <summary>
+            查询对话框
+            </summary>
+        </member>
+        <member name="P:SLControls.SLFindTmpForm.ReturnDataTable">
+            <summary>
+            若设置为false，则点击“查询”按钮后QueryResult属性为null；若设置为true，则点击“查询”按钮后QueryResult属性为查询结果，但会消耗一定的时间用于从数据库中查询
+            </summary>
+        </member>
+        <member name="M:SLControls.SLFindTmpForm.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="P:SLControls.SLFindTmpForm.DatabaseEngine">
+            <summary>
+            数据据访问引擎，默认为SLOnlyInstOleDb.Services
+            </summary>
+        </member>
+        <member name="P:SLControls.SLFindTmpForm.EnterToNextCtrl">
+            <summary>
+            按Enter键是否选中下一控件
+            </summary>
+        </member>
+        <member name="E:SLControls.SLFindTmpForm.PreQuery">
+            <summary>
+            查找前发生的事件，返回false则控件不再进行查找
+            </summary>
+        </member>
+        <member name="E:SLControls.SLFindTmpForm.BeforeEnterMove">
+            <summary>
+            按回车键后，在移动到下一控件之前发生，返回false将不再移到下一控件
+            </summary>
+        </member>
+        <member name="E:SLControls.SLFindTmpForm.AfterEnterMove">
+            <summary>
+            按回车键后，在移动到下一控件之后发生
+            </summary>
+        </member>
+        <member name="P:SLControls.SLFindTmpForm.SelectSql">
+            <summary>
+            用于查询的SELECT语句，写出WHERE前部分，例如：SELECT 姓名, 年龄 FROM 员工信息
+            </summary>
+        </member>
+        <member name="P:SLControls.SLFindTmpForm.WindowUniqueName">
+            <summary>
+            窗口惟一标识，一个字符串，在一个程序中该名称是惟一的
+            </summary>
+        </member>
+        <member name="P:SLControls.SLFindTmpForm.QuerySql">
+            <summary>
+            查询用SQL语句
+            </summary>
+        </member>
+        <member name="P:SLControls.SLFindTmpForm.QueryResult">
+            <summary>
+            查询结果
+            </summary>
+        </member>
+        <member name="M:SLControls.SLFindTmpForm.GetSlControls(System.Windows.Forms.Control)">
+            <summary>
+            用递归的方法得到所有圣兰控件
+            </summary>
+            <param name="ctlParent"></param>
+        </member>
+        <member name="M:SLControls.SLFindTmpForm.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>
+            按回车键移到下一控件
+            </summary>
+            <param name="msg"></param>
+            <param name="keyData"></param>
+            <returns></returns>
+        </member>
+        <member name="F:SLControls.SLFindTmpForm.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLControls.SLFindTmpForm.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLControls.SLFindTmpForm.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLControls.SLFindTmpForm.buttonFind">
+            <summary>
+            保护类型的控件
+            </summary>
+        </member>
+        <member name="F:SLControls.SLFindTmpForm.buttonCancel">
+            <summary>
+            保护类型的控件
+            </summary>
+        </member>
+        <member name="F:SLControls.SLFindTmpForm.groupBox1">
+            <summary>
+            保护类型的控件
+            </summary>
+        </member>
+        <member name="F:SLControls.SLFindTmpForm.label1">
+            <summary>
+            保护类型的控件
+            </summary>
+        </member>
+        <member name="F:SLControls.SLFindTmpForm.label2">
+            <summary>
+            保护类型的控件
+            </summary>
+        </member>
+        <member name="F:SLControls.SLFindTmpForm.button清空">
+            <summary>
+            保护类型的控件
+            </summary>
+        </member>
+        <member name="F:SLControls.SLFindTmpForm.slDateSeler1">
+            <summary>
+            保护类型的控件
+            </summary>
+        </member>
+        <member name="F:SLControls.SLFindTmpForm.slDateTimePicker结束日期">
+            <summary>
+            公有类型的控件
+            </summary>
+        </member>
+        <member name="F:SLControls.SLFindTmpForm.slDateTimePicker起始日期">
+            <summary>
+            公有类型的控件
+            </summary>
+        </member>
+        <member name="T:SLControls.SLGlobal.SlcCtrlPublic">
+            <summary>
+            处理控件的一个公共类
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.SlcCtrlPublic.GetCompanyInfo">
+            <summary>
+            获取公司信息
+            </summary>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcCtrlPublic.FillCombox(SLControls.SLComboBox)">
+            <summary>
+            向SLCombBox里自动填充数据
+            </summary>
+            <param name="cb">SLComboBox控件</param>
+            <returns>插入SLCombBox的数据条数</returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcCtrlPublic.FillCombox(SLControls.SLComboBox,System.String)">
+            <summary>
+            向SLCombBox里自动填充数据
+            </summary>
+            <param name="cb">SLComboBox控件</param>
+            <param name="strUltraItem">额外的项目，插在最前面</param>
+            <returns>插入SLCombBox的数据条数</returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcCtrlPublic.FillCombox(SLControls.SLComboBox,System.String[])">
+            <summary>
+            向SLCombBox里自动填充数据
+            </summary>
+            <param name="cb">SLComboBox控件</param>
+            <param name="strUltraItems">额外的项目，插在最前面</param>
+            <returns>插入SLCombBox的数据条数</returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcCtrlPublic.FillCombox(SLControls.SLDbService.ISLDbEngine,SLControls.SLComboBox,System.String[])">
+            <summary>
+            向SLCombBox里自动填充数据
+            </summary>
+            <param name="dbEngine">访问数据库的引擎</param>
+            <param name="cb">SLComboBox控件</param>
+            <param name="strUltraItems">额外的项目，插在最前面</param>
+            <returns>插入SLCombBox的数据条数</returns>
+        </member>
+        <member name="T:SLControls.SLGlobal.SlcDataCompress">
+            <summary>
+            圣兰压缩类，采用DeflateStream压缩，压缩比一般，但压缩速度快
+            </summary>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcDataCompress.CompressStringToBytes(System.String)">
+            <summary>
+            将一个字符串压缩成byte[]
+            </summary>
+            <param name="strRaw"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcDataCompress.CompressDataTableToBytes(System.Data.DataTable,System.Int32@)">
+            <summary>
+            将DataTable压缩成byte[],前4个字节表示数据流的长度，不包括本身
+            </summary>
+            <param name="dt">被压缩的DataTable</param>
+            <param name="nNormalDataLen">返回压缩前流长度</param>
+            <returns>压缩后的数据流</returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcDataCompress.CompressDataTableToBytes(System.Data.DataTable,System.Int32@,System.Boolean)">
+            <summary>
+            将DataTable压缩成byte[]
+            </summary>
+            <param name="dt">被压缩的DataTable</param>
+            <param name="nNormalDataLen">返回压缩前流长度</param>
+            <param name="bContainLength">若为true，则返回值解压前的前4个字节表示压缩前的数据长度</param>
+            <returns>压缩后的数据流</returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcDataCompress.CompressBytes(System.Byte[],System.Boolean)">
+            <summary>
+            将一个byte[]压缩
+            </summary>
+            <param name="byAryBeforeCompress">压缩前的数组</param>
+            <param name="bContainLength">若为true，则返回值解压前的第一个字节表示压缩前的数据长度</param>
+            <returns>压缩后的数组</returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcDataCompress.DecompressBytes(System.Byte[])">
+            <summary>
+            将一个byte[]解压缩，前4个字节必须表示压缩前数据长度
+            </summary>
+            <param name="byAryBeforeDecompress">解压缩前的数组</param>
+            <returns>解压缩后的数组</returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcDataCompress.DecompressBytes(System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            将一个byte[]解压缩，传入的数据内容必须全是压缩后的内容，前4个字节并非压缩前数据长度
+            </summary>
+            <param name="byAryBeforeDecompress">解压缩前的数组</param>
+            <param name="nStartPos">待解压数据流开始位置</param>
+            <param name="nDataLength">待解压数据流长度</param>
+            <param name="nDataLenBeforeCompress">压缩前的数据长度</param>
+            <returns>解压缩后的数组</returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcDataCompress.DecompressStringFromStream(System.Byte[])">
+            <summary>
+            将压缩的string解压
+            </summary>
+            <param name="byAryBeforDecompress"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcDataCompress.DecompressDataTableFromStream(System.Byte[])">
+            <summary>
+            将压缩的DataTable解压, 前4个字节必须表示压缩前数据长度
+            </summary>
+            <param name="byAryBeforDecompress">解压缩前的数组</param>
+            <returns>解压缩后的DataTable</returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcDataCompress.DecompressDataTableFromStream(System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            将压缩的DataTable解压, 传入的数据内容必须全是压缩后的内容，前4个字节并非压缩前数据长度
+            </summary>
+            <param name="byAryBeforDecompress">压缩过的数据流</param>
+            <param name="nStartPos">待解压数据流开始位置</param>
+            <param name="nDataLength">待解压数据流长度</param>
+            <param name="nDataLenBeforeCompress">压缩前的数据长度</param>
+            <returns>解压后的DataTable</returns>
+        </member>
+        <member name="T:SLControls.SLGlobal.ISlObject">
+            <summary>
+            模块中大多数类的基类
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.ISlObject.GetCompanyInfo">
+            <summary>
+            公司信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SLControls.SLGlobal.SlcPublic">
+            <summary>
+            公共类
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.SlcPublic.CompanyInfo">
+            <summary>
+            公司信息
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.SlcPublic.IsEnglish">
+            <summary>
+            是否为英文环境
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.SlcPublic.DesignMode">
+            <summary>
+            是否设计状态
+            </summary>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcPublic.AutoRememberValue(SLControls.SLDbService.ISLDbEngine,System.String,System.String,System.String,System.String)">
+            <summary>
+            如果数据库中已存在该值，不理；如果不存在，插入之
+            </summary>
+            <param name="dbEngine"></param>
+            <param name="strTableName"></param>
+            <param name="strFieldName"></param>
+            <param name="strValue"></param>
+            <param name="strPinYinField">拼音字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcPublic.GetSqlText(SLControls.SLGlobal.SleDbType,System.Type,System.String)">
+            <summary>
+            根据值和类型得到带引号或不带引号的SQL值
+            </summary>
+            <param name="dbType"></param>
+            <param name="theType"></param>
+            <param name="strValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcPublic.WriteLog(System.String,System.String)">
+            <summary>
+            写日志
+            </summary>
+            <param name="strFileName">日志文件名</param>
+            <param name="strLog">日志内容</param>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcPublic.WriteLog(System.String)">
+            <summary>
+            写日志
+            </summary>
+            <param name="strLog">日志内容</param>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcPublic.InitGridppReport">
+            <summary>
+            注册Grid++ Reprot，整个程序执行一次即可
+            </summary>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcPublic.GetDtTotalValue(System.Collections.ArrayList,System.Data.DataTable)">
+            <summary>
+            计算一个DataTable的合计值
+            </summary>
+            <param name="aryForCalc">一个SlpTotalCalc，传进去时obValue是NULL,传出有值</param>
+            <param name="dt"></param>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcPublic.UpdateDataTable(System.Data.DataTable@,System.Data.DataTable)">
+            <summary>
+            把dtOld更新成和dtNew一样，并返回两个DataTable是否一样
+            要求：DataTable必须有ID列，且ID列必须为主键</summary>
+            <param name="dtOld">老DataTable</param>
+            <param name="dtNew">新DataTable</param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcPublic.GetFullPinYin(System.String)">
+            <summary>
+            返回给定字符串的首字母
+            </summary>
+            <param name="IndexTxt">字符串</param>
+            <returns>拼音简码</returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcPublic.GetFirstPinYin(System.String)">
+            <summary>
+            返回给定字符串的第一个字的首字母
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlcPublic.GetX(System.Int32)">
+            <summary>
+            根据区位得到汉字首字母
+            </summary>
+            <param name="GBCode">区位码</param>
+            <returns></returns>
+        </member>
+        <member name="T:SLControls.SLGlobal.BeforeFormatControlText">
+            <summary>
+            在离开控件后，根据DigitFormat格式化数字之前发生
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:SLControls.SLGlobal.BeforeFormatEventArgs">
+            <summary>
+            BeforFormatControlText的参数
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.BeforeFormatEventArgs.Cancel">
+            <summary>
+            是否继续格式化
+            </summary>
+        </member>
+        <member name="T:SLControls.SLGlobal.MatchingField">
+            <summary>
+            MatchingCollection成员
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.MatchingField.FieldName">
+            <summary>
+            字段名
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.MatchingField.DataType">
+            <summary>
+            字段类型
+            </summary>
+        </member>
+        <member name="M:SLControls.SLGlobal.MatchingField.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:SLControls.SLGlobal.SleOperFlag">
+            <summary>
+            操作数据库类型
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleOperFlag.New">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleOperFlag.CopyNew">
+            <summary>
+            复制新增
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleOperFlag.Modify">
+            <summary>
+            修改
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleOperFlag.None">
+            <summary>
+            无操作
+            </summary>
+        </member>
+        <member name="T:SLControls.SLGlobal.FieldArray">
+            <summary>
+            存放其它字段的列表
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.FieldArray.Item(System.Int32)">
+            <summary>
+            重载[]
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.FieldArray.GetFieldInfo(System.Int32)">
+            <summary>
+            根据序号得到SlcFieldInfo
+            </summary>
+            <param name="nIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.FieldArray.GetFieldInfo(System.String)">
+            <summary>
+            根据字段名得到SlcFieldInfo
+            </summary>
+            <param name="strFieldName">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.FieldArray.Add(SLControls.SLGlobal.SlcFieldInfo)">
+            <summary>
+            添加
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:SLControls.SLGlobal.FieldArray.Item(System.String)">
+            <summary>
+            重载[]
+            </summary>
+            <param name="strField"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SLControls.SLGlobal.SlpControlsArray">
+            <summary>
+            控件列表
+            </summary>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpControlsArray.Add(System.Windows.Forms.Control)">
+            <summary>
+            添加一个控件
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="P:SLControls.SLGlobal.SlpControlsArray.Item(System.Int32)">
+            <summary>
+            重载[]
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SLControls.SLGlobal.SlcFieldInfo">
+            <summary>
+            字段信息
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.SlcFieldInfo.OperatorMode">
+            <summary>
+            操作类型
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.SlcFieldInfo.KeyName">
+            <summary>
+            键名
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.SlcFieldInfo.KeyValue">
+            <summary>
+            键值
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.SlcFieldInfo.KeyType">
+            <summary>
+            键数据类型
+            </summary>
+        </member>
+        <member name="T:SLControls.SLGlobal.SleValueFrom">
+            <summary>
+            值从哪里来
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleValueFrom.Text">
+            <summary>
+            Text
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleValueFrom.Tag">
+            <summary>
+            Tag
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleValueFrom.ForeignKey">
+            <summary>
+            外键
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleValueFrom.ComparisonKey">
+            <summary>
+            对照表
+            </summary>
+        </member>
+        <member name="T:SLControls.SLGlobal.SleDataType">
+            <summary>
+            数据库数据类型
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleDataType.Digit">
+            <summary>
+            数字
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleDataType.String">
+            <summary>
+            字符串
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleDataType.DateTime">
+            <summary>
+            日期
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleDataType.Binary">
+            <summary>
+            二进制串
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleDataType.Express">
+            <summary>
+            表达式，类似GETDATE的形式
+            </summary>
+        </member>
+        <member name="T:SLControls.SLGlobal.SleDbType">
+            <summary>
+            数据库类型
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleDbType.Access">
+            <summary>
+            Access
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleDbType.SQLServer">
+            <summary>
+            MS SQL Server
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleDbType.Excel">
+            <summary>
+            MS Excel
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleDbType.Oracle">
+            <summary>
+            Oracle
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleDbType.SQLite">
+            <summary>
+            SQLite
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleDbType.MySql">
+            <summary>
+            MySql
+            </summary>
+        </member>
+        <member name="T:SLControls.SLGlobal.SleOperatorMode">
+            <summary>
+            操作类型
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleOperatorMode.None">
+            <summary>
+            不操作
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleOperatorMode.Read">
+            <summary>
+            读
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleOperatorMode.Write">
+            <summary>
+            写
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleOperatorMode.ReadWrite">
+            <summary>
+            读写
+            </summary>
+        </member>
+        <member name="T:SLControls.SLGlobal.SleFindCondition">
+            <summary>
+            查找条件
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleFindCondition.Equal">
+            <summary>
+            相等
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleFindCondition.Like">
+            <summary>
+            相似
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleFindCondition.LessThan">
+            <summary>
+            小于
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleFindCondition.MoreThan">
+            <summary>
+            大于
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleFindCondition.LessThanOrEqual">
+            <summary>
+            小于等于
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleFindCondition.MoreThanOrEqual">
+            <summary>
+            大于等于
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleFindCondition.NotLike">
+            <summary>
+            不相似
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SleFindCondition.NotEqual">
+            <summary>
+            不等于
+            </summary>
+        </member>
+        <member name="T:SLControls.SLGlobal.SlpSqlParam">
+            <summary>
+            SQL查询语句参数
+            </summary>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpSqlParam.#ctor(System.String,System.Object)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="strName">参数名</param>
+            <param name="obValue">参数值</param>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpSqlParam.#ctor(System.Object)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="obValue">参数值</param>
+        </member>
+        <member name="P:SLControls.SLGlobal.SlpSqlParam.SQLPMT">
+            <summary>
+            得到标准SQL参数
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.SlpSqlParam.OLEDBPMT">
+            <summary>
+            得到标准SQL参数
+            </summary>
+        </member>
+        <member name="T:SLControls.SLGlobal.ComparisonArray">
+            <summary>
+            对照表
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.ComparisonArray.Item(System.Int32)">
+            <summary>
+            重载[]
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.ComparisonArray.Add(SLControls.SLGlobal.SlpComparisonInfo)">
+            <summary>
+            添加
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.ComparisonArray.GetValueByKey(System.Int32)">
+            <summary>
+            由Key得到值
+            </summary>
+            <param name="nKey"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SLControls.SLGlobal.SlpComparisonInfo">
+            <summary>
+            对照信息
+            </summary>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.#ctor(System.Int64,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="lKey"></param>
+            <param name="strValue"></param>
+        </member>
+        <member name="P:SLControls.SLGlobal.SlpComparisonInfo.Key">
+            <summary>
+            键
+            </summary>
+        </member>
+        <member name="P:SLControls.SLGlobal.SlpComparisonInfo.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToString">
+            <summary>
+            ToString
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.GetTypeCode">
+            <summary>
+            GetTypeCode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToBoolean(System.IFormatProvider)">
+            <summary>
+            ToBoolean
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToByte(System.IFormatProvider)">
+            <summary>
+            ToByte
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToChar(System.IFormatProvider)">
+            <summary>
+            ToChar
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToDateTime(System.IFormatProvider)">
+            <summary>
+            ToDateTime
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToDecimal(System.IFormatProvider)">
+            <summary>
+            ToDecimal
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToDouble(System.IFormatProvider)">
+            <summary>
+            ToDouble
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToInt16(System.IFormatProvider)">
+            <summary>
+            ToInt16
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToInt32(System.IFormatProvider)">
+            <summary>
+            ToInt32
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToInt64(System.IFormatProvider)">
+            <summary>
+            ToInt64
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToSByte(System.IFormatProvider)">
+            <summary>
+            ToSByte
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToSingle(System.IFormatProvider)">
+            <summary>
+            ToSingle
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToString(System.IFormatProvider)">
+            <summary>
+            ToString
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToType(System.Type,System.IFormatProvider)">
+            <summary>
+            ToType
+            </summary>
+            <param name="conversionType"></param>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToUInt16(System.IFormatProvider)">
+            <summary>
+            ToUInt16
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToUInt32(System.IFormatProvider)">
+            <summary>
+            ToUInt32
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLGlobal.SlpComparisonInfo.ToUInt64(System.IFormatProvider)">
+            <summary>
+            ToUInt64
+            </summary>
+            <param name="provider"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SLControls.SLGlobal.SlpTotalCalc">
+            <summary>
+            合计计算参数类
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SlpTotalCalc.strColumnName">
+            <summary>
+            DataTable的列名
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SlpTotalCalc.strTotalStyle">
+            <summary>
+            合计类型
+            </summary>
+        </member>
+        <member name="F:SLControls.SLGlobal.SlpTotalCalc.obValue">
+            <summary>
+            计算后的值
+            </summary>
+        </member>
+        <member name="T:SLControls.SLPrinter.dlgReportDesigner">
+            <summary>
+            报表编辑器
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.dlgReportDesigner.FilePath">
+            <summary>
+            打印模板文件的全路径
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.dlgReportDesigner.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.dlgReportDesigner.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.dlgReportDesigner.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLControls.SLPrinter.dlgReportDesigner.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:SLControls.SLPrinter.dlgSetPrintParams">
+            <summary>
+            打印设置对话框
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.dlgSetPrintParams.m_dtMain">
+            <summary>
+            数据表
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.dlgSetPrintParams.m_dbEngine">
+            <summary>
+            访问数据库接口引擎
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.dlgSetPrintParams.m_bCoding">
+            <summary>
+            是否开发状态
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.dlgSetPrintParams.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.dlgSetPrintParams.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.dlgSetPrintParams.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLControls.SLPrinter.dlgSetPrintParams.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:SLControls.SLPrinter.SLBillPrinter">
+            <summary>
+            单据打印类
+            </summary>
+        </member>
+        <member name="E:SLControls.SLPrinter.SLBillPrinter.BeforePrint">
+            <summary>
+            打印或打印预览前事件
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.SLBillPrinter.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SLBillPrinter.DatabaseEngine">
+            <summary>
+            数据据访问引擎，默认为SLOnlyInstOleDb.Services
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SLBillPrinter.ParamSqlText">
+            <summary>
+            参数Sql语句
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SLBillPrinter.ParamDataSource">
+            <summary>
+            参数数据源
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SLBillPrinter.ParamUseDataTable">
+            <summary>
+            参数用DataTable还是用SQL语句
+            UseDataTable为True，则SqlText无效
+            UseDataTable为False，则DataSource无效
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SLBillPrinter.GridSqlText">
+            <summary>
+            明细网格Sql语句
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SLBillPrinter.GridDataSource">
+            <summary>
+            明细网格数据源
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SLBillPrinter.GridUseDataTable">
+            <summary>
+            明细网格用DataTable还是用SQL语句
+            UseDataTable为True，则SqlText无效
+            UseDataTable为False，则DataSource无效
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SLBillPrinter.AutoColumns">
+            <summary>
+            是否自动生成列，如果设置了自动生成列，明细网格中的列由DataTable自动生成
+            如果想要自动打印，每个列的PrintWidth表示列宽，Format表示列的格式，Summary表示合计值,WordWrap表示是否折行
+            代码这样写(dc是DataColumn类型)
+            dc.ExtendedProperties["PrintWidth"] = 1;
+            dc.ExtendedProperties["Format"] = "0.##";
+            dc.ExtendedProperties["Summary"] = "共10车";
+            dc.ExtendedProperties["WordWrap"] = true;
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.SLBillPrinter.Print(System.Boolean,System.String)">
+            <summary>
+            打印
+            </summary>
+            <param name="bPreview">是否预览</param>
+            <param name="strFileName">模板文件名</param>
+        </member>
+        <member name="M:SLControls.SLPrinter.SLBillPrinter.Print(System.Boolean,System.String,System.Boolean)">
+            <summary>
+            打印
+            </summary>
+            <param name="bPreview">是否预览</param>
+            <param name="strFileName">模板文件名</param>
+            <param name="bShowPrintDialog">打印时是否显示打印对话框</param>
+        </member>
+        <member name="M:SLControls.SLPrinter.SLBillPrinter.Dispose">
+            <summary>
+             
+            </summary>
+        </member>
+        <member name="T:SLControls.SLPrinter.SlpTextBox">
+            <summary>
+            TextBox的属性
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpTextBox.Font">
+            <summary>
+            字体
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpTextBox.Text">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpTextBox.HorizonAlign">
+            <summary>
+            水平对齐
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpTextBox.VerticalAlign">
+            <summary>
+            竖直对齐
+            </summary>
+        </member>
+        <member name="T:SLControls.SLPrinter.SlpOtherSection">
+            <summary>
+            报表头，页眉，页脚，报表尾等通用类
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpOtherSection.ShowInEveryPage">
+            <summary>
+            该段是否每页都显示，仅对报表头和报表尾有效
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpOtherSection.Height">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpOtherSection.RtfBox1">
+            <summary>
+            每个部分都包括三个RichTextBox，这是第一个
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpOtherSection.RtfBox2">
+            <summary>
+            每个部分都包括三个RichTextBox，这是第二个
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpOtherSection.RtfBox3">
+            <summary>
+            每个部分都包括三个RichTextBox，这是第三个
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.SlpOtherSection.m_theTextBoxs">
+            <summary>
+            每个部分都包括三个TextBox
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpOtherSection.TextBox1">
+            <summary>
+            每个部分都包括三个TextBox，这是第一个
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpOtherSection.TextBox2">
+            <summary>
+            每个部分都包括三个TextBox，这是第二个
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpOtherSection.TextBox3">
+            <summary>
+            每个部分都包括三个TextBox，这是第三个
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlpOtherSection.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="T:SLControls.SLPrinter.SlpPrintInfo">
+            <summary>
+            打印信息
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.SlpPrintInfo.m_dbPaperWidth">
+            <summary>
+            纸的宽度
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpPrintInfo.GridReport">
+            <summary>
+            Grid++ Report对象
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpPrintInfo.AppendBlankRow">
+            <summary>
+            明细网格是否追加空白行
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpPrintInfo.ReportTitle">
+            <summary>
+            报表标题
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpPrintInfo.Landscape">
+            <summary>
+            是否横向打印
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpPrintInfo.WordWrap">
+            <summary>
+            如果一行放不下是否自动换行
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpPrintInfo.ReportHeader">
+            <summary>
+            报表头
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpPrintInfo.ReportFooter">
+            <summary>
+            报表尾
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpPrintInfo.PageHeader">
+            <summary>
+            页眉
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlpPrintInfo.PageFooter">
+            <summary>
+            页脚
+            </summary>
+        </member>
+        <member name="T:SLControls.SLPrinter.SlcGridpp">
+            <summary>
+            Grid++ Report的一些公用函数
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlcGridpp.FillRecordToReport(grproLib.IGridppReport,System.Data.DataTable)">
+            <summary>
+            将 DataTable 的数据转储到 Grid++Report 的数据集中
+            </summary>
+            <param name="Report"></param>
+            <param name="dt"></param>
+        </member>
+        <member name="T:SLControls.SLPrinter.SlpPrintString">
+            <summary>
+            打印用字符串
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.SlpPrintString.FullPageCode">
+            <summary>
+            第 页 / 共 页
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.SlpPrintString.PageCount">
+            <summary>
+            页数
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.SlpPrintString.PageNumber">
+            <summary>
+            页码
+            </summary>
+        </member>
+        <member name="T:SLControls.SLPrinter.SlpTitleInfo">
+            <summary>
+            打印模块表头信息
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.SlpTitleInfo.strColFieldName">
+            <summary>
+            打印列的列名
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.SlpTitleInfo.strColCaption">
+            <summary>
+            打印列的列标题
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.SlpTitleInfo.arySon">
+            <summary>
+            子表头
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.SlpTitleInfo.drOtherInfo">
+            <summary>
+            一个DataRow的信息
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.SlpTitleInfo.strParentColName">
+            <summary>
+            父节点的列名
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.SlpTitleInfo.nLayer">
+            <summary>
+            第几层
+            </summary>
+        </member>
+        <member name="T:SLControls.SLPrinter.SlcComplexTitle">
+            <summary>
+            三层结构的复表头
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlcComplexTitle.Add(System.String,System.String,System.Data.DataRow)">
+            <summary>
+            新增一个原始列标题
+            </summary>
+            <param name="strColFieldName"></param>
+            <param name="strColCaption"></param>
+            <param name="drOtherInfo"></param>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlcComplexTitle.ThridLayerTitles">
+            <summary>
+            得到处理后的列标题
+            </summary>
+        </member>
+        <member name="T:SLControls.SLPrinter.PrintEventArgs">
+            <summary>
+            打印事件参数
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.PrintEventArgs.Cancel">
+            <summary>
+            是否取消打印
+            </summary>
+        </member>
+        <member name="T:SLControls.SLPrinter.PrePrintHandler">
+            <summary>
+            打印前事件处理器
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:SLControls.SLPrinter.SlDataTablePrinter">
+            <summary>
+            打印类，基于Grid++ Report
+            </summary>
+        </member>
+        <member name="E:SLControls.SLPrinter.SlDataTablePrinter.BeforePrint">
+            <summary>
+            打印或打印预览前事件
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlDataTablePrinter.DatabaseEngine">
+            <summary>
+            数据据访问引擎，默认为SLOnlyInstOleDb.Services
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlDataTablePrinter.TableFont">
+            <summary>
+            明细网格中字的字体
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlDataTablePrinter.Coding">
+            <summary>
+            是否显示额外的打印设置
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlDataTablePrinter.UseRtf">
+            <summary>
+            是否使用RtfBox
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlDataTablePrinter.TheDataTable">
+            <summary>
+            主DataTable
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlDataTablePrinter.ThePrintInfo">
+            <summary>
+            打印信息
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlDataTablePrinter.ReportDetailFilter">
+            <summary>
+            传进来的DataTable报表明细中打印哪些行，参数是DataTable的RowFilter
+            </summary>
+        </member>
+        <member name="P:SLControls.SLPrinter.SlDataTablePrinter.FooterCalcFilter">
+            <summary>
+            传进来的DataTable页脚中合计哪些行，参数是DataTable的RowFilter
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.LoadDataTable">
+            <summary>
+            加载明细网格
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.LoadOtherInfo">
+            <summary>
+            加载其它信息
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.AddPageHeader">
+            <summary>
+            处理页眉
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.AddPageFooter">
+            <summary>
+            处理页脚
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.AddReportHeader">
+            <summary>
+            处理报表头
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.AddReportFooter">
+            <summary>
+            处理报表尾
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.ExchangeFont(grproLib.IGRFont,System.Drawing.Font)">
+            <summary>
+            将C#的Font内容弄到Grid++ Report的Font里
+            </summary>
+            <param name="descFont"></param>
+            <param name="souceFont"></param>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.AssignAlignment(grproLib.IGRMemoBox,System.Windows.Forms.VisualStyles.HorizontalAlign,System.Windows.Forms.VisualStyles.VerticalAlignment)">
+            <summary>
+            根据水平对齐和垂直对齐设置把StaticBox对齐
+            </summary>
+            <param name="sb"></param>
+            <param name="ha"></param>
+            <param name="va"></param>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.PrintPreview(System.Boolean)">
+            <summary>
+            打印预览
+            </summary>
+            <param name="bShowModal">是否模态对话框</param>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.PrintPreview(System.Boolean,System.String,grproLib.GRPrintGenerateStyle)">
+            <summary>
+            打印预览
+            </summary>
+            <param name="bShowModal">是否模态对话框</param>
+            <param name="strPrinterName">打印机名</param>
+            <param name="theStyle">打印详细信息</param>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.Print(System.Boolean)">
+            <summary>
+            打印
+            </summary>
+            <param name="bShowPrintDlg">是否显示打印对话框</param>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.Print(System.Boolean,System.String,grproLib.GRPrintGenerateStyle)">
+            <summary>
+            打印
+            </summary>
+            <param name="bShowPrintDlg">是否显示打印对话框</param>
+            <param name="strPrinterName">打印机名</param>
+            <param name="theStyle">打印详细信息</param>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.ShowPrintSettingDialog">
+            <summary>
+            显示打印设置对话框，设置是否显示，列宽等
+            </summary>
+        </member>
+        <member name="F:SLControls.SLPrinter.SlDataTablePrinter.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLControls.SLPrinter.SlDataTablePrinter.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLControls.dlgEditValue.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLControls.dlgEditValue.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLControls.dlgEditValue.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:SLControls.SLListButton">
+            <summary>
+            可用户自己设置下拉框的按钮
+            </summary>
+        </member>
+        <member name="P:SLControls.SLListButton.AllowAutoRemember">
+            <summary>
+            是否自动记忆
+            </summary>
+        </member>
+        <member name="P:SLControls.SLListButton.Caption">
+            <summary>
+            小对话框标题
+            </summary>
+        </member>
+        <member name="P:SLControls.SLListButton.DatabaseEngine">
+            <summary>
+            数据据访问引擎，默认为SLOnlyInstOleDb.Services
+            </summary>
+        </member>
+        <member name="P:SLControls.SLListButton.ParentForm">
+            <summary>
+            按钮所在的Form
+            </summary>
+        </member>
+        <member name="P:SLControls.SLListButton.SectionName">
+            <summary>
+            段名
+            </summary>
+        </member>
+        <member name="P:SLControls.SLListButton.KeyName">
+            <summary>
+            键名
+            </summary>
+        </member>
+        <member name="P:SLControls.SLListButton.ComboBox">
+            <summary>
+            与此按钮关联的ComboBox
+            </summary>
+        </member>
+        <member name="M:SLControls.SLListButton.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:SLControls.SLListButton.FillComboBox">
+            <summary>
+            填充ComboBox
+            </summary>
+        </member>
+        <member name="M:SLControls.SLListButton.InitButton">
+            <summary>
+            初始化按钮
+            </summary>
+        </member>
+        <member name="T:SLControls.SLTextBox">
+            <summary>
+            SLTextBox
+            </summary>
+            <summary>
+            SLTextBox
+            </summary>
+        </member>
+        <member name="F:SLControls.SLTextBox.m_beforeFormatHandler">
+            <summary>
+            在离开控件后，根据DigitFormat格式化数字之前发生
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.BeforeFormatControlTextHandler">
+            <summary>
+            在离开控件后，根据DigitFormat格式化数字之前发生
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.DigitFormat">
+            <summary>
+            TextBox中数字的格式，仅在SLTmpForm中有效
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.ComparisonCollection">
+            <summary>
+            该字段在数据库中是用数字表示的，数字与字符串的对照关系
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.AllowEmpty">
+            <summary>
+            是否允许空
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.Unique">
+            <summary>
+            该字段在数据库中是否惟一
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.ForeignTable">
+            <summary>
+            用于内连接的数据库
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.ForeignKey">
+            <summary>
+            子表中被引用的主键
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.DispField">
+            <summary>
+            用于显示的字段
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.PinYinField">
+            <summary>
+            用于显示的字段
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.AutoMatchingFieldsCollection">
+            <summary>
+            设置或获自动匹配列的列名
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.AllowAutoRemember">
+            <summary>
+            设置或获取是否自动记忆(即如果用户输入的数据在子表中不存在，自动保存到子表中)
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.DataType">
+            <summary>
+            数据库里的数据类型
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.ValueFrom">
+            <summary>
+            存贮在数据库里的是Text的内容还是Tag的内容
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.FieldName">
+            <summary>
+            对应的数据库字段
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.TextStyle">
+            <summary>
+            TextBox中数据的类型
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.SLINT">
+            <summary>
+            INT值
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.SLFLOAT">
+            <summary>
+            Float值
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.SLDECIMAL">
+            <summary>
+            Decimal值
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.OperatorMode">
+            <summary>
+            Read表示打开窗口时显示出来，Write表示关闭时写入数据库
+            </summary>
+        </member>
+        <member name="P:SLControls.SLTextBox.FindCondition">
+            <summary>
+            查找时的匹配方式
+            </summary>
+        </member>
+        <member name="M:SLControls.SLTextBox.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:SLControls.SLTextBox.Judge">
+            <summary>
+            判断输入的值是否合法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLTextBox.Judge(System.String)">
+            <summary>
+            判断输入的值是否合法
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLControls.SLTextBox.AutoRememberValue(SLControls.SLDbService.ISLDbEngine)">
+            <summary>
+            自动记忆
+            </summary>
+            <param name="dbEngine"></param>
+            <returns>不需要自动记忆，返回0，需要自动记忆，若成功，返回ID，不成功，返回-1</returns>
+        </member>
+        <member name="F:SLControls.SLTextBox.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLControls.SLTextBox.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLControls.SLTextBox.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:SLControls.SLStyle">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="F:SLControls.SLStyle.INVALID">
+            <summary>
+            无效
+            </summary>
+        </member>
+        <member name="F:SLControls.SLStyle.SLINT">
+            <summary>
+            INT
+            </summary>
+        </member>
+        <member name="F:SLControls.SLStyle.SLFLOAT">
+            <summary>
+            float
+            </summary>
+        </member>
+        <member name="F:SLControls.SLStyle.SLENGCHARS">
+            <summary>
+            英文字符
+            </summary>
+        </member>
+        <member name="F:SLControls.SLStyle.SLSTRING">
+            <summary>
+            普通字符串
+            </summary>
+        </member>
+        <member name="T:SLControls.SmallControls.dlg日期时间设置">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SLControls.SmallControls.dlg日期时间设置.DbEngine">
+            <summary>
+            数据库访问引擎
+            </summary>
+        </member>
+        <member name="P:SLControls.SmallControls.dlg日期时间设置.Mark">
+            <summary>
+            日期选择控件的Mark
+            </summary>
+        </member>
+        <member name="M:SLControls.SmallControls.dlg日期时间设置.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SLControls.SmallControls.dlg日期时间设置.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLControls.SmallControls.dlg日期时间设置.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLControls.SmallControls.dlg日期时间设置.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:SLControls.SmallControls.SLDateSeler">
+            <summary>
+            选择时间的菜单控件
+            </summary>
+        </member>
+        <member name="P:SLControls.SmallControls.SLDateSeler.AllowAutoSelDate">
+            <summary>
+            是否允许自动选择时间
+            </summary>
+        </member>
+        <member name="P:SLControls.SmallControls.SLDateSeler.Mark">
+            <summary>
+            该控件的惟一标识
+            </summary>
+        </member>
+        <member name="P:SLControls.SmallControls.SLDateSeler.BegDateTimePicker">
+            <summary>
+            表示开始日期的时间选择框
+            </summary>
+        </member>
+        <member name="P:SLControls.SmallControls.SLDateSeler.EndDateTimePicker">
+            <summary>
+            表示结束日期的时间选择框
+            </summary>
+        </member>
+        <member name="M:SLControls.SmallControls.SLDateSeler.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:SLControls.SmallControls.SLDateSeler.CreateHandle">
+            <summary>
+            CreateHandle
+            </summary>
+        </member>
+        <member name="M:SLControls.SmallControls.SLDateSeler.InitDbEngine(SLControls.SLDbService.ISLDbEngine@)">
+            <summary>
+            可重写此函数中修改数据库引擎，在或取配置之前发生
+            </summary>
+            <param name="dbEngine">数据库引擎</param>
+        </member>
+        <member name="P:SLControls.SmallControls.SLDateSeler.SettingDay">
+            <summary>
+            设置的日
+            </summary>
+        </member>
+        <member name="P:SLControls.SmallControls.SLDateSeler.SettingHour">
+            <summary>
+            设置的时
+            </summary>
+        </member>
+        <member name="P:SLControls.SmallControls.SLDateSeler.SettingMinute">
+            <summary>
+            设置的分
+            </summary>
+        </member>
+        <member name="P:SLControls.SmallControls.SLDateSeler.SettingSecond">
+            <summary>
+            设置的秒
+            </summary>
+        </member>
+        <member name="M:SLControls.SmallControls.SLDateSeler.Select上年">
+            <summary>
+            选择上年
+            </summary>
+        </member>
+        <member name="M:SLControls.SmallControls.SLDateSeler.Select本年">
+            <summary>
+            选择本年
+            </summary>
+        </member>
+        <member name="M:SLControls.SmallControls.SLDateSeler.Select上期">
+            <summary>
+            选择上期
+            </summary>
+        </member>
+        <member name="M:SLControls.SmallControls.SLDateSeler.Select本期">
+            <summary>
+            选择本期
+            </summary>
+        </member>
+        <member name="M:SLControls.SmallControls.SLDateSeler.Select上周">
+            <summary>
+            选择上周
+            </summary>
+        </member>
+        <member name="M:SLControls.SmallControls.SLDateSeler.Select本周">
+            <summary>
+            选择本周
+            </summary>
+        </member>
+        <member name="M:SLControls.SmallControls.SLDateSeler.Select昨天">
+            <summary>
+            选择昨天
+            </summary>
+        </member>
+        <member name="M:SLControls.SmallControls.SLDateSeler.Select今天">
+            <summary>
+            选择今天
+            </summary>
+        </member>
+        <member name="M:SLControls.SmallControls.SLDateSeler.menuItem设置_Click(System.Object,System.EventArgs)">
+            <summary>
+            设置
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:SLControls.SmallControls.SLDateSeler.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLControls.SmallControls.SLDateSeler.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLControls.SmallControls.SLDateSeler.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:Messir.Windows.Forms.SLTabStrip">
+            <summary>
+            Represents a TabStrip control
+            </summary>
+        </member>
+        <member name="F:Messir.Windows.Forms.SLTabStrip.mySelTab">
+            <summary>
+            选中标签
+            </summary>
+        </member>
+        <member name="M:Messir.Windows.Forms.SLTabStrip.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:Messir.Windows.Forms.SLTabStrip.#ctor(Messir.Windows.Forms.TabStripButton[])">
+            <summary>
+            构造
+            </summary>
+            <param name="buttons"></param>
+        </member>
+        <member name="M:Messir.Windows.Forms.SLTabStrip.InitControl">
+            <summary>
+            初始化控件
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.Site">
+            <summary>
+            提供站点所需的功能
+            </summary>
+        </member>
+        <member name="M:Messir.Windows.Forms.SLTabStrip.OnInsertPageClicked(System.Object,System.EventArgs)">
+            <summary>
+            OnInsertPageClicked
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.Renderer">
+            <summary>
+            Gets custom renderer for TabStrip. Set operation has no effect
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.LayoutStyle">
+            <summary>
+            Gets or sets layout style for TabStrip control
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.RenderMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.RenderStyle">
+            <summary>
+            Gets or sets render style for TabStrip, use it instead of 
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.DefaultPadding">
+            <summary>
+            DefaultPadding
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.Padding">
+            <summary>
+            Padding
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.UseVisualStyles">
+            <summary>
+            Gets or sets if control should use system visual styles for painting items
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.DisplayMode">
+            <summary>
+            显示模式
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.NormalTabImage">
+            <summary>
+            正常状态下的Tab标签的背景图片，仅CompactMode有效
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.HotTabImage">
+            <summary>
+            鼠标悬停状态下的Tab标签的背景图片，仅CompactMode有效
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.SelectedTabImage">
+            <summary>
+            鼠标选中状态下的Tab标签的背景图片，仅CompactMode有效
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.FlipButtons">
+            <summary>
+            Gets or sets if TabButtons should be drawn flipped
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.SelectedLabelColor">
+            <summary>
+            选中标签的边框颜色
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.UnSelectedLabelColor">
+            <summary>
+            未选中标签的边框颜色
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.UnderLineColor">
+            <summary>
+            底部的边框颜色
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.MouseOverColor">
+            <summary>
+            鼠标经过时的颜色
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.HotColor">
+            <summary>
+            选中时的颜色
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.SelectedOffset">
+            <summary>
+            选中标签的下移量
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.LineWidth">
+            <summary>
+            控件的线宽
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.Radius">
+            <summary>
+            圆角半径
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.Distance">
+            <summary>
+            标签间距
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.ProfessionalColor">
+            <summary>
+            专家颜色
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.SLTabStrip.SelectedTab">
+            <summary>
+            Gets or sets currently selected tab
+            </summary>
+        </member>
+        <member name="E:Messir.Windows.Forms.SLTabStrip.SelectedTabChanged">
+            <summary>
+            SelectedTabChanged event
+            </summary>
+        </member>
+        <member name="M:Messir.Windows.Forms.SLTabStrip.OnTabSelected(Messir.Windows.Forms.TabStripButton)">
+            <summary>
+            OnTabSelected
+            </summary>
+            <param name="tab"></param>
+        </member>
+        <member name="M:Messir.Windows.Forms.SLTabStrip.OnItemAdded(System.Windows.Forms.ToolStripItemEventArgs)">
+            <summary>
+            OnItemAdded
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Messir.Windows.Forms.SLTabStrip.OnItemClicked(System.Windows.Forms.ToolStripItemClickedEventArgs)">
+            <summary>
+            OnItemClicked
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:Messir.Windows.Forms.SelectedTabChangedEventArgs">
+            <summary>
+            选中标签改变参数
+            </summary>
+        </member>
+        <member name="F:Messir.Windows.Forms.SelectedTabChangedEventArgs.SelectedTab">
+            <summary>
+            选中的标签
+            </summary>
+        </member>
+        <member name="M:Messir.Windows.Forms.SelectedTabChangedEventArgs.#ctor(Messir.Windows.Forms.TabStripButton)">
+            <summary>
+            构造
+            </summary>
+            <param name="tab"></param>
+        </member>
+        <member name="T:Messir.Windows.Forms.TabStripRenderer">
+            <summary>
+            Represents a renderer class for TabStrip control
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.TabStripRenderer.RenderMode">
+            <summary>
+            Gets or sets render mode for this renderer
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.TabStripRenderer.Mirrored">
+            <summary>
+            Gets or sets whether to mirror background
+            </summary>
+            <remarks>Use false for left and top positions, true for right and bottom</remarks>
+        </member>
+        <member name="M:Messir.Windows.Forms.TabStripRenderer.OnRenderButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs)">
+            <summary>
+            标签绘制，修改标签形状，样式在这改
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:Messir.Windows.Forms.TabStripButton">
+            <summary>
+            标签按钮
+            </summary>
+        </member>
+        <member name="M:Messir.Windows.Forms.TabStripButton.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:Messir.Windows.Forms.TabStripButton.#ctor(System.Drawing.Image)">
+            <summary>
+            构造
+            </summary>
+            <param name="image"></param>
+        </member>
+        <member name="M:Messir.Windows.Forms.TabStripButton.#ctor(System.String)">
+            <summary>
+            构造
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:Messir.Windows.Forms.TabStripButton.#ctor(System.String,System.Drawing.Image)">
+            <summary>
+            构造
+            </summary>
+            <param name="text"></param>
+            <param name="image"></param>
+        </member>
+        <member name="M:Messir.Windows.Forms.TabStripButton.#ctor(System.String,System.Drawing.Image,System.EventHandler)">
+            <summary>
+            构造
+            </summary>
+            <param name="Text"></param>
+            <param name="Image"></param>
+            <param name="Handler"></param>
+        </member>
+        <member name="M:Messir.Windows.Forms.TabStripButton.#ctor(System.String,System.Drawing.Image,System.EventHandler,System.String)">
+            <summary>
+            构造
+            </summary>
+            <param name="Text"></param>
+            <param name="Image"></param>
+            <param name="Handler"></param>
+            <param name="name"></param>
+        </member>
+        <member name="M:Messir.Windows.Forms.TabStripButton.GetPreferredSize(System.Drawing.Size)">
+            <summary>
+            GetPreferredSize
+            </summary>
+            <param name="constrainingSize"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Messir.Windows.Forms.TabStripButton.DefaultMargin">
+            <summary>
+            DefaultMargin
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.TabStripButton.Margin">
+            <summary>
+            Margin
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.TabStripButton.Padding">
+            <summary>
+            Padding
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.TabStripButton.HotTextColor">
+            <summary>
+            Text color when TabButton is highlighted
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.TabStripButton.SelectedTextColor">
+            <summary>
+            Text color when TabButton is selected
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.TabStripButton.SelectedFont">
+            <summary>
+            SelectedFont
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.TabStripButton.Checked">
+            <summary>
+            Checked
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.TabStripButton.IsSelected">
+            <summary>
+            Gets or sets if this TabButton is currently selected
+            </summary>
+        </member>
+        <member name="M:Messir.Windows.Forms.TabStripButton.OnOwnerChanged(System.EventArgs)">
+            <summary>
+            OnOwnerChanged
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:Messir.Windows.Forms.TabStripButton.UnderLineColor">
+            <summary>
+            下划线颜色(选中有效)
+            </summary>
+            
+        </member>
+        <member name="P:Messir.Windows.Forms.TabStripButton.UnderLineWidth">
+            <summary>
+            下划线长度
+            </summary>
+        </member>
+        <member name="P:Messir.Windows.Forms.TabStripButton.UnderLineHeight">
+            <summary>
+            下划线高度
+            </summary>
+        </member>
+        <member name="T:Messir.Windows.Forms.SleDisplayMode">
+            <summary>
+            显示模式
+            </summary>
+        </member>
+        <member name="F:Messir.Windows.Forms.SleDisplayMode.Normal">
+            <summary>
+            正常模式
+            </summary>
+        </member>
+        <member name="F:Messir.Windows.Forms.SleDisplayMode.VisualStyle">
+            <summary>
+            VS模式
+            </summary>
+        </member>
+        <member name="F:Messir.Windows.Forms.SleDisplayMode.CompactMode">
+            <summary>
+            紧凑模式
+            </summary>
+        </member>
+    </members>
+</doc>

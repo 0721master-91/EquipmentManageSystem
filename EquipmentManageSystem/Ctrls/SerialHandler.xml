@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SerialHandler</name>
+    </assembly>
+    <members>
+        <member name="M:SerialHandler.SlcPublic.WriteLog(System.String,System.String)">
+            <summary>
+            写日志
+            </summary>
+            <param name="strFileName">日志文件名</param>
+            <param name="strLog">日志内容</param>
+        </member>
+        <member name="M:SerialHandler.SlcPublic.WriteLog(System.String)">
+            <summary>
+            写日志
+            </summary>
+            <param name="strLog">日志内容</param>
+        </member>
+        <member name="T:SerialHandler.SerialPortInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SerialHandler.SerialPortInfo.port">
+            <summary>
+            串口
+            </summary>
+        </member>
+        <member name="F:SerialHandler.SerialPortInfo.times">
+            <summary>
+            引用计数
+            </summary>
+        </member>
+        <member name="T:SerialHandler.SlcParseData">
+            <summary>
+            解析数据类
+            </summary>
+        </member>
+        <member name="F:SerialHandler.SlcParseData.m_bAsDigit">
+            <summary>
+            是否必须是数字,默认为true,地磅用
+            </summary>
+        </member>
+        <member name="M:SerialHandler.SlcParseData.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SerialHandler.SlcParseData.SetFrameFormat(System.String)">
+            <summary>
+            设置帧格式
+            </summary>
+            <param name="strFrameFormat"></param>
+        </member>
+        <member name="M:SerialHandler.SlcParseData.ParseData(System.String,System.String@)">
+            <summary>
+            解析数据
+            </summary>
+            <param name="strRead">刚读到的数据</param>
+            <param name="strFrame">完整一帧的数据</param>
+            <returns>返回一个数字字符串如12.340</returns>
+        </member>
+        <member name="M:SerialHandler.SlcParseData.TrimInvalidData">
+            <summary>
+            将无用的数据去掉
+            </summary>
+            <returns>剩余数据是否可用来解析</returns>
+        </member>
+        <member name="M:SerialHandler.SlcParseData.GetFirstFrameData(System.String@)">
+            <summary>
+            解析缓冲区中第一帧数据，从中取出读数
+            </summary>
+            <returns>返回一个数字字符串如12.340</returns>
+        </member>
+        <member name="P:SerialHandler.SlcParseData.IsDigit">
+            <summary>
+            [$*]中的内容是否必须是数字,默认为True,地磅用
+            </summary>
+        </member>
+        <member name="T:SerialHandler.SlcIni">
+            <summary>
+            API的INI操作为非静态函数
+            IniWriteValue
+            IniReadValue
+            IniWriteInt
+            IniReadInt
+            </summary>
+        </member>
+        <member name="M:SerialHandler.SlcIni.#ctor(System.String)">
+            <summary>
+            INIFile Constructor.
+            </summary>
+            <PARAM name="INIPath"></PARAM>
+        </member>
+        <member name="M:SerialHandler.SlcIni.IniAppPath">
+            <summary>
+            返回当前程序目录,例如d:\\app\\,结尾有"\"
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SerialHandler.SlcIni.IniWriteValue(System.String,System.String,System.String)">
+            <summary>
+            Write Data to the INI File
+            </summary>
+            <PARAM name="Section"></PARAM>
+            Section name
+            <PARAM name="Key"></PARAM>
+            Key Name
+            <PARAM name="Value"></PARAM>
+            Value Name
+        </member>
+        <member name="M:SerialHandler.SlcIni.IniReadValue(System.String,System.String)">
+            <summary>
+            Read Data Value From the Ini File
+            </summary>
+            <PARAM name="Section"></PARAM>
+            <PARAM name="Key"></PARAM>
+            <PARAM name="Path"></PARAM>
+            <returns></returns>
+        </member>
+        <member name="T:SerialHandler.Notify_ReceiveHandler">
+            <summary>
+            串口接收消息代理
+            </summary>
+            <param name="strSecName"></param>
+            <param name="strMsg"></param>
+            <param name="strFrame"></param>
+        </member>
+        <member name="T:SerialHandler.ISerialReceiver">
+            <summary>
+            串口接收对象从此继承,实现接收函数
+            </summary>
+        </member>
+        <member name="M:SerialHandler.ISerialReceiver.OnSerialDataReceive(System.String,System.String,System.String)">
+            <summary>
+            接收对象在此函数中接收相应的字符串
+            </summary>
+            <param name="strSecName"></param>
+            <param name="strMsg"></param>
+            <param name="strFrame"></param>
+        </member>
+        <member name="T:SerialHandler.SlcSerialManage">
+             <summary>
+             串口管理类
+             配置文件为程序目录下的:ComConfig.ini
+             使用方法:
+             1.主对象从ISerialReceiver继承,实现接口函数,从参数中读取数据,使用默认段[串口]
+             2.构造时注册对象:		SlcSerialManage.GetInstance().RegisterInstance(this);
+             3.退出时反注册对象:		SlcSerialManage.GetInstance().UnregisterInstance(this);
+             4.如果注册失败,则是因为打开串口失败造成的,此时从属性ErrorMsg取错误信息
+             5.需要使用配置文件ComConfig.ini
+               [串口]
+               串口号=COM1
+               ;;地磅的话,必须为数字,射频卡应为0,因为卡号可以有英文字母
+               DIGIT=1
+               波特率=1200
+               帧格式=02 [2B|2D] [$3] [$2] [$1] [$-1] [$-2] [$-3] [*] [*] [*] 03
+             
+             如果使用其它段,构造时传入段名即可,如下将使用com段
+             	SlcSerialManage m = SlcSerialManage.GetInstance("com");
+                 if(!m.RegisterInstance(this))
+                    MessageBox.Show(m.ErrorMsg);
+            
+             </summary>
+        </member>
+        <member name="F:SerialHandler.SlcSerialManage.CONFIG_PATH">
+            <summary>
+            配置文件路径,默认为程序目录下的ComConfig.ini
+            </summary>
+        </member>
+        <member name="F:SerialHandler.SlcSerialManage.m_portPool">
+            <summary>
+            串口池
+            </summary>
+        </member>
+        <member name="F:SerialHandler.SlcSerialManage.m_dict">
+            <summary>
+            对象列表字典
+            </summary>
+        </member>
+        <member name="F:SerialHandler.SlcSerialManage.m_strPortName">
+            <summary>
+            串口名,默认为com1
+            </summary>
+        </member>
+        <member name="F:SerialHandler.SlcSerialManage.m_strErrorMsg">
+            <summary>
+            异常字符串
+            </summary>
+        </member>
+        <member name="F:SerialHandler.SlcSerialManage.m_strFrameFormat">
+            <summary>
+            默认帧格式
+            </summary>
+        </member>
+        <member name="F:SerialHandler.SlcSerialManage.m_parse">
+            <summary>
+            串口解析对象
+            </summary>
+        </member>
+        <member name="F:SerialHandler.SlcSerialManage.m_secName">
+            <summary>
+            配置文件中的段名，默认为"串口"
+            </summary>
+        </member>
+        <member name="F:SerialHandler.SlcSerialManage.m_bEsc">
+            <summary>
+            是否转义，转义的意思就是例如 0x35，转成 0x33 0x35, 0xFF 转成 0x46 0x45
+            </summary>
+        </member>
+        <member name="M:SerialHandler.SlcSerialManage.#ctor(System.String)">
+            <summary>
+            构造 
+            </summary>
+        </member>
+        <member name="M:SerialHandler.SlcSerialManage.OpenSerialPort">
+            <summary>
+            打开串口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SerialHandler.SlcSerialManage.m_port_DataReceived(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            串口接收函数,处理数据并向注册对象发送结果
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SerialHandler.SlcSerialManage.CloseSerialPort">
+            <summary>
+            关闭串口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SerialHandler.SlcSerialManage.InitPortConfig">
+            <summary>
+            初始化串口信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SerialHandler.SlcSerialManage.DoOpen">
+            <summary>
+            打开串口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SerialHandler.SlcSerialManage.RegisterInstance(SerialHandler.ISerialReceiver)">
+            <summary>
+             注册串口使用实例,如果串口打开失败,返回false,可通过ErrorMsg读取错误信息
+            </summary>
+            <param name="receiver">接收对象从ISerialReceiver继承后,传入this即可</param>
+            <returns></returns>
+        </member>
+        <member name="M:SerialHandler.SlcSerialManage.UnregisterInstance(SerialHandler.ISerialReceiver)">
+            <summary>
+            反注册串口接收实例
+            </summary>
+            <param name="receiver">接收串口数据的窗口实例</param>
+        </member>
+        <member name="P:SerialHandler.SlcSerialManage.ErrorMsg">
+            <summary>
+            打开串口的错误信息
+            </summary>
+        </member>
+        <member name="P:SerialHandler.SlcSerialManage.PortName">
+            <summary>
+            串口名称
+            </summary>
+        </member>
+        <member name="P:SerialHandler.SlcSerialManage.CurrentPort">
+            <summary>
+            当前使用的串口
+            </summary>
+        </member>
+    </members>
+</doc>

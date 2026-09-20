@@ -1,0 +1,583 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AuthorityManager</name>
+    </assembly>
+    <members>
+        <member name="M:AuthorityManager.dlgSetupAdd.Show(System.Int64,System.Boolean)">
+            <summary>
+            添加/修改权限
+            </summary>
+            <param name="lID">添加时,为ParentID,修改时,为当前ID</param>
+            <param name="bAdd">添加=true,修改=false</param>
+        </member>
+        <member name="M:AuthorityManager.dlgSetupAdd.#ctor(System.Int64,System.Boolean)">
+            <summary>
+            添加/修改权限
+            </summary>
+            <param name="lID">添加时,为ParentID,修改时,为当前ID</param>
+            <param name="bAdd"></param>
+        </member>
+        <member name="F:AuthorityManager.dlgSetupAdd.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AuthorityManager.dlgSetupAdd.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AuthorityManager.dlgSetupAdd.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:AuthorityManager.dlgSetup">
+            <summary>
+            弹出窗口,在这里进行权限类别的设置
+            </summary>
+        </member>
+        <member name="F:AuthorityManager.dlgSetup.Instance">
+            <summary>
+            当前窗口实例
+            </summary>
+        </member>
+        <member name="M:AuthorityManager.dlgSetup.Show(System.Data.OleDb.OleDbConnection)">
+            <summary>
+            显示权限设置窗口,如果连接为空,则启动内部的数据库连接操作
+            </summary>
+            <param name="conn"></param>
+        </member>
+        <member name="M:AuthorityManager.dlgSetup.RefreshTree(System.Int64)">
+            <summary>
+            刷新控件
+            </summary>
+            <param name="lID"></param>
+        </member>
+        <member name="F:AuthorityManager.dlgSetup.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AuthorityManager.dlgSetup.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AuthorityManager.dlgSetup.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:AuthorityManager.dlgUserSetup">
+            <summary>
+            查询此用户权限,并可设置
+            </summary>
+        </member>
+        <member name="F:AuthorityManager.dlgUserSetup.Instance">
+            <summary>
+            当前窗口实例
+            </summary>
+        </member>
+        <member name="M:AuthorityManager.dlgUserSetup.Show(System.Data.OleDb.OleDbConnection,System.Int64,System.String)">
+            <summary>
+            显示用户权限设置窗口
+            </summary>
+            <param name="conn">数据库连接,如果为null,则启用内部的数据库连接操作</param>
+            <param name="lID">操作员ID</param>
+            <param name="strUser">用户姓名</param>
+            <returns></returns>
+        </member>
+        <member name="F:AuthorityManager.dlgUserSetup.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:AuthorityManager.dlgUserSetup.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:AuthorityManager.dlgUserSetup.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:AuthorityManager.Manager">
+            <summary>
+            对更新表进行操作,包括数据库连接开关,建表,查询等,涉及数据库查询都在这里
+            </summary>
+        </member>
+        <member name="F:AuthorityManager.Manager.m_manager">
+            <summary>
+            单实例
+            </summary>
+        </member>
+        <member name="F:AuthorityManager.Manager.m_conn">
+            <summary>
+            数据库连接
+            </summary>
+        </member>
+        <member name="P:AuthorityManager.Manager.Conn">
+            <summary>
+            数据库连接对象,如果外部已经连接成功,则只需要设置一下此属性即可,不再需要手动OpenDatabase()函数了
+            </summary>
+        </member>
+        <member name="F:AuthorityManager.Manager.m_trans">
+            <summary>
+            事务对象
+            </summary>
+        </member>
+        <member name="F:AuthorityManager.Manager.m_strConfigDbFile">
+            <summary>
+            数据库配置文件名
+            </summary>
+        </member>
+        <member name="M:AuthorityManager.Manager.PrintError(System.Exception,System.Type,System.Reflection.MethodBase)">
+            <summary>
+            打印错误信息
+            </summary>
+            <param name="ex"></param>
+            <param name="type"></param>
+            <param name="method"></param>
+        </member>
+        <member name="M:AuthorityManager.Manager.#ctor">
+            <summary>
+            保护的构造函数
+            </summary>
+        </member>
+        <member name="M:AuthorityManager.Manager.IsTableExist(System.String)">
+            <summary>
+            检查指定的表是否存在
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.InitDb(System.String,System.String,System.String,System.String)">
+            <summary>
+            连接数据库
+            </summary>
+            <param name="strServerName"></param>
+            <param name="strDatabaseName"></param>
+            <param name="strUserName"></param>
+            <param name="strPwd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.BeginTrans">
+            <summary>
+            开始事务
+            </summary>
+        </member>
+        <member name="M:AuthorityManager.Manager.Commit">
+            <summary>
+            提交事务
+            </summary>
+        </member>
+        <member name="M:AuthorityManager.Manager.Rollback">
+            <summary>
+            回滚事务
+            </summary>
+        </member>
+        <member name="M:AuthorityManager.Manager.ExecuteForDataTable(System.String)">
+            <summary>
+            执行Sql返回表,错误返回null
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.ExecuteScalar(System.String)">
+            <summary>
+            执行Sql返回Object,错误返回null
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.ExecuteSql(System.String)">
+            <summary>
+            执行sql返回受影响的数量
+            </summary>
+            <param name="strSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.GetInstance">
+            <summary>
+            返回单实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.OpenDatabase">
+            <summary>
+            打开数据库,配置文件名:sysinfo.ini,配置如下:
+            [数据库]
+            服务器=
+            用户名=
+            密码=
+            </summary>
+        </member>
+        <member name="M:AuthorityManager.Manager.CloseDatabase">
+            <summary>
+            关闭数据库
+            </summary>
+        </member>
+        <member name="F:AuthorityManager.Manager.AUTHORITY_TABLE_LIST">
+            <summary>
+            权限配置清单表,默认为"权限清单"
+            </summary>
+        </member>
+        <member name="F:AuthorityManager.Manager.AUTHORITY_TABLE_DETAIL">
+            <summary>
+            权限明细表,默认为"权限明细"
+            </summary>
+        </member>
+        <member name="M:AuthorityManager.Manager.InitializeTable">
+            <summary>
+            初始化表,以备进行数据查询,如果表不存在,则创建之
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.CreateTable">
+            <summary>
+            创建数据表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.CreateTable(System.String,System.String)">
+            <summary>
+            创建一个表,如果存在,则直接返回
+            </summary>
+            <param name="strSql"></param>
+            <param name="strTableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.AddAuthority(System.String,System.Int64,System.String)">
+            <summary>
+            添加权限名称
+            </summary>
+            <param name="strName"></param>
+            <param name="ParentID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.EditAuthority(System.Int64,System.String,System.String)">
+            <summary>
+            修改权限
+            </summary>
+            <param name="lID"></param>
+            <param name="strName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.DeleteAuthority(System.Int64)">
+            <summary>
+            删除此权限,如果其下有子权限,亦删除之
+            </summary>
+            <param name="lID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.GetAllAuthority">
+            <summary>
+            查询所有权限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.GetAllMainAuthority">
+            <summary>
+            查询所有父ID为0的主权限
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.GetAllAuthority(System.Int64)">
+            <summary>
+            查询此ID下的所有权限
+            </summary>
+            <param name="lID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.GetAuthority(System.Int64)">
+            <summary>
+            查询此ID对应的权限
+            </summary>
+            <param name="lID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.GetUserAuthority(System.Int64)">
+            <summary>
+            查询某用户的所有权限,返回 ID, ParentID, 名称, 操作员ID,拥有权限
+            </summary>
+            <param name="lID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.SaveUserAuthority(System.Int64,System.Int64,System.Boolean)">
+            <summary>
+            保存用户指定的权限
+            </summary>
+            <param name="lID"></param>
+            <param name="lAuthorityID"></param>
+            <param name="bHas"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.ShowSetup(System.Data.OleDb.OleDbConnection)">
+            <summary>
+            显示权限设置窗口,如果连接为空,则启动内部的数据库连接操作
+            </summary>
+            <param name="conn"></param>
+        </member>
+        <member name="M:AuthorityManager.Manager.ShowUserSetup(System.Data.OleDb.OleDbConnection,System.Int64,System.String)">
+            <summary>
+            显示用户权限设置窗口
+            </summary>
+            <param name="conn">数据库连接,如果为null,则启用内部的数据库连接操作</param>
+            <param name="lID">操作员ID</param>
+            <param name="strUser">用户姓名</param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.CopyPower(System.Int64,System.Int64)">
+            <summary>
+            复制权限
+            </summary>
+            <param name="lSourceOperatorID"></param>
+            <param name="lDescOperatorID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.Manager.CopyPower(System.Data.OleDb.OleDbConnection,System.Int64,System.Int64)">
+            <summary>
+            复制权限
+            </summary>
+            <param name="conn"></param>
+            <param name="lSourceOperatorID"></param>
+            <param name="lDescOperatorID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AuthorityManager.SlcIni">
+            <summary>
+            API的INI操作为非静态函数
+            IniWriteValue
+            IniReadValue
+            IniWriteInt
+            IniReadInt
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:AuthorityManager.SlcIni.#ctor(System.String)">
+            <summary>
+            INIFile Constructor.
+            </summary>
+            <PARAM name="INIPath"></PARAM>
+        </member>
+        <member name="M:AuthorityManager.SlcIni.IniAppPath">
+            <summary>
+            返回当前程序目录,例如d:\\app\\
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AuthorityManager.SlcIni.IniWriteValue(System.String,System.String,System.String)">
+            <summary>
+            Write Data to the INI File
+            </summary>
+            <PARAM name="Section"></PARAM>
+            Section name
+            <PARAM name="Key"></PARAM>
+            Key Name
+            <PARAM name="Value"></PARAM>
+            Value Name
+        </member>
+        <member name="M:AuthorityManager.SlcIni.IniReadValue(System.String,System.String)">
+            <summary>
+            Read Data Value From the Ini File
+            </summary>
+            <PARAM name="Section"></PARAM>
+            <PARAM name="Key"></PARAM>
+            <PARAM name="Path"></PARAM>
+            <returns></returns>
+        </member>
+        <member name="T:AuthorityManager.TriStateTreeView">
+            ----------------------------------------------------------------------------------------
+            <summary>
+            A tree view with tri-state check boxes
+            </summary>
+            <remarks>
+            REVIEW: If we want to have icons in addition to the check boxes, we probably have to 
+            set the icons for the check boxes in a different way. The windows tree view control
+            can have a separate image list for states.
+            </remarks>
+            ----------------------------------------------------------------------------------------
+        </member>
+        <member name="T:AuthorityManager.TriStateTreeView.CheckState">
+            <summary>
+            The check state
+            </summary>
+            <remarks>The states corresponds to image index</remarks>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.CheckState.GreyChecked">
+            <summary>greyed out</summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.CheckState.Unchecked">
+            <summary>Unchecked</summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.CheckState.Checked">
+            <summary>Checked</summary>
+        </member>
+        <member name="T:AuthorityManager.TriStateTreeView.TV_HITTESTINFO">
+            <summary></summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TV_HITTESTINFO.pt">
+            <summary>Client coordinates of the point to test.</summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TV_HITTESTINFO.flags">
+            <summary>Variable that receives information about the results of a hit test.</summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TV_HITTESTINFO.hItem">
+            <summary>Handle to the item that occupies the point.</summary>
+        </member>
+        <member name="T:AuthorityManager.TriStateTreeView.TVHit">
+            <summary>Hit tests for tree view</summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TVHit.NoWhere">
+            <summary>In the client area, but below the last item.</summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TVHit.OnItemIcon">
+            <summary>On the bitmap associated with an item.</summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TVHit.OnItemLabel">
+            <summary>On the label (string) associated with an item.</summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TVHit.OnItemIndent">
+            <summary>In the indentation associated with an item.</summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TVHit.OnItemButton">
+            <summary>On the button associated with an item.</summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TVHit.OnItemRight">
+            <summary>In the area to the right of an item. </summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TVHit.OnItemStateIcon">
+            <summary>On the state icon for a tree-view item that is in a user-defined state.</summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TVHit.OnItem">
+            <summary>On the bitmap or label associated with an item. </summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TVHit.Above">
+            <summary>Above the client area. </summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TVHit.Below">
+            <summary>Below the client area.</summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TVHit.ToRight">
+            <summary>To the right of the client area.</summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TVHit.ToLeft">
+            <summary>To the left of the client area.</summary>
+        </member>
+        <member name="T:AuthorityManager.TriStateTreeView.TreeViewMessages">
+            <summary></summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TreeViewMessages.TV_FIRST">
+            <summary></summary>
+        </member>
+        <member name="F:AuthorityManager.TriStateTreeView.TreeViewMessages.TVM_HITTEST">
+            <summary></summary>
+        </member>
+        <member name="M:AuthorityManager.TriStateTreeView.SendMessage(System.IntPtr,AuthorityManager.TriStateTreeView.TreeViewMessages,System.Int32,AuthorityManager.TriStateTreeView.TV_HITTESTINFO@)">
+            <summary></summary>
+        </member>
+        <member name="M:AuthorityManager.TriStateTreeView.#ctor">
+            ------------------------------------------------------------------------------------
+            <summary>
+            Initializes a new instance of the <see cref="T:AuthorityManager.TriStateTreeView"/> class.
+            </summary>
+            ------------------------------------------------------------------------------------
+        </member>
+        <member name="M:AuthorityManager.TriStateTreeView.Dispose(System.Boolean)">
+            -----------------------------------------------------------------------------------
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged 
+            resources; <c>false</c> to release only unmanaged resources. 
+            </param>
+            -----------------------------------------------------------------------------------
+        </member>
+        <member name="M:AuthorityManager.TriStateTreeView.InitializeComponent">
+            -----------------------------------------------------------------------------------
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+            -----------------------------------------------------------------------------------
+        </member>
+        <member name="M:AuthorityManager.TriStateTreeView.OnClick(System.EventArgs)">
+            ------------------------------------------------------------------------------------
+            <summary>
+            Called when the user clicks on an item
+            </summary>
+            <param name="e"></param>
+            ------------------------------------------------------------------------------------
+        </member>
+        <member name="M:AuthorityManager.TriStateTreeView.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            ------------------------------------------------------------------------------------
+            <summary>
+            Toggle item if user presses space bar
+            </summary>
+            <param name="e"></param>
+            ------------------------------------------------------------------------------------
+        </member>
+        <member name="M:AuthorityManager.TriStateTreeView.CheckNode(System.Windows.Forms.TreeNode,AuthorityManager.TriStateTreeView.CheckState)">
+            ------------------------------------------------------------------------------------
+            <summary>
+            Checks or unchecks all children
+            </summary>
+            <param name="node"></param>
+            <param name="state"></param>
+            ------------------------------------------------------------------------------------
+        </member>
+        <member name="M:AuthorityManager.TriStateTreeView.ChangeParent(System.Windows.Forms.TreeNode)">
+            ------------------------------------------------------------------------------------
+            <summary>
+            Called after a node changed its state. Has to go through all direct children and
+            set state based on children's state.
+            </summary>
+            <param name="node">Parent node</param>
+            ------------------------------------------------------------------------------------
+        </member>
+        <member name="M:AuthorityManager.TriStateTreeView.ChangeNodeState(System.Windows.Forms.TreeNode)">
+            ------------------------------------------------------------------------------------
+            <summary>
+            Handles changing the state of a node
+            </summary>
+            <param name="node"></param>
+            ------------------------------------------------------------------------------------
+        </member>
+        <member name="M:AuthorityManager.TriStateTreeView.InternalSetChecked(System.Windows.Forms.TreeNode,AuthorityManager.TriStateTreeView.CheckState)">
+            ------------------------------------------------------------------------------------
+            <summary>
+            Sets the checked state of a node, but doesn't deal with children or parents
+            </summary>
+            <param name="node">Node</param>
+            <param name="state">The new checked state</param>
+            ------------------------------------------------------------------------------------
+        </member>
+        <member name="M:AuthorityManager.TriStateTreeView.GetChecked(System.Windows.Forms.TreeNode)">
+            ------------------------------------------------------------------------------------
+            <summary>
+            Gets the checked state of a node
+            </summary>
+            <param name="node">Node</param>
+            <returns>The checked state</returns>
+            ------------------------------------------------------------------------------------
+        </member>
+        <member name="M:AuthorityManager.TriStateTreeView.SetChecked(System.Windows.Forms.TreeNode,AuthorityManager.TriStateTreeView.CheckState)">
+            ------------------------------------------------------------------------------------
+            <summary>
+            Sets the checked state of a node
+            </summary>
+            <param name="node">Node</param>
+            <param name="state">The new checked state</param>
+            ------------------------------------------------------------------------------------
+        </member>
+    </members>
+</doc>

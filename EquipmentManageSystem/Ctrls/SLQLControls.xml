@@ -1,0 +1,1547 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SLQLControls</name>
+    </assembly>
+    <members>
+        <member name="T:SLQLControls.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.保存32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.删除32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.删除图标">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.删除图标24">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.刷新18">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.刷新32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.刷新图标22">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.刷新图标24">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.前单图标24">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.后单图标24">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.向上箭头">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.向下箭头">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.向前32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.向后32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.复制新增32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.复制新增图标24">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.复制新增图标241">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.定位18">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.定位图标22">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.帮助32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.帮助图标24">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.新增32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.新增图标24">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.新增图标241">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.查找32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.查找321">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.查找图标24">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.查询1818">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.查询图标22">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.科目详情32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.筛选图标18">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.筛选图标22">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.菜单图标">
+            <summary>
+              查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.过滤18">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.退出32">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.Properties.Resources.退出图标24">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="T:SLQLControls.公用类.SlcEditableDataTable">
+            <summary>
+            可在线编辑DataTable，继承于DataTable
+            </summary>
+            <example>
+            </example>	
+        </member>
+        <member name="M:SLQLControls.公用类.SlcEditableDataTable.Dispose(System.Boolean)">
+            <summary>
+            释放对象
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcEditableDataTable.SlcEditableDataTable_RowDeleting(System.Object,System.Data.DataRowChangeEventArgs)">
+            <summary>
+            将要删除某行时触发
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcEditableDataTable.SlcEditableDataTable_RowDeleted(System.Object,System.Data.DataRowChangeEventArgs)">
+            <summary>
+            删除完毕后触发　
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcEditableDataTable.SlcEditableDataTable_RowChanged(System.Object,System.Data.DataRowChangeEventArgs)">
+            <summary>
+            添加，修改时触发
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcEditableDataTable.GetFlag(System.Data.DataRow)">
+            <summary>
+            返回当前row的flag;
+            </summary>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcEditableDataTable.GetIndex(System.Data.DataRow)">
+            <summary>
+            返回当前行中包含的索引
+            </summary>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcEditableDataTable.SetFlag(System.Data.DataRow,System.String,System.Int32)">
+            <summary>
+            给DataRow添加标志及索引
+            </summary>
+            <param name="dr"></param>
+            <param name="strFlag"></param>
+            <param name="nIdx"></param>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcEditableDataTable.SetFlag(System.Data.DataRow,System.String)">
+            <summary>
+            设置标志位
+            </summary>
+            <param name="dr"></param>
+            <param name="strFlag"></param>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcEditableDataTable.GetFlag(System.String,System.Int32)">
+            <summary>
+             构造flag+索引
+            </summary>
+            <param name="nFlag"></param>
+            <param name="nIdx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcEditableDataTable.InitTable">
+            <summary>
+            初始化表，在数据填充完毕后，必须调用
+            复制原始表数据表备份表中
+            </summary>
+        </member>
+        <member name="P:SLQLControls.公用类.SlcEditableDataTable.AddedTable">
+            <summary>
+            返回DataTable, 包含当前表中新添加行
+            </summary>
+        </member>
+        <member name="P:SLQLControls.公用类.SlcEditableDataTable.EditedTable">
+            <summary>
+            返回DataTable, 包含当前表中修改的行
+            </summary>
+        </member>
+        <member name="P:SLQLControls.公用类.SlcEditableDataTable.DeletedTable">
+            <summary>
+            返回DataTable, 包含当前表中修改的行
+            </summary>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcQLPublic.DataGridViewInitBlankRows(SLControls.SLDbService.ISLDbEngine,System.Windows.Forms.DataGridView,System.String,System.Int32)">
+            <summary>
+            初始化GridView为指定的行数,如果查询出来数据,则补足指定的行
+            DataSource为SlcEditableDataTable类型
+            <param name="grid">DevGrid控件</param>
+            <param name="strSql">填充Grid控件的Sql语句, 格式:"select .... from ... where ... ={0}"</param>
+            <param name="oQueryValue">上面Sql语句中的传递参数,如果是新增,请传递0即可(即在数据库中找不到值)</param>
+            <param name="nCount">指定初始化的行数</param>
+            </summary>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcQLPublic.CheckTran">
+            <summary>
+            检查事务正在执行
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcQLPublic.MsgConfirmSave(System.String)">
+            <summary>
+            是否保存提示。保存返回YES，不保存返回NO，取消返回Cancel。
+            </summary>
+            <param name="strText">提示字符串</param>
+            <returns>保存返回YES，不保存返回NO，取消返回Cancel。显示默认提示“数据已更改，是否保存？”。</returns>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcQLPublic.MsgConfirmSave">
+            <summary>
+            是否保存提示。保存返回YES，不保存返回NO，取消返回Cancel。显示默认提示“数据已更改，是否保存？”。
+            </summary>
+            <returns>保存返回YES，不保存返回NO，取消返回Cancel。显示默认提示“数据已更改，是否保存？”。</returns>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcQLPublic.MsgError(System.String)">
+            <summary>
+            错误提示
+            </summary>
+            <param name="strText"></param>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcQLPublic.MsgWarning(System.String)">
+            <summary>
+            警告提示
+            </summary>
+            <param name="strText"></param>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcQLPublic.MsgInformation(System.String)">
+            <summary>
+            信息提示
+            </summary>
+            <param name="strText"></param>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcQLPublic.MsgSuccess(System.String)">
+            <summary>
+            成功提示
+            </summary>
+            <param name="strText"></param>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcQLPublic.MsgQuestion(System.String)">
+            <summary>
+            询问提示
+            </summary>
+            <param name="strText"></param>
+            <returns>true,表示确认, false-表示取消</returns>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcQLPublic.StringToInt(System.String,System.Int32)">
+            <summary>
+            将string转换为int
+            </summary>
+            <param name="str">需要转换的string</param>
+            <param name="n如果不成功需要返回的值">如果不转换成功需要返回的值</param>
+            <returns>转换成功返回转换所得值，否则返回第二个参数</returns>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcQLPublic.IsNull(System.Object,System.Object)">
+            <summary>
+            返回非null值
+            </summary>
+            <param name="ob">需判断的对象</param>
+            <param name="obReturn">如果对像为null或DBNull，返回的对象值</param>
+            <returns>如果ob为null，则返回obReturn，否则返回ob</returns>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcQLPublic.显示删除失败提示信息(System.String)">
+            <summary>
+            显示删除失败提示信息！
+            </summary>
+            <param name="ex">Sql出错实例。</param>
+        </member>
+        <member name="M:SLQLControls.公用类.SlcQLPublic.IsModifyByOther(SLControls.SLDbService.ISLDbEngine,System.String,System.String,System.String,System.Int64,System.DateTime,System.Boolean@)">
+            <summary>
+            判断数据是否已被其他人修改
+            </summary>
+            <param name="strTableName"></param>
+            <param name="strFd最后修改时间"></param>
+            <param name="strFdID"></param>
+            <param name="lID"></param>
+            <param name="dtShowTime"></param>
+            <param name="bFind"></param>
+            <returns></returns>
+        </member>
+        <member name="P:SLQLControls.公用类.SlcGetSave列配置信息.TableName">
+            <summary>
+            列配置表的名字，默认为"列配置"
+            </summary>
+        </member>
+        <member name="P:SLQLControls.公用类.SlcGetSave列配置信息.MarkFieldName">
+            <summary>
+            列配置表标识列的名字，默认为"配置名称"
+            </summary>
+        </member>
+        <member name="P:SLQLControls.公用类.SlcGetSave列配置信息.ConfigFieldName">
+            <summary>
+            列配置表配置信息列的名字，默认为"配置信息"
+            </summary>
+        </member>
+        <member name="P:SLQLControls.公用类.SlcGetSave列配置信息.OperIdFieldName">
+            <summary>
+            列配置表操作员ID列的名字，默认为"操作员ID"
+            </summary>
+        </member>
+        <member name="M:SLQLControls.公用类.Slc单据状态类型转换.GetEnumFromInt(System.Int32)">
+            <summary>
+            根据Int型单据状态得到Enum型单据状态。
+            </summary>
+            <param name="n单据状态">Int型单据状态</param>
+            <returns>Enum型单据状态</returns>
+        </member>
+        <member name="M:SLQLControls.公用类.Slc单据状态类型转换.GetEnumFromString(System.String)">
+            <summary>
+            根据String型单据状态得到Enum型单据状态。
+            </summary>
+            <param name="n单据状态">String型单据状态</param>
+            <returns>Enum型单据状态</returns>
+        </member>
+        <member name="P:SLQLControls.控件.控件公用类.SLDataGridView.EmployeeName">
+            <summary>
+            职员姓名
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SLDataGridView.FindColumn(System.String)">
+            <summary>
+            根据列名查找DataGridViewColumn，找到返回true。
+            </summary>
+            <param name="colName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SLDataGridView.GetColumnByColName(System.String)">
+            <summary>
+            根据列名查找DataGridViewColumn，没找到返回null。
+            </summary>
+            <param name="colName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SLDataGridView.SLDataGridView_MouseClick(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            右键选中
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SLDataGridView.SLDataGridView_Leave(System.Object,System.EventArgs)">
+            <summary>
+            焦点离开时，提交对当前行的编辑。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SLDataGridView.Get列配置信息">
+            <summary>
+            得到当前的控件的列配置信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SLDataGridView.RefreshRow(System.Int64)">
+            <summary>
+            刷新某一条
+            </summary>
+            <param name="lID"></param>
+        </member>
+        <member name="F:SLQLControls.控件.控件公用类.SLDataGridView.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SLDataGridView.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SLDataGridView.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.控件.控件公用类.dlg下拉窗口.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.dlg下拉窗口.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.dlg下拉窗口.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.控件.控件公用类.SlkDataEditGrid.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SlkDataEditGrid.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SlkDataEditGrid.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:SLQLControls.控件.控件公用类.SlpInfo弹窗编辑数据">
+            <summary>
+            编辑数据时只需先配置[Type编辑窗口]属性（涉及编辑数据的操作都要选设置[TableName]属性）,
+            然后调用相应函数即可（New,CopyNew,Modify,Delete）。
+            编辑窗口的基类必须是SLAomTmpForm，创建时只需设置拉到窗口里的SLControls的属性即可，其他自动设置。
+            [ColName最后修改时间]、[FieldName最后修改时间]属性要求数据库表中有一个DateTime类型的[最后修改时间]字段，
+            它是用来保存数据时判断该条数据是否已在该编辑窗口打开时被其他人员修改了，如果已修改会给予相应提示。
+            [FieldName不能删除]属性要求数据库表中有一个Bit类型的[不能删除]字段，[不能删除]字段为真时，系统会不能删除该条数据。
+            [FieldName不能修改]属性要求数据库表中有一个Bit类型的[不能修改]字段，[不能修改]字段为真时，系统会不能修改该条数据。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SlkDataInsert.Confirm约束列(SLQLControls.控件.控件公用类.SLDataGridView)">
+            <summary>
+            判断明细表的每个有效行是否符合约束条件
+            </summary>
+            <param name="nGirdIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SlkDataInsert.Confirm约束列(SLQLControls.控件.SLDevGridControl)">
+            <summary>
+            判断明细表的每个有效行是否符合约束条件
+            </summary>
+            <param name="nGirdIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="F:SLQLControls.控件.控件公用类.SlkDataInsert.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SlkDataInsert.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SlkDataInsert.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SlkDataSelect.RefreshRow(SLControls.SLDbService.ISLDbEngine,System.Windows.Forms.Control,System.Int64)">
+            <summary>
+            刷新某一条
+            </summary>
+            <param name="lID"></param>
+        </member>
+        <member name="F:SLQLControls.控件.控件公用类.SlkDataSelect.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SlkDataSelect.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SlkDataSelect.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:SLQLControls.控件.控件公用类.SlpInfoDataSelect">
+            <summary>
+            查询数据时只需先配置[Sql查询]属性，然后调用[RefeshData]函数即可查询出数据。
+            数据库ID列名不是ID时设置[ColNameID][FieldNameID]属性。
+            [SqlSelTop1]属性即查询第一条数据的Sql语句，
+            [SqlSelByID]即根据ID查询特定行的Sql语句（形如“SELECT * FROM TableName WHERE ID={0}”），
+            两个属性是根据[Sql查询]属性生成的，你可以使用。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.控件.控件公用类.SlkStopGrid.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SlkStopGrid.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SlkStopGrid.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:SLQLControls.控件.控件公用类.SlpInfoStop">
+            <summary>
+            使用停用启用功能时，需要数据库表中有一个Bit类型的[停用]字段（并且要查询到DataTable中），
+            需要提前设置[TableName]属性。
+            使用不涉及同时停启用功能的停启用时，只需设置[FieldName停用][ColName停用]即可。
+            使用涉及同时停启用功能的停启用时，还需要设置[Info高级设置]属性（详见[SlpInfoStopHigh]）。
+            </summary>
+        </member>
+        <member name="T:SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息">
+            <summary>
+            停启用时需要同时停启用相关信息。
+            需要同时停用相关信息时设置[Info同时停用的表信息]属性，该属性设置后停用时会同时停用相关数据
+            （如停用一个地区时，会同时停用属于这一地区的所有往来单位。）；
+            再设置[停用时提示信息]属性，同时用户停用该数据时会同时停用其他相关数据。
+            （如“停用该地区时，会同时停用属于该地区的属于往来单位。确实要停用么？”）
+            需要同时启用相关信息时设置[Info同时启用的表信息]属性，该属性设置后启用时会同时启用相关数据
+            （如启用一个地区时，会同时启用属于这一地区的所有往来单位。）。
+            再设置[启用时提示信息]属性，同时用户启用该数据时会同时启用其他相关数据。
+            （如“启用该地区时，会同时启用属于该地区的属于往来单位。确实要启用么？”）
+            </summary>
+        </member>
+        <member name="T:SLQLControls.控件.控件公用类.SlpInfoStop启用前判断">
+            <summary>
+            有时启用时需要判断该数据的上级数据是否停用，上级数据停用的话，就不能启用。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.控件.控件公用类.SlkStopTree.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SlkStopTree.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.控件.控件公用类.SlkStopTree.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.控件.SLButton下拉.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.SLButton下拉.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.控件.SLButton下拉.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:SLQLControls.控件.SLContextMenuStrip列配置">
+            <summary>
+            列配置右键菜单。
+            功能：自动显示右键菜单，实现了列配置功能。
+            可以使用公共函数“ShowColBy列配置”，按列配置信息显示控件列。一般DataSourceChanged时调用。
+            使用属性‘SLInfo列配置’设置和得到列配置信息，需要往下继承时可以公开该属性。
+            用法：将该控件拖入要列配置的窗口或控件中，
+            使用前配置属性‘SLParentControl’（支持DataGridView，GridControl，GridView，TreeList）；
+            DataSourceChanged调用公共函数“ShowColBy列配置；
+            需要往下继承时可以公开该属性，或将‘SLContextMenuStrip列配置’控件公开。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.SLContextMenuStrip列配置.ShowColBy列配置">
+            <summary>
+            按列配置信息显示。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.SLContextMenuStrip列配置.Get列配置信息">
+            <summary>
+            得到当前的控件的列配置信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:SLQLControls.控件.SLContextMenuStrip列配置.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.SLContextMenuStrip列配置.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.控件.SLContextMenuStrip列配置.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="E:SLQLControls.控件.SLDevGridControl.Before检查有效明细">
+            <summary>
+            主要针对有效列中,排除特殊的明细(比如拉水的单价可以为0,不是拉水的则必须大于0)
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.EmployeeName">
+            <summary>
+            职员姓名
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.ShowFooter">
+            <summary>
+            显示页脚
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.AllowSort">
+            <summary>
+            允许排序
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.AllowEdit">
+            <summary>
+            允许编辑
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.ControlSkin">
+            <summary>
+            皮肤
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.ColumnHeight">
+            <summary>
+            列高
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.ColumnBackColor">
+            <summary>
+            列背景色
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.ColumnForeColor">
+            <summary>
+            列前景色
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.ColumnFont">
+            <summary>
+            列字体
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.RowHeight">
+            <summary>
+            行高
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.RowBackColor">
+            <summary>
+            行背景色
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.RowForeColor">
+            <summary>
+            行前景色
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.RowFont">
+            <summary>
+            行字体
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.BandHeight">
+            <summary>
+            Band高度
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.BandBackColor">
+            <summary>
+            Band背景色
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.BandForeColor">
+            <summary>
+            Band前景色
+            </summary>
+        </member>
+        <member name="P:SLQLControls.控件.SLDevGridControl.BandFont">
+            <summary>
+            Band字体
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.InitBand(DevExpress.XtraGrid.Views.BandedGrid.GridBand,SLQLControls.控件.Band,DevExpress.XtraGrid.Views.BandedGrid.BandedGridView)">
+            <summary>
+            band必须在有数据源前赋值（band的Column必须在数据源后赋值）
+            </summary>
+            <param name="gridBand"></param>
+            <param name="band"></param>
+            <param name="bandedGridView"></param>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.SetColumnDisplayFormate(System.String,System.String,DevExpress.Utils.FormatType)">
+            <summary>
+            列格式化设置
+            </summary>
+            <param name="column">列名</param>
+            <param name="formatString"></param>
+            <param name="formatType"></param>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.SetSummaryItem(System.String,System.String,DevExpress.Data.SummaryItemType)">
+            <summary>
+            设置合计项
+            </summary>
+            <param name="Column"></param>
+            <param name="summaryFormatString"></param>
+            <param name="summaryItemType"></param>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.SLDevGridControl_MouseClick(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            右键选中
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.SLDevGridControl_Leave(System.Object,System.EventArgs)">
+            <summary>
+            焦点离开时，提交对当前行的编辑。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.SLGet列配置信息">
+            <summary>
+            得到当前的控件的列配置信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.Get列配置">
+            <summary>
+            SLDevGridControl的cs属性已赋值。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.Get列配置(SLControls.SLDbService.ISLDbEngine,System.Int64)">
+            <summary>
+            SLDevGridControl的cs属性未赋值。
+            </summary>
+            <param name="de"></param>
+            <param name="lCurUserID"></param>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.Save列配置">
+            <summary>
+            SLDevGridControl的cs属性已赋值。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.Save列配置(SLControls.SLDbService.ISLDbEngine)">
+            <summary>
+            SLDevGridControl的cs属性未赋值。
+            </summary>
+            <param name="de"></param>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.RefreshRow(System.Int64)">
+            <summary>
+            刷新某一条
+            </summary>
+            <param name="lID"></param>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.FindLike(System.String)">
+            <summary>
+            模糊查询，只包括字符串型列。
+            </summary>
+            <param name="strText"></param>
+            <returns>找到的那一行的RowHandle，找不到返回-1</returns>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.FindLikeByColValue(System.String,System.String)">
+            <summary>
+            对某一字符串型列执行Like查询。
+            </summary>
+            <param name="colName"></param>
+            <param name="strText"></param>
+            <returns>找到的那一行的RowHandle，找不到返回-1</returns>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.ClearRow(System.Int32)">
+            <summary>
+            把某行数据设为DbNull.Value.
+            </summary>
+            <param name="nRowHandle">该行的RowHandle，-1表示清空全部数据。</param>
+        </member>
+        <member name="F:SLQLControls.控件.SLDevGridControl.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.控件.SLDevGridControl.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.控件.SLSelFlatButton.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.SLSelFlatButton.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.控件.SLSelFlatButton.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.控件.SL分页按钮.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.SL分页按钮.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.控件.SL分页按钮.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.控件.控件共用类.dlg修改列标题.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.控件共用类.dlg修改列标题.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.控件.控件共用类.dlg修改列标题.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.控件.控件共用类.dlg显示隐藏列.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.控件.控件共用类.dlg显示隐藏列.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.控件.控件共用类.dlg显示隐藏列.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.新界面.SlcUIHelper.InitWhenFormActiveAction(System.Action{Messir.Windows.Forms.TabStripButton})">
+            <summary>
+            当窗口激活时发生
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:SLQLControls.新界面.SlcUIHelper.InitWhenFormAShownAction(System.Action{Messir.Windows.Forms.TabStripButton})">
+            <summary>
+            当窗口显示时发生
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="F:SLQLControls.模板.dlg单据编号查找.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.dlg单据编号查找.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.dlg单据编号查找.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.dlg审核按钮.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.dlg审核按钮.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.dlg审核按钮.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.模板.dlg帮助.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.dlg帮助.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.dlg帮助.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SLQLControls.模板.dlg帮助.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.dlg打印.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.dlg打印.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.dlg打印.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.dlg查找.SetGridViewFocusedRow(DevExpress.XtraGrid.Views.Grid.GridView,System.Int32)">
+            <summary>
+            设置焦点行，设置可多选时也可以高亮显示
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="F:SLQLControls.模板.dlg查找.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.dlg查找.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.dlg查找.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.SlcDlgMdiForm.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.SlcDlgMdiForm.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.SlcDlgMdiForm.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准单据审批.m_b只读">
+            <summary>
+            是否用户修改窗口内容的
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准单据审批.CurBillStatusChanged">
+            <summary>
+            窗口状态改变时
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准单据审批.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准单据审批.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准单据审批.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准基本信息DataGridView.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准基本信息DataGridView.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准基本信息DataGridView.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准基本信息GridControl.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准基本信息GridControl.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准基本信息GridControl.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.模板.temp标准报表DataGridView.EmployeeName">
+            <summary>
+            职员姓名
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准报表DataGridView.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准报表DataGridView.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准报表DataGridView.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准编辑DataGridView.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准编辑DataGridView.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准编辑DataGridView.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准编辑GridControl.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准编辑GridControl.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准编辑GridControl.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准选择窗口.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准选择窗口.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准选择窗口.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准选择窗口DataGridView.Filter">
+            <summary>
+            过滤。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准选择窗口DataGridView.ReturnSelectedRow">
+            <summary>
+            返回选中的DataRow。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准选择窗口DataGridView.ReturnNewRow">
+            <summary>
+            Tag返回一个空DataRow。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准选择窗口DataGridView.m_oldSelRowIndexs">
+            <summary>
+            上次打开该窗口时选中的DataRow的Index
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准选择窗口DataGridView.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准选择窗口DataGridView.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准选择窗口DataGridView.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准选择窗口GridControl.Filter">
+            <summary>
+            过滤。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准选择窗口GridControl.ReturnSelectedRow">
+            <summary>
+            返回选中的DataRow。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准选择窗口GridControl.ReturnNewRow">
+            <summary>
+            Tag返回一个空DataRow。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准选择窗口GridControl.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准选择窗口GridControl.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准选择窗口GridControl.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.dlg筛选.GetFilterString(System.String)">
+            <summary>
+            把字符串转义
+            [ -> [[], ] -> [}], * -> [*], % ->[%]
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SLQLControls.模板.dlg筛选.GetStrFilter(SLQLControls.模板.列名类型)">
+            <summary>
+            得到筛选字符串
+            </summary>
+            <param name="selInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="F:SLQLControls.模板.dlg筛选.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.dlg筛选.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.dlg筛选.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.SlcDlgMdiBillForm.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.SlcDlgMdiBillForm.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.SlcDlgMdiBillForm.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.SlcDlgMdiChildForm.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.SlcDlgMdiChildForm.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.SlcDlgMdiChildForm.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准单据.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准单据.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准单据.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:SLQLControls.模板.temp标准报表">
+            <summary>
+            使用时配置一下‘MainControl’属性即可。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准报表.SetPower">
+            <summary>
+            load时调用
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准报表.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准报表.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准报表.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="P:SLQLControls.模板.temp标准报表GridControl.EmployeeName">
+            <summary>
+            职员姓名
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准报表GridControl.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准报表GridControl.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准报表GridControl.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp通用单据.m_bFormChanged">
+            <summary>
+            用户是否修改了窗口内容
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp通用单据.m_l要查看的单据ID">
+            <summary>
+            要查看的单据ID
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp通用单据.SetPower">
+            <summary>
+            每次状态改变时调用
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp通用单据.GetEnableFalseControls(System.Windows.Forms.Control)">
+            <summary>
+            开始时把控件设为只读。
+            </summary>
+            <param name="parentControl"></param>
+        </member>
+        <member name="F:SLQLControls.模板.temp通用单据.m_arrayGridControl">
+            <summary>
+            窗口内包含的GridControl控件
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp通用单据.m_arrayDataGridView">
+            <summary>
+            窗口内包含的DataGridView控件
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp通用单据.GetGrid(System.Windows.Forms.Control)">
+            <summary>
+            得到窗口内的所有明细控件.
+            </summary>
+            <param name="parentControl"></param>
+        </member>
+        <member name="M:SLQLControls.模板.temp通用单据.Set插入时单头">
+            <summary>
+            插入是填写制单人，制单时间，单号。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp通用单据.SetFormNew">
+            <summary>
+            设置窗口为新增状态
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp通用单据.SetFormCopyNew">
+            <summary>
+            设置窗口为复制新增状态
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp通用单据.PromptSave">
+            <summary>
+            提示保存。false就return。修改，新增触发，只读不触发。
+            </summary>
+            <returns>保存不成功、用户返回原窗口返回false。保存成功、用户不保存返回true。</returns>
+        </member>
+        <member name="F:SLQLControls.模板.temp通用单据.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp通用单据.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.temp通用单据.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准单据审核审批.Set插入时单尾">
+            <summary>
+            插入时清空审核审批人
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准单据审核审批.m_b只读">
+            <summary>
+            是否用户修改窗口内容的
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准单据审核审批.CurBillStatusChanged">
+            <summary>
+            窗口状态改变时
+            </summary>
+        </member>
+        <member name="F:SLQLControls.模板.temp标准单据审核审批.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准单据审核审批.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SLQLControls.模板.temp标准单据审核审批.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+    </members>
+</doc>
