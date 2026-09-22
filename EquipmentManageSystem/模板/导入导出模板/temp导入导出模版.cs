@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,9 +37,10 @@ namespace EquipmentManageSystem.模板.导入导出模板
         public string TableName { get; set; }
 
         [Category("导入")]
-        [DisplayName("导入模版")]
-        [Description("Excel导入模版")]
-        public List<ExcelTemplate> ExcelTemplates { get; set; }
+        [DisplayName("导入配置")]
+        [Description("Excel导入模版配置，外表信息为空默认直接将表数据插入数据库")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public List<ExcelTemplate> ExcelTemplates { get; set; } = new List<ExcelTemplate>();
 
         [Category("导入")]
         [DisplayName("是否启用")]
@@ -50,6 +51,12 @@ namespace EquipmentManageSystem.模板.导入导出模板
         [DisplayName("是否启用")]
         [Description("是否开启导出功能")]
         public bool OutEnabled { get; set; } = false;
+
+        [Category("导出")]
+        [DisplayName("额外字段")]
+        [Description("导出时额外添加的字段，在导出数据中添加列")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        public List<ExportField> ExtraFields { get; set; } = new List<ExportField>();
 
 
         /// <summary>
@@ -86,7 +93,7 @@ namespace EquipmentManageSystem.模板.导入导出模板
         {
             if(this.page导出页面 == null)
             {
-                this.page导出页面 = new UserControl数据导出(this.OutData,this.TableName);
+                this.page导出页面 = new UserControl数据导出(this.OutData,this.ExtraFields,this.TableName);
                 this.page导出页面.Dock = DockStyle.Fill;
                 this.panel内容区.Controls.Add(this.page导出页面);
             }

@@ -1,4 +1,5 @@
-﻿﻿﻿﻿﻿using SLControls.SLGlobal;
+﻿using EquipmentManageSystem.Utils;
+using SLControls.SLGlobal;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -200,7 +201,7 @@ namespace EquipmentManageSystem.模板.导入导出模板
 
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Excel 文件|*.xlsx";
-            sfd.FileName = "导入模版.xlsx";
+            sfd.FileName = this.TableName + "导入模版.xlsx";
 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
@@ -350,8 +351,8 @@ namespace EquipmentManageSystem.模板.导入导出模板
                         }
                         else if (!string.IsNullOrEmpty(storeInfo.ForeignTable))
                         {// 如果外表有值，说明该字段需要去其他表查询数据 
-                            object conditionValue = ConvertRawValueByType(rawValue, storeInfo.ConditionFieldType);
-                            string formattedCondition = FormatSqlValue(conditionValue);
+                            object conditionValue = SqlCommonUtil.ConvertRawValueByType(rawValue, storeInfo.ConditionFieldType);
+                            string formattedCondition = SqlCommonUtil.FormatSqlValue(conditionValue);
                             string sql = string.Format("select {0} from {1} where {2} = {3}",
                                 storeInfo.ForeignTableStoreField,
                                 storeInfo.ForeignTable,
@@ -361,23 +362,31 @@ namespace EquipmentManageSystem.模板.导入导出模板
                         }
                         else
                         { //直接存储值
-                            finalValue = ConvertRawValueByType(rawValue, storeInfo.FieldType);
+                            finalValue = SqlCommonUtil.ConvertRawValueByType(rawValue, storeInfo.FieldType);
                         }
                         fields.Add(storeField);
-                        values.Add(FormatSqlValue(finalValue));
+                        values.Add(SqlCommonUtil.FormatSqlValue(finalValue));
                     }
 
                     string insertSql = $"insert into {this.TableName} ({string.Join(",", fields)}) " +
                                        $"values ({string.Join(",", values)})";
-                    services.ExecuteSql(insertSql);
-                    successCount++;
+
+                    MessageBox.Show(insertSql);
+
+                    int rowsAffected = services.ExecuteSql(insertSql);
+                    if (rowsAffected > 0)
+                        successCount++;
+                    else
+                    {
+                        MessageBox.Show($"第{i + 1}行数据导入失败，请检查数据格式和完整性。");
+                        return;
+                    }
 
                     // 更新进度
                     this.progressBar导入进度条.Value = successCount;
                     this.label具体进度.Text = $"{successCount * 100 / totalRows}%";
                     Application.DoEvents(); // 强制刷新UI
 
-                    System.Threading.Thread.Sleep(2000);
                 }
                 // 导入完成，进度置为100%
                 this.progressBar导入进度条.Value = totalRows;
@@ -395,54 +404,5 @@ namespace EquipmentManageSystem.模板.导入导出模板
             this.button确认导入.Enabled = true;//打开确认按钮
         }
 
-    
-        /// <summary>
-        /// 按类型格式化 SQL 值（数字不加引号，字符串加引号，NULL 不加）
-        /// </summary>
-        /// <param name="value">初始值</param>
-        /// <returns>拼接SQL的最终值</returns>
-        private string FormatSqlValue(object value)
-        {
-            if (value == null || value == DBNull.Value)
-                return "NULL";
-            if (value is int || value is decimal || value is long || 
-                value is double || value is float || value is short || value is byte)
-                return value.ToString();  // 数字不加引号
-            return $"'{value.ToString().Replace("'", "''")}'";  // 字符串加引号
-        }
-
-        /// <summary>
-        /// 根据字段类型转换原始字符串值
-        /// </summary>
-        /// <param name="rawValue"></param>
-        /// <param name="fieldType"></param>
-        /// <returns>根据类型转换后的值，如果转换失败则返回 DBNull.Value</returns>
-        private object ConvertRawValueByType(string rawValue, StoreFieldType fieldType)
-        {
-            if (string.IsNullOrEmpty(rawValue))
-                return DBNull.Value;
-            switch (fieldType)
-            {
-                case ExcelTemplate.StoreInfo.StoreFieldType.Int:
-                    if (int.TryParse(rawValue, out int intVal))
-                        return intVal;
-                    return DBNull.Value;
-                case ExcelTemplate.StoreInfo.StoreFieldType.Decimal:
-                    if (decimal.TryParse(rawValue, out decimal decVal))
-                        return decVal;
-                    return DBNull.Value;
-                case ExcelTemplate.StoreInfo.StoreFieldType.DateTime:
-                    if (DateTime.TryParse(rawValue, out DateTime dtVal))
-                        return dtVal;
-                    return DBNull.Value;
-                case ExcelTemplate.StoreInfo.StoreFieldType.Boolean:
-                    if (rawValue == "1" || rawValue == "是" || rawValue == "true")
-                        return 1;
-                    return 0;
-                default:
-                    return rawValue;
-            }
-
-        }
     }
 }

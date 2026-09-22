@@ -22,8 +22,8 @@ namespace EquipmentManageSystem
 
 
             Application.Run(new MainForm());
-            /*Form登录界面 frmLogin = new Form登录界面();
-            if (frmLogin.ShowDialog() == DialogResult.OK)
+            Form登录界面 frmLogin = new Form登录界面();
+            /*if (frmLogin.ShowDialog() == DialogResult.OK)
             {
                 Application.Run(new MainForm());
             }*/

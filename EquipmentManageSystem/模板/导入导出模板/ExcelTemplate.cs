@@ -1,9 +1,10 @@
-﻿using System;
+﻿﻿﻿﻿﻿using System;
 using System.ComponentModel;
 using System.Data;
 
 namespace EquipmentManageSystem.模板.导入导出模板
 {
+    [TypeConverter(typeof(ExpandableObjectConverter))]
     public class ExcelTemplate
     {
         [DisplayName("Excel字段名")]
@@ -60,17 +61,8 @@ namespace EquipmentManageSystem.模板.导入导出模板
             [Description("最终需要存储到主表的外表字段名")]
             public string ForeignTableStoreField { get; set; }
 
+            [Browsable(false)]
             public Func<string, DataRow, object> ValueResolver { get; set; }// 委托：用于自定义将Excel单元格的值转换为数据库存储的值的逻辑
-
-            // 存储字段类型
-            public enum StoreFieldType
-            {
-                String,    // 字符串
-                Int,       // 整数
-                Decimal,   // 小数
-                DateTime,  // 日期时间
-                Boolean    // 布尔
-            }
 
             public StoreInfo() { }
             //无外表参与，直接存入字段
@@ -93,15 +85,6 @@ namespace EquipmentManageSystem.模板.导入导出模板
         }
 
         public ExcelTemplate() { }
-
-        //无示例数据的构造函数
-        public ExcelTemplate(string fieldName, string description, bool nullEnabled, StoreInfo storeInfo)
-        {
-            this.FieldName = fieldName;
-            this.Description = description;
-            this.NullEnabled = nullEnabled;
-            this.DatabaseStoreInfo = storeInfo;
-        }
 
         //有示例数据的构造函数
         public ExcelTemplate(string fieldName, string description, bool nullEnabled, StoreInfo storeInfo, string example)

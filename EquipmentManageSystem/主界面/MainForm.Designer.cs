@@ -118,7 +118,7 @@ namespace EquipmentManageSystem.主界面
             this.button标准管理_巡检标准.Name = "button标准管理_巡检标准";
             this.button标准管理_巡检标准.Size = new System.Drawing.Size(200, 37);
             this.button标准管理_巡检标准.TabIndex = 0;
-            this.button标准管理_巡检标准.Text = "巡检标注";
+            this.button标准管理_巡检标准.Text = "巡检标准";
             this.button标准管理_巡检标准.UseVisualStyleBackColor = true;
             this.button标准管理_巡检标准.Click += new System.EventHandler(this.selectSubButton);
             // 
