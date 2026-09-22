@@ -73,7 +73,7 @@ namespace EquipmentManageSystem.标准管理
 
         private bool ctn保养标准_BeforeChangeDataSource()
         {
-
+            MessageBox.Show("测试");
             return true;
         }
     }
