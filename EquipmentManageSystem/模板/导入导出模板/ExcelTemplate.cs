@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿using System;
+﻿﻿﻿﻿﻿﻿﻿﻿﻿using System;
 using System.ComponentModel;
 using System.Data;
 
@@ -15,8 +15,8 @@ namespace EquipmentManageSystem.模板.导入导出模板
         [Description("用于添加在Excel中说明该字段的信息")]
         public string Description { get; set; }
 
-        [DisplayName("是否必填")]
-        [Description("该字段的值是否为必填")]
+        [DisplayName("允许空值")]
+        [Description("该字段的值是否可以为空值")]
         public bool NullEnabled { get; set; }
 
         [DisplayName("数据库存储信息")]

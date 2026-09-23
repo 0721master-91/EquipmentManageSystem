@@ -30,20 +30,21 @@ namespace EquipmentManageSystem.标准管理
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctn保养标准));
-            SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息 slpInfoStop同时停启用相关信息1 = new SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息();
-            SLQLControls.控件.控件公用类.SlpInfoStop启用前判断 slpInfoStop启用前判断1 = new SLQLControls.控件.控件公用类.SlpInfoStop启用前判断();
+            SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息 slpInfoStop同时停启用相关信息2 = new SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息();
+            SLQLControls.控件.控件公用类.SlpInfoStop启用前判断 slpInfoStop启用前判断2 = new SLQLControls.控件.控件公用类.SlpInfoStop启用前判断();
             this.label保养标准编码 = new System.Windows.Forms.Label();
             this.textBox保养标准编码 = new System.Windows.Forms.TextBox();
             this.label给油类型 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox润滑脂型号 = new System.Windows.Forms.TextBox();
             this.label润滑脂型号 = new System.Windows.Forms.Label();
             this.comboBox给油类型 = new System.Windows.Forms.ComboBox();
             this.comboBox润换方式 = new System.Windows.Forms.ComboBox();
             this.label润换方式 = new System.Windows.Forms.Label();
             this.comboBox启用状态 = new System.Windows.Forms.ComboBox();
             this.label启用状态 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox模糊查询 = new System.Windows.Forms.TextBox();
             this.label模糊查询 = new System.Windows.Forms.Label();
+            this.slFlatButton导入 = new SLQLControls.控件.SLFlatButton();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -73,14 +74,14 @@ namespace EquipmentManageSystem.标准管理
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.textBox模糊查询);
             this.panel2.Controls.Add(this.label模糊查询);
             this.panel2.Controls.Add(this.comboBox启用状态);
             this.panel2.Controls.Add(this.label启用状态);
             this.panel2.Controls.Add(this.comboBox润换方式);
             this.panel2.Controls.Add(this.label润换方式);
             this.panel2.Controls.Add(this.comboBox给油类型);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.textBox润滑脂型号);
             this.panel2.Controls.Add(this.label润滑脂型号);
             this.panel2.Controls.Add(this.label给油类型);
             this.panel2.Controls.Add(this.textBox保养标准编码);
@@ -92,14 +93,14 @@ namespace EquipmentManageSystem.标准管理
             this.panel2.Controls.SetChildIndex(this.textBox保养标准编码, 0);
             this.panel2.Controls.SetChildIndex(this.label给油类型, 0);
             this.panel2.Controls.SetChildIndex(this.label润滑脂型号, 0);
-            this.panel2.Controls.SetChildIndex(this.textBox2, 0);
+            this.panel2.Controls.SetChildIndex(this.textBox润滑脂型号, 0);
             this.panel2.Controls.SetChildIndex(this.comboBox给油类型, 0);
             this.panel2.Controls.SetChildIndex(this.label润换方式, 0);
             this.panel2.Controls.SetChildIndex(this.comboBox润换方式, 0);
             this.panel2.Controls.SetChildIndex(this.label启用状态, 0);
             this.panel2.Controls.SetChildIndex(this.comboBox启用状态, 0);
             this.panel2.Controls.SetChildIndex(this.label模糊查询, 0);
-            this.panel2.Controls.SetChildIndex(this.textBox1, 0);
+            this.panel2.Controls.SetChildIndex(this.textBox模糊查询, 0);
             // 
             // button定位
             // 
@@ -144,8 +145,13 @@ namespace EquipmentManageSystem.标准管理
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.slFlatButton导入);
             this.panel4.Location = new System.Drawing.Point(1247, 0);
             this.panel4.Size = new System.Drawing.Size(268, 96);
+            this.panel4.Controls.SetChildIndex(this.button刷新, 0);
+            this.panel4.Controls.SetChildIndex(this.button筛选, 0);
+            this.panel4.Controls.SetChildIndex(this.button定位, 0);
+            this.panel4.Controls.SetChildIndex(this.slFlatButton导入, 0);
             // 
             // label保养标准编码
             // 
@@ -175,13 +181,13 @@ namespace EquipmentManageSystem.标准管理
             this.label给油类型.TabIndex = 19;
             this.label给油类型.Text = "给油类型：";
             // 
-            // textBox2
+            // textBox润滑脂型号
             // 
-            this.textBox2.Font = new System.Drawing.Font("宋体", 11F);
-            this.textBox2.Location = new System.Drawing.Point(475, 18);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(173, 28);
-            this.textBox2.TabIndex = 22;
+            this.textBox润滑脂型号.Font = new System.Drawing.Font("宋体", 11F);
+            this.textBox润滑脂型号.Location = new System.Drawing.Point(475, 18);
+            this.textBox润滑脂型号.Name = "textBox润滑脂型号";
+            this.textBox润滑脂型号.Size = new System.Drawing.Size(173, 28);
+            this.textBox润滑脂型号.TabIndex = 22;
             // 
             // label润滑脂型号
             // 
@@ -240,13 +246,13 @@ namespace EquipmentManageSystem.标准管理
             this.label启用状态.TabIndex = 26;
             this.label启用状态.Text = "启用状态：";
             // 
-            // textBox1
+            // textBox模糊查询
             // 
-            this.textBox1.Font = new System.Drawing.Font("宋体", 11F);
-            this.textBox1.Location = new System.Drawing.Point(375, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(173, 28);
-            this.textBox1.TabIndex = 29;
+            this.textBox模糊查询.Font = new System.Drawing.Font("宋体", 11F);
+            this.textBox模糊查询.Location = new System.Drawing.Point(375, 55);
+            this.textBox模糊查询.Name = "textBox模糊查询";
+            this.textBox模糊查询.Size = new System.Drawing.Size(173, 28);
+            this.textBox模糊查询.TabIndex = 29;
             // 
             // label模糊查询
             // 
@@ -258,6 +264,20 @@ namespace EquipmentManageSystem.标准管理
             this.label模糊查询.TabIndex = 28;
             this.label模糊查询.Text = "模糊查询：";
             // 
+            // slFlatButton导入
+            // 
+            this.slFlatButton导入.FlatAppearance.BorderSize = 0;
+            this.slFlatButton导入.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.slFlatButton导入.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.slFlatButton导入.GetFocusControl = null;
+            this.slFlatButton导入.Location = new System.Drawing.Point(0, 46);
+            this.slFlatButton导入.Name = "slFlatButton导入";
+            this.slFlatButton导入.Size = new System.Drawing.Size(115, 35);
+            this.slFlatButton导入.TabIndex = 8;
+            this.slFlatButton导入.Text = "✅️ 导出";
+            this.slFlatButton导入.UseVisualStyleBackColor = true;
+            this.slFlatButton导入.Click += new System.EventHandler(this.slFlatButton导入_Click);
+            // 
             // ctn保养标准
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -267,12 +287,12 @@ namespace EquipmentManageSystem.标准管理
             this.Info停用启用.ColName停用 = "";
             this.Info停用启用.Color停用 = System.Drawing.Color.Red;
             this.Info停用启用.FieldName停用 = "";
-            slpInfoStop同时停启用相关信息1.停用时提示信息 = "";
-            slpInfoStop同时停启用相关信息1.启用时提示信息 = "";
-            this.Info停用启用.Info同时停启用相关信息 = slpInfoStop同时停启用相关信息1;
-            slpInfoStop启用前判断1.ColName启用时需要判断 = "";
-            slpInfoStop启用前判断1.不能启用时提示信息 = "";
-            this.Info停用启用.Info启用前判断 = slpInfoStop启用前判断1;
+            slpInfoStop同时停启用相关信息2.停用时提示信息 = "";
+            slpInfoStop同时停启用相关信息2.启用时提示信息 = "";
+            this.Info停用启用.Info同时停启用相关信息 = slpInfoStop同时停启用相关信息2;
+            slpInfoStop启用前判断2.ColName启用时需要判断 = "";
+            slpInfoStop启用前判断2.不能启用时提示信息 = "";
+            this.Info停用启用.Info启用前判断 = slpInfoStop启用前判断2;
             this.Info列配置.CurUserID = ((long)(0));
             this.Info列配置.列配置信息 = "";
             this.Info列配置.标识 = "";
@@ -288,6 +308,7 @@ namespace EquipmentManageSystem.标准管理
             this.Name = "ctn保养标准";
             this.TableName = "保养标准";
             this.Text = "ctn保养标准";
+            this.AfterChangeDataSource += new SLQLControls.模板.temp标准报表GridControl.AfterChangeDataSourceEventHandle(this.ctn保养标准_AfterChangeDataSource);
             this.BeforeChangeDataSource += new SLQLControls.公用类.SlcQLPublic.BoolEventHandle(this.ctn保养标准_BeforeChangeDataSource);
             this.Load += new System.EventHandler(this.ctn保养标准_Load);
             this.Controls.SetChildIndex(this.panel2, 0);
@@ -307,14 +328,15 @@ namespace EquipmentManageSystem.标准管理
         private System.Windows.Forms.TextBox textBox保养标准编码;
         private System.Windows.Forms.Label label保养标准编码;
         private System.Windows.Forms.Label label给油类型;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox润滑脂型号;
         private System.Windows.Forms.Label label润滑脂型号;
         private System.Windows.Forms.ComboBox comboBox给油类型;
         private System.Windows.Forms.ComboBox comboBox润换方式;
         private System.Windows.Forms.Label label润换方式;
         private System.Windows.Forms.ComboBox comboBox启用状态;
         private System.Windows.Forms.Label label启用状态;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox模糊查询;
         private System.Windows.Forms.Label label模糊查询;
+        private SLQLControls.控件.SLFlatButton slFlatButton导入;
     }
 }

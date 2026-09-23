@@ -78,8 +78,8 @@ namespace EquipmentManageSystem.模板.导入导出模板
         {
             if(page导入页面 == null)
             {
-                this.page导入页面 = new UserControl数据导入(this.ExcelTemplates, this.TableName);
-                ((UserControl数据导入)this.page导入页面).BeforeImport += (dataTable) =>
+                this.page导入页面 = new uc数据导入(this.ExcelTemplates, this.TableName);
+                ((uc数据导入)this.page导入页面).BeforeImport += (dataTable) =>
                 {
                     return this.BeforeImport(dataTable); 
                 };
@@ -93,7 +93,7 @@ namespace EquipmentManageSystem.模板.导入导出模板
         {
             if(this.page导出页面 == null)
             {
-                this.page导出页面 = new UserControl数据导出(this.OutData,this.ExtraFields,this.TableName);
+                this.page导出页面 = new uc数据导出(this.OutData,this.ExtraFields,this.TableName);
                 this.page导出页面.Dock = DockStyle.Fill;
                 this.panel内容区.Controls.Add(this.page导出页面);
             }

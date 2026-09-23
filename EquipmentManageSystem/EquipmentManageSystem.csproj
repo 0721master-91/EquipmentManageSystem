@@ -88,6 +88,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\CommonFilter.cs" />
     <Compile Include="Utils\InfoShowUtil.cs" />
+    <Compile Include="Utils\PopUpUtil.cs" />
     <Compile Include="Utils\SqlCommonUtil.cs" />
     <Compile Include="标准管理\ctn保养标准.cs">
       <SubType>Form</SubType>
@@ -100,6 +101,18 @@
     </Compile>
     <Compile Include="标准管理\ctn巡检标准.Designer.cs">
       <DependentUpon>ctn巡检标准.cs</DependentUpon>
+    </Compile>
+    <Compile Include="标准管理\dlg保养标准导出.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="标准管理\dlg保养标准导出.Designer.cs">
+      <DependentUpon>dlg保养标准导出.cs</DependentUpon>
+    </Compile>
+    <Compile Include="标准管理\dlg保养标准编辑.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="标准管理\dlg保养标准编辑.Designer.cs">
+      <DependentUpon>dlg保养标准编辑.cs</DependentUpon>
     </Compile>
     <Compile Include="标准管理\dlg巡检标准导入导出.cs">
       <SubType>Form</SubType>
@@ -130,17 +143,23 @@
     <Compile Include="主界面\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="模板\导入导出模板\UserControl数据导入.cs">
+    <Compile Include="模板\导入导出模板\uc数据导入.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="模板\导入导出模板\UserControl数据导入.Designer.cs">
-      <DependentUpon>UserControl数据导入.cs</DependentUpon>
+    <Compile Include="模板\导入导出模板\uc数据导入.Designer.cs">
+      <DependentUpon>uc数据导入.cs</DependentUpon>
     </Compile>
-    <Compile Include="模板\导入导出模板\UserControl数据导出.cs">
+    <Compile Include="模板\导入导出模板\uc数据导出.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="模板\导入导出模板\UserControl数据导出.Designer.cs">
-      <DependentUpon>UserControl数据导出.cs</DependentUpon>
+    <Compile Include="模板\导入导出模板\uc数据导出.Designer.cs">
+      <DependentUpon>uc数据导出.cs</DependentUpon>
+    </Compile>
+    <Compile Include="模板\选择窗口模版\temp选择窗口.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="模板\选择窗口模版\temp选择窗口.Designer.cs">
+      <DependentUpon>temp选择窗口.cs</DependentUpon>
     </Compile>
     <Compile Include="登录界面\Form登录界面.cs">
       <SubType>Form</SubType>
@@ -154,6 +173,12 @@
     <Compile Include="设备管理\ctn功能主设备档案.Designer.cs">
       <DependentUpon>ctn功能主设备档案.cs</DependentUpon>
     </Compile>
+    <Compile Include="设备管理\ctn功能位置档案.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备管理\ctn功能位置档案.Designer.cs">
+      <DependentUpon>ctn功能位置档案.cs</DependentUpon>
+    </Compile>
     <Compile Include="设备管理\dlg功能主设备档案导入导出.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +190,18 @@
     </Compile>
     <Compile Include="设备管理\dlg功能主设备档案编辑.Designer.cs">
       <DependentUpon>dlg功能主设备档案编辑.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备管理\dlg功能位置档案编辑.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备管理\dlg功能位置档案编辑.Designer.cs">
+      <DependentUpon>dlg功能位置档案编辑.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备管理\test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备管理\test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -181,6 +218,12 @@
     <EmbeddedResource Include="标准管理\ctn巡检标准.resx">
       <DependentUpon>ctn巡检标准.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="标准管理\dlg保养标准导出.resx">
+      <DependentUpon>dlg保养标准导出.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="标准管理\dlg保养标准编辑.resx">
+      <DependentUpon>dlg保养标准编辑.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="标准管理\dlg巡检标准导入导出.resx">
       <DependentUpon>dlg巡检标准导入导出.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,11 +236,14 @@
     <EmbeddedResource Include="主界面\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="模板\导入导出模板\UserControl数据导入.resx">
-      <DependentUpon>UserControl数据导入.cs</DependentUpon>
+    <EmbeddedResource Include="模板\导入导出模板\uc数据导入.resx">
+      <DependentUpon>uc数据导入.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="模板\导入导出模板\UserControl数据导出.resx">
-      <DependentUpon>UserControl数据导出.cs</DependentUpon>
+    <EmbeddedResource Include="模板\导入导出模板\uc数据导出.resx">
+      <DependentUpon>uc数据导出.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="模板\选择窗口模版\temp选择窗口.resx">
+      <DependentUpon>temp选择窗口.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="登录界面\Form登录界面.resx">
       <DependentUpon>Form登录界面.cs</DependentUpon>
@@ -205,11 +251,20 @@
     <EmbeddedResource Include="设备管理\ctn功能主设备档案.resx">
       <DependentUpon>ctn功能主设备档案.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="设备管理\ctn功能位置档案.resx">
+      <DependentUpon>ctn功能位置档案.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="设备管理\dlg功能主设备档案导入导出.resx">
       <DependentUpon>dlg功能主设备档案导入导出.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="设备管理\dlg功能主设备档案编辑.resx">
       <DependentUpon>dlg功能主设备档案编辑.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备管理\dlg功能位置档案编辑.resx">
+      <DependentUpon>dlg功能位置档案编辑.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备管理\test.resx">
+      <DependentUpon>test.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config" />
