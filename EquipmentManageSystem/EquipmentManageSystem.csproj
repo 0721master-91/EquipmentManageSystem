@@ -197,6 +197,12 @@
     <Compile Include="设备管理\dlg功能位置档案编辑.Designer.cs">
       <DependentUpon>dlg功能位置档案编辑.cs</DependentUpon>
     </Compile>
+    <Compile Include="设备管理\dlg功能位置档案编辑组织选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备管理\dlg功能位置档案编辑组织选择.Designer.cs">
+      <DependentUpon>dlg功能位置档案编辑组织选择.cs</DependentUpon>
+    </Compile>
     <Compile Include="设备管理\test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="设备管理\dlg功能位置档案编辑.resx">
       <DependentUpon>dlg功能位置档案编辑.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备管理\dlg功能位置档案编辑组织选择.resx">
+      <DependentUpon>dlg功能位置档案编辑组织选择.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="设备管理\test.resx">
       <DependentUpon>test.cs</DependentUpon>

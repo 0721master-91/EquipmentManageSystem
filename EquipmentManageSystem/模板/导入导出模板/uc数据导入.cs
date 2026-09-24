@@ -393,7 +393,6 @@ namespace EquipmentManageSystem.模板.导入导出模板
                     string insertSql = $"insert into {this.TableName} ({string.Join(",", fields)}) " +
                                        $"values ({string.Join(",", values)})";
 
-                    MessageBox.Show(insertSql);
 
                     int rowsAffected = services.ExecuteSql(insertSql);
                     if (rowsAffected > 0)
