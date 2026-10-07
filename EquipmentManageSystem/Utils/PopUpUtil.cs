@@ -15,7 +15,7 @@ namespace EquipmentManageSystem.Utils
         /// <summary>
         /// 展示提示信息
         /// </summary>
-        /// <param name="info"></param>
+        /// <param Name="info"></param>
         public static void ShowInfo(string info)
         {
             MessageBox.Show(info, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -24,7 +24,7 @@ namespace EquipmentManageSystem.Utils
         /// <summary>
         /// 展示警告信息
         /// </summary>
-        /// <param name="info"></param>
+        /// <param Name="info"></param>
         public static void ShowWarning(string info)
         {
             MessageBox.Show(info, "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -33,11 +33,15 @@ namespace EquipmentManageSystem.Utils
         /// <summary>
         /// 展示错误信息
         /// </summary>
-        /// <param name="info"></param>
+        /// <param Name="info"></param>
         public static void ShowError(string info)
         {
             MessageBox.Show(info, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        public static bool ShowConfirm(string info, string caption = "确认删除")
+        {
+            return MessageBox.Show(info, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+        }
     }
 }

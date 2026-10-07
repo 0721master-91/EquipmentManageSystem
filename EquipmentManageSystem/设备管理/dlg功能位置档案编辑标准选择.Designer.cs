@@ -1,7 +1,7 @@
 ﻿
 namespace EquipmentManageSystem.设备管理
 {
-    partial class dlg功能位置档案编辑巡检标准选择
+    partial class dlg功能位置档案编辑标准选择
     {
         /// <summary>
         /// Required designer variable.
@@ -11,7 +11,7 @@ namespace EquipmentManageSystem.设备管理
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param Name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -25,7 +25,7 @@ namespace EquipmentManageSystem.设备管理
 
         /// <summary>
         /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// the contents of this method with the Code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -33,25 +33,37 @@ namespace EquipmentManageSystem.设备管理
             this.panel操作区.SuspendLayout();
             this.SuspendLayout();
             // 
+            // textBox二级筛选
+            // 
+            this.textBox二级筛选.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            // 
+            // textBox一级筛选
+            // 
+            this.textBox一级筛选.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            // 
             // panel数据区
             // 
-            this.panel数据区.Size = new System.Drawing.Size(956, 382);
+            this.panel数据区.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.panel数据区.Size = new System.Drawing.Size(1076, 458);
             // 
             // panel条件筛选区
             // 
-            this.panel条件筛选区.Size = new System.Drawing.Size(956, 73);
+            this.panel条件筛选区.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.panel条件筛选区.Size = new System.Drawing.Size(1076, 88);
             // 
             // panel操作区
             // 
-            this.panel操作区.Size = new System.Drawing.Size(956, 85);
+            this.panel操作区.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.panel操作区.Size = new System.Drawing.Size(1076, 102);
             // 
-            // dlg功能位置档案编辑巡检标准选择
+            // dlg功能位置档案编辑标准选择
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(956, 540);
-            this.Name = "dlg功能位置档案编辑巡检标准选择";
-            this.Text = "巡检标准选择";
+            this.ClientSize = new System.Drawing.Size(1076, 648);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.Name = "dlg功能位置档案编辑标准选择";
+            this.Text = "";
             this.BeforeQuery += new EquipmentManageSystem.模板.选择窗口模版.temp选择窗口.BeforeQueryEventHandler(this.dlg功能位置档案编辑巡检标准选择_BeforeQuery);
             this.AfterFillControls += new EquipmentManageSystem.模板.选择窗口模版.temp选择窗口.AfterFillControlsHandler(this.dlg功能位置档案编辑巡检标准选择_AfterFillControls);
             this.PreOK += new EquipmentManageSystem.模板.选择窗口模版.temp选择窗口.PreOKHandler(this.dlg功能位置档案编辑巡检标准选择_PreOK);

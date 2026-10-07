@@ -11,7 +11,7 @@ namespace EquipmentManageSystem.设备管理
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param Name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -25,7 +25,7 @@ namespace EquipmentManageSystem.设备管理
 
         /// <summary>
         /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// the contents of this method with the Code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -40,28 +40,35 @@ namespace EquipmentManageSystem.设备管理
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(0, 641);
-            this.panel1.Size = new System.Drawing.Size(1498, 62);
+            this.panel1.Location = new System.Drawing.Point(0, 770);
+            this.panel1.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.panel1.Size = new System.Drawing.Size(1685, 74);
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(899, 0);
+            this.panel5.Location = new System.Drawing.Point(1011, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.panel5.Size = new System.Drawing.Size(674, 74);
             // 
             // button退出
             // 
+            this.button退出.Location = new System.Drawing.Point(528, 21);
             this.button退出.Visible = false;
             // 
             // button帮助
             // 
+            this.button帮助.Location = new System.Drawing.Point(406, 21);
             this.button帮助.Visible = false;
             // 
             // button打印
             // 
+            this.button打印.Location = new System.Drawing.Point(285, 21);
             this.button打印.Visible = false;
             // 
             // panel2
             // 
-            this.panel2.Size = new System.Drawing.Size(1498, 74);
+            this.panel2.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.panel2.Size = new System.Drawing.Size(1685, 89);
             // 
             // button定位
             // 
@@ -80,8 +87,9 @@ namespace EquipmentManageSystem.设备管理
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(0, 74);
-            this.panel3.Size = new System.Drawing.Size(1498, 567);
+            this.panel3.Location = new System.Drawing.Point(0, 89);
+            this.panel3.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.panel3.Size = new System.Drawing.Size(1685, 681);
             // 
             // slDataTablePrinter
             // 
@@ -106,14 +114,23 @@ namespace EquipmentManageSystem.设备管理
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(1230, 0);
-            this.panel4.Size = new System.Drawing.Size(268, 74);
+            this.panel4.Location = new System.Drawing.Point(1383, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
+            this.panel4.Size = new System.Drawing.Size(302, 89);
+            // 
+            // button还原颜色
+            // 
+            this.button还原颜色.Location = new System.Drawing.Point(14, 21);
+            // 
+            // button设置颜色
+            // 
+            this.button设置颜色.Location = new System.Drawing.Point(150, 21);
             // 
             // ctn功能位置档案
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1498, 703);
+            this.ClientSize = new System.Drawing.Size(1685, 844);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Info停用启用.ColName停用 = "";
             this.Info停用启用.Color停用 = System.Drawing.Color.Red;
@@ -136,8 +153,11 @@ namespace EquipmentManageSystem.设备管理
             this.Info数据编辑.FieldName不能删除 = "";
             this.Info数据编辑.Params = null;
             this.Info数据编辑.Type编辑窗口 = null;
+            this.Margin = new System.Windows.Forms.Padding(24, 25, 24, 25);
             this.Name = "ctn功能位置档案";
+            this.TableName = "设备功能位置档案";
             this.Text = "ctn设备功能位置档案";
+            this.AfterChangeDataSource += new SLQLControls.模板.temp标准报表GridControl.AfterChangeDataSourceEventHandle(this.ctn功能位置档案_AfterChangeDataSource);
             this.BeforeChangeDataSource += new SLQLControls.公用类.SlcQLPublic.BoolEventHandle(this.ctn功能位置档案_BeforeChangeDataSource);
             this.Load += new System.EventHandler(this.ctn功能位置档案_Load);
             this.Controls.SetChildIndex(this.panel2, 0);

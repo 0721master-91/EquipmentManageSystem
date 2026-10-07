@@ -114,7 +114,7 @@ namespace EquipmentManageSystem.模板.导入导出模板
         /// <summary>
         /// 初始化展示表格的样式
         /// </summary>
-        /// <param name="dataGridView"></param>
+        /// <param Name="dataGridView"></param>
         private void InitDataGridViewStyle(DataGridView dataGridView)
         {
             dataGridView.RowHeadersVisible = false;  // 隐藏最左边的行标题列
@@ -131,7 +131,7 @@ namespace EquipmentManageSystem.模板.导入导出模板
         /// <summary>
         /// 将主表可导出字段生成导出字段对象
         /// </summary>
-        /// <param name="cloumnName">列名</param>
+        /// <param Name="cloumnName">列名</param>
         /// <returns>导出字段对象列表</returns>
         private List<ExportField> GenerateExportField(DataColumnCollection columns)
         {
@@ -154,8 +154,8 @@ namespace EquipmentManageSystem.模板.导入导出模板
         /// 双击可选字段事件
         /// 将选中的字段添加到已选字段中
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param Name="sender"></param>
+        /// <param Name="e"></param>
         private void DataGridView可选字段_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.RowIndex < 0) return;
@@ -185,8 +185,8 @@ namespace EquipmentManageSystem.模板.导入导出模板
         /// 双击已选字段事件
         /// 删除已选项
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param Name="sender"></param>
+        /// <param Name="e"></param>
         private void dataGridView导出字段_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -413,7 +413,7 @@ namespace EquipmentManageSystem.模板.导入导出模板
         /// <summary>
         /// 查询额外字段的数据
         /// </summary>
-        /// <param name="field"></param>
+        /// <param Name="field"></param>
         /// <returns></returns>
         private DataTable QueryExtraData(ExportField field, List<Object> keys)
         {

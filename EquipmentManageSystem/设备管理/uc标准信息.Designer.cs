@@ -11,7 +11,7 @@ namespace EquipmentManageSystem.设备管理
         /// <summary> 
         /// 清理所有正在使用的资源。
         /// </summary>
-        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        /// <param Name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -30,12 +30,12 @@ namespace EquipmentManageSystem.设备管理
         private void InitializeComponent()
         {
             this.groupBox巡检标准 = new System.Windows.Forms.GroupBox();
+            this.panel巡检标准数据区 = new System.Windows.Forms.Panel();
+            this.dataGridView巡检标准 = new System.Windows.Forms.DataGridView();
             this.panel巡检标准操作区 = new System.Windows.Forms.Panel();
             this.button巡检标注全部删除 = new System.Windows.Forms.Button();
             this.button巡检标准删除 = new System.Windows.Forms.Button();
             this.button巡检标准新增 = new System.Windows.Forms.Button();
-            this.dataGridView巡检标准 = new System.Windows.Forms.DataGridView();
-            this.panel巡检标准数据区 = new System.Windows.Forms.Panel();
             this.groupBox保养标准 = new System.Windows.Forms.GroupBox();
             this.panel保养标准操作区 = new System.Windows.Forms.Panel();
             this.button保养标准全部删除 = new System.Windows.Forms.Button();
@@ -44,9 +44,9 @@ namespace EquipmentManageSystem.设备管理
             this.panel保养标准数据区 = new System.Windows.Forms.Panel();
             this.dataGridView保养标准 = new System.Windows.Forms.DataGridView();
             this.groupBox巡检标准.SuspendLayout();
-            this.panel巡检标准操作区.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView巡检标准)).BeginInit();
             this.panel巡检标准数据区.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView巡检标准)).BeginInit();
+            this.panel巡检标准操作区.SuspendLayout();
             this.panel保养标准操作区.SuspendLayout();
             this.panel保养标准数据区.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView保养标准)).BeginInit();
@@ -69,6 +69,31 @@ namespace EquipmentManageSystem.设备管理
             this.groupBox巡检标准.TabStop = false;
             this.groupBox巡检标准.Text = "巡检标准";
             // 
+            // panel巡检标准数据区
+            // 
+            this.panel巡检标准数据区.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel巡检标准数据区.Controls.Add(this.dataGridView巡检标准);
+            this.panel巡检标准数据区.Location = new System.Drawing.Point(1, 94);
+            this.panel巡检标准数据区.Name = "panel巡检标准数据区";
+            this.panel巡检标准数据区.Size = new System.Drawing.Size(1261, 181);
+            this.panel巡检标准数据区.TabIndex = 1;
+            // 
+            // dataGridView巡检标准
+            // 
+            this.dataGridView巡检标准.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView巡检标准.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView巡检标准.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView巡检标准.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView巡检标准.MinimumSize = new System.Drawing.Size(249, 50);
+            this.dataGridView巡检标准.Name = "dataGridView巡检标准";
+            this.dataGridView巡检标准.RowHeadersWidth = 51;
+            this.dataGridView巡检标准.RowTemplate.Height = 27;
+            this.dataGridView巡检标准.Size = new System.Drawing.Size(1261, 181);
+            this.dataGridView巡检标准.TabIndex = 0;
+            this.dataGridView巡检标准.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.CellBeginEdit);
+            this.dataGridView巡检标准.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView巡检标准_CellClick);
+            // 
             // panel巡检标准操作区
             // 
             this.panel巡检标准操作区.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -90,7 +115,7 @@ namespace EquipmentManageSystem.设备管理
             this.button巡检标注全部删除.TabIndex = 2;
             this.button巡检标注全部删除.Text = "全部删除";
             this.button巡检标注全部删除.UseVisualStyleBackColor = true;
-            this.button巡检标注全部删除.Click += new System.EventHandler(this.button巡检标准全部删除_Click);
+            this.button巡检标注全部删除.Click += new System.EventHandler(this.DeleteAll);
             // 
             // button巡检标准删除
             // 
@@ -100,7 +125,7 @@ namespace EquipmentManageSystem.设备管理
             this.button巡检标准删除.TabIndex = 1;
             this.button巡检标准删除.Text = "删除";
             this.button巡检标准删除.UseVisualStyleBackColor = true;
-            this.button巡检标准删除.Click += new System.EventHandler(this.button巡检标准删除_Click);
+            this.button巡检标准删除.Click += new System.EventHandler(this.DeleteSleectedRows);
             // 
             // button巡检标准新增
             // 
@@ -110,32 +135,7 @@ namespace EquipmentManageSystem.设备管理
             this.button巡检标准新增.TabIndex = 0;
             this.button巡检标准新增.Text = "新增";
             this.button巡检标准新增.UseVisualStyleBackColor = true;
-            this.button巡检标准新增.Click += new System.EventHandler(this.button巡检标准新增_Click);
-            // 
-            // dataGridView巡检标准
-            // 
-            this.dataGridView巡检标准.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView巡检标准.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView巡检标准.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView巡检标准.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView巡检标准.MinimumSize = new System.Drawing.Size(249, 50);
-            this.dataGridView巡检标准.Name = "dataGridView巡检标准";
-            this.dataGridView巡检标准.RowHeadersWidth = 51;
-            this.dataGridView巡检标准.RowTemplate.Height = 27;
-            this.dataGridView巡检标准.Size = new System.Drawing.Size(1261, 181);
-            this.dataGridView巡检标准.TabIndex = 0;
-            this.dataGridView巡检标准.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView巡检标准_CellBeginEdit);
-            this.dataGridView巡检标准.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView巡检标准_CellClick);
-            // 
-            // panel巡检标准数据区
-            // 
-            this.panel巡检标准数据区.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel巡检标准数据区.Controls.Add(this.dataGridView巡检标准);
-            this.panel巡检标准数据区.Location = new System.Drawing.Point(1, 94);
-            this.panel巡检标准数据区.Name = "panel巡检标准数据区";
-            this.panel巡检标准数据区.Size = new System.Drawing.Size(1261, 181);
-            this.panel巡检标准数据区.TabIndex = 1;
+            this.button巡检标准新增.Click += new System.EventHandler(this.AddNewRow);
             // 
             // groupBox保养标准
             // 
@@ -168,6 +168,7 @@ namespace EquipmentManageSystem.设备管理
             this.button保养标准全部删除.TabIndex = 2;
             this.button保养标准全部删除.Text = "全部删除";
             this.button保养标准全部删除.UseVisualStyleBackColor = true;
+            this.button保养标准全部删除.Click += new System.EventHandler(this.DeleteAll);
             // 
             // button保养标准删除
             // 
@@ -177,6 +178,7 @@ namespace EquipmentManageSystem.设备管理
             this.button保养标准删除.TabIndex = 1;
             this.button保养标准删除.Text = "删除";
             this.button保养标准删除.UseVisualStyleBackColor = true;
+            this.button保养标准删除.Click += new System.EventHandler(this.DeleteSleectedRows);
             // 
             // button保养标准新增
             // 
@@ -186,6 +188,7 @@ namespace EquipmentManageSystem.设备管理
             this.button保养标准新增.TabIndex = 0;
             this.button保养标准新增.Text = "新增";
             this.button保养标准新增.UseVisualStyleBackColor = true;
+            this.button保养标准新增.Click += new System.EventHandler(this.AddNewRow);
             // 
             // panel保养标准数据区
             // 
@@ -208,24 +211,25 @@ namespace EquipmentManageSystem.设备管理
             this.dataGridView保养标准.RowTemplate.Height = 27;
             this.dataGridView保养标准.Size = new System.Drawing.Size(1262, 180);
             this.dataGridView保养标准.TabIndex = 0;
+            this.dataGridView保养标准.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.CellBeginEdit);
+            this.dataGridView保养标准.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView保养标准_CellClick);
             // 
-            // us标准信息
+            // uc标准信息
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.panel保养标准数据区);
             this.Controls.Add(this.panel保养标准操作区);
             this.Controls.Add(this.groupBox保养标准);
             this.Controls.Add(this.groupBox巡检标准);
             this.Font = new System.Drawing.Font("宋体", 11F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "us标准信息";
+            this.Name = "uc标准信息";
             this.Size = new System.Drawing.Size(1274, 596);
             this.Load += new System.EventHandler(this.uc标准信息_Load);
             this.groupBox巡检标准.ResumeLayout(false);
-            this.panel巡检标准操作区.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView巡检标准)).EndInit();
             this.panel巡检标准数据区.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView巡检标准)).EndInit();
+            this.panel巡检标准操作区.ResumeLayout(false);
             this.panel保养标准操作区.ResumeLayout(false);
             this.panel保养标准数据区.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView保养标准)).EndInit();

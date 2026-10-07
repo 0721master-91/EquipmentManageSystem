@@ -14,9 +14,9 @@ namespace EquipmentManageSystem.设备管理
     public partial class dlg功能位置档案编辑组织选择 : temp选择窗口
     {
         /// <summary>
-        /// 选择的组织ID
+        /// 选择的组织Code
         /// </summary>
-        public object OrganizationId { get; set; }
+        public object OrganizationCode { get; set; }
 
         /// <summary>
         /// 选择的组织名称
@@ -48,18 +48,18 @@ namespace EquipmentManageSystem.设备管理
 
         private bool dlg功能位置档案编辑组织选择_PreOK()
         {
-            if(this.selectedRows.Count == 0)
+            if(this.SelectedRows.Count == 0)
             {
                 PopUpUtil.ShowInfo("请选择组织");
                 return false;
             }
 
-            if (this.selectedRows.Count >= 1)
+            if (this.SelectedRows.Count >= 1)
             {
-                this.OrganizationId = this.selectedRows[0]["ID"];
-                this.OrganizationName = this.selectedRows[0]["公司地址"].ToString();
-                this.Code = this.selectedRows[0]["组织编码"].ToString().PadLeft(3, '0');
-                this.CompanyName = this.selectedRows[0]["组织名称"].ToString();
+                this.OrganizationCode = this.SelectedRows[0]["组织编码"];
+                this.OrganizationName = this.SelectedRows[0]["公司地址"].ToString();
+                this.Code = this.SelectedRows[0]["组织编码"].ToString().PadLeft(3, '0');
+                this.CompanyName = this.SelectedRows[0]["组织名称"].ToString();
             }
             else
             {

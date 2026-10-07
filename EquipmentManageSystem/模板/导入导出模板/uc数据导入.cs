@@ -46,8 +46,8 @@ namespace EquipmentManageSystem.模板.导入导出模板
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="excelTemplates">模版列表</param>
-        /// <param name="tableName">数据库表名</param>
+        /// <param Name="excelTemplates">模版列表</param>
+        /// <param Name="tableName">数据库表名</param>
         public uc数据导入(List<ExcelTemplate> excelTemplates, string tableName)
         {
             InitializeComponent();
@@ -124,7 +124,7 @@ namespace EquipmentManageSystem.模板.导入导出模板
         /// <summary>
         /// 读取 Excel 数据
         /// </summary>
-        /// <param name="filePath">文件路径</param>
+        /// <param Name="filePath">文件路径</param>
         /// <returns>读取并处理后的数据</returns>
         private DataTable ReadExcelData(string filePath)
         {

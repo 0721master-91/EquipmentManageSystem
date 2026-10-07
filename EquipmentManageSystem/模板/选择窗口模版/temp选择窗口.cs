@@ -26,7 +26,7 @@ namespace EquipmentManageSystem.模板.选择窗口模版
         /// </summary>
         protected DataTable SourceData;
 
-        protected List<DataRow> selectedRows = new List<DataRow>();
+        protected List<DataRow> SelectedRows = new List<DataRow>();
 
         public temp选择窗口()
         {
@@ -192,12 +192,12 @@ namespace EquipmentManageSystem.模板.选择窗口模版
                         bool isChecked = (bool)(this.dataGridView数据表.Rows[e.RowIndex].Cells[e.ColumnIndex].Value ?? false);
                         if (isChecked)
                         {
-                            if (!this.selectedRows.Contains(row))
-                                this.selectedRows.Add(row);
+                            if (!this.SelectedRows.Contains(row))
+                                this.SelectedRows.Add(row);
                         }
                         else
                         {
-                            this.selectedRows.Remove(row);
+                            this.SelectedRows.Remove(row);
                         }
                     }
                 };
@@ -211,8 +211,8 @@ namespace EquipmentManageSystem.模板.选择窗口模版
                     DataRow row = (this.dataGridView数据表.Rows[e.RowIndex].DataBoundItem as DataRowView)?.Row;
                     if (row != null)
                     {
-                        this.selectedRows.Clear();
-                        this.selectedRows.Add(row);
+                        this.SelectedRows.Clear();
+                        this.SelectedRows.Add(row);
                     }
                 };
             }

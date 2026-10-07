@@ -13,7 +13,7 @@ namespace EquipmentManageSystem.Utils
         /// <summary>
         /// 按类型格式化 SQL 值（数字不加引号，字符串加引号，NULL 不加）
         /// </summary>
-        /// <param name="value">初始值</param>
+        /// <param Name="value">初始值</param>
         /// <returns>拼接SQL的最终值</returns>
         public static string FormatSqlValue(object value)
         {
@@ -28,8 +28,8 @@ namespace EquipmentManageSystem.Utils
         /// <summary>
         /// 根据字段类型转换原始字符串值
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="type"></param>
+        /// <param Name="value"></param>
+        /// <param Name="type"></param>
         /// <returns>根据类型转换后的值，如果转换失败则返回 DBNull.Value</returns>
         public static object ConvertRawValueByType(string value, StoreFieldType type)
         {
@@ -62,7 +62,7 @@ namespace EquipmentManageSystem.Utils
         /// <summary>
         /// 批量格式化值列表，拼成 SQL IN 子句用的逗号分隔字符串
         /// </summary>
-        /// <param name="values">值列表（支持任意类型）</param>
+        /// <param Name="values">值列表（支持任意类型）</param>
         /// <returns>逗号分隔的格式化字符串，如 'A','B','C' 或 1,2,3</returns>
         public static string FormatSqlValueList(IEnumerable<object> values)
         {
@@ -72,9 +72,9 @@ namespace EquipmentManageSystem.Utils
         /// <summary>
         /// 将 DataTable 的两列转换为 Dictionary
         /// </summary>
-        /// <param name="table">数据源</param>
-        /// <param name="keyColumn">作为 key 的列名</param>
-        /// <param name="valueColumn">作为 value 的列名</param>
+        /// <param Name="table">数据源</param>
+        /// <param Name="keyColumn">作为 key 的列名</param>
+        /// <param Name="valueColumn">作为 value 的列名</param>
         /// <returns>key-value 映射字典</returns>
         public static Dictionary<string, string> DataTableToDict(DataTable table, string keyColumn, string valueColumn)
         {
@@ -103,10 +103,10 @@ namespace EquipmentManageSystem.Utils
         /// <summary>
         /// 将字典合并到主表数据中（以某列为 key 匹配，添加新列）
         /// </summary>
-        /// <param name="mainTable">主表数据</param>
-        /// <param name="values">要合并的字典（key=条件值, value=附加值）</param>
-        /// <param name="newColumnName">新列名</param>
-        /// <param name="conditionField">主表中用于匹配 key 的列名</param>
+        /// <param Name="mainTable">主表数据</param>
+        /// <param Name="values">要合并的字典（key=条件值, value=附加值）</param>
+        /// <param Name="newColumnName">新列名</param>
+        /// <param Name="conditionField">主表中用于匹配 key 的列名</param>
         public static void MergeDictToTable(DataTable mainTable, Dictionary<string, string> values, string newColumnName, string conditionField)
         {
             if (mainTable == null || values == null || values.Count == 0)
@@ -124,10 +124,10 @@ namespace EquipmentManageSystem.Utils
         /// <summary>
         /// 生成编码（前缀+日期+序号）
         /// </summary>
-        /// <param name="prefix">编码前缀</param>
-        /// <param name="tableName">目标表名</param>
-        /// <param name="codeField">编码字段</param>
-        /// <param name="dateForma">日期格式默认为 yyyyMMdd</param>
+        /// <param Name="prefix">编码前缀</param>
+        /// <param Name="tableName">目标表名</param>
+        /// <param Name="codeField">编码字段</param>
+        /// <param Name="dateForma">日期格式默认为 yyyyMMdd</param>
         /// <returns></returns>
         public static string GenerateCode(string prefix,string tableName,string codeField,string dateForma = "yyyyMMdd")
         {

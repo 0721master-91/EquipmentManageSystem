@@ -205,17 +205,29 @@
     <Compile Include="设备管理\dlg功能位置档案编辑主设备选择.Designer.cs">
       <DependentUpon>dlg功能位置档案编辑主设备选择.cs</DependentUpon>
     </Compile>
-    <Compile Include="设备管理\dlg功能位置档案编辑巡检标准选择.cs">
+    <Compile Include="设备管理\dlg功能位置档案编辑成员选择.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="设备管理\dlg功能位置档案编辑巡检标准选择.Designer.cs">
-      <DependentUpon>dlg功能位置档案编辑巡检标准选择.cs</DependentUpon>
+    <Compile Include="设备管理\dlg功能位置档案编辑成员选择.Designer.cs">
+      <DependentUpon>dlg功能位置档案编辑成员选择.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备管理\dlg功能位置档案编辑标准选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备管理\dlg功能位置档案编辑标准选择.Designer.cs">
+      <DependentUpon>dlg功能位置档案编辑标准选择.cs</DependentUpon>
     </Compile>
     <Compile Include="设备管理\dlg功能位置档案编辑组织选择.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="设备管理\dlg功能位置档案编辑组织选择.Designer.cs">
       <DependentUpon>dlg功能位置档案编辑组织选择.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备管理\dlg功能位置档案编辑部门选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备管理\dlg功能位置档案编辑部门选择.Designer.cs">
+      <DependentUpon>dlg功能位置档案编辑部门选择.cs</DependentUpon>
     </Compile>
     <Compile Include="设备管理\GridInit.cs" />
     <Compile Include="设备管理\uc标准信息.cs">
@@ -287,11 +299,17 @@
     <EmbeddedResource Include="设备管理\dlg功能位置档案编辑主设备选择.resx">
       <DependentUpon>dlg功能位置档案编辑主设备选择.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="设备管理\dlg功能位置档案编辑巡检标准选择.resx">
-      <DependentUpon>dlg功能位置档案编辑巡检标准选择.cs</DependentUpon>
+    <EmbeddedResource Include="设备管理\dlg功能位置档案编辑成员选择.resx">
+      <DependentUpon>dlg功能位置档案编辑成员选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备管理\dlg功能位置档案编辑标准选择.resx">
+      <DependentUpon>dlg功能位置档案编辑标准选择.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="设备管理\dlg功能位置档案编辑组织选择.resx">
       <DependentUpon>dlg功能位置档案编辑组织选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备管理\dlg功能位置档案编辑部门选择.resx">
+      <DependentUpon>dlg功能位置档案编辑部门选择.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="设备管理\uc标准信息.resx">
       <DependentUpon>uc标准信息.cs</DependentUpon>

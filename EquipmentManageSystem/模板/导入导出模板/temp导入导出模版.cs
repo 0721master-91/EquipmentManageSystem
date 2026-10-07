@@ -62,7 +62,7 @@ namespace EquipmentManageSystem.模板.导入导出模板
         /// <summary>
         /// 数据导入数据库前子类可重写此方法修改即将插入的数据集
         /// </summary>
-        /// <param name="dataSource">即将导入的数据集</param>
+        /// <param Name="dataSource">即将导入的数据集</param>
         /// <returns>返回false取消导入</returns>
         protected virtual bool BeforeImport(DataTable dataSource)
         {
@@ -103,7 +103,7 @@ namespace EquipmentManageSystem.模板.导入导出模板
         /// <summary>
         /// 切换显示页面
         /// </summary>
-        /// <param name="targetPage">目标页面</param>
+        /// <param Name="targetPage">目标页面</param>
         private void ChangePage(UserControl targetPage)
         {
 

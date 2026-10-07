@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace EquipmentManageSystem.设备管理
         /// <summary>
         /// 初始化巡检标准表格
         /// </summary>
-        /// <param name="dataGridView"></param>
+        /// <param Name="dataGridView"></param>
         public static void InitInspectionStandardsGrid(DataGridView dataGridView)
         {
 
@@ -162,7 +162,7 @@ namespace EquipmentManageSystem.设备管理
             dt.Columns.Add("给油类型编码", typeof(string));
             dt.Columns.Add("润滑脂型号", typeof(string));
             dt.Columns.Add("润换方式编码", typeof(string));
-            dt.Columns.Add("执行周期", typeof(int));
+            dt.Columns.Add("执行周期", typeof(decimal));   // 改成 decimal，跟数据库实际类型一致
             dt.Columns.Add("周期单位编码", typeof(string));
             dt.Columns.Add("提前提醒天数", typeof(int));
             dt.Columns.Add("开始执行日期", typeof(DateTime));
@@ -173,7 +173,7 @@ namespace EquipmentManageSystem.设备管理
         /// <summary>
         /// 初始化保养标准表格
         /// </summary>
-        /// <param name="dataGridView"></param>
+        /// <param Name="dataGridView"></param>
         private static void IniMaintenanceStandardsGrid(DataGridView dataGridView)
         {
             // 保养内容
