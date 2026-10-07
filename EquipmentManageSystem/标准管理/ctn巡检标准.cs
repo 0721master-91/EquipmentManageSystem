@@ -30,12 +30,12 @@ namespace EquipmentManageSystem.标准管理
         private bool ctn巡检标准_BeforeChangeDataSource()
         {
             string sql = "select x.ID,x.巡检部位编码,x.巡检部位,x.巡检内容,x.巡检类型,x.判断标准,x.巡检周期,z.单位名称,x.提前提醒天数, " +
-                             "case when x.IsEnabled = 1 then '启用' else '禁用' end as 启用状态,x.创建时间 " +
+                             "case when x.IsEnabled = 1 then '启用' else '停用' end as 启用状态,x.创建时间 " +
                          "from 巡检标准 as x " +
                          "join 周期单位 as z on x.周期单位编码 = z.单位编码 " +
                          "where 1 = 1";
 
-            string partCode = this.textBox巡检部位编码.Text.Trim();
+/*            string partCode = this.textBox巡检部位编码.Text.Trim();*/
             if (this.textBox巡检部位编码.Text.Trim() != "")
             {
                 sql += " and x.巡检部位编码 like '%" + this.textBox巡检部位编码.Text.Trim() + "%' ";

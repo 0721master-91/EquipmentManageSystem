@@ -69,5 +69,14 @@ namespace EquipmentManageSystem.标准管理
             return true;
 
         }
+
+        private void dlg巡检标准编辑_AfterFillControls()
+        {
+            object val = this.OtherFields["IsEnabled"];
+            if (val != null)
+            {
+                this.checkBox启用状态.Checked = Convert.ToBoolean(val);
+            }
+        }
     }
 }
