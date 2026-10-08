@@ -30,6 +30,7 @@ namespace EquipmentManageSystem.登录界面
 
                 if(dt != null && dt.Rows.Count > 0)
                 {
+                    Global.UserSession.Login(dt.Rows[0]); // 将用户信息保存到全局变量中
                     MessageBox.Show("登录成功！欢迎，" + dt.Rows[0]["姓名"], "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.DialogResult = DialogResult.OK;
                     this.Close();

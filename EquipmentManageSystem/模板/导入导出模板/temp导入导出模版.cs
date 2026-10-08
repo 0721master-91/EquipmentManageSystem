@@ -33,7 +33,7 @@ namespace EquipmentManageSystem.模板.导入导出模板
         public DataTable OutData { get; set; }
 
         [Category("导入导出")]
-        [Description("数据插入数据库表名（目标表名）")]
+        [Description("数据库表名")]
         public string TableName { get; set; }
 
         [Category("导入")]

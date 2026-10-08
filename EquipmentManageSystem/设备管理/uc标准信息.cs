@@ -13,6 +13,22 @@ namespace EquipmentManageSystem.设备管理
 {
     public partial class uc标准信息 : UserControl
     {
+
+        /// <summary>
+        /// 巡检标准表格数据表
+        /// </summary>
+        public DataTable InspectionStandardsTable
+        {
+            get { return this.dataGridView巡检标准.DataSource as DataTable; }
+        }
+        /// <summary>
+        /// 保养标准表格数据表
+        /// </summary>
+        public DataTable MaintenanceStandardsTable
+        {
+            get { return this.dataGridView保养标准.DataSource as DataTable; }
+        }
+
         public uc标准信息()
         {
             InitializeComponent();

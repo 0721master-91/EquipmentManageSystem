@@ -101,14 +101,12 @@ namespace EquipmentManageSystem.设备管理
             // button确定
             // 
             this.button确定.Font = new System.Drawing.Font("宋体", 11F);
-            this.button确定.Location = new System.Drawing.Point(471, 901);
-            this.button确定.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button确定.Location = new System.Drawing.Point(419, 751);
             // 
             // button取消
             // 
             this.button取消.Font = new System.Drawing.Font("宋体", 11F);
-            this.button取消.Location = new System.Drawing.Point(720, 901);
-            this.button取消.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button取消.Location = new System.Drawing.Point(640, 751);
             // 
             // panel主区域
             // 
@@ -122,9 +120,8 @@ namespace EquipmentManageSystem.设备管理
             this.panel主区域.Controls.Add(this.groupBox人员信息);
             this.panel主区域.Controls.Add(this.groupBox功能位置信息);
             this.panel主区域.Location = new System.Drawing.Point(4, 2);
-            this.panel主区域.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel主区域.Name = "panel主区域";
-            this.panel主区域.Size = new System.Drawing.Size(1311, 890);
+            this.panel主区域.Size = new System.Drawing.Size(1165, 742);
             this.panel主区域.TabIndex = 3;
             // 
             // groupBox单据信息
@@ -140,11 +137,9 @@ namespace EquipmentManageSystem.设备管理
             this.groupBox单据信息.Controls.Add(this.slTextBox单据号);
             this.groupBox单据信息.Controls.Add(this.label单据号);
             this.groupBox单据信息.Font = new System.Drawing.Font("宋体", 11F);
-            this.groupBox单据信息.Location = new System.Drawing.Point(7, 2);
-            this.groupBox单据信息.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox单据信息.Location = new System.Drawing.Point(6, 2);
             this.groupBox单据信息.Name = "groupBox单据信息";
-            this.groupBox单据信息.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox单据信息.Size = new System.Drawing.Size(1274, 132);
+            this.groupBox单据信息.Size = new System.Drawing.Size(1132, 110);
             this.groupBox单据信息.TabIndex = 6;
             this.groupBox单据信息.TabStop = false;
             this.groupBox单据信息.Text = "单据信息";
@@ -155,9 +150,10 @@ namespace EquipmentManageSystem.设备管理
             this.comboBox所属组织.DropDownWidth = 1;
             this.comboBox所属组织.FormattingEnabled = true;
             this.comboBox所属组织.IntegralHeight = false;
-            this.comboBox所属组织.Location = new System.Drawing.Point(557, 41);
+            this.comboBox所属组织.Location = new System.Drawing.Point(495, 34);
+            this.comboBox所属组织.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox所属组织.Name = "comboBox所属组织";
-            this.comboBox所属组织.Size = new System.Drawing.Size(462, 30);
+            this.comboBox所属组织.Size = new System.Drawing.Size(411, 26);
             this.comboBox所属组织.TabIndex = 8;
             this.comboBox所属组织.MouseDown += new System.Windows.Forms.MouseEventHandler(this.comboBox所属组织_MouseDown);
             // 
@@ -172,10 +168,9 @@ namespace EquipmentManageSystem.设备管理
             this.slComboBox设备类型.ForeignTable = "设备类型";
             this.slComboBox设备类型.FormattingEnabled = true;
             this.slComboBox设备类型.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slComboBox设备类型.Location = new System.Drawing.Point(557, 86);
-            this.slComboBox设备类型.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.slComboBox设备类型.Location = new System.Drawing.Point(495, 72);
             this.slComboBox设备类型.Name = "slComboBox设备类型";
-            this.slComboBox设备类型.Size = new System.Drawing.Size(164, 30);
+            this.slComboBox设备类型.Size = new System.Drawing.Size(146, 26);
             this.slComboBox设备类型.TabIndex = 7;
             this.slComboBox设备类型.TextStyle = SLControls.SLStyle.INVALID;
             this.slComboBox设备类型.ValueFrom = SLControls.SLGlobal.SleValueFrom.ForeignKey;
@@ -183,9 +178,9 @@ namespace EquipmentManageSystem.设备管理
             // label设备类型
             // 
             this.label设备类型.AutoSize = true;
-            this.label设备类型.Location = new System.Drawing.Point(451, 91);
+            this.label设备类型.Location = new System.Drawing.Point(401, 76);
             this.label设备类型.Name = "label设备类型";
-            this.label设备类型.Size = new System.Drawing.Size(120, 22);
+            this.label设备类型.Size = new System.Drawing.Size(104, 19);
             this.label设备类型.TabIndex = 6;
             this.label设备类型.Text = "设备类型：";
             // 
@@ -200,10 +195,9 @@ namespace EquipmentManageSystem.设备管理
             this.slComboBox设备状态.ForeignTable = "设备状态";
             this.slComboBox设备状态.FormattingEnabled = true;
             this.slComboBox设备状态.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slComboBox设备状态.Location = new System.Drawing.Point(134, 86);
-            this.slComboBox设备状态.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.slComboBox设备状态.Location = new System.Drawing.Point(119, 72);
             this.slComboBox设备状态.Name = "slComboBox设备状态";
-            this.slComboBox设备状态.Size = new System.Drawing.Size(136, 30);
+            this.slComboBox设备状态.Size = new System.Drawing.Size(121, 26);
             this.slComboBox设备状态.TabIndex = 5;
             this.slComboBox设备状态.TextStyle = SLControls.SLStyle.INVALID;
             this.slComboBox设备状态.ValueFrom = SLControls.SLGlobal.SleValueFrom.ForeignKey;
@@ -211,18 +205,18 @@ namespace EquipmentManageSystem.设备管理
             // label设备状态
             // 
             this.label设备状态.AutoSize = true;
-            this.label设备状态.Location = new System.Drawing.Point(28, 91);
+            this.label设备状态.Location = new System.Drawing.Point(25, 76);
             this.label设备状态.Name = "label设备状态";
-            this.label设备状态.Size = new System.Drawing.Size(120, 22);
+            this.label设备状态.Size = new System.Drawing.Size(104, 19);
             this.label设备状态.TabIndex = 4;
             this.label设备状态.Text = "设备状态：";
             // 
             // label所属组织
             // 
             this.label所属组织.AutoSize = true;
-            this.label所属组织.Location = new System.Drawing.Point(451, 44);
+            this.label所属组织.Location = new System.Drawing.Point(401, 37);
             this.label所属组织.Name = "label所属组织";
-            this.label所属组织.Size = new System.Drawing.Size(120, 22);
+            this.label所属组织.Size = new System.Drawing.Size(104, 19);
             this.label所属组织.TabIndex = 2;
             this.label所属组织.Text = "所属组织：";
             // 
@@ -232,20 +226,19 @@ namespace EquipmentManageSystem.设备管理
             this.slTextBox单据号.DataType = SLControls.SLGlobal.SleDataType.String;
             this.slTextBox单据号.FieldName = "单据号";
             this.slTextBox单据号.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slTextBox单据号.Location = new System.Drawing.Point(134, 38);
-            this.slTextBox单据号.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.slTextBox单据号.Location = new System.Drawing.Point(119, 32);
             this.slTextBox单据号.Name = "slTextBox单据号";
             this.slTextBox单据号.ReadOnly = true;
-            this.slTextBox单据号.Size = new System.Drawing.Size(241, 33);
+            this.slTextBox单据号.Size = new System.Drawing.Size(215, 28);
             this.slTextBox单据号.TabIndex = 1;
             this.slTextBox单据号.TextStyle = SLControls.SLStyle.INVALID;
             // 
             // label单据号
             // 
             this.label单据号.AutoSize = true;
-            this.label单据号.Location = new System.Drawing.Point(50, 44);
+            this.label单据号.Location = new System.Drawing.Point(44, 37);
             this.label单据号.Name = "label单据号";
-            this.label单据号.Size = new System.Drawing.Size(98, 22);
+            this.label单据号.Size = new System.Drawing.Size(85, 19);
             this.label单据号.TabIndex = 0;
             this.label单据号.Text = "单据号：";
             // 
@@ -266,11 +259,9 @@ namespace EquipmentManageSystem.设备管理
             this.groupBox绑定主设备信息.Controls.Add(this.label公司名称);
             this.groupBox绑定主设备信息.Controls.Add(this.label一级编码);
             this.groupBox绑定主设备信息.Font = new System.Drawing.Font("宋体", 11F);
-            this.groupBox绑定主设备信息.Location = new System.Drawing.Point(7, 142);
-            this.groupBox绑定主设备信息.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox绑定主设备信息.Location = new System.Drawing.Point(6, 118);
             this.groupBox绑定主设备信息.Name = "groupBox绑定主设备信息";
-            this.groupBox绑定主设备信息.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox绑定主设备信息.Size = new System.Drawing.Size(1274, 170);
+            this.groupBox绑定主设备信息.Size = new System.Drawing.Size(1132, 142);
             this.groupBox绑定主设备信息.TabIndex = 5;
             this.groupBox绑定主设备信息.TabStop = false;
             this.groupBox绑定主设备信息.Text = "绑定主设备信息";
@@ -278,108 +269,104 @@ namespace EquipmentManageSystem.设备管理
             // comboBox功能主设备
             // 
             this.comboBox功能主设备.FormattingEnabled = true;
-            this.comboBox功能主设备.Location = new System.Drawing.Point(999, 88);
+            this.comboBox功能主设备.Location = new System.Drawing.Point(888, 73);
+            this.comboBox功能主设备.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox功能主设备.Name = "comboBox功能主设备";
-            this.comboBox功能主设备.Size = new System.Drawing.Size(235, 30);
+            this.comboBox功能主设备.Size = new System.Drawing.Size(209, 26);
             this.comboBox功能主设备.TabIndex = 26;
             this.comboBox功能主设备.MouseDown += new System.Windows.Forms.MouseEventHandler(this.comboBox功能主设备_MouseDown);
             // 
             // textBox模块名称
             // 
-            this.textBox模块名称.Location = new System.Drawing.Point(561, 86);
-            this.textBox模块名称.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox模块名称.Location = new System.Drawing.Point(499, 72);
             this.textBox模块名称.Name = "textBox模块名称";
             this.textBox模块名称.ReadOnly = true;
-            this.textBox模块名称.Size = new System.Drawing.Size(241, 33);
+            this.textBox模块名称.Size = new System.Drawing.Size(215, 28);
             this.textBox模块名称.TabIndex = 25;
             // 
             // textBox公司名称
             // 
-            this.textBox公司名称.Location = new System.Drawing.Point(137, 86);
-            this.textBox公司名称.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox公司名称.Location = new System.Drawing.Point(122, 72);
             this.textBox公司名称.Name = "textBox公司名称";
             this.textBox公司名称.ReadOnly = true;
-            this.textBox公司名称.Size = new System.Drawing.Size(241, 33);
+            this.textBox公司名称.Size = new System.Drawing.Size(215, 28);
             this.textBox公司名称.TabIndex = 24;
             // 
             // textBox三级编码
             // 
-            this.textBox三级编码.Location = new System.Drawing.Point(1002, 37);
-            this.textBox三级编码.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox三级编码.Location = new System.Drawing.Point(891, 31);
             this.textBox三级编码.Name = "textBox三级编码";
             this.textBox三级编码.ReadOnly = true;
-            this.textBox三级编码.Size = new System.Drawing.Size(136, 33);
+            this.textBox三级编码.Size = new System.Drawing.Size(121, 28);
             this.textBox三级编码.TabIndex = 23;
             // 
             // textBox二级编码
             // 
-            this.textBox二级编码.Location = new System.Drawing.Point(560, 40);
-            this.textBox二级编码.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox二级编码.Location = new System.Drawing.Point(498, 33);
             this.textBox二级编码.Name = "textBox二级编码";
             this.textBox二级编码.ReadOnly = true;
-            this.textBox二级编码.Size = new System.Drawing.Size(136, 33);
+            this.textBox二级编码.Size = new System.Drawing.Size(121, 28);
             this.textBox二级编码.TabIndex = 22;
             // 
             // textBox一级编码
             // 
-            this.textBox一级编码.Location = new System.Drawing.Point(137, 37);
-            this.textBox一级编码.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox一级编码.Location = new System.Drawing.Point(122, 31);
             this.textBox一级编码.Name = "textBox一级编码";
             this.textBox一级编码.ReadOnly = true;
-            this.textBox一级编码.Size = new System.Drawing.Size(136, 33);
+            this.textBox一级编码.Size = new System.Drawing.Size(121, 28);
             this.textBox一级编码.TabIndex = 21;
             // 
             // label三级编码
             // 
             this.label三级编码.AutoSize = true;
-            this.label三级编码.Location = new System.Drawing.Point(894, 43);
+            this.label三级编码.Location = new System.Drawing.Point(795, 36);
             this.label三级编码.Name = "label三级编码";
-            this.label三级编码.Size = new System.Drawing.Size(120, 22);
+            this.label三级编码.Size = new System.Drawing.Size(104, 19);
             this.label三级编码.TabIndex = 18;
             this.label三级编码.Text = "三级编码：";
             // 
             // label二级编码
             // 
             this.label二级编码.AutoSize = true;
-            this.label二级编码.Location = new System.Drawing.Point(456, 43);
+            this.label二级编码.Location = new System.Drawing.Point(405, 36);
             this.label二级编码.Name = "label二级编码";
-            this.label二级编码.Size = new System.Drawing.Size(120, 22);
+            this.label二级编码.Size = new System.Drawing.Size(104, 19);
             this.label二级编码.TabIndex = 16;
             this.label二级编码.Text = "二级编码：";
             // 
             // label功能主设备
             // 
             this.label功能主设备.AutoSize = true;
-            this.label功能主设备.Location = new System.Drawing.Point(873, 92);
+            this.label功能主设备.Location = new System.Drawing.Point(776, 77);
             this.label功能主设备.Name = "label功能主设备";
-            this.label功能主设备.Size = new System.Drawing.Size(142, 22);
+            this.label功能主设备.Size = new System.Drawing.Size(123, 19);
             this.label功能主设备.TabIndex = 14;
             this.label功能主设备.Text = "功能主设备：";
             // 
             // label模块名称
             // 
             this.label模块名称.AutoSize = true;
-            this.label模块名称.Location = new System.Drawing.Point(456, 92);
+            this.label模块名称.Location = new System.Drawing.Point(405, 77);
             this.label模块名称.Name = "label模块名称";
-            this.label模块名称.Size = new System.Drawing.Size(120, 22);
+            this.label模块名称.Size = new System.Drawing.Size(104, 19);
             this.label模块名称.TabIndex = 12;
             this.label模块名称.Text = "模块名称：";
             // 
             // label公司名称
             // 
             this.label公司名称.AutoSize = true;
-            this.label公司名称.Location = new System.Drawing.Point(32, 92);
+            this.label公司名称.Location = new System.Drawing.Point(28, 77);
             this.label公司名称.Name = "label公司名称";
-            this.label公司名称.Size = new System.Drawing.Size(120, 22);
+            this.label公司名称.Size = new System.Drawing.Size(104, 19);
             this.label公司名称.TabIndex = 10;
             this.label公司名称.Text = "公司名称：";
             // 
             // label一级编码
             // 
             this.label一级编码.AutoSize = true;
-            this.label一级编码.Location = new System.Drawing.Point(32, 43);
+            this.label一级编码.Location = new System.Drawing.Point(28, 36);
             this.label一级编码.Name = "label一级编码";
-            this.label一级编码.Size = new System.Drawing.Size(120, 22);
+            this.label一级编码.Size = new System.Drawing.Size(104, 19);
             this.label一级编码.TabIndex = 8;
             this.label一级编码.Text = "一级编码：";
             // 
@@ -390,11 +377,9 @@ namespace EquipmentManageSystem.设备管理
             this.groupBox标准信息.AutoSize = true;
             this.groupBox标准信息.Controls.Add(this.uc标准信息);
             this.groupBox标准信息.Font = new System.Drawing.Font("宋体", 11F);
-            this.groupBox标准信息.Location = new System.Drawing.Point(7, 860);
-            this.groupBox标准信息.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox标准信息.Location = new System.Drawing.Point(6, 717);
             this.groupBox标准信息.Name = "groupBox标准信息";
-            this.groupBox标准信息.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox标准信息.Size = new System.Drawing.Size(1274, 788);
+            this.groupBox标准信息.Size = new System.Drawing.Size(1132, 657);
             this.groupBox标准信息.TabIndex = 4;
             this.groupBox标准信息.TabStop = false;
             this.groupBox标准信息.Text = "标准信息";
@@ -408,11 +393,9 @@ namespace EquipmentManageSystem.设备管理
             this.groupBox定位信息.Controls.Add(this.slTextBox经度);
             this.groupBox定位信息.Controls.Add(this.label经度);
             this.groupBox定位信息.Font = new System.Drawing.Font("宋体", 11F);
-            this.groupBox定位信息.Location = new System.Drawing.Point(7, 767);
-            this.groupBox定位信息.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox定位信息.Location = new System.Drawing.Point(6, 639);
             this.groupBox定位信息.Name = "groupBox定位信息";
-            this.groupBox定位信息.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox定位信息.Size = new System.Drawing.Size(1274, 82);
+            this.groupBox定位信息.Size = new System.Drawing.Size(1132, 68);
             this.groupBox定位信息.TabIndex = 3;
             this.groupBox定位信息.TabStop = false;
             this.groupBox定位信息.Text = "定位信息";
@@ -423,19 +406,18 @@ namespace EquipmentManageSystem.设备管理
             this.slTextBox纬度.DataType = SLControls.SLGlobal.SleDataType.String;
             this.slTextBox纬度.FieldName = "纬度";
             this.slTextBox纬度.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slTextBox纬度.Location = new System.Drawing.Point(367, 34);
-            this.slTextBox纬度.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.slTextBox纬度.Location = new System.Drawing.Point(326, 28);
             this.slTextBox纬度.Name = "slTextBox纬度";
-            this.slTextBox纬度.Size = new System.Drawing.Size(164, 33);
+            this.slTextBox纬度.Size = new System.Drawing.Size(146, 28);
             this.slTextBox纬度.TabIndex = 33;
             this.slTextBox纬度.TextStyle = SLControls.SLStyle.INVALID;
             // 
             // label纬度
             // 
             this.label纬度.AutoSize = true;
-            this.label纬度.Location = new System.Drawing.Point(300, 40);
+            this.label纬度.Location = new System.Drawing.Point(267, 33);
             this.label纬度.Name = "label纬度";
-            this.label纬度.Size = new System.Drawing.Size(76, 22);
+            this.label纬度.Size = new System.Drawing.Size(66, 19);
             this.label纬度.TabIndex = 32;
             this.label纬度.Text = "纬度：";
             // 
@@ -445,19 +427,18 @@ namespace EquipmentManageSystem.设备管理
             this.slTextBox经度.DataType = SLControls.SLGlobal.SleDataType.String;
             this.slTextBox经度.FieldName = "经度";
             this.slTextBox经度.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slTextBox经度.Location = new System.Drawing.Point(87, 34);
-            this.slTextBox经度.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.slTextBox经度.Location = new System.Drawing.Point(77, 28);
             this.slTextBox经度.Name = "slTextBox经度";
-            this.slTextBox经度.Size = new System.Drawing.Size(164, 33);
+            this.slTextBox经度.Size = new System.Drawing.Size(146, 28);
             this.slTextBox经度.TabIndex = 31;
             this.slTextBox经度.TextStyle = SLControls.SLStyle.INVALID;
             // 
             // label经度
             // 
             this.label经度.AutoSize = true;
-            this.label经度.Location = new System.Drawing.Point(20, 40);
+            this.label经度.Location = new System.Drawing.Point(18, 33);
             this.label经度.Name = "label经度";
-            this.label经度.Size = new System.Drawing.Size(76, 22);
+            this.label经度.Size = new System.Drawing.Size(66, 19);
             this.label经度.TabIndex = 30;
             this.label经度.Text = "经度：";
             // 
@@ -472,11 +453,9 @@ namespace EquipmentManageSystem.设备管理
             this.groupBox人员信息.Controls.Add(this.comboBox巡检人员);
             this.groupBox人员信息.Controls.Add(this.label巡检人员);
             this.groupBox人员信息.Font = new System.Drawing.Font("宋体", 11F);
-            this.groupBox人员信息.Location = new System.Drawing.Point(7, 595);
-            this.groupBox人员信息.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox人员信息.Location = new System.Drawing.Point(6, 496);
             this.groupBox人员信息.Name = "groupBox人员信息";
-            this.groupBox人员信息.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox人员信息.Size = new System.Drawing.Size(1274, 160);
+            this.groupBox人员信息.Size = new System.Drawing.Size(1132, 133);
             this.groupBox人员信息.TabIndex = 2;
             this.groupBox人员信息.TabStop = false;
             this.groupBox人员信息.Text = "人员信息";
@@ -484,57 +463,54 @@ namespace EquipmentManageSystem.设备管理
             // comboBox检验人员
             // 
             this.comboBox检验人员.FormattingEnabled = true;
-            this.comboBox检验人员.Location = new System.Drawing.Point(135, 96);
-            this.comboBox检验人员.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox检验人员.Location = new System.Drawing.Point(120, 80);
             this.comboBox检验人员.Name = "comboBox检验人员";
-            this.comboBox检验人员.Size = new System.Drawing.Size(479, 30);
+            this.comboBox检验人员.Size = new System.Drawing.Size(426, 26);
             this.comboBox检验人员.TabIndex = 34;
             this.comboBox检验人员.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberSelectDialog);
             // 
             // label检验人员
             // 
             this.label检验人员.AutoSize = true;
-            this.label检验人员.Location = new System.Drawing.Point(28, 101);
+            this.label检验人员.Location = new System.Drawing.Point(25, 84);
             this.label检验人员.Name = "label检验人员";
-            this.label检验人员.Size = new System.Drawing.Size(120, 22);
+            this.label检验人员.Size = new System.Drawing.Size(104, 19);
             this.label检验人员.TabIndex = 33;
             this.label检验人员.Text = "检验人员：";
             // 
             // comboBox维保人员
             // 
             this.comboBox维保人员.FormattingEnabled = true;
-            this.comboBox维保人员.Location = new System.Drawing.Point(764, 43);
-            this.comboBox维保人员.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox维保人员.Location = new System.Drawing.Point(679, 36);
             this.comboBox维保人员.Name = "comboBox维保人员";
-            this.comboBox维保人员.Size = new System.Drawing.Size(479, 30);
+            this.comboBox维保人员.Size = new System.Drawing.Size(426, 26);
             this.comboBox维保人员.TabIndex = 32;
             this.comboBox维保人员.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberSelectDialog);
             // 
             // label维保人员
             // 
             this.label维保人员.AutoSize = true;
-            this.label维保人员.Location = new System.Drawing.Point(657, 48);
+            this.label维保人员.Location = new System.Drawing.Point(584, 40);
             this.label维保人员.Name = "label维保人员";
-            this.label维保人员.Size = new System.Drawing.Size(120, 22);
+            this.label维保人员.Size = new System.Drawing.Size(104, 19);
             this.label维保人员.TabIndex = 31;
             this.label维保人员.Text = "维保人员：";
             // 
             // comboBox巡检人员
             // 
             this.comboBox巡检人员.FormattingEnabled = true;
-            this.comboBox巡检人员.Location = new System.Drawing.Point(135, 43);
-            this.comboBox巡检人员.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox巡检人员.Location = new System.Drawing.Point(120, 36);
             this.comboBox巡检人员.Name = "comboBox巡检人员";
-            this.comboBox巡检人员.Size = new System.Drawing.Size(479, 30);
+            this.comboBox巡检人员.Size = new System.Drawing.Size(426, 26);
             this.comboBox巡检人员.TabIndex = 30;
             this.comboBox巡检人员.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberSelectDialog);
             // 
             // label巡检人员
             // 
             this.label巡检人员.AutoSize = true;
-            this.label巡检人员.Location = new System.Drawing.Point(28, 48);
+            this.label巡检人员.Location = new System.Drawing.Point(25, 40);
             this.label巡检人员.Name = "label巡检人员";
-            this.label巡检人员.Size = new System.Drawing.Size(120, 22);
+            this.label巡检人员.Size = new System.Drawing.Size(104, 19);
             this.label巡检人员.TabIndex = 29;
             this.label巡检人员.Text = "巡检人员：";
             // 
@@ -557,11 +533,9 @@ namespace EquipmentManageSystem.设备管理
             this.groupBox功能位置信息.Controls.Add(this.label功能位置描述);
             this.groupBox功能位置信息.Controls.Add(this.label功能位置编码);
             this.groupBox功能位置信息.Font = new System.Drawing.Font("宋体", 11F);
-            this.groupBox功能位置信息.Location = new System.Drawing.Point(7, 342);
-            this.groupBox功能位置信息.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox功能位置信息.Location = new System.Drawing.Point(6, 285);
             this.groupBox功能位置信息.Name = "groupBox功能位置信息";
-            this.groupBox功能位置信息.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox功能位置信息.Size = new System.Drawing.Size(1274, 241);
+            this.groupBox功能位置信息.Size = new System.Drawing.Size(1132, 201);
             this.groupBox功能位置信息.TabIndex = 0;
             this.groupBox功能位置信息.TabStop = false;
             this.groupBox功能位置信息.Text = "功能位置信息";
@@ -569,18 +543,20 @@ namespace EquipmentManageSystem.设备管理
             // comboBox使用部门
             // 
             this.comboBox使用部门.FormattingEnabled = true;
-            this.comboBox使用部门.Location = new System.Drawing.Point(834, 136);
+            this.comboBox使用部门.Location = new System.Drawing.Point(741, 113);
+            this.comboBox使用部门.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox使用部门.Name = "comboBox使用部门";
-            this.comboBox使用部门.Size = new System.Drawing.Size(164, 30);
+            this.comboBox使用部门.Size = new System.Drawing.Size(146, 26);
             this.comboBox使用部门.TabIndex = 34;
             this.comboBox使用部门.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenDepartmentSelectDialog);
             // 
             // comboBox管理部门
             // 
             this.comboBox管理部门.FormattingEnabled = true;
-            this.comboBox管理部门.Location = new System.Drawing.Point(492, 136);
+            this.comboBox管理部门.Location = new System.Drawing.Point(437, 113);
+            this.comboBox管理部门.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox管理部门.Name = "comboBox管理部门";
-            this.comboBox管理部门.Size = new System.Drawing.Size(164, 30);
+            this.comboBox管理部门.Size = new System.Drawing.Size(146, 26);
             this.comboBox管理部门.TabIndex = 33;
             this.comboBox管理部门.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenDepartmentSelectDialog);
             // 
@@ -590,11 +566,12 @@ namespace EquipmentManageSystem.设备管理
             this.slTextBox位置简称.DataType = SLControls.SLGlobal.SleDataType.String;
             this.slTextBox位置简称.FieldName = "位置简称";
             this.slTextBox位置简称.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slTextBox位置简称.Location = new System.Drawing.Point(1002, 39);
+            this.slTextBox位置简称.Location = new System.Drawing.Point(891, 32);
+            this.slTextBox位置简称.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.slTextBox位置简称.Multiline = true;
             this.slTextBox位置简称.Name = "slTextBox位置简称";
             this.slTextBox位置简称.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.slTextBox位置简称.Size = new System.Drawing.Size(241, 83);
+            this.slTextBox位置简称.Size = new System.Drawing.Size(215, 70);
             this.slTextBox位置简称.TabIndex = 32;
             this.slTextBox位置简称.TextStyle = SLControls.SLStyle.INVALID;
             // 
@@ -604,11 +581,12 @@ namespace EquipmentManageSystem.设备管理
             this.slTextBox功能位置描述.DataType = SLControls.SLGlobal.SleDataType.String;
             this.slTextBox功能位置描述.FieldName = "功能位置描述";
             this.slTextBox功能位置描述.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slTextBox功能位置描述.Location = new System.Drawing.Point(606, 36);
+            this.slTextBox功能位置描述.Location = new System.Drawing.Point(539, 30);
+            this.slTextBox功能位置描述.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.slTextBox功能位置描述.Multiline = true;
             this.slTextBox功能位置描述.Name = "slTextBox功能位置描述";
             this.slTextBox功能位置描述.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.slTextBox功能位置描述.Size = new System.Drawing.Size(241, 83);
+            this.slTextBox功能位置描述.Size = new System.Drawing.Size(215, 70);
             this.slTextBox功能位置描述.TabIndex = 31;
             this.slTextBox功能位置描述.TextStyle = SLControls.SLStyle.INVALID;
             // 
@@ -618,38 +596,38 @@ namespace EquipmentManageSystem.设备管理
             this.slTextBox功能位置编码.DataType = SLControls.SLGlobal.SleDataType.String;
             this.slTextBox功能位置编码.FieldName = "功能位置编码";
             this.slTextBox功能位置编码.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slTextBox功能位置编码.Location = new System.Drawing.Point(177, 37);
+            this.slTextBox功能位置编码.Location = new System.Drawing.Point(157, 31);
+            this.slTextBox功能位置编码.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.slTextBox功能位置编码.Name = "slTextBox功能位置编码";
             this.slTextBox功能位置编码.ReadOnly = true;
-            this.slTextBox功能位置编码.Size = new System.Drawing.Size(241, 33);
+            this.slTextBox功能位置编码.Size = new System.Drawing.Size(215, 28);
             this.slTextBox功能位置编码.TabIndex = 30;
             this.slTextBox功能位置编码.TextStyle = SLControls.SLStyle.INVALID;
             // 
             // comboBox责任人
             // 
             this.comboBox责任人.FormattingEnabled = true;
-            this.comboBox责任人.Location = new System.Drawing.Point(177, 190);
-            this.comboBox责任人.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox责任人.Location = new System.Drawing.Point(157, 158);
             this.comboBox责任人.Name = "comboBox责任人";
-            this.comboBox责任人.Size = new System.Drawing.Size(479, 30);
+            this.comboBox责任人.Size = new System.Drawing.Size(426, 26);
             this.comboBox责任人.TabIndex = 28;
             this.comboBox责任人.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberSelectDialog);
             // 
             // label责任人
             // 
             this.label责任人.AutoSize = true;
-            this.label责任人.Location = new System.Drawing.Point(92, 194);
+            this.label责任人.Location = new System.Drawing.Point(82, 162);
             this.label责任人.Name = "label责任人";
-            this.label责任人.Size = new System.Drawing.Size(98, 22);
+            this.label责任人.Size = new System.Drawing.Size(85, 19);
             this.label责任人.TabIndex = 27;
             this.label责任人.Text = "责任人：";
             // 
             // label使用部门
             // 
             this.label使用部门.AutoSize = true;
-            this.label使用部门.Location = new System.Drawing.Point(727, 140);
+            this.label使用部门.Location = new System.Drawing.Point(646, 117);
             this.label使用部门.Name = "label使用部门";
-            this.label使用部门.Size = new System.Drawing.Size(120, 22);
+            this.label使用部门.Size = new System.Drawing.Size(104, 19);
             this.label使用部门.TabIndex = 25;
             this.label使用部门.Text = "使用部门：";
             // 
@@ -663,10 +641,9 @@ namespace EquipmentManageSystem.设备管理
             this.slComboBox所属区域.ForeignTable = "区域";
             this.slComboBox所属区域.FormattingEnabled = true;
             this.slComboBox所属区域.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slComboBox所属区域.Location = new System.Drawing.Point(177, 136);
-            this.slComboBox所属区域.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.slComboBox所属区域.Location = new System.Drawing.Point(157, 113);
             this.slComboBox所属区域.Name = "slComboBox所属区域";
-            this.slComboBox所属区域.Size = new System.Drawing.Size(164, 30);
+            this.slComboBox所属区域.Size = new System.Drawing.Size(146, 26);
             this.slComboBox所属区域.TabIndex = 24;
             this.slComboBox所属区域.TextStyle = SLControls.SLStyle.INVALID;
             this.slComboBox所属区域.ValueFrom = SLControls.SLGlobal.SleValueFrom.ForeignKey;
@@ -674,65 +651,65 @@ namespace EquipmentManageSystem.设备管理
             // label所属区域
             // 
             this.label所属区域.AutoSize = true;
-            this.label所属区域.Location = new System.Drawing.Point(71, 140);
+            this.label所属区域.Location = new System.Drawing.Point(63, 117);
             this.label所属区域.Name = "label所属区域";
-            this.label所属区域.Size = new System.Drawing.Size(120, 22);
+            this.label所属区域.Size = new System.Drawing.Size(104, 19);
             this.label所属区域.TabIndex = 23;
             this.label所属区域.Text = "所属区域：";
             // 
             // label管理部门
             // 
             this.label管理部门.AutoSize = true;
-            this.label管理部门.Location = new System.Drawing.Point(386, 140);
+            this.label管理部门.Location = new System.Drawing.Point(343, 117);
             this.label管理部门.Name = "label管理部门";
-            this.label管理部门.Size = new System.Drawing.Size(120, 22);
+            this.label管理部门.Size = new System.Drawing.Size(104, 19);
             this.label管理部门.TabIndex = 21;
             this.label管理部门.Text = "管理部门：";
             // 
             // label位置简称
             // 
             this.label位置简称.AutoSize = true;
-            this.label位置简称.Location = new System.Drawing.Point(888, 42);
+            this.label位置简称.Location = new System.Drawing.Point(789, 35);
             this.label位置简称.Name = "label位置简称";
-            this.label位置简称.Size = new System.Drawing.Size(120, 22);
+            this.label位置简称.Size = new System.Drawing.Size(104, 19);
             this.label位置简称.TabIndex = 19;
             this.label位置简称.Text = "位置简称：";
             // 
             // label功能位置描述
             // 
             this.label功能位置描述.AutoSize = true;
-            this.label功能位置描述.Location = new System.Drawing.Point(452, 42);
+            this.label功能位置描述.Location = new System.Drawing.Point(402, 35);
             this.label功能位置描述.Name = "label功能位置描述";
-            this.label功能位置描述.Size = new System.Drawing.Size(164, 22);
+            this.label功能位置描述.Size = new System.Drawing.Size(142, 19);
             this.label功能位置描述.TabIndex = 17;
             this.label功能位置描述.Text = "功能位置描述：";
             // 
             // label功能位置编码
             // 
             this.label功能位置编码.AutoSize = true;
-            this.label功能位置编码.Location = new System.Drawing.Point(28, 42);
+            this.label功能位置编码.Location = new System.Drawing.Point(25, 35);
             this.label功能位置编码.Name = "label功能位置编码";
-            this.label功能位置编码.Size = new System.Drawing.Size(164, 22);
+            this.label功能位置编码.Size = new System.Drawing.Size(142, 19);
             this.label功能位置编码.TabIndex = 9;
             this.label功能位置编码.Text = "功能位置编码：";
             // 
             // uc标准信息
             // 
             this.uc标准信息.Font = new System.Drawing.Font("宋体", 11F);
-            this.uc标准信息.Location = new System.Drawing.Point(2, 34);
-            this.uc标准信息.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.uc标准信息.Location = new System.Drawing.Point(2, 28);
+            this.uc标准信息.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.uc标准信息.Name = "uc标准信息";
-            this.uc标准信息.Size = new System.Drawing.Size(1264, 715);
+            this.uc标准信息.Size = new System.Drawing.Size(1124, 596);
             this.uc标准信息.TabIndex = 0;
             // 
             // dlg功能位置档案编辑
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1321, 953);
+            this.ClientSize = new System.Drawing.Size(1174, 794);
             this.Controls.Add(this.panel主区域);
-            this.Margin = new System.Windows.Forms.Padding(7);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "dlg功能位置档案编辑";
             slcFieldInfo1.KeyName = "组织编码";
             slcFieldInfo1.KeyType = SLControls.SLGlobal.SleDataType.String;
@@ -776,8 +753,11 @@ namespace EquipmentManageSystem.设备管理
             this.OtherFields.Add(slcFieldInfo8);
             this.TableName = "设备功能位置档案";
             this.Text = "功能位置档案";
+            this.UseTransation = false;
             this.AfterFillControls += new SLControls.AfterFillControlsHandler(this.dlg功能位置档案编辑_AfterFillControls);
             this.PreOK += new SLControls.PreOKHandler(this.dlg功能位置档案编辑_PreOK);
+            this.PreExecuteOKSql += new SLControls.PreExecuteOKSqlHandler(this.dlg功能位置档案编辑_PreExecuteOKSql);
+            this.AfterExecuteOKSql += new SLControls.AfterExecuteOKSqlHandler(this.dlg功能位置档案编辑_AfterExecuteOKSql);
             this.Load += new System.EventHandler(this.dlg功能位置档案编辑_Load);
             this.Controls.SetChildIndex(this.panel主区域, 0);
             this.Controls.SetChildIndex(this.button确定, 0);

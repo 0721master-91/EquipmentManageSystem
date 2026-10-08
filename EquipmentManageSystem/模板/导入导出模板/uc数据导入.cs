@@ -345,6 +345,8 @@ namespace EquipmentManageSystem.模板.导入导出模板
                 int successCount = 0;
                 var services = SLControls.SLDbService.SLOnlyInstOleDb.Services;
 
+                SLControls.SLDbService.SLOnlyInstOleDb.Services.BeginTran();
+
                 for (int i = 0; i < this.DataSource.Rows.Count; i++)
                 {
                     DataRow row = this.DataSource.Rows[i];
@@ -399,8 +401,7 @@ namespace EquipmentManageSystem.模板.导入导出模板
                         successCount++;
                     else
                     {
-                        MessageBox.Show($"第{i + 1}行数据导入失败，请检查数据格式和完整性。");
-                        return;
+                        throw new Exception($"第{i + 1}行数据导入失败");
                     }
 
                     // 更新进度
@@ -415,11 +416,13 @@ namespace EquipmentManageSystem.模板.导入导出模板
                 this.IsRepeat = true;
                 MessageBox.Show($"导入完成！共成功导入 {successCount} 行数据。",
                     "导入成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SLControls.SLDbService.SLOnlyInstOleDb.Services.Commit();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"导入失败：{ex.Message}", "错误",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SLControls.SLDbService.SLOnlyInstOleDb.Services.RollBack();
             }
 
             this.button确认导入.Enabled = true;//打开确认按钮

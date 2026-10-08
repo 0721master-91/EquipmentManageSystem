@@ -19,10 +19,18 @@ namespace EquipmentManageSystem.Utils
         {
             if (value == null || value == DBNull.Value)
                 return "NULL";
-            if (value is int || value is decimal || value is long ||
-                value is double || value is float || value is short || value is byte)
-                return value.ToString();  // 数字不加引号
-            return $"'{value.ToString().Replace("'", "''")}'";  // 字符串加引号
+
+            if (value is bool b)
+                return b ? "1" : "0";
+
+            if (value is DateTime dt)
+                return "'" + dt.ToString("yyyy-MM-dd HH:mm:ss") + "'";
+
+            if (value is int || value is long || value is short ||
+                value is byte || value is decimal || value is double || value is float)
+                return Convert.ToString(value, System.Globalization.CultureInfo.InvariantCulture);
+
+            return "'" + value.ToString().Replace("'", "''") + "'";
         }
 
         /// <summary>

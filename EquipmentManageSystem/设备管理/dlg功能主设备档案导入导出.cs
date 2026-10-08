@@ -25,13 +25,13 @@ namespace EquipmentManageSystem.设备管理
             InitializeComponent();
         }
 
-        //重写导入前逻辑
+        //重写导入前逻辑(测试)
         protected override bool BeforeImport(DataTable dt)
         {
             if (dt == null) return false;
             foreach (DataRow row in dt.Rows)
             {
-                row["设备编码"] = row["设备编码"]?.ToString() + "_测试";
+                /*row["设备编码"] = row["设备编码"]?.ToString() + "_测试";*/
             }
 
             return true;

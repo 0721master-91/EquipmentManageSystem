@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -129,6 +129,7 @@ namespace EquipmentManageSystem.设备管理
             dt.Columns.Add("巡检周期", typeof(decimal));        // 数字
             dt.Columns.Add("周期单位编码", typeof(string));     // 存编码
             dt.Columns.Add("开始执行日期", typeof(DateTime));   // 日期
+            dt.Columns.Add("ID", typeof(long));       
             return dt;
         }
 
@@ -162,10 +163,11 @@ namespace EquipmentManageSystem.设备管理
             dt.Columns.Add("给油类型编码", typeof(string));
             dt.Columns.Add("润滑脂型号", typeof(string));
             dt.Columns.Add("润换方式编码", typeof(string));
-            dt.Columns.Add("执行周期", typeof(decimal));   // 改成 decimal，跟数据库实际类型一致
+            dt.Columns.Add("执行周期", typeof(decimal));  
             dt.Columns.Add("周期单位编码", typeof(string));
             dt.Columns.Add("提前提醒天数", typeof(int));
             dt.Columns.Add("开始执行日期", typeof(DateTime));
+            dt.Columns.Add("ID", typeof(long));      
 
             return dt;
         }

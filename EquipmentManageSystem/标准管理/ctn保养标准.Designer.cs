@@ -30,8 +30,8 @@ namespace EquipmentManageSystem.标准管理
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctn保养标准));
-            SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息 slpInfoStop同时停启用相关信息2 = new SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息();
-            SLQLControls.控件.控件公用类.SlpInfoStop启用前判断 slpInfoStop启用前判断2 = new SLQLControls.控件.控件公用类.SlpInfoStop启用前判断();
+            SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息 slpInfoStop同时停启用相关信息1 = new SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息();
+            SLQLControls.控件.控件公用类.SlpInfoStop启用前判断 slpInfoStop启用前判断1 = new SLQLControls.控件.控件公用类.SlpInfoStop启用前判断();
             this.label保养标准编码 = new System.Windows.Forms.Label();
             this.textBox保养标准编码 = new System.Windows.Forms.TextBox();
             this.label给油类型 = new System.Windows.Forms.Label();
@@ -53,29 +53,31 @@ namespace EquipmentManageSystem.标准管理
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(0, 735);
-            this.panel1.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
-            this.panel1.Size = new System.Drawing.Size(1704, 74);
+            this.panel1.Location = new System.Drawing.Point(0, 612);
+            this.panel1.Margin = new System.Windows.Forms.Padding(9);
+            this.panel1.Size = new System.Drawing.Size(1515, 62);
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(1030, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
-            this.panel5.Size = new System.Drawing.Size(674, 74);
+            this.panel5.Location = new System.Drawing.Point(916, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(9);
             // 
             // button退出
             // 
-            this.button退出.Location = new System.Drawing.Point(528, 21);
+            this.button退出.Location = new System.Drawing.Point(469, 17);
+            this.button退出.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button退出.Visible = false;
             // 
             // button帮助
             // 
-            this.button帮助.Location = new System.Drawing.Point(406, 21);
+            this.button帮助.Location = new System.Drawing.Point(361, 17);
+            this.button帮助.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button帮助.Visible = false;
             // 
             // button打印
             // 
-            this.button打印.Location = new System.Drawing.Point(285, 21);
+            this.button打印.Location = new System.Drawing.Point(253, 17);
+            this.button打印.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button打印.Visible = false;
             // 
             // panel2
@@ -92,8 +94,8 @@ namespace EquipmentManageSystem.标准管理
             this.panel2.Controls.Add(this.label给油类型);
             this.panel2.Controls.Add(this.textBox保养标准编码);
             this.panel2.Controls.Add(this.label保养标准编码);
-            this.panel2.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
-            this.panel2.Size = new System.Drawing.Size(1704, 115);
+            this.panel2.Margin = new System.Windows.Forms.Padding(9);
+            this.panel2.Size = new System.Drawing.Size(1515, 96);
             this.panel2.Controls.SetChildIndex(this.panel4, 0);
             this.panel2.Controls.SetChildIndex(this.buttonFocus, 0);
             this.panel2.Controls.SetChildIndex(this.label保养标准编码, 0);
@@ -126,9 +128,9 @@ namespace EquipmentManageSystem.标准管理
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(0, 115);
-            this.panel3.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
-            this.panel3.Size = new System.Drawing.Size(1704, 620);
+            this.panel3.Location = new System.Drawing.Point(0, 96);
+            this.panel3.Margin = new System.Windows.Forms.Padding(9);
+            this.panel3.Size = new System.Drawing.Size(1515, 516);
             // 
             // slDataTablePrinter
             // 
@@ -154,8 +156,9 @@ namespace EquipmentManageSystem.标准管理
             // panel4
             // 
             this.panel4.Controls.Add(this.slFlatButton导入);
-            this.panel4.Location = new System.Drawing.Point(1247, 0);
-            this.panel4.Size = new System.Drawing.Size(268, 96);
+            this.panel4.Location = new System.Drawing.Point(1277, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.panel4.Size = new System.Drawing.Size(238, 96);
             this.panel4.Controls.SetChildIndex(this.button刷新, 0);
             this.panel4.Controls.SetChildIndex(this.button筛选, 0);
             this.panel4.Controls.SetChildIndex(this.button定位, 0);
@@ -163,56 +166,58 @@ namespace EquipmentManageSystem.标准管理
             // 
             // button还原颜色
             // 
-            this.button还原颜色.Location = new System.Drawing.Point(14, 21);
+            this.button还原颜色.Location = new System.Drawing.Point(12, 17);
+            this.button还原颜色.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             // 
             // button设置颜色
             // 
-            this.button设置颜色.Location = new System.Drawing.Point(150, 21);
+            this.button设置颜色.Location = new System.Drawing.Point(133, 17);
+            this.button设置颜色.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             // 
             // label保养标准编码
             // 
             this.label保养标准编码.AutoSize = true;
             this.label保养标准编码.Font = new System.Drawing.Font("宋体", 11F);
-            this.label保养标准编码.Location = new System.Drawing.Point(27, 28);
+            this.label保养标准编码.Location = new System.Drawing.Point(24, 23);
             this.label保养标准编码.Name = "label保养标准编码";
-            this.label保养标准编码.Size = new System.Drawing.Size(164, 22);
+            this.label保养标准编码.Size = new System.Drawing.Size(142, 19);
             this.label保养标准编码.TabIndex = 17;
             this.label保养标准编码.Text = "保养标准编码：";
             // 
             // textBox保养标准编码
             // 
             this.textBox保养标准编码.Font = new System.Drawing.Font("宋体", 11F);
-            this.textBox保养标准编码.Location = new System.Drawing.Point(174, 22);
-            this.textBox保养标准编码.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox保养标准编码.Location = new System.Drawing.Point(155, 18);
             this.textBox保养标准编码.Name = "textBox保养标准编码";
-            this.textBox保养标准编码.Size = new System.Drawing.Size(194, 33);
+            this.textBox保养标准编码.Size = new System.Drawing.Size(173, 28);
             this.textBox保养标准编码.TabIndex = 18;
             // 
             // label给油类型
             // 
             this.label给油类型.AutoSize = true;
             this.label给油类型.Font = new System.Drawing.Font("宋体", 11F);
-            this.label给油类型.Location = new System.Drawing.Point(755, 28);
+            this.label给油类型.Location = new System.Drawing.Point(671, 23);
             this.label给油类型.Name = "label给油类型";
-            this.label给油类型.Size = new System.Drawing.Size(120, 22);
+            this.label给油类型.Size = new System.Drawing.Size(104, 19);
             this.label给油类型.TabIndex = 19;
             this.label给油类型.Text = "给油类型：";
             // 
             // textBox润滑脂型号
             // 
             this.textBox润滑脂型号.Font = new System.Drawing.Font("宋体", 11F);
-            this.textBox润滑脂型号.Location = new System.Drawing.Point(475, 18);
+            this.textBox润滑脂型号.Location = new System.Drawing.Point(473, 15);
+            this.textBox润滑脂型号.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox润滑脂型号.Name = "textBox润滑脂型号";
-            this.textBox润滑脂型号.Size = new System.Drawing.Size(173, 28);
+            this.textBox润滑脂型号.Size = new System.Drawing.Size(154, 28);
             this.textBox润滑脂型号.TabIndex = 22;
             // 
             // label润滑脂型号
             // 
             this.label润滑脂型号.AutoSize = true;
             this.label润滑脂型号.Font = new System.Drawing.Font("宋体", 11F);
-            this.label润滑脂型号.Location = new System.Drawing.Point(403, 28);
+            this.label润滑脂型号.Location = new System.Drawing.Point(358, 23);
             this.label润滑脂型号.Name = "label润滑脂型号";
-            this.label润滑脂型号.Size = new System.Drawing.Size(142, 22);
+            this.label润滑脂型号.Size = new System.Drawing.Size(123, 19);
             this.label润滑脂型号.TabIndex = 21;
             this.label润滑脂型号.Text = "润滑脂型号：";
             // 
@@ -220,29 +225,27 @@ namespace EquipmentManageSystem.标准管理
             // 
             this.comboBox给油类型.Font = new System.Drawing.Font("宋体", 11F);
             this.comboBox给油类型.FormattingEnabled = true;
-            this.comboBox给油类型.Location = new System.Drawing.Point(862, 23);
-            this.comboBox给油类型.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox给油类型.Location = new System.Drawing.Point(766, 19);
             this.comboBox给油类型.Name = "comboBox给油类型";
-            this.comboBox给油类型.Size = new System.Drawing.Size(136, 30);
+            this.comboBox给油类型.Size = new System.Drawing.Size(121, 26);
             this.comboBox给油类型.TabIndex = 23;
             // 
             // comboBox润换方式
             // 
             this.comboBox润换方式.Font = new System.Drawing.Font("宋体", 11F);
             this.comboBox润换方式.FormattingEnabled = true;
-            this.comboBox润换方式.Location = new System.Drawing.Point(1148, 23);
-            this.comboBox润换方式.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox润换方式.Location = new System.Drawing.Point(1020, 19);
             this.comboBox润换方式.Name = "comboBox润换方式";
-            this.comboBox润换方式.Size = new System.Drawing.Size(136, 30);
+            this.comboBox润换方式.Size = new System.Drawing.Size(121, 26);
             this.comboBox润换方式.TabIndex = 25;
             // 
             // label润换方式
             // 
             this.label润换方式.AutoSize = true;
             this.label润换方式.Font = new System.Drawing.Font("宋体", 11F);
-            this.label润换方式.Location = new System.Drawing.Point(1041, 28);
+            this.label润换方式.Location = new System.Drawing.Point(925, 23);
             this.label润换方式.Name = "label润换方式";
-            this.label润换方式.Size = new System.Drawing.Size(120, 22);
+            this.label润换方式.Size = new System.Drawing.Size(104, 19);
             this.label润换方式.TabIndex = 24;
             this.label润换方式.Text = "润换方式：";
             // 
@@ -250,37 +253,37 @@ namespace EquipmentManageSystem.标准管理
             // 
             this.comboBox启用状态.Font = new System.Drawing.Font("宋体", 11F);
             this.comboBox启用状态.FormattingEnabled = true;
-            this.comboBox启用状态.Location = new System.Drawing.Point(134, 67);
-            this.comboBox启用状态.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox启用状态.Location = new System.Drawing.Point(119, 56);
             this.comboBox启用状态.Name = "comboBox启用状态";
-            this.comboBox启用状态.Size = new System.Drawing.Size(136, 30);
+            this.comboBox启用状态.Size = new System.Drawing.Size(121, 26);
             this.comboBox启用状态.TabIndex = 27;
             // 
             // label启用状态
             // 
             this.label启用状态.AutoSize = true;
             this.label启用状态.Font = new System.Drawing.Font("宋体", 11F);
-            this.label启用状态.Location = new System.Drawing.Point(27, 72);
+            this.label启用状态.Location = new System.Drawing.Point(24, 60);
             this.label启用状态.Name = "label启用状态";
-            this.label启用状态.Size = new System.Drawing.Size(120, 22);
+            this.label启用状态.Size = new System.Drawing.Size(104, 19);
             this.label启用状态.TabIndex = 26;
             this.label启用状态.Text = "启用状态：";
             // 
             // textBox模糊查询
             // 
             this.textBox模糊查询.Font = new System.Drawing.Font("宋体", 11F);
-            this.textBox模糊查询.Location = new System.Drawing.Point(375, 55);
+            this.textBox模糊查询.Location = new System.Drawing.Point(371, 55);
+            this.textBox模糊查询.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox模糊查询.Name = "textBox模糊查询";
-            this.textBox模糊查询.Size = new System.Drawing.Size(173, 28);
+            this.textBox模糊查询.Size = new System.Drawing.Size(154, 28);
             this.textBox模糊查询.TabIndex = 29;
             // 
             // label模糊查询
             // 
             this.label模糊查询.AutoSize = true;
             this.label模糊查询.Font = new System.Drawing.Font("宋体", 11F);
-            this.label模糊查询.Location = new System.Drawing.Point(313, 72);
+            this.label模糊查询.Location = new System.Drawing.Point(278, 60);
             this.label模糊查询.Name = "label模糊查询";
-            this.label模糊查询.Size = new System.Drawing.Size(120, 22);
+            this.label模糊查询.Size = new System.Drawing.Size(104, 19);
             this.label模糊查询.TabIndex = 28;
             this.label模糊查询.Text = "模糊查询：";
             // 
@@ -290,9 +293,10 @@ namespace EquipmentManageSystem.标准管理
             this.slFlatButton导入.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.slFlatButton导入.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.slFlatButton导入.GetFocusControl = null;
-            this.slFlatButton导入.Location = new System.Drawing.Point(0, 46);
+            this.slFlatButton导入.Location = new System.Drawing.Point(0, 38);
+            this.slFlatButton导入.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.slFlatButton导入.Name = "slFlatButton导入";
-            this.slFlatButton导入.Size = new System.Drawing.Size(115, 35);
+            this.slFlatButton导入.Size = new System.Drawing.Size(102, 29);
             this.slFlatButton导入.TabIndex = 8;
             this.slFlatButton导入.Text = "✅️ 导出";
             this.slFlatButton导入.UseVisualStyleBackColor = true;
@@ -300,19 +304,19 @@ namespace EquipmentManageSystem.标准管理
             // 
             // ctn保养标准
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1704, 809);
+            this.ClientSize = new System.Drawing.Size(1515, 674);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Info停用启用.ColName停用 = "";
             this.Info停用启用.Color停用 = System.Drawing.Color.Red;
             this.Info停用启用.FieldName停用 = "";
-            slpInfoStop同时停启用相关信息2.停用时提示信息 = "";
-            slpInfoStop同时停启用相关信息2.启用时提示信息 = "";
-            this.Info停用启用.Info同时停启用相关信息 = slpInfoStop同时停启用相关信息2;
-            slpInfoStop启用前判断2.ColName启用时需要判断 = "";
-            slpInfoStop启用前判断2.不能启用时提示信息 = "";
-            this.Info停用启用.Info启用前判断 = slpInfoStop启用前判断2;
+            slpInfoStop同时停启用相关信息1.停用时提示信息 = "";
+            slpInfoStop同时停启用相关信息1.启用时提示信息 = "";
+            this.Info停用启用.Info同时停启用相关信息 = slpInfoStop同时停启用相关信息1;
+            slpInfoStop启用前判断1.ColName启用时需要判断 = "";
+            slpInfoStop启用前判断1.不能启用时提示信息 = "";
+            this.Info停用启用.Info启用前判断 = slpInfoStop启用前判断1;
             this.Info列配置.CurUserID = ((long)(0));
             this.Info列配置.列配置信息 = "";
             this.Info列配置.标识 = "";
@@ -325,7 +329,7 @@ namespace EquipmentManageSystem.标准管理
             this.Info数据编辑.FieldName不能删除 = "";
             this.Info数据编辑.Params = null;
             this.Info数据编辑.Type编辑窗口 = null;
-            this.Margin = new System.Windows.Forms.Padding(24, 25, 24, 25);
+            this.Margin = new System.Windows.Forms.Padding(21);
             this.Name = "ctn保养标准";
             this.TableName = "保养标准";
             this.Text = "ctn保养标准";

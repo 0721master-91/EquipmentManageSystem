@@ -21,13 +21,14 @@ namespace EquipmentManageSystem
             SLControls.SLDbService.SLOnlyInstOleDb.Services.InitDb();
 
 
+            Global.UserSession.TestInit();
             Application.Run(new MainForm());
-/*            Form登录界面 frmLogin = new Form登录界面();
-            if (frmLogin.ShowDialog() == DialogResult.OK)
-            {
-                Application.Run(new MainForm());
-            }
-*/
+            /*            Form登录界面 frmLogin = new Form登录界面();
+                        if (frmLogin.ShowDialog() == DialogResult.OK)
+                        {
+                            Application.Run(new MainForm());
+                        }*/
+
         }
     }
 }
