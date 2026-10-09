@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace EquipmentManageSystem.主界面
 {
     /// <summary>
-    /// 菜单动态生成器：按配置创建一级/二级按钮与面板，样式与设计器一致
+    /// 菜单动态生成器：按配置创建一级/二级按钮与面板
     /// </summary>
     public static class MenuBuilder
     {
@@ -36,7 +36,7 @@ namespace EquipmentManageSystem.主界面
                     AutoSizeMode = AutoSizeMode.GrowAndShrink
                 };
 
-                // 二级菜单区（白底、默认隐藏）
+                // 二级菜单区
                 var subPanel = new Panel
                 {
                     Dock = DockStyle.Top,
@@ -84,7 +84,7 @@ namespace EquipmentManageSystem.主界面
                 topBtn.FlatAppearance.BorderColor = BorderColor;
                 topBtn.Click += owner.changeSubMenuShow;
 
-                // 组装（先不加入容器，稍后统一逆序 Add）
+                // 组装
                 menuPanel.Controls.Add(subPanel);
                 menuPanel.Controls.Add(topBtn);
                 allMenuPanels.Add(menuPanel);

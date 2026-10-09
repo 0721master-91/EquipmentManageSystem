@@ -137,8 +137,11 @@ namespace EquipmentManageSystem.设备巡检
             this.Info数据编辑.Params = null;
             this.Info数据编辑.Type编辑窗口 = null;
             this.Name = "ctn巡检任务";
+            this.TableName = "巡检任务";
             this.Text = "巡检任务";
+            this.AfterChangeDataSource += new SLQLControls.模板.temp标准报表GridControl.AfterChangeDataSourceEventHandle(this.ctn巡检任务_AfterChangeDataSource);
             this.BeforeChangeDataSource += new SLQLControls.公用类.SlcQLPublic.BoolEventHandle(this.ctn巡检任务_BeforeChangeDataSource);
+            this.Load += new System.EventHandler(this.ctn巡检任务_Load);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.panel3, 0);
