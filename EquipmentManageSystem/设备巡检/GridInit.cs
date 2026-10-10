@@ -35,6 +35,7 @@ namespace EquipmentManageSystem.设备巡检
             dt.Columns.Add("周期单位", typeof(string));
             dt.Columns.Add("提前提醒天数", typeof(int));
             dt.Columns.Add("开始执行日期", typeof(DateTime));
+            dt.Columns.Add("下次执行日期", typeof(DateTime));
             dt.Columns.Add("ID", typeof(long));
             return dt;
         }

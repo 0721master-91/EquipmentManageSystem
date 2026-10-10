@@ -37,7 +37,8 @@ namespace EquipmentManageSystem.主界面
                     Text = "设备巡检",
                     SubMenus =
                     {
-                        new SubMenuConfig { Text = "巡检任务", FormType = typeof(设备巡检.ctn巡检任务) }
+                        new SubMenuConfig { Text = "巡检任务", FormType = typeof(设备巡检.ctn巡检任务) },
+                        new SubMenuConfig { Text = "任务接取", FormType = typeof(设备巡检.ctn巡检任务接取) },
                     }
                 }
             };

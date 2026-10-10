@@ -12,12 +12,12 @@ namespace EquipmentManageSystem.设备巡检
 {
     public partial class uc巡检任务标准 : UserControl
     {
-        public string positionCode; // 设备功能位置编码
+        public string PositionCode; // 设备功能位置编码
 
         /// <summary>
         /// 巡检任务标准表格数据表
         /// </summary>
-        public DataTable 巡检任务标准表
+        public DataTable StandardDataTable
         {
             get { return this.dataGridView巡检任务标准数据.DataSource as DataTable; }
         }
@@ -32,7 +32,6 @@ namespace EquipmentManageSystem.设备巡检
             // 设计模式状态下不初始化
             if (DesignMode)
                 return;
-
 
             GridInit.InitInspectionTaskStandardGrid(this.dataGridView巡检任务标准数据);
         }
@@ -94,6 +93,14 @@ namespace EquipmentManageSystem.设备巡检
                 dt.Rows.Clear();
         }
 
+        /// <summary>
+        /// 禁止打开选择界面
+        /// </summary>
+        public void ForbiddenOpenDialog()
+        {
+            this.dataGridView巡检任务标准数据.CellClick -= dataGridView巡检任务标准数据_CellClick;
+        }
+
         // 点击展开选择界面
         private void dataGridView巡检任务标准数据_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -101,13 +108,13 @@ namespace EquipmentManageSystem.设备巡检
                 return;
             if (dataGridView巡检任务标准数据.Columns[e.ColumnIndex].Name != "巡检部位")
                 return;
-            if (string.IsNullOrEmpty(this.positionCode))
+            if (string.IsNullOrEmpty(this.PositionCode))
             {
                 PopUpUtil.ShowInfo("请先选择设备功能位置");
                 return;
             }
 
-            using(dlg巡检任务编辑巡检标准选择 dlg = new dlg巡检任务编辑巡检标准选择(this.positionCode))
+            using(dlg巡检任务编辑巡检标准选择 dlg = new dlg巡检任务编辑巡检标准选择(this.PositionCode))
             {
                 if(dlg.ShowDialog() == DialogResult.OK)
                 {

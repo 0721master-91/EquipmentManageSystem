@@ -61,6 +61,7 @@ namespace EquipmentManageSystem.设备管理
             this.label公司名称 = new System.Windows.Forms.Label();
             this.label一级编码 = new System.Windows.Forms.Label();
             this.groupBox标准信息 = new System.Windows.Forms.GroupBox();
+            this.uc标准信息 = new EquipmentManageSystem.设备管理.uc标准信息();
             this.groupBox定位信息 = new System.Windows.Forms.GroupBox();
             this.slTextBox纬度 = new SLControls.SLTextBox();
             this.label纬度 = new System.Windows.Forms.Label();
@@ -88,7 +89,6 @@ namespace EquipmentManageSystem.设备管理
             this.label位置简称 = new System.Windows.Forms.Label();
             this.label功能位置描述 = new System.Windows.Forms.Label();
             this.label功能位置编码 = new System.Windows.Forms.Label();
-            this.uc标准信息 = new EquipmentManageSystem.设备管理.uc标准信息();
             this.panel主区域.SuspendLayout();
             this.groupBox单据信息.SuspendLayout();
             this.groupBox绑定主设备信息.SuspendLayout();
@@ -383,6 +383,15 @@ namespace EquipmentManageSystem.设备管理
             this.groupBox标准信息.TabIndex = 4;
             this.groupBox标准信息.TabStop = false;
             this.groupBox标准信息.Text = "标准信息";
+            // 
+            // uc标准信息
+            // 
+            this.uc标准信息.Font = new System.Drawing.Font("宋体", 11F);
+            this.uc标准信息.Location = new System.Drawing.Point(2, 28);
+            this.uc标准信息.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uc标准信息.Name = "uc标准信息";
+            this.uc标准信息.Size = new System.Drawing.Size(1124, 596);
+            this.uc标准信息.TabIndex = 0;
             // 
             // groupBox定位信息
             // 
@@ -693,23 +702,15 @@ namespace EquipmentManageSystem.设备管理
             this.label功能位置编码.TabIndex = 9;
             this.label功能位置编码.Text = "功能位置编码：";
             // 
-            // uc标准信息
-            // 
-            this.uc标准信息.Font = new System.Drawing.Font("宋体", 11F);
-            this.uc标准信息.Location = new System.Drawing.Point(2, 28);
-            this.uc标准信息.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.uc标准信息.Name = "uc标准信息";
-            this.uc标准信息.Size = new System.Drawing.Size(1124, 596);
-            this.uc标准信息.TabIndex = 0;
-            // 
             // dlg功能位置档案编辑
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1174, 794);
+            this.CloseFormAfterNew = true;
             this.Controls.Add(this.panel主区域);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "dlg功能位置档案编辑";
             slcFieldInfo1.KeyName = "组织编码";
             slcFieldInfo1.KeyType = SLControls.SLGlobal.SleDataType.String;

@@ -51,7 +51,7 @@ namespace EquipmentManageSystem.设备巡检
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 528);
             this.Name = "dlg巡检任务编辑巡检标准选择";
-            this.Text = "dlg巡检任务编辑巡检标准选择";
+            this.Text = "巡检标准选择";
             this.BeforeQuery += new EquipmentManageSystem.模板.选择窗口模版.temp选择窗口.BeforeQueryEventHandler(this.dlg巡检任务编辑巡检标准选择_BeforeQuery);
             this.PreOK += new EquipmentManageSystem.模板.选择窗口模版.temp选择窗口.PreOKHandler(this.dlg巡检任务编辑巡检标准选择_PreOK);
             this.panel条件筛选区.ResumeLayout(false);

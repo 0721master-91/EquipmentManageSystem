@@ -105,6 +105,7 @@
     <Compile Include="Utils\CalculateUtil.cs" />
     <Compile Include="Utils\CommonFilter.cs" />
     <Compile Include="Utils\InfoShowUtil.cs" />
+    <Compile Include="Utils\PictureHandleUtil.cs" />
     <Compile Include="Utils\PopUpUtil.cs" />
     <Compile Include="Utils\SqlCommonUtil.cs" />
     <Compile Include="主界面\MenuBuilder.cs" />
@@ -191,6 +192,18 @@
     </Compile>
     <Compile Include="设备巡检\ctn巡检任务.Designer.cs">
       <DependentUpon>ctn巡检任务.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备巡检\ctn巡检任务接取.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备巡检\ctn巡检任务接取.Designer.cs">
+      <DependentUpon>ctn巡检任务接取.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备巡检\dlg巡检任务导出.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备巡检\dlg巡检任务导出.Designer.cs">
+      <DependentUpon>dlg巡检任务导出.cs</DependentUpon>
     </Compile>
     <Compile Include="设备巡检\dlg巡检任务编辑.cs">
       <SubType>Form</SubType>
@@ -340,6 +353,12 @@
     <EmbeddedResource Include="设备巡检\ctn巡检任务.resx">
       <DependentUpon>ctn巡检任务.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="设备巡检\ctn巡检任务接取.resx">
+      <DependentUpon>ctn巡检任务接取.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备巡检\dlg巡检任务导出.resx">
+      <DependentUpon>dlg巡检任务导出.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="设备巡检\dlg巡检任务编辑.resx">
       <DependentUpon>dlg巡检任务编辑.cs</DependentUpon>
     </EmbeddedResource>
@@ -397,6 +416,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Pictures\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

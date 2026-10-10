@@ -29,6 +29,10 @@ namespace EquipmentManageSystem.设备巡检
         /// </summary>
         private void InitializeComponent()
         {
+            SLControls.SLGlobal.SlcFieldInfo slcFieldInfo1 = new SLControls.SLGlobal.SlcFieldInfo();
+            SLControls.SLGlobal.SlcFieldInfo slcFieldInfo2 = new SLControls.SLGlobal.SlcFieldInfo();
+            SLControls.SLGlobal.SlcFieldInfo slcFieldInfo3 = new SLControls.SLGlobal.SlcFieldInfo();
+            SLControls.SLGlobal.SlcFieldInfo slcFieldInfo4 = new SLControls.SLGlobal.SlcFieldInfo();
             this.groupBox单据信息 = new System.Windows.Forms.GroupBox();
             this.slDateTimePicker过期日期 = new SLControls.SLDateTimePicker();
             this.label过期日期 = new System.Windows.Forms.Label();
@@ -81,9 +85,9 @@ namespace EquipmentManageSystem.设备巡检
             this.label故障照片 = new System.Windows.Forms.Label();
             this.slTextBox故障现象 = new SLControls.SLTextBox();
             this.label故障现象 = new System.Windows.Forms.Label();
-            this.slComboBox是否故障 = new SLControls.SLComboBox();
             this.label是否故障 = new System.Windows.Forms.Label();
             this.groupBox巡检标准 = new System.Windows.Forms.GroupBox();
+            this.slComboBox是否故障 = new SLControls.SLComboBox();
             this.uc巡检任务标准 = new EquipmentManageSystem.设备巡检.uc巡检任务标准();
             this.groupBox单据信息.SuspendLayout();
             this.groupBox基本信息.SuspendLayout();
@@ -131,6 +135,8 @@ namespace EquipmentManageSystem.设备巡检
             // 
             // slDateTimePicker过期日期
             // 
+            this.slDateTimePicker过期日期.CalendarMonthBackground = System.Drawing.SystemColors.Control;
+            this.slDateTimePicker过期日期.Cursor = System.Windows.Forms.Cursors.Hand;
             this.slDateTimePicker过期日期.CustomFormat = "yyyy-MM-dd";
             this.slDateTimePicker过期日期.DataType = SLControls.SLGlobal.SleDataType.String;
             this.slDateTimePicker过期日期.FieldName = "过期时间";
@@ -210,7 +216,7 @@ namespace EquipmentManageSystem.设备巡检
             // 
             this.slTextBox上游单据号.BeforeFormatControlTextHandler = null;
             this.slTextBox上游单据号.DataType = SLControls.SLGlobal.SleDataType.String;
-            this.slTextBox上游单据号.FieldName = "巡检任务编码";
+            this.slTextBox上游单据号.FieldName = "上游单据号";
             this.slTextBox上游单据号.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.slTextBox上游单据号.Location = new System.Drawing.Point(981, 24);
             this.slTextBox上游单据号.Name = "slTextBox上游单据号";
@@ -430,7 +436,7 @@ namespace EquipmentManageSystem.设备巡检
             this.slTextBox功能位置编码.BeforeFormatControlTextHandler = null;
             this.slTextBox功能位置编码.Cursor = System.Windows.Forms.Cursors.Hand;
             this.slTextBox功能位置编码.DataType = SLControls.SLGlobal.SleDataType.String;
-            this.slTextBox功能位置编码.FieldName = "功能位置编码";
+            this.slTextBox功能位置编码.FieldName = "设备功能位置编码";
             this.slTextBox功能位置编码.ForeignKey = "";
             this.slTextBox功能位置编码.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.slTextBox功能位置编码.Location = new System.Drawing.Point(157, 21);
@@ -511,6 +517,7 @@ namespace EquipmentManageSystem.设备巡检
             this.button添加巡检照片.TabIndex = 22;
             this.button添加巡检照片.Text = "添加";
             this.button添加巡检照片.UseVisualStyleBackColor = false;
+            this.button添加巡检照片.Visible = false;
             this.button添加巡检照片.Click += new System.EventHandler(this.AddPictures);
             // 
             // label巡检照片
@@ -531,6 +538,7 @@ namespace EquipmentManageSystem.设备巡检
             this.slTextBox备注信息.Location = new System.Drawing.Point(120, 54);
             this.slTextBox备注信息.Multiline = true;
             this.slTextBox备注信息.Name = "slTextBox备注信息";
+            this.slTextBox备注信息.ReadOnly = true;
             this.slTextBox备注信息.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.slTextBox备注信息.Size = new System.Drawing.Size(237, 90);
             this.slTextBox备注信息.TabIndex = 19;
@@ -559,6 +567,7 @@ namespace EquipmentManageSystem.设备巡检
             this.slTextBox任务接取人.Size = new System.Drawing.Size(141, 28);
             this.slTextBox任务接取人.TabIndex = 17;
             this.slTextBox任务接取人.TextStyle = SLControls.SLStyle.INVALID;
+            this.slTextBox任务接取人.ValueFrom = SLControls.SLGlobal.SleValueFrom.ForeignKey;
             // 
             // textBox巡检人员
             // 
@@ -583,6 +592,8 @@ namespace EquipmentManageSystem.设备巡检
             // 
             // slDateTimePicker计划执行日期
             // 
+            this.slDateTimePicker计划执行日期.CalendarMonthBackground = System.Drawing.SystemColors.Control;
+            this.slDateTimePicker计划执行日期.Cursor = System.Windows.Forms.Cursors.Hand;
             this.slDateTimePicker计划执行日期.CustomFormat = "yyyy-MM-dd";
             this.slDateTimePicker计划执行日期.DataType = SLControls.SLGlobal.SleDataType.String;
             this.slDateTimePicker计划执行日期.FieldName = "计划执行日期";
@@ -624,12 +635,12 @@ namespace EquipmentManageSystem.设备巡检
             // 
             // groupBox故障信息
             // 
+            this.groupBox故障信息.Controls.Add(this.slComboBox是否故障);
             this.groupBox故障信息.Controls.Add(this.groupBox故障照片);
             this.groupBox故障信息.Controls.Add(this.button添加故障照片);
             this.groupBox故障信息.Controls.Add(this.label故障照片);
             this.groupBox故障信息.Controls.Add(this.slTextBox故障现象);
             this.groupBox故障信息.Controls.Add(this.label故障现象);
-            this.groupBox故障信息.Controls.Add(this.slComboBox是否故障);
             this.groupBox故障信息.Controls.Add(this.label是否故障);
             this.groupBox故障信息.Location = new System.Drawing.Point(8, 363);
             this.groupBox故障信息.Name = "groupBox故障信息";
@@ -667,6 +678,7 @@ namespace EquipmentManageSystem.设备巡检
             this.button添加故障照片.TabIndex = 25;
             this.button添加故障照片.Text = "添加";
             this.button添加故障照片.UseVisualStyleBackColor = false;
+            this.button添加故障照片.Visible = false;
             this.button添加故障照片.Click += new System.EventHandler(this.AddPictures);
             // 
             // label故障照片
@@ -687,6 +699,7 @@ namespace EquipmentManageSystem.设备巡检
             this.slTextBox故障现象.Location = new System.Drawing.Point(118, 58);
             this.slTextBox故障现象.Multiline = true;
             this.slTextBox故障现象.Name = "slTextBox故障现象";
+            this.slTextBox故障现象.ReadOnly = true;
             this.slTextBox故障现象.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.slTextBox故障现象.Size = new System.Drawing.Size(237, 90);
             this.slTextBox故障现象.TabIndex = 21;
@@ -700,19 +713,6 @@ namespace EquipmentManageSystem.设备巡检
             this.label故障现象.Size = new System.Drawing.Size(104, 19);
             this.label故障现象.TabIndex = 20;
             this.label故障现象.Text = "故障现象：";
-            // 
-            // slComboBox是否故障
-            // 
-            this.slComboBox是否故障.BeforeFormatControlTextHandler = null;
-            this.slComboBox是否故障.DataType = SLControls.SLGlobal.SleDataType.String;
-            this.slComboBox是否故障.FieldName = "是否故障";
-            this.slComboBox是否故障.FormattingEnabled = true;
-            this.slComboBox是否故障.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slComboBox是否故障.Location = new System.Drawing.Point(119, 24);
-            this.slComboBox是否故障.Name = "slComboBox是否故障";
-            this.slComboBox是否故障.Size = new System.Drawing.Size(104, 26);
-            this.slComboBox是否故障.TabIndex = 1;
-            this.slComboBox是否故障.TextStyle = SLControls.SLStyle.INVALID;
             // 
             // label是否故障
             // 
@@ -733,6 +733,21 @@ namespace EquipmentManageSystem.设备巡检
             this.groupBox巡检标准.TabStop = false;
             this.groupBox巡检标准.Text = "巡检标准";
             // 
+            // slComboBox是否故障
+            // 
+            this.slComboBox是否故障.BeforeFormatControlTextHandler = null;
+            this.slComboBox是否故障.DataType = SLControls.SLGlobal.SleDataType.String;
+            this.slComboBox是否故障.Enabled = false;
+            this.slComboBox是否故障.FieldName = "是否故障";
+            this.slComboBox是否故障.FormattingEnabled = true;
+            this.slComboBox是否故障.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.slComboBox是否故障.Location = new System.Drawing.Point(120, 24);
+            this.slComboBox是否故障.Name = "slComboBox是否故障";
+            this.slComboBox是否故障.Size = new System.Drawing.Size(121, 26);
+            this.slComboBox是否故障.TabIndex = 27;
+            this.slComboBox是否故障.TextStyle = SLControls.SLStyle.INVALID;
+            this.slComboBox是否故障.SelectedIndexChanged += new System.EventHandler(this.slComboBox是否故障_SelectedIndexChanged);
+            // 
             // uc巡检任务标准
             // 
             this.uc巡检任务标准.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -747,6 +762,7 @@ namespace EquipmentManageSystem.设备巡检
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1508, 885);
+            this.CloseFormAfterNew = true;
             this.Controls.Add(this.groupBox巡检标准);
             this.Controls.Add(this.groupBox故障信息);
             this.Controls.Add(this.groupBox巡检信息);
@@ -756,8 +772,32 @@ namespace EquipmentManageSystem.设备巡检
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "dlg巡检任务编辑";
+            slcFieldInfo1.KeyName = "巡检人员IDs";
+            slcFieldInfo1.KeyType = SLControls.SLGlobal.SleDataType.String;
+            slcFieldInfo1.KeyValue = null;
+            slcFieldInfo1.OperatorMode = SLControls.SLGlobal.SleOperatorMode.ReadWrite;
+            slcFieldInfo2.KeyName = "巡检照片路径";
+            slcFieldInfo2.KeyType = SLControls.SLGlobal.SleDataType.String;
+            slcFieldInfo2.KeyValue = null;
+            slcFieldInfo2.OperatorMode = SLControls.SLGlobal.SleOperatorMode.ReadWrite;
+            slcFieldInfo3.KeyName = "故障照片路径";
+            slcFieldInfo3.KeyType = SLControls.SLGlobal.SleDataType.String;
+            slcFieldInfo3.KeyValue = null;
+            slcFieldInfo3.OperatorMode = SLControls.SLGlobal.SleOperatorMode.ReadWrite;
+            slcFieldInfo4.KeyName = "巡检开始时间";
+            slcFieldInfo4.KeyType = SLControls.SLGlobal.SleDataType.DateTime;
+            slcFieldInfo4.KeyValue = null;
+            slcFieldInfo4.OperatorMode = SLControls.SLGlobal.SleOperatorMode.ReadWrite;
+            this.OtherFields.Add(slcFieldInfo1);
+            this.OtherFields.Add(slcFieldInfo2);
+            this.OtherFields.Add(slcFieldInfo3);
+            this.OtherFields.Add(slcFieldInfo4);
             this.Text = "巡检任务";
+            this.UseTransation = false;
             this.AfterFillControls += new SLControls.AfterFillControlsHandler(this.dlg巡检任务编辑_AfterFillControls);
+            this.PreOK += new SLControls.PreOKHandler(this.dlg巡检任务编辑_PreOK);
+            this.PreExecuteOKSql += new SLControls.PreExecuteOKSqlHandler(this.dlg巡检任务编辑_PreExecuteOKSql);
+            this.AfterExecuteOKSql += new SLControls.AfterExecuteOKSqlHandler(this.dlg巡检任务编辑_AfterExecuteOKSql);
             this.Load += new System.EventHandler(this.dlg巡检任务编辑_Load);
             this.Controls.SetChildIndex(this.groupBox单据信息, 0);
             this.Controls.SetChildIndex(this.groupBox基本信息, 0);
@@ -832,12 +872,12 @@ namespace EquipmentManageSystem.设备巡检
         private System.Windows.Forms.Label label是否故障;
         private SLControls.SLTextBox slTextBox故障现象;
         private System.Windows.Forms.Label label故障现象;
-        private SLControls.SLComboBox slComboBox是否故障;
         private System.Windows.Forms.GroupBox groupBox故障照片;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel故障照片;
         private System.Windows.Forms.Button button添加故障照片;
         private System.Windows.Forms.Label label故障照片;
         private System.Windows.Forms.GroupBox groupBox巡检标准;
         private uc巡检任务标准 uc巡检任务标准;
+        private SLControls.SLComboBox slComboBox是否故障;
     }
 }

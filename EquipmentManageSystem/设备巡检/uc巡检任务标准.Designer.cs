@@ -86,6 +86,7 @@ namespace EquipmentManageSystem.设备巡检
             // panel巡检任务标准数据区
             // 
             this.panel巡检任务标准数据区.AutoSize = true;
+            this.panel巡检任务标准数据区.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel巡检任务标准数据区.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel巡检任务标准数据区.Controls.Add(this.dataGridView巡检任务标准数据);
             this.panel巡检任务标准数据区.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -96,10 +97,9 @@ namespace EquipmentManageSystem.设备巡检
             // 
             // dataGridView巡检任务标准数据
             // 
-            this.dataGridView巡检任务标准数据.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView巡检任务标准数据.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView巡检任务标准数据.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView巡检任务标准数据.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView巡检任务标准数据.Location = new System.Drawing.Point(0, 0);
             this.dataGridView巡检任务标准数据.Name = "dataGridView巡检任务标准数据";
             this.dataGridView巡检任务标准数据.RowHeadersWidth = 51;
@@ -126,12 +126,11 @@ namespace EquipmentManageSystem.设备巡检
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel巡检任务标准操作区;
         private System.Windows.Forms.Button button巡检标注全部删除;
         private System.Windows.Forms.Button button巡检标准删除;
         private System.Windows.Forms.Button button巡检标准新增;
         private System.Windows.Forms.Panel panel巡检任务标准数据区;
-        private System.Windows.Forms.DataGridView dataGridView巡检任务标准数据;
+        public System.Windows.Forms.Panel panel巡检任务标准操作区;
+        public System.Windows.Forms.DataGridView dataGridView巡检任务标准数据;
     }
 }

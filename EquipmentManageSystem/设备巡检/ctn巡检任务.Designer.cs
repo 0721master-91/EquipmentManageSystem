@@ -32,6 +32,13 @@ namespace EquipmentManageSystem.设备巡检
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctn巡检任务));
             SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息 slpInfoStop同时停启用相关信息1 = new SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息();
             SLQLControls.控件.控件公用类.SlpInfoStop启用前判断 slpInfoStop启用前判断1 = new SLQLControls.控件.控件公用类.SlpInfoStop启用前判断();
+            this.label执行状态 = new System.Windows.Forms.Label();
+            this.comboBox执行状态 = new System.Windows.Forms.ComboBox();
+            this.comboBox过期状态 = new System.Windows.Forms.ComboBox();
+            this.label过期状态 = new System.Windows.Forms.Label();
+            this.label模糊查询 = new System.Windows.Forms.Label();
+            this.textBox模糊查询 = new System.Windows.Forms.TextBox();
+            this.slFlatButton导入 = new SLQLControls.控件.SLFlatButton();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -61,7 +68,21 @@ namespace EquipmentManageSystem.设备巡检
             // 
             // panel2
             // 
-            this.panel2.Size = new System.Drawing.Size(1282, 70);
+            this.panel2.Controls.Add(this.textBox模糊查询);
+            this.panel2.Controls.Add(this.label模糊查询);
+            this.panel2.Controls.Add(this.comboBox过期状态);
+            this.panel2.Controls.Add(this.label过期状态);
+            this.panel2.Controls.Add(this.comboBox执行状态);
+            this.panel2.Controls.Add(this.label执行状态);
+            this.panel2.Size = new System.Drawing.Size(1282, 50);
+            this.panel2.Controls.SetChildIndex(this.panel4, 0);
+            this.panel2.Controls.SetChildIndex(this.buttonFocus, 0);
+            this.panel2.Controls.SetChildIndex(this.label执行状态, 0);
+            this.panel2.Controls.SetChildIndex(this.comboBox执行状态, 0);
+            this.panel2.Controls.SetChildIndex(this.label过期状态, 0);
+            this.panel2.Controls.SetChildIndex(this.comboBox过期状态, 0);
+            this.panel2.Controls.SetChildIndex(this.label模糊查询, 0);
+            this.panel2.Controls.SetChildIndex(this.textBox模糊查询, 0);
             // 
             // button定位
             // 
@@ -72,16 +93,18 @@ namespace EquipmentManageSystem.设备巡检
             // 
             this.button筛选.FlatAppearance.BorderSize = 0;
             this.button筛选.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button筛选.Location = new System.Drawing.Point(89, 10);
             // 
             // button刷新
             // 
             this.button刷新.FlatAppearance.BorderSize = 0;
             this.button刷新.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button刷新.Location = new System.Drawing.Point(16, 10);
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(0, 70);
-            this.panel3.Size = new System.Drawing.Size(1282, 556);
+            this.panel3.Location = new System.Drawing.Point(0, 50);
+            this.panel3.Size = new System.Drawing.Size(1282, 576);
             // 
             // slDataTablePrinter
             // 
@@ -106,8 +129,84 @@ namespace EquipmentManageSystem.设备巡检
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(1014, 0);
-            this.panel4.Size = new System.Drawing.Size(268, 70);
+            this.panel4.Controls.Add(this.slFlatButton导入);
+            this.panel4.Location = new System.Drawing.Point(936, 0);
+            this.panel4.Size = new System.Drawing.Size(346, 50);
+            this.panel4.Controls.SetChildIndex(this.button刷新, 0);
+            this.panel4.Controls.SetChildIndex(this.button筛选, 0);
+            this.panel4.Controls.SetChildIndex(this.button定位, 0);
+            this.panel4.Controls.SetChildIndex(this.slFlatButton导入, 0);
+            // 
+            // label执行状态
+            // 
+            this.label执行状态.AutoSize = true;
+            this.label执行状态.Font = new System.Drawing.Font("宋体", 11F);
+            this.label执行状态.Location = new System.Drawing.Point(12, 20);
+            this.label执行状态.Name = "label执行状态";
+            this.label执行状态.Size = new System.Drawing.Size(104, 19);
+            this.label执行状态.TabIndex = 17;
+            this.label执行状态.Text = "执行状态：";
+            // 
+            // comboBox执行状态
+            // 
+            this.comboBox执行状态.Font = new System.Drawing.Font("宋体", 11F);
+            this.comboBox执行状态.FormattingEnabled = true;
+            this.comboBox执行状态.Location = new System.Drawing.Point(108, 16);
+            this.comboBox执行状态.Name = "comboBox执行状态";
+            this.comboBox执行状态.Size = new System.Drawing.Size(121, 26);
+            this.comboBox执行状态.TabIndex = 18;
+            // 
+            // comboBox过期状态
+            // 
+            this.comboBox过期状态.Font = new System.Drawing.Font("宋体", 11F);
+            this.comboBox过期状态.FormattingEnabled = true;
+            this.comboBox过期状态.Location = new System.Drawing.Point(352, 16);
+            this.comboBox过期状态.Name = "comboBox过期状态";
+            this.comboBox过期状态.Size = new System.Drawing.Size(121, 26);
+            this.comboBox过期状态.TabIndex = 20;
+            // 
+            // label过期状态
+            // 
+            this.label过期状态.AutoSize = true;
+            this.label过期状态.Font = new System.Drawing.Font("宋体", 11F);
+            this.label过期状态.Location = new System.Drawing.Point(256, 20);
+            this.label过期状态.Name = "label过期状态";
+            this.label过期状态.Size = new System.Drawing.Size(104, 19);
+            this.label过期状态.TabIndex = 19;
+            this.label过期状态.Text = "过期状态：";
+            // 
+            // label模糊查询
+            // 
+            this.label模糊查询.AutoSize = true;
+            this.label模糊查询.Font = new System.Drawing.Font("宋体", 11F);
+            this.label模糊查询.Location = new System.Drawing.Point(510, 19);
+            this.label模糊查询.Name = "label模糊查询";
+            this.label模糊查询.Size = new System.Drawing.Size(104, 19);
+            this.label模糊查询.TabIndex = 21;
+            this.label模糊查询.Text = "模糊查询：";
+            // 
+            // textBox模糊查询
+            // 
+            this.textBox模糊查询.Font = new System.Drawing.Font("宋体", 11F);
+            this.textBox模糊查询.Location = new System.Drawing.Point(603, 14);
+            this.textBox模糊查询.Name = "textBox模糊查询";
+            this.textBox模糊查询.Size = new System.Drawing.Size(230, 28);
+            this.textBox模糊查询.TabIndex = 22;
+            this.textBox模糊查询.TextChanged += new System.EventHandler(this.FuzzyQuery);
+            // 
+            // slFlatButton导入
+            // 
+            this.slFlatButton导入.FlatAppearance.BorderSize = 0;
+            this.slFlatButton导入.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.slFlatButton导入.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.slFlatButton导入.GetFocusControl = null;
+            this.slFlatButton导入.Location = new System.Drawing.Point(233, 7);
+            this.slFlatButton导入.Name = "slFlatButton导入";
+            this.slFlatButton导入.Size = new System.Drawing.Size(80, 35);
+            this.slFlatButton导入.TabIndex = 7;
+            this.slFlatButton导入.Text = "✅️ 导出";
+            this.slFlatButton导入.UseVisualStyleBackColor = true;
+            this.slFlatButton导入.Click += new System.EventHandler(this.slFlatButton导入_Click);
             // 
             // ctn巡检任务
             // 
@@ -148,11 +247,20 @@ namespace EquipmentManageSystem.设备巡检
             this.panel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label执行状态;
+        private System.Windows.Forms.ComboBox comboBox执行状态;
+        private System.Windows.Forms.ComboBox comboBox过期状态;
+        private System.Windows.Forms.Label label过期状态;
+        private System.Windows.Forms.Label label模糊查询;
+        private System.Windows.Forms.TextBox textBox模糊查询;
+        private SLQLControls.控件.SLFlatButton slFlatButton导入;
     }
 }
