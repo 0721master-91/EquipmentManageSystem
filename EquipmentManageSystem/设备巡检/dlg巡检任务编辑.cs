@@ -443,6 +443,7 @@ namespace EquipmentManageSystem.设备巡检
             return true;
         }
 
+        // 控制故障信息填写以及故障照片的添加
         private void slComboBox是否故障_SelectedIndexChanged(object sender, EventArgs e)
         {
             string isFault = this.slComboBox是否故障.SelectedValue.ToString();

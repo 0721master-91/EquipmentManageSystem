@@ -31,6 +31,8 @@ namespace EquipmentManageSystem.设备巡检
 
         private bool ctn巡检任务_BeforeChangeDataSource()
         {
+            TaskStatusManager.UpdateInspectionTaskExpiredStatus(); // 每次查询前先更新一下过期状态
+
             string sql = "select t.ID,t.巡检任务编码,p.功能位置编码,p.功能位置描述,p.位置简称,d.部门名称 as 设备管理部门,m.姓名 as 设备负责人,dbo.fn_GetMemberNamesByIds(t.巡检人员IDs) as 巡检人员," +
                          "dbo.fn_GetMemberNamesByIds(t.任务接取人ID) as 任务接取人员,t.计划执行日期,t.巡检开始时间,t.巡检结束时间,t.故障现象,es.状态 as 执行状态,os.状态 as 过期状态,t.创建时间 " +
                          "from 巡检任务 as t " + 

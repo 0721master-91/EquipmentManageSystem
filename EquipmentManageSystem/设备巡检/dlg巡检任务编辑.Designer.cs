@@ -79,6 +79,7 @@ namespace EquipmentManageSystem.设备巡检
             this.label巡检人员 = new System.Windows.Forms.Label();
             this.label计划执行日期 = new System.Windows.Forms.Label();
             this.groupBox故障信息 = new System.Windows.Forms.GroupBox();
+            this.slComboBox是否故障 = new SLControls.SLComboBox();
             this.groupBox故障照片 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel故障照片 = new System.Windows.Forms.FlowLayoutPanel();
             this.button添加故障照片 = new System.Windows.Forms.Button();
@@ -87,7 +88,6 @@ namespace EquipmentManageSystem.设备巡检
             this.label故障现象 = new System.Windows.Forms.Label();
             this.label是否故障 = new System.Windows.Forms.Label();
             this.groupBox巡检标准 = new System.Windows.Forms.GroupBox();
-            this.slComboBox是否故障 = new SLControls.SLComboBox();
             this.uc巡检任务标准 = new EquipmentManageSystem.设备巡检.uc巡检任务标准();
             this.groupBox单据信息.SuspendLayout();
             this.groupBox基本信息.SuspendLayout();
@@ -124,7 +124,7 @@ namespace EquipmentManageSystem.设备巡检
             this.groupBox单据信息.Controls.Add(this.label单据类型);
             this.groupBox单据信息.Controls.Add(this.slTextBox巡检任务编码);
             this.groupBox单据信息.Controls.Add(this.label巡检任务编码);
-            this.groupBox单据信息.Location = new System.Drawing.Point(8, 8);
+            this.groupBox单据信息.Location = new System.Drawing.Point(8, 4);
             this.groupBox单据信息.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox单据信息.Name = "groupBox单据信息";
             this.groupBox单据信息.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -267,7 +267,7 @@ namespace EquipmentManageSystem.设备巡检
             this.slTextBox单据类型.ReadOnly = true;
             this.slTextBox单据类型.Size = new System.Drawing.Size(109, 28);
             this.slTextBox单据类型.TabIndex = 3;
-            this.slTextBox单据类型.Text = "巡检计划";
+            this.slTextBox单据类型.Text = "巡检任务";
             this.slTextBox单据类型.TextStyle = SLControls.SLStyle.INVALID;
             // 
             // label单据类型
@@ -649,6 +649,21 @@ namespace EquipmentManageSystem.设备巡检
             this.groupBox故障信息.TabStop = false;
             this.groupBox故障信息.Text = "故障信息";
             // 
+            // slComboBox是否故障
+            // 
+            this.slComboBox是否故障.BeforeFormatControlTextHandler = null;
+            this.slComboBox是否故障.DataType = SLControls.SLGlobal.SleDataType.String;
+            this.slComboBox是否故障.Enabled = false;
+            this.slComboBox是否故障.FieldName = "是否故障";
+            this.slComboBox是否故障.FormattingEnabled = true;
+            this.slComboBox是否故障.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.slComboBox是否故障.Location = new System.Drawing.Point(120, 24);
+            this.slComboBox是否故障.Name = "slComboBox是否故障";
+            this.slComboBox是否故障.Size = new System.Drawing.Size(121, 26);
+            this.slComboBox是否故障.TabIndex = 27;
+            this.slComboBox是否故障.TextStyle = SLControls.SLStyle.INVALID;
+            this.slComboBox是否故障.SelectedIndexChanged += new System.EventHandler(this.slComboBox是否故障_SelectedIndexChanged);
+            // 
             // groupBox故障照片
             // 
             this.groupBox故障照片.Controls.Add(this.flowLayoutPanel故障照片);
@@ -732,21 +747,6 @@ namespace EquipmentManageSystem.设备巡检
             this.groupBox巡检标准.TabIndex = 4;
             this.groupBox巡检标准.TabStop = false;
             this.groupBox巡检标准.Text = "巡检标准";
-            // 
-            // slComboBox是否故障
-            // 
-            this.slComboBox是否故障.BeforeFormatControlTextHandler = null;
-            this.slComboBox是否故障.DataType = SLControls.SLGlobal.SleDataType.String;
-            this.slComboBox是否故障.Enabled = false;
-            this.slComboBox是否故障.FieldName = "是否故障";
-            this.slComboBox是否故障.FormattingEnabled = true;
-            this.slComboBox是否故障.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slComboBox是否故障.Location = new System.Drawing.Point(120, 24);
-            this.slComboBox是否故障.Name = "slComboBox是否故障";
-            this.slComboBox是否故障.Size = new System.Drawing.Size(121, 26);
-            this.slComboBox是否故障.TabIndex = 27;
-            this.slComboBox是否故障.TextStyle = SLControls.SLStyle.INVALID;
-            this.slComboBox是否故障.SelectedIndexChanged += new System.EventHandler(this.slComboBox是否故障_SelectedIndexChanged);
             // 
             // uc巡检任务标准
             // 

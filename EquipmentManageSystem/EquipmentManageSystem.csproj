@@ -108,6 +108,7 @@
     <Compile Include="Utils\PictureHandleUtil.cs" />
     <Compile Include="Utils\PopUpUtil.cs" />
     <Compile Include="Utils\SqlCommonUtil.cs" />
+    <Compile Include="Utils\TaskStatusManager.cs" />
     <Compile Include="主界面\MenuBuilder.cs" />
     <Compile Include="主界面\MenuConfig.cs" />
     <Compile Include="标准管理\ctn保养标准.cs">
@@ -186,6 +187,43 @@
     </Compile>
     <Compile Include="登录界面\Form登录界面.Designer.cs">
       <DependentUpon>Form登录界面.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备保养\ctn保养任务.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备保养\ctn保养任务.Designer.cs">
+      <DependentUpon>ctn保养任务.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备保养\ctn保养任务接取.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备保养\ctn保养任务接取.Designer.cs">
+      <DependentUpon>ctn保养任务接取.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备保养\ctn保养任务验收.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备保养\ctn保养任务验收.Designer.cs">
+      <DependentUpon>ctn保养任务验收.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备保养\dlg保养任务编辑.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备保养\dlg保养任务编辑.Designer.cs">
+      <DependentUpon>dlg保养任务编辑.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备保养\dlg保养任务编辑保养标准选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备保养\dlg保养任务编辑保养标准选择.Designer.cs">
+      <DependentUpon>dlg保养任务编辑保养标准选择.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备保养\GridInit.cs" />
+    <Compile Include="设备保养\uc保养任务标准.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="设备保养\uc保养任务标准.Designer.cs">
+      <DependentUpon>uc保养任务标准.cs</DependentUpon>
     </Compile>
     <Compile Include="设备巡检\ctn巡检任务.cs">
       <SubType>Form</SubType>
@@ -349,6 +387,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="登录界面\Form登录界面.resx">
       <DependentUpon>Form登录界面.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备保养\ctn保养任务.resx">
+      <DependentUpon>ctn保养任务.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备保养\ctn保养任务验收.resx">
+      <DependentUpon>ctn保养任务验收.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备保养\dlg保养任务编辑.resx">
+      <DependentUpon>dlg保养任务编辑.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备保养\dlg保养任务编辑保养标准选择.resx">
+      <DependentUpon>dlg保养任务编辑保养标准选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备保养\uc保养任务标准.resx">
+      <DependentUpon>uc保养任务标准.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="设备巡检\ctn巡检任务.resx">
       <DependentUpon>ctn巡检任务.cs</DependentUpon>

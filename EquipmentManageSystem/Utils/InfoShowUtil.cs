@@ -126,9 +126,9 @@ namespace EquipmentManageSystem.模板
             );
         }
 
-        private static System.Drawing.Drawing2D.GraphicsPath GetRoundedPath(Rectangle rect, int radius)
+        private static GraphicsPath GetRoundedPath(Rectangle rect, int radius)
         {
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+            GraphicsPath path = new GraphicsPath();
             int r2 = radius * 2;
             path.AddArc(rect.X, rect.Y, r2, r2, 180, 90);
             path.AddArc(rect.Right - r2, rect.Y, r2, r2, 270, 90);
