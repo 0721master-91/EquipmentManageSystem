@@ -68,7 +68,7 @@ namespace EquipmentManageSystem.Utils
             comboBox.DataSource = dt;
             comboBox.DisplayMember = displayMenber;
             comboBox.ValueMember = valueMember;
-            comboBox.SelectedValue = needAll ? string.Empty : null;
+            comboBox.SelectedIndex = needAll ? 0 : -1;
         }
     }
 }

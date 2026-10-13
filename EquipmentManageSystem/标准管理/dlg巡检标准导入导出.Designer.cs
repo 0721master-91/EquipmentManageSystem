@@ -101,7 +101,7 @@ namespace EquipmentManageSystem.标准管理
             excelTemplate4.Description = "巡检类型";
             excelTemplate4.Example = null;
             excelTemplate4.FieldName = "巡检类型";
-            excelTemplate4.NullEnabled = false;
+            excelTemplate4.NullEnabled = true;
             storeInfo5.ConditionField = null;
             storeInfo5.ConditionFieldType = EquipmentManageSystem.模板.导入导出模板.StoreFieldType.String;
             storeInfo5.FieldType = EquipmentManageSystem.模板.导入导出模板.StoreFieldType.String;
@@ -113,7 +113,7 @@ namespace EquipmentManageSystem.标准管理
             excelTemplate5.Description = "判断标准";
             excelTemplate5.Example = "皮带表面无划痕，无破损";
             excelTemplate5.FieldName = "判断标准";
-            excelTemplate5.NullEnabled = false;
+            excelTemplate5.NullEnabled = true;
             storeInfo6.ConditionField = null;
             storeInfo6.ConditionFieldType = EquipmentManageSystem.模板.导入导出模板.StoreFieldType.String;
             storeInfo6.FieldType = EquipmentManageSystem.模板.导入导出模板.StoreFieldType.Decimal;
@@ -161,7 +161,7 @@ namespace EquipmentManageSystem.标准管理
             excelTemplate9.Description = "开始执行日期";
             excelTemplate9.Example = "2026-03-06";
             excelTemplate9.FieldName = "开始执行日期";
-            excelTemplate9.NullEnabled = false;
+            excelTemplate9.NullEnabled = true;
             this.ExcelTemplates.Add(excelTemplate1);
             this.ExcelTemplates.Add(excelTemplate2);
             this.ExcelTemplates.Add(excelTemplate3);

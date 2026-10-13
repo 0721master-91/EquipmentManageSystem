@@ -13,6 +13,18 @@ namespace EquipmentManageSystem.设备保养
     public partial class uc保养任务标准 : UserControl
     {
         private string PositionCode; // 功能位置编码
+        private DateTime PlantStartTime; // 计划开始时间  
+
+        // 获取保养任务标准数据
+        public DataTable MaintenanceTaskStandardData 
+        { 
+            get { return this.dataGridView保养任务标准数据.DataSource as DataTable; }
+        }
+
+        public Panel OperationPanel
+        {
+            get { return this.panel操作区; }
+        }
 
         public uc保养任务标准()
         {
@@ -25,7 +37,9 @@ namespace EquipmentManageSystem.设备保养
             GridInit.InitMaintenanceTaskStandardGrid(this.dataGridView保养任务标准数据);
         }
 
-        // 新增一行
+        /// <summary>
+        /// 新增一行
+        /// </summary>
         private void AddNewRow(object sender, EventArgs e)
         {
             DataTable dt = this.dataGridView保养任务标准数据.DataSource as DataTable;
@@ -37,7 +51,9 @@ namespace EquipmentManageSystem.设备保养
                 this.dataGridView保养任务标准数据.CurrentCell = this.dataGridView保养任务标准数据.Rows[dataGridView保养任务标准数据.Rows.Count - 1].Cells[0];
         }
 
-        // 删除指定行
+        /// <summary>
+        /// 删除指定行
+        /// </summary>
         private void DeleteSelectedRow(object sender, EventArgs e)
         {
             DataTable dt = this.dataGridView保养任务标准数据.DataSource as DataTable;
@@ -82,13 +98,6 @@ namespace EquipmentManageSystem.设备保养
             }
         }
 
-        /// <summary>
-        /// 禁用弹出选择界面
-        /// </summary>
-        private void ForbiddenOpenDialog()
-        {
-            this.dataGridView保养任务标准数据.CellClick -= dataGridView保养任务标准数据_CellClick;
-        }
 
         private void dataGridView保养任务标准数据_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -108,25 +117,83 @@ namespace EquipmentManageSystem.设备保养
 
                     row.Cells["保养内容"].Value = dlg.Content;
                     row.Cells["给油类型"].Value = dlg.GiveOilType;
-                    row.Cells["润换类型"].Value = dlg.LubricantChangeType;
+                    row.Cells["润换方式"].Value = dlg.LubricantChangeType;
                     row.Cells["润滑脂型号"].Value = dlg.LubricantModel;
                     if (decimal.TryParse(dlg.Cycle, out decimal cycVal))
                         row.Cells["执行周期"].Value = cycVal;
                     row.Cells["周期单位"].Value = dlg.Unit;
-                    row.Cells["保养开始日期"].Value = dlg.StartDate;
-                    row.Cells["下次保养日期"].Value = CalculateUtil.CalculateNextDateTime(dlg.StartDate,cycVal,dlg.Unit);
+                    row.Cells["保养开始日期"].Value = this.PlantStartTime;
+                    row.Cells["下次保养日期"].Value = CalculateUtil.CalculateNextDateTime(this.PlantStartTime, cycVal,dlg.Unit);
                 }
                 this.ActiveControl = null;
             }
         }
 
         /// <summary>
+        /// 更新保养任务标准表格中时间
+        /// </summary>
+        public void UpdateDateTime()
+        {
+            DataTable dt = this.dataGridView保养任务标准数据.DataSource as DataTable;
+            foreach(DataRow dr in dt.Rows)
+            {
+                dr["保养开始日期"] = this.PlantStartTime;
+                decimal cycVal = Convert.ToDecimal(dr["执行周期"]);
+                dr["下次保养日期"] = CalculateUtil.CalculateNextDateTime(this.PlantStartTime, cycVal, dr["周期单位"] as string);
+            }
+        }
+
+        /// <summary>
         /// 设置功能位置编码
         /// </summary>
-        /// <param name="positionCode"></param>
         public void SetPositionCode(string positionCode)
         {
             this.PositionCode = positionCode;
+        }
+
+        /// <summary>
+        /// 设置计划开始时间
+        /// </summary>
+        public void SetPlantStartTime(DateTime plantStartTime)
+        {
+            this.PlantStartTime = plantStartTime;
+        }
+
+        /// <summary>
+        ///  清空数据表
+        /// </summary>
+        public void ClearDataTable()
+        {
+            DataTable dt = this.dataGridView保养任务标准数据.DataSource as DataTable;
+            dt.Clear();
+        }
+
+        /// <summary>
+        /// 加载数据（用于填充数据时使用）
+        ///     选择的时候使用功能位置编码方便获取对应功能位置绑定的标准
+        ///     加载的时候使用保养任务编码获取改任务绑定的标准
+        /// </summary>
+        /// <param name="taskCode">保养任务编码</param>
+        public void LoadData(string taskCode)
+        {
+            string sql = "select mts.保养内容,mts.给油类型,mts.润换方式,mts.润滑脂型号,mts.执行周期,mts.周期单位,mts.保养开始日期,mts.下次保养日期 " +
+                         "from 保养任务标准 as mts " +
+                         "where mts.所属保养任务编码 = '" + taskCode + "'";
+            DataTable dt = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteForDataTable(sql);
+            DataTable standardDt = this.dataGridView保养任务标准数据.DataSource as DataTable;
+
+            foreach (DataRow r in dt.Rows)
+            {
+                standardDt.Rows.Add(r["保养内容"], r["给油类型"],r["润换方式"],r["润滑脂型号"],r["执行周期"],r["周期单位"],r["保养开始日期"],r["下次保养日期"]);
+            }
+        }
+
+        /// <summary>
+        /// 禁用弹出选择界面
+        /// </summary>
+        public void ForbiddenOpenDialog()
+        {
+            this.dataGridView保养任务标准数据.CellClick -= dataGridView保养任务标准数据_CellClick;
         }
     }
 }

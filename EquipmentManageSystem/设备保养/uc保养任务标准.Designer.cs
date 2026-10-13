@@ -127,12 +127,11 @@ namespace EquipmentManageSystem.设备保养
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel操作区;
         private System.Windows.Forms.Button button新增;
         private System.Windows.Forms.Button button删除;
         private System.Windows.Forms.Button button全部;
         private System.Windows.Forms.Panel panel数据区;
+        private System.Windows.Forms.Panel panel操作区;
         private System.Windows.Forms.DataGridView dataGridView保养任务标准数据;
     }
 }

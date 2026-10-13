@@ -438,7 +438,7 @@ namespace EquipmentManageSystem.设备巡检
 
             // 添加巡检开始时间（这里先默认为计划时间当天的工作开始时间）
             this.OtherFields["巡检开始时间"] = this.slDateTimePicker计划执行日期.Value.ToString("yyyy-MM-dd") + " 08:30";
-            this.OtherFields["巡检结束时间"] = this.slDateTimePicker计划执行日期.Value.ToString("yyyy-MM-dd") + " 17:30";
+            this.OtherFields["巡检结束时间"] = this.slDateTimePicker过期日期.Value.ToString("yyyy-MM-dd") + " 17:30";
 
             return true;
         }

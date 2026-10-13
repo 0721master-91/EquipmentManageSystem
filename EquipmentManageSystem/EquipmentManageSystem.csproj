@@ -219,6 +219,7 @@
       <DependentUpon>dlg保养任务编辑保养标准选择.cs</DependentUpon>
     </Compile>
     <Compile Include="设备保养\GridInit.cs" />
+    <Compile Include="设备保养\OperationType.cs" />
     <Compile Include="设备保养\uc保养任务标准.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -391,6 +392,9 @@
     <EmbeddedResource Include="设备保养\ctn保养任务.resx">
       <DependentUpon>ctn保养任务.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="设备保养\ctn保养任务接取.resx">
+      <DependentUpon>ctn保养任务接取.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="设备保养\ctn保养任务验收.resx">
       <DependentUpon>ctn保养任务验收.cs</DependentUpon>
     </EmbeddedResource>
@@ -471,6 +475,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pictures\" />
+    <Folder Include="设备维修\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

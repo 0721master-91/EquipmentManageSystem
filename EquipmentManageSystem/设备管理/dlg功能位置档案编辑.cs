@@ -379,11 +379,16 @@ namespace EquipmentManageSystem.设备管理
         /// <param name="tableName">表名</param>
         private void UpdateStandardData(DataTable dt, string tableName)
         {
-            if (dt == null)
+            if (dt == null || dt.Rows.Count == 0)
                 return;
 
             var services = SLControls.SLDbService.SLOnlyInstOleDb.Services;
             string billCode = this.TempBillCode;
+
+            if (string.IsNullOrEmpty(billCode))
+            {
+                throw new Exception("单据号不能为空");
+            };
 
             // 收集当前网格里还在的明细ID
             List<string> ids = new List<string>();
@@ -416,7 +421,8 @@ namespace EquipmentManageSystem.设备管理
                             continue;
                         sets.Add(col.ColumnName + "=" + SqlCommonUtil.FormatSqlValue(row[col]));
                     }
-                    services.ExecuteSql("update " + tableName + " set " + string.Join(",", sets) + " where ID=" + idv);
+                    int num = services.ExecuteSql("update " + tableName + " set " + string.Join(",", sets) + " where ID=" + idv);
+                    if (num <= 0) throw new Exception();
                 }
                 else
                 {
@@ -429,7 +435,8 @@ namespace EquipmentManageSystem.设备管理
                         colNames.Add(col.ColumnName);
                         vals.Add(SqlCommonUtil.FormatSqlValue(row[col]));
                     }
-                    services.ExecuteSql("insert into " + tableName + " (" + string.Join(",", colNames) + ") values (" + string.Join(",", vals) + ")");
+                    int num = services.ExecuteSql("insert into " + tableName + " (" + string.Join(",", colNames) + ") values (" + string.Join(",", vals) + ")");
+                    if (num <= 0) throw new Exception();
                 }
             }
         }

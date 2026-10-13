@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿using System;
+﻿﻿﻿﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -18,6 +18,8 @@ namespace EquipmentManageSystem.设备巡检
             dataGridView.AllowUserToAddRows = false;
             dataGridView.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridView.ScrollBars = ScrollBars.Both;
+            dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView.Columns.Clear();
 
             dataGridView.DataSource = GetInspectionTaskStandardDataTable();

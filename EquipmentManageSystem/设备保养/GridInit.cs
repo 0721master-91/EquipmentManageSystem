@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -20,6 +20,8 @@ namespace EquipmentManageSystem.设备保养
             dataGridView.AllowUserToAddRows = false;
             dataGridView.ScrollBars = ScrollBars.Both;
             dataGridView.ReadOnly = true;
+            dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.Columns.Clear();
             dataGridView.DataSource = GetMaintenanceTaskStandardDataTable();

@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using System;
+﻿﻿﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -25,6 +25,8 @@ namespace EquipmentManageSystem.设备管理
             dataGridView.AutoGenerateColumns = false; // 禁用自动生成列
             dataGridView.AllowUserToAddRows = false;   // 禁止底部自动出现"新行"
             dataGridView.EditMode = DataGridViewEditMode.EditOnEnter; // 立刻进入编辑模式
+            dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView.Columns.Clear();
 
             // 创建数据源并绑定
@@ -142,6 +144,8 @@ namespace EquipmentManageSystem.设备管理
             dataGridView.AutoGenerateColumns = false; // 禁用自动生成列
             dataGridView.AllowUserToAddRows = false;   // 禁止底部自动出现"新行"
             dataGridView.EditMode = DataGridViewEditMode.EditOnEnter; // 立刻进入编辑模式
+            dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView.Columns.Clear();
 
             // 创建数据源并绑定

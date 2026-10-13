@@ -30,8 +30,8 @@ namespace EquipmentManageSystem.设备保养
         private void InitializeComponent()
         {
             this.groupBox单据信息 = new System.Windows.Forms.GroupBox();
-            this.slDateTimePicker过期日期 = new SLControls.SLDateTimePicker();
-            this.label过期日期 = new System.Windows.Forms.Label();
+            this.slDateTimePicker过期时间 = new SLControls.SLDateTimePicker();
+            this.label过期时间 = new System.Windows.Forms.Label();
             this.slTextBox过期状态 = new SLControls.SLTextBox();
             this.label过期状态 = new System.Windows.Forms.Label();
             this.slTextBox执行状态 = new SLControls.SLTextBox();
@@ -59,43 +59,43 @@ namespace EquipmentManageSystem.设备保养
             this.label功能位置编码图标 = new System.Windows.Forms.Label();
             this.label功能位置编码 = new System.Windows.Forms.Label();
             this.groupBox保养信息 = new System.Windows.Forms.GroupBox();
-            this.slDateTimePicker计划执行日期 = new SLControls.SLDateTimePicker();
-            this.label计划执行日期 = new System.Windows.Forms.Label();
-            this.textBox保养人员 = new System.Windows.Forms.TextBox();
-            this.label保养人员图标 = new System.Windows.Forms.Label();
-            this.label保养人员 = new System.Windows.Forms.Label();
-            this.label保养开始时间 = new System.Windows.Forms.Label();
-            this.textBox保养开始时间 = new System.Windows.Forms.TextBox();
-            this.textBox保养结束时间 = new System.Windows.Forms.TextBox();
-            this.label保养结束时间 = new System.Windows.Forms.Label();
-            this.label保养前照片 = new System.Windows.Forms.Label();
-            this.groupBox保养前照片 = new System.Windows.Forms.GroupBox();
-            this.label保养前照片图标 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel保养前照片 = new System.Windows.Forms.FlowLayoutPanel();
+            this.slTextBox保养结束时间 = new SLControls.SLTextBox();
+            this.slTextBox保养开始时间 = new SLControls.SLTextBox();
+            this.comboBox无效单据 = new System.Windows.Forms.ComboBox();
+            this.label无效单据 = new System.Windows.Forms.Label();
+            this.slTextBox任务接取人 = new SLControls.SLTextBox();
+            this.label任务接取人 = new System.Windows.Forms.Label();
+            this.slTextBox备注信息 = new SLControls.SLTextBox();
+            this.label备注信息 = new System.Windows.Forms.Label();
             this.groupBox保养后照片 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel保养后照片 = new System.Windows.Forms.FlowLayoutPanel();
             this.label保养后照片图标 = new System.Windows.Forms.Label();
             this.label保养后照片 = new System.Windows.Forms.Label();
-            this.label备注信息 = new System.Windows.Forms.Label();
-            this.slTextBox备注信息 = new SLControls.SLTextBox();
-            this.label任务接取人 = new System.Windows.Forms.Label();
-            this.slTextBox任务接取人 = new SLControls.SLTextBox();
+            this.groupBox保养前照片 = new System.Windows.Forms.GroupBox();
+            this.flowLayoutPanel保养前照片 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label保养前照片图标 = new System.Windows.Forms.Label();
+            this.label保养前照片 = new System.Windows.Forms.Label();
+            this.label保养结束时间 = new System.Windows.Forms.Label();
+            this.label保养开始时间 = new System.Windows.Forms.Label();
+            this.textBox保养人员 = new System.Windows.Forms.TextBox();
+            this.label保养人员图标 = new System.Windows.Forms.Label();
+            this.label保养人员 = new System.Windows.Forms.Label();
+            this.slDateTimePicker计划执行日期 = new SLControls.SLDateTimePicker();
+            this.label计划执行日期 = new System.Windows.Forms.Label();
             this.groupBox验收信息 = new System.Windows.Forms.GroupBox();
-            this.label验收人 = new System.Windows.Forms.Label();
-            this.slTextBox验收人 = new SLControls.SLTextBox();
-            this.label验收时间 = new System.Windows.Forms.Label();
-            this.slTextBox验收时间 = new SLControls.SLTextBox();
-            this.label验收状态 = new System.Windows.Forms.Label();
             this.slComboBox验收状态 = new SLControls.SLComboBox();
+            this.label验收状态 = new System.Windows.Forms.Label();
+            this.slTextBox验收时间 = new SLControls.SLTextBox();
+            this.label验收时间 = new System.Windows.Forms.Label();
+            this.slTextBox验收人 = new SLControls.SLTextBox();
+            this.label验收人 = new System.Windows.Forms.Label();
             this.groupBox保养标准 = new System.Windows.Forms.GroupBox();
-            this.uc保养任务标准1 = new EquipmentManageSystem.设备保养.uc保养任务标准();
-            this.label无效单据 = new System.Windows.Forms.Label();
-            this.comboBox无效单据 = new System.Windows.Forms.ComboBox();
+            this.uc保养任务标准 = new EquipmentManageSystem.设备保养.uc保养任务标准();
             this.groupBox单据信息.SuspendLayout();
             this.groupBox基本信息.SuspendLayout();
             this.groupBox保养信息.SuspendLayout();
-            this.groupBox保养前照片.SuspendLayout();
             this.groupBox保养后照片.SuspendLayout();
+            this.groupBox保养前照片.SuspendLayout();
             this.groupBox验收信息.SuspendLayout();
             this.groupBox保养标准.SuspendLayout();
             this.SuspendLayout();
@@ -113,8 +113,8 @@ namespace EquipmentManageSystem.设备保养
             // 
             this.groupBox单据信息.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox单据信息.Controls.Add(this.slDateTimePicker过期日期);
-            this.groupBox单据信息.Controls.Add(this.label过期日期);
+            this.groupBox单据信息.Controls.Add(this.slDateTimePicker过期时间);
+            this.groupBox单据信息.Controls.Add(this.label过期时间);
             this.groupBox单据信息.Controls.Add(this.slTextBox过期状态);
             this.groupBox单据信息.Controls.Add(this.label过期状态);
             this.groupBox单据信息.Controls.Add(this.slTextBox执行状态);
@@ -137,30 +137,29 @@ namespace EquipmentManageSystem.设备保养
             this.groupBox单据信息.TabStop = false;
             this.groupBox单据信息.Text = "单据信息";
             // 
-            // slDateTimePicker过期日期
+            // slDateTimePicker过期时间
             // 
-            this.slDateTimePicker过期日期.CalendarMonthBackground = System.Drawing.SystemColors.Control;
-            this.slDateTimePicker过期日期.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.slDateTimePicker过期日期.CustomFormat = "yyyy-MM-dd";
-            this.slDateTimePicker过期日期.DataType = SLControls.SLGlobal.SleDataType.String;
-            this.slDateTimePicker过期日期.FieldName = "过期时间";
-            this.slDateTimePicker过期日期.FindCondition = SLControls.SLGlobal.SleFindCondition.MoreThanOrEqual;
-            this.slDateTimePicker过期日期.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.slDateTimePicker过期日期.FormatForStore = "yyyy-MM-dd";
-            this.slDateTimePicker过期日期.Location = new System.Drawing.Point(465, 59);
-            this.slDateTimePicker过期日期.Name = "slDateTimePicker过期日期";
-            this.slDateTimePicker过期日期.Size = new System.Drawing.Size(200, 28);
-            this.slDateTimePicker过期日期.TabIndex = 13;
-            this.slDateTimePicker过期日期.Value = new System.DateTime(2026, 10, 11, 0, 0, 0, 0);
+            this.slDateTimePicker过期时间.CalendarMonthBackground = System.Drawing.SystemColors.Control;
+            this.slDateTimePicker过期时间.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.slDateTimePicker过期时间.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.slDateTimePicker过期时间.DataType = SLControls.SLGlobal.SleDataType.String;
+            this.slDateTimePicker过期时间.FieldName = "过期时间";
+            this.slDateTimePicker过期时间.FindCondition = SLControls.SLGlobal.SleFindCondition.MoreThanOrEqual;
+            this.slDateTimePicker过期时间.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.slDateTimePicker过期时间.Location = new System.Drawing.Point(465, 59);
+            this.slDateTimePicker过期时间.Name = "slDateTimePicker过期时间";
+            this.slDateTimePicker过期时间.Size = new System.Drawing.Size(221, 28);
+            this.slDateTimePicker过期时间.TabIndex = 13;
+            this.slDateTimePicker过期时间.Value = new System.DateTime(2026, 10, 11, 0, 0, 0, 0);
             // 
-            // label过期日期
+            // label过期时间
             // 
-            this.label过期日期.AutoSize = true;
-            this.label过期日期.Location = new System.Drawing.Point(369, 64);
-            this.label过期日期.Name = "label过期日期";
-            this.label过期日期.Size = new System.Drawing.Size(104, 19);
-            this.label过期日期.TabIndex = 12;
-            this.label过期日期.Text = "过期日期：";
+            this.label过期时间.AutoSize = true;
+            this.label过期时间.Location = new System.Drawing.Point(369, 64);
+            this.label过期时间.Name = "label过期时间";
+            this.label过期时间.Size = new System.Drawing.Size(104, 19);
+            this.label过期时间.TabIndex = 12;
+            this.label过期时间.Text = "过期时间：";
             // 
             // slTextBox过期状态
             // 
@@ -426,6 +425,7 @@ namespace EquipmentManageSystem.设备保养
             this.slTextBox功能位置编码.Size = new System.Drawing.Size(185, 28);
             this.slTextBox功能位置编码.TabIndex = 1;
             this.slTextBox功能位置编码.TextStyle = SLControls.SLStyle.INVALID;
+            this.slTextBox功能位置编码.Click += new System.EventHandler(this.OpenFunctionPositionDialog);
             // 
             // label功能位置编码图标
             // 
@@ -437,6 +437,7 @@ namespace EquipmentManageSystem.设备保养
             this.label功能位置编码图标.Size = new System.Drawing.Size(38, 27);
             this.label功能位置编码图标.TabIndex = 2;
             this.label功能位置编码图标.Text = "📅";
+            this.label功能位置编码图标.Click += new System.EventHandler(this.OpenFunctionPositionDialog);
             // 
             // label功能位置编码
             // 
@@ -449,6 +450,8 @@ namespace EquipmentManageSystem.设备保养
             // 
             // groupBox保养信息
             // 
+            this.groupBox保养信息.Controls.Add(this.slTextBox保养结束时间);
+            this.groupBox保养信息.Controls.Add(this.slTextBox保养开始时间);
             this.groupBox保养信息.Controls.Add(this.comboBox无效单据);
             this.groupBox保养信息.Controls.Add(this.label无效单据);
             this.groupBox保养信息.Controls.Add(this.slTextBox任务接取人);
@@ -459,9 +462,7 @@ namespace EquipmentManageSystem.设备保养
             this.groupBox保养信息.Controls.Add(this.label保养后照片);
             this.groupBox保养信息.Controls.Add(this.groupBox保养前照片);
             this.groupBox保养信息.Controls.Add(this.label保养前照片);
-            this.groupBox保养信息.Controls.Add(this.textBox保养结束时间);
             this.groupBox保养信息.Controls.Add(this.label保养结束时间);
-            this.groupBox保养信息.Controls.Add(this.textBox保养开始时间);
             this.groupBox保养信息.Controls.Add(this.label保养开始时间);
             this.groupBox保养信息.Controls.Add(this.textBox保养人员);
             this.groupBox保养信息.Controls.Add(this.label保养人员图标);
@@ -476,131 +477,99 @@ namespace EquipmentManageSystem.设备保养
             this.groupBox保养信息.TabStop = false;
             this.groupBox保养信息.Text = "保养信息";
             // 
-            // slDateTimePicker计划执行日期
+            // slTextBox保养结束时间
             // 
-            this.slDateTimePicker计划执行日期.CalendarMonthBackground = System.Drawing.SystemColors.Control;
-            this.slDateTimePicker计划执行日期.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.slDateTimePicker计划执行日期.CustomFormat = "yyyy-MM-dd";
-            this.slDateTimePicker计划执行日期.DataType = SLControls.SLGlobal.SleDataType.String;
-            this.slDateTimePicker计划执行日期.FieldName = "计划执行日期";
-            this.slDateTimePicker计划执行日期.FindCondition = SLControls.SLGlobal.SleFindCondition.MoreThanOrEqual;
-            this.slDateTimePicker计划执行日期.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.slDateTimePicker计划执行日期.FormatForStore = "yyyy-MM-dd";
-            this.slDateTimePicker计划执行日期.Location = new System.Drawing.Point(157, 19);
-            this.slDateTimePicker计划执行日期.Name = "slDateTimePicker计划执行日期";
-            this.slDateTimePicker计划执行日期.Size = new System.Drawing.Size(200, 28);
-            this.slDateTimePicker计划执行日期.TabIndex = 16;
-            this.slDateTimePicker计划执行日期.Value = new System.DateTime(2026, 10, 11, 0, 0, 0, 0);
+            this.slTextBox保养结束时间.BeforeFormatControlTextHandler = null;
+            this.slTextBox保养结束时间.DataType = SLControls.SLGlobal.SleDataType.String;
+            this.slTextBox保养结束时间.FieldName = "保养结束时间";
+            this.slTextBox保养结束时间.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.slTextBox保养结束时间.Location = new System.Drawing.Point(515, 57);
+            this.slTextBox保养结束时间.Name = "slTextBox保养结束时间";
+            this.slTextBox保养结束时间.OperatorMode = SLControls.SLGlobal.SleOperatorMode.Read;
+            this.slTextBox保养结束时间.ReadOnly = true;
+            this.slTextBox保养结束时间.Size = new System.Drawing.Size(202, 28);
+            this.slTextBox保养结束时间.TabIndex = 35;
+            this.slTextBox保养结束时间.TextStyle = SLControls.SLStyle.INVALID;
             // 
-            // label计划执行日期
+            // slTextBox保养开始时间
             // 
-            this.label计划执行日期.AutoSize = true;
-            this.label计划执行日期.Location = new System.Drawing.Point(25, 24);
-            this.label计划执行日期.Name = "label计划执行日期";
-            this.label计划执行日期.Size = new System.Drawing.Size(142, 19);
-            this.label计划执行日期.TabIndex = 15;
-            this.label计划执行日期.Text = "计划执行日期：";
+            this.slTextBox保养开始时间.BeforeFormatControlTextHandler = null;
+            this.slTextBox保养开始时间.DataType = SLControls.SLGlobal.SleDataType.String;
+            this.slTextBox保养开始时间.FieldName = "保养开始时间";
+            this.slTextBox保养开始时间.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.slTextBox保养开始时间.Location = new System.Drawing.Point(155, 57);
+            this.slTextBox保养开始时间.Name = "slTextBox保养开始时间";
+            this.slTextBox保养开始时间.OperatorMode = SLControls.SLGlobal.SleOperatorMode.Read;
+            this.slTextBox保养开始时间.ReadOnly = true;
+            this.slTextBox保养开始时间.Size = new System.Drawing.Size(202, 28);
+            this.slTextBox保养开始时间.TabIndex = 34;
+            this.slTextBox保养开始时间.TextStyle = SLControls.SLStyle.INVALID;
             // 
-            // textBox保养人员
+            // comboBox无效单据
             // 
-            this.textBox保养人员.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox保养人员.Location = new System.Drawing.Point(478, 19);
-            this.textBox保养人员.Name = "textBox保养人员";
-            this.textBox保养人员.Size = new System.Drawing.Size(305, 28);
-            this.textBox保养人员.TabIndex = 18;
+            this.comboBox无效单据.Enabled = false;
+            this.comboBox无效单据.FormattingEnabled = true;
+            this.comboBox无效单据.Location = new System.Drawing.Point(864, 58);
+            this.comboBox无效单据.Name = "comboBox无效单据";
+            this.comboBox无效单据.Size = new System.Drawing.Size(121, 26);
+            this.comboBox无效单据.TabIndex = 33;
             // 
-            // label保养人员图标
+            // label无效单据
             // 
-            this.label保养人员图标.AutoSize = true;
-            this.label保养人员图标.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label保养人员图标.Font = new System.Drawing.Font("宋体", 16F);
-            this.label保养人员图标.Location = new System.Drawing.Point(780, 17);
-            this.label保养人员图标.Name = "label保养人员图标";
-            this.label保养人员图标.Size = new System.Drawing.Size(38, 27);
-            this.label保养人员图标.TabIndex = 19;
-            this.label保养人员图标.Text = "📅";
+            this.label无效单据.AutoSize = true;
+            this.label无效单据.Location = new System.Drawing.Point(768, 62);
+            this.label无效单据.Name = "label无效单据";
+            this.label无效单据.Size = new System.Drawing.Size(104, 19);
+            this.label无效单据.TabIndex = 32;
+            this.label无效单据.Text = "无效单据：";
             // 
-            // label保养人员
+            // slTextBox任务接取人
             // 
-            this.label保养人员.AutoSize = true;
-            this.label保养人员.Location = new System.Drawing.Point(384, 24);
-            this.label保养人员.Name = "label保养人员";
-            this.label保养人员.Size = new System.Drawing.Size(104, 19);
-            this.label保养人员.TabIndex = 17;
-            this.label保养人员.Text = "保养人员：";
+            this.slTextBox任务接取人.BeforeFormatControlTextHandler = null;
+            this.slTextBox任务接取人.DataType = SLControls.SLGlobal.SleDataType.String;
+            this.slTextBox任务接取人.DispField = "姓名";
+            this.slTextBox任务接取人.FieldName = "任务接取人ID";
+            this.slTextBox任务接取人.ForeignTable = "成员";
+            this.slTextBox任务接取人.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.slTextBox任务接取人.Location = new System.Drawing.Point(945, 19);
+            this.slTextBox任务接取人.Name = "slTextBox任务接取人";
+            this.slTextBox任务接取人.OperatorMode = SLControls.SLGlobal.SleOperatorMode.Read;
+            this.slTextBox任务接取人.ReadOnly = true;
+            this.slTextBox任务接取人.Size = new System.Drawing.Size(173, 28);
+            this.slTextBox任务接取人.TabIndex = 31;
+            this.slTextBox任务接取人.TextStyle = SLControls.SLStyle.INVALID;
+            this.slTextBox任务接取人.ValueFrom = SLControls.SLGlobal.SleValueFrom.ForeignKey;
             // 
-            // label保养开始时间
+            // label任务接取人
             // 
-            this.label保养开始时间.AutoSize = true;
-            this.label保养开始时间.Location = new System.Drawing.Point(25, 62);
-            this.label保养开始时间.Name = "label保养开始时间";
-            this.label保养开始时间.Size = new System.Drawing.Size(142, 19);
-            this.label保养开始时间.TabIndex = 20;
-            this.label保养开始时间.Text = "保养开始时间：";
+            this.label任务接取人.AutoSize = true;
+            this.label任务接取人.Location = new System.Drawing.Point(832, 24);
+            this.label任务接取人.Name = "label任务接取人";
+            this.label任务接取人.Size = new System.Drawing.Size(123, 19);
+            this.label任务接取人.TabIndex = 30;
+            this.label任务接取人.Text = "任务接取人：";
             // 
-            // textBox保养开始时间
+            // slTextBox备注信息
             // 
-            this.textBox保养开始时间.Location = new System.Drawing.Point(155, 57);
-            this.textBox保养开始时间.Name = "textBox保养开始时间";
-            this.textBox保养开始时间.ReadOnly = true;
-            this.textBox保养开始时间.Size = new System.Drawing.Size(172, 28);
-            this.textBox保养开始时间.TabIndex = 21;
+            this.slTextBox备注信息.BeforeFormatControlTextHandler = null;
+            this.slTextBox备注信息.DataType = SLControls.SLGlobal.SleDataType.String;
+            this.slTextBox备注信息.FieldName = "备注信息";
+            this.slTextBox备注信息.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.slTextBox备注信息.Location = new System.Drawing.Point(120, 204);
+            this.slTextBox备注信息.Name = "slTextBox备注信息";
+            this.slTextBox备注信息.ReadOnly = true;
+            this.slTextBox备注信息.Size = new System.Drawing.Size(768, 28);
+            this.slTextBox备注信息.TabIndex = 29;
+            this.slTextBox备注信息.TextStyle = SLControls.SLStyle.INVALID;
             // 
-            // textBox保养结束时间
+            // label备注信息
             // 
-            this.textBox保养结束时间.Location = new System.Drawing.Point(514, 57);
-            this.textBox保养结束时间.Name = "textBox保养结束时间";
-            this.textBox保养结束时间.ReadOnly = true;
-            this.textBox保养结束时间.Size = new System.Drawing.Size(172, 28);
-            this.textBox保养结束时间.TabIndex = 23;
-            // 
-            // label保养结束时间
-            // 
-            this.label保养结束时间.AutoSize = true;
-            this.label保养结束时间.Location = new System.Drawing.Point(383, 62);
-            this.label保养结束时间.Name = "label保养结束时间";
-            this.label保养结束时间.Size = new System.Drawing.Size(142, 19);
-            this.label保养结束时间.TabIndex = 22;
-            this.label保养结束时间.Text = "保养结束时间：";
-            // 
-            // label保养前照片
-            // 
-            this.label保养前照片.AutoSize = true;
-            this.label保养前照片.Location = new System.Drawing.Point(25, 98);
-            this.label保养前照片.Name = "label保养前照片";
-            this.label保养前照片.Size = new System.Drawing.Size(123, 19);
-            this.label保养前照片.TabIndex = 24;
-            this.label保养前照片.Text = "保养前照片：";
-            // 
-            // groupBox保养前照片
-            // 
-            this.groupBox保养前照片.Controls.Add(this.flowLayoutPanel保养前照片);
-            this.groupBox保养前照片.Controls.Add(this.label保养前照片图标);
-            this.groupBox保养前照片.Location = new System.Drawing.Point(135, 89);
-            this.groupBox保养前照片.Name = "groupBox保养前照片";
-            this.groupBox保养前照片.Size = new System.Drawing.Size(534, 106);
-            this.groupBox保养前照片.TabIndex = 25;
-            this.groupBox保养前照片.TabStop = false;
-            // 
-            // label保养前照片图标
-            // 
-            this.label保养前照片图标.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label保养前照片图标.AutoSize = true;
-            this.label保养前照片图标.BackColor = System.Drawing.SystemColors.Control;
-            this.label保养前照片图标.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label保养前照片图标.Font = new System.Drawing.Font("宋体", 16F);
-            this.label保养前照片图标.Location = new System.Drawing.Point(487, 17);
-            this.label保养前照片图标.Name = "label保养前照片图标";
-            this.label保养前照片图标.Size = new System.Drawing.Size(39, 27);
-            this.label保养前照片图标.TabIndex = 0;
-            this.label保养前照片图标.Text = "🖼️";
-            // 
-            // flowLayoutPanel保养前照片
-            // 
-            this.flowLayoutPanel保养前照片.Location = new System.Drawing.Point(6, 17);
-            this.flowLayoutPanel保养前照片.Name = "flowLayoutPanel保养前照片";
-            this.flowLayoutPanel保养前照片.Size = new System.Drawing.Size(482, 83);
-            this.flowLayoutPanel保养前照片.TabIndex = 1;
+            this.label备注信息.AutoSize = true;
+            this.label备注信息.Location = new System.Drawing.Point(25, 208);
+            this.label备注信息.Name = "label备注信息";
+            this.label备注信息.Size = new System.Drawing.Size(104, 19);
+            this.label备注信息.TabIndex = 28;
+            this.label备注信息.Text = "备注信息：";
             // 
             // groupBox保养后照片
             // 
@@ -614,6 +583,7 @@ namespace EquipmentManageSystem.设备保养
             // 
             // flowLayoutPanel保养后照片
             // 
+            this.flowLayoutPanel保养后照片.AutoScroll = true;
             this.flowLayoutPanel保养后照片.Location = new System.Drawing.Point(6, 17);
             this.flowLayoutPanel保养后照片.Name = "flowLayoutPanel保养后照片";
             this.flowLayoutPanel保养后照片.Size = new System.Drawing.Size(482, 83);
@@ -641,51 +611,119 @@ namespace EquipmentManageSystem.设备保养
             this.label保养后照片.TabIndex = 26;
             this.label保养后照片.Text = "保养后照片：";
             // 
-            // label备注信息
+            // groupBox保养前照片
             // 
-            this.label备注信息.AutoSize = true;
-            this.label备注信息.Location = new System.Drawing.Point(25, 208);
-            this.label备注信息.Name = "label备注信息";
-            this.label备注信息.Size = new System.Drawing.Size(104, 19);
-            this.label备注信息.TabIndex = 28;
-            this.label备注信息.Text = "备注信息：";
+            this.groupBox保养前照片.Controls.Add(this.flowLayoutPanel保养前照片);
+            this.groupBox保养前照片.Controls.Add(this.label保养前照片图标);
+            this.groupBox保养前照片.Location = new System.Drawing.Point(135, 89);
+            this.groupBox保养前照片.Name = "groupBox保养前照片";
+            this.groupBox保养前照片.Size = new System.Drawing.Size(534, 106);
+            this.groupBox保养前照片.TabIndex = 25;
+            this.groupBox保养前照片.TabStop = false;
             // 
-            // slTextBox备注信息
+            // flowLayoutPanel保养前照片
             // 
-            this.slTextBox备注信息.BeforeFormatControlTextHandler = null;
-            this.slTextBox备注信息.DataType = SLControls.SLGlobal.SleDataType.String;
-            this.slTextBox备注信息.FieldName = "备注信息";
-            this.slTextBox备注信息.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slTextBox备注信息.Location = new System.Drawing.Point(120, 204);
-            this.slTextBox备注信息.Name = "slTextBox备注信息";
-            this.slTextBox备注信息.ReadOnly = true;
-            this.slTextBox备注信息.Size = new System.Drawing.Size(768, 28);
-            this.slTextBox备注信息.TabIndex = 29;
-            this.slTextBox备注信息.TextStyle = SLControls.SLStyle.INVALID;
+            this.flowLayoutPanel保养前照片.AutoScroll = true;
+            this.flowLayoutPanel保养前照片.Location = new System.Drawing.Point(6, 17);
+            this.flowLayoutPanel保养前照片.Name = "flowLayoutPanel保养前照片";
+            this.flowLayoutPanel保养前照片.Size = new System.Drawing.Size(482, 83);
+            this.flowLayoutPanel保养前照片.TabIndex = 1;
             // 
-            // label任务接取人
+            // label保养前照片图标
             // 
-            this.label任务接取人.AutoSize = true;
-            this.label任务接取人.Location = new System.Drawing.Point(832, 24);
-            this.label任务接取人.Name = "label任务接取人";
-            this.label任务接取人.Size = new System.Drawing.Size(123, 19);
-            this.label任务接取人.TabIndex = 30;
-            this.label任务接取人.Text = "任务接取人：";
+            this.label保养前照片图标.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label保养前照片图标.AutoSize = true;
+            this.label保养前照片图标.BackColor = System.Drawing.SystemColors.Control;
+            this.label保养前照片图标.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label保养前照片图标.Font = new System.Drawing.Font("宋体", 16F);
+            this.label保养前照片图标.Location = new System.Drawing.Point(487, 17);
+            this.label保养前照片图标.Name = "label保养前照片图标";
+            this.label保养前照片图标.Size = new System.Drawing.Size(39, 27);
+            this.label保养前照片图标.TabIndex = 0;
+            this.label保养前照片图标.Text = "🖼️";
             // 
-            // slTextBox任务接取人
+            // label保养前照片
             // 
-            this.slTextBox任务接取人.BeforeFormatControlTextHandler = null;
-            this.slTextBox任务接取人.DataType = SLControls.SLGlobal.SleDataType.String;
-            this.slTextBox任务接取人.DispField = "姓名";
-            this.slTextBox任务接取人.FieldName = "任务接取人ID";
-            this.slTextBox任务接取人.ForeignTable = "成员";
-            this.slTextBox任务接取人.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slTextBox任务接取人.Location = new System.Drawing.Point(945, 19);
-            this.slTextBox任务接取人.Name = "slTextBox任务接取人";
-            this.slTextBox任务接取人.ReadOnly = true;
-            this.slTextBox任务接取人.Size = new System.Drawing.Size(173, 28);
-            this.slTextBox任务接取人.TabIndex = 31;
-            this.slTextBox任务接取人.TextStyle = SLControls.SLStyle.INVALID;
+            this.label保养前照片.AutoSize = true;
+            this.label保养前照片.Location = new System.Drawing.Point(25, 98);
+            this.label保养前照片.Name = "label保养前照片";
+            this.label保养前照片.Size = new System.Drawing.Size(123, 19);
+            this.label保养前照片.TabIndex = 24;
+            this.label保养前照片.Text = "保养前照片：";
+            // 
+            // label保养结束时间
+            // 
+            this.label保养结束时间.AutoSize = true;
+            this.label保养结束时间.Location = new System.Drawing.Point(383, 62);
+            this.label保养结束时间.Name = "label保养结束时间";
+            this.label保养结束时间.Size = new System.Drawing.Size(142, 19);
+            this.label保养结束时间.TabIndex = 22;
+            this.label保养结束时间.Text = "保养结束时间：";
+            // 
+            // label保养开始时间
+            // 
+            this.label保养开始时间.AutoSize = true;
+            this.label保养开始时间.Location = new System.Drawing.Point(25, 62);
+            this.label保养开始时间.Name = "label保养开始时间";
+            this.label保养开始时间.Size = new System.Drawing.Size(142, 19);
+            this.label保养开始时间.TabIndex = 20;
+            this.label保养开始时间.Text = "保养开始时间：";
+            // 
+            // textBox保养人员
+            // 
+            this.textBox保养人员.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox保养人员.Location = new System.Drawing.Point(478, 19);
+            this.textBox保养人员.Name = "textBox保养人员";
+            this.textBox保养人员.Size = new System.Drawing.Size(305, 28);
+            this.textBox保养人员.TabIndex = 18;
+            this.textBox保养人员.Click += new System.EventHandler(this.OpenMemberSelectedDialog);
+            // 
+            // label保养人员图标
+            // 
+            this.label保养人员图标.AutoSize = true;
+            this.label保养人员图标.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label保养人员图标.Font = new System.Drawing.Font("宋体", 16F);
+            this.label保养人员图标.Location = new System.Drawing.Point(780, 17);
+            this.label保养人员图标.Name = "label保养人员图标";
+            this.label保养人员图标.Size = new System.Drawing.Size(38, 27);
+            this.label保养人员图标.TabIndex = 19;
+            this.label保养人员图标.Text = "📅";
+            this.label保养人员图标.Click += new System.EventHandler(this.OpenMemberSelectedDialog);
+            // 
+            // label保养人员
+            // 
+            this.label保养人员.AutoSize = true;
+            this.label保养人员.Location = new System.Drawing.Point(384, 24);
+            this.label保养人员.Name = "label保养人员";
+            this.label保养人员.Size = new System.Drawing.Size(104, 19);
+            this.label保养人员.TabIndex = 17;
+            this.label保养人员.Text = "保养人员：";
+            // 
+            // slDateTimePicker计划执行日期
+            // 
+            this.slDateTimePicker计划执行日期.CalendarMonthBackground = System.Drawing.SystemColors.Control;
+            this.slDateTimePicker计划执行日期.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.slDateTimePicker计划执行日期.CustomFormat = "yyyy-MM-dd";
+            this.slDateTimePicker计划执行日期.DataType = SLControls.SLGlobal.SleDataType.String;
+            this.slDateTimePicker计划执行日期.FieldName = "计划执行日期";
+            this.slDateTimePicker计划执行日期.FindCondition = SLControls.SLGlobal.SleFindCondition.MoreThanOrEqual;
+            this.slDateTimePicker计划执行日期.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.slDateTimePicker计划执行日期.FormatForStore = "yyyy-MM-dd";
+            this.slDateTimePicker计划执行日期.Location = new System.Drawing.Point(157, 19);
+            this.slDateTimePicker计划执行日期.Name = "slDateTimePicker计划执行日期";
+            this.slDateTimePicker计划执行日期.Size = new System.Drawing.Size(200, 28);
+            this.slDateTimePicker计划执行日期.TabIndex = 16;
+            this.slDateTimePicker计划执行日期.Value = new System.DateTime(2026, 10, 11, 0, 0, 0, 0);
+            this.slDateTimePicker计划执行日期.ValueChanged += new System.EventHandler(this.slDateTimePicker计划执行日期_ValueChanged);
+            // 
+            // label计划执行日期
+            // 
+            this.label计划执行日期.AutoSize = true;
+            this.label计划执行日期.Location = new System.Drawing.Point(25, 24);
+            this.label计划执行日期.Name = "label计划执行日期";
+            this.label计划执行日期.Size = new System.Drawing.Size(142, 19);
+            this.label计划执行日期.TabIndex = 15;
+            this.label计划执行日期.Text = "计划执行日期：";
             // 
             // groupBox验收信息
             // 
@@ -703,61 +741,6 @@ namespace EquipmentManageSystem.设备保养
             this.groupBox验收信息.TabStop = false;
             this.groupBox验收信息.Text = "验收信息";
             // 
-            // label验收人
-            // 
-            this.label验收人.AutoSize = true;
-            this.label验收人.Location = new System.Drawing.Point(25, 30);
-            this.label验收人.Name = "label验收人";
-            this.label验收人.Size = new System.Drawing.Size(85, 19);
-            this.label验收人.TabIndex = 0;
-            this.label验收人.Text = "验收人：";
-            // 
-            // slTextBox验收人
-            // 
-            this.slTextBox验收人.BeforeFormatControlTextHandler = null;
-            this.slTextBox验收人.DataType = SLControls.SLGlobal.SleDataType.String;
-            this.slTextBox验收人.DispField = "姓名";
-            this.slTextBox验收人.FieldName = "验收人ID";
-            this.slTextBox验收人.ForeignTable = "成员";
-            this.slTextBox验收人.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slTextBox验收人.Location = new System.Drawing.Point(99, 25);
-            this.slTextBox验收人.Name = "slTextBox验收人";
-            this.slTextBox验收人.ReadOnly = true;
-            this.slTextBox验收人.Size = new System.Drawing.Size(157, 28);
-            this.slTextBox验收人.TabIndex = 1;
-            this.slTextBox验收人.TextStyle = SLControls.SLStyle.INVALID;
-            // 
-            // label验收时间
-            // 
-            this.label验收时间.AutoSize = true;
-            this.label验收时间.Location = new System.Drawing.Point(283, 30);
-            this.label验收时间.Name = "label验收时间";
-            this.label验收时间.Size = new System.Drawing.Size(104, 19);
-            this.label验收时间.TabIndex = 2;
-            this.label验收时间.Text = "验收时间：";
-            // 
-            // slTextBox验收时间
-            // 
-            this.slTextBox验收时间.BeforeFormatControlTextHandler = null;
-            this.slTextBox验收时间.DataType = SLControls.SLGlobal.SleDataType.String;
-            this.slTextBox验收时间.FieldName = "验收时间";
-            this.slTextBox验收时间.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slTextBox验收时间.Location = new System.Drawing.Point(377, 25);
-            this.slTextBox验收时间.Name = "slTextBox验收时间";
-            this.slTextBox验收时间.ReadOnly = true;
-            this.slTextBox验收时间.Size = new System.Drawing.Size(224, 28);
-            this.slTextBox验收时间.TabIndex = 3;
-            this.slTextBox验收时间.TextStyle = SLControls.SLStyle.INVALID;
-            // 
-            // label验收状态
-            // 
-            this.label验收状态.AutoSize = true;
-            this.label验收状态.Location = new System.Drawing.Point(642, 30);
-            this.label验收状态.Name = "label验收状态";
-            this.label验收状态.Size = new System.Drawing.Size(104, 19);
-            this.label验收状态.TabIndex = 4;
-            this.label验收状态.Text = "验收结果：";
-            // 
             // slComboBox验收状态
             // 
             this.slComboBox验收状态.BeforeFormatControlTextHandler = null;
@@ -774,12 +757,71 @@ namespace EquipmentManageSystem.设备保养
             this.slComboBox验收状态.Size = new System.Drawing.Size(126, 26);
             this.slComboBox验收状态.TabIndex = 5;
             this.slComboBox验收状态.TextStyle = SLControls.SLStyle.INVALID;
+            this.slComboBox验收状态.ValueFrom = SLControls.SLGlobal.SleValueFrom.ForeignKey;
+            // 
+            // label验收状态
+            // 
+            this.label验收状态.AutoSize = true;
+            this.label验收状态.Location = new System.Drawing.Point(642, 30);
+            this.label验收状态.Name = "label验收状态";
+            this.label验收状态.Size = new System.Drawing.Size(104, 19);
+            this.label验收状态.TabIndex = 4;
+            this.label验收状态.Text = "验收状态：";
+            // 
+            // slTextBox验收时间
+            // 
+            this.slTextBox验收时间.BeforeFormatControlTextHandler = null;
+            this.slTextBox验收时间.DataType = SLControls.SLGlobal.SleDataType.String;
+            this.slTextBox验收时间.FieldName = "验收时间";
+            this.slTextBox验收时间.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.slTextBox验收时间.Location = new System.Drawing.Point(377, 25);
+            this.slTextBox验收时间.Name = "slTextBox验收时间";
+            this.slTextBox验收时间.OperatorMode = SLControls.SLGlobal.SleOperatorMode.Read;
+            this.slTextBox验收时间.ReadOnly = true;
+            this.slTextBox验收时间.Size = new System.Drawing.Size(224, 28);
+            this.slTextBox验收时间.TabIndex = 3;
+            this.slTextBox验收时间.TextStyle = SLControls.SLStyle.INVALID;
+            // 
+            // label验收时间
+            // 
+            this.label验收时间.AutoSize = true;
+            this.label验收时间.Location = new System.Drawing.Point(283, 30);
+            this.label验收时间.Name = "label验收时间";
+            this.label验收时间.Size = new System.Drawing.Size(104, 19);
+            this.label验收时间.TabIndex = 2;
+            this.label验收时间.Text = "验收时间：";
+            // 
+            // slTextBox验收人
+            // 
+            this.slTextBox验收人.BeforeFormatControlTextHandler = null;
+            this.slTextBox验收人.DataType = SLControls.SLGlobal.SleDataType.String;
+            this.slTextBox验收人.DispField = "姓名";
+            this.slTextBox验收人.FieldName = "验收人ID";
+            this.slTextBox验收人.ForeignTable = "成员";
+            this.slTextBox验收人.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.slTextBox验收人.Location = new System.Drawing.Point(99, 25);
+            this.slTextBox验收人.Name = "slTextBox验收人";
+            this.slTextBox验收人.OperatorMode = SLControls.SLGlobal.SleOperatorMode.Read;
+            this.slTextBox验收人.ReadOnly = true;
+            this.slTextBox验收人.Size = new System.Drawing.Size(157, 28);
+            this.slTextBox验收人.TabIndex = 1;
+            this.slTextBox验收人.TextStyle = SLControls.SLStyle.INVALID;
+            this.slTextBox验收人.ValueFrom = SLControls.SLGlobal.SleValueFrom.ForeignKey;
+            // 
+            // label验收人
+            // 
+            this.label验收人.AutoSize = true;
+            this.label验收人.Location = new System.Drawing.Point(25, 30);
+            this.label验收人.Name = "label验收人";
+            this.label验收人.Size = new System.Drawing.Size(85, 19);
+            this.label验收人.TabIndex = 0;
+            this.label验收人.Text = "验收人：";
             // 
             // groupBox保养标准
             // 
             this.groupBox保养标准.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox保养标准.Controls.Add(this.uc保养任务标准1);
+            this.groupBox保养标准.Controls.Add(this.uc保养任务标准);
             this.groupBox保养标准.Font = new System.Drawing.Font("宋体", 11F);
             this.groupBox保养标准.Location = new System.Drawing.Point(6, 531);
             this.groupBox保养标准.Name = "groupBox保养标准";
@@ -788,38 +830,22 @@ namespace EquipmentManageSystem.设备保养
             this.groupBox保养标准.TabStop = false;
             this.groupBox保养标准.Text = "保养标准";
             // 
-            // uc保养任务标准1
+            // uc保养任务标准
             // 
-            this.uc保养任务标准1.AutoSize = true;
-            this.uc保养任务标准1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc保养任务标准1.Location = new System.Drawing.Point(3, 24);
-            this.uc保养任务标准1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.uc保养任务标准1.Name = "uc保养任务标准1";
-            this.uc保养任务标准1.Size = new System.Drawing.Size(1489, 255);
-            this.uc保养任务标准1.TabIndex = 0;
-            // 
-            // label无效单据
-            // 
-            this.label无效单据.AutoSize = true;
-            this.label无效单据.Location = new System.Drawing.Point(768, 62);
-            this.label无效单据.Name = "label无效单据";
-            this.label无效单据.Size = new System.Drawing.Size(104, 19);
-            this.label无效单据.TabIndex = 32;
-            this.label无效单据.Text = "无效单据：";
-            // 
-            // comboBox无效单据
-            // 
-            this.comboBox无效单据.FormattingEnabled = true;
-            this.comboBox无效单据.Location = new System.Drawing.Point(864, 58);
-            this.comboBox无效单据.Name = "comboBox无效单据";
-            this.comboBox无效单据.Size = new System.Drawing.Size(121, 26);
-            this.comboBox无效单据.TabIndex = 33;
+            this.uc保养任务标准.AutoSize = true;
+            this.uc保养任务标准.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uc保养任务标准.Location = new System.Drawing.Point(3, 24);
+            this.uc保养任务标准.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.uc保养任务标准.Name = "uc保养任务标准";
+            this.uc保养任务标准.Size = new System.Drawing.Size(1489, 255);
+            this.uc保养任务标准.TabIndex = 0;
             // 
             // dlg保养任务编辑
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1508, 879);
+            this.CloseFormAfterNew = true;
             this.Controls.Add(this.groupBox保养标准);
             this.Controls.Add(this.groupBox验收信息);
             this.Controls.Add(this.groupBox保养信息);
@@ -827,6 +853,12 @@ namespace EquipmentManageSystem.设备保养
             this.Controls.Add(this.groupBox单据信息);
             this.Name = "dlg保养任务编辑";
             this.Text = "保养任务";
+            this.UseTransation = false;
+            this.PreFillControls += new SLControls.PreFillControlsHandler(this.dlg保养任务编辑_PreFillControls);
+            this.AfterFillControls += new SLControls.AfterFillControlsHandler(this.dlg保养任务编辑_AfterFillControls);
+            this.PreOK += new SLControls.PreOKHandler(this.dlg保养任务编辑_PreOK);
+            this.PreExecuteOKSql += new SLControls.PreExecuteOKSqlHandler(this.dlg保养任务编辑_PreExecuteOKSql);
+            this.AfterExecuteOKSql += new SLControls.AfterExecuteOKSqlHandler(this.dlg保养任务编辑_AfterExecuteOKSql);
             this.Controls.SetChildIndex(this.groupBox单据信息, 0);
             this.Controls.SetChildIndex(this.groupBox基本信息, 0);
             this.Controls.SetChildIndex(this.groupBox保养信息, 0);
@@ -840,10 +872,10 @@ namespace EquipmentManageSystem.设备保养
             this.groupBox基本信息.PerformLayout();
             this.groupBox保养信息.ResumeLayout(false);
             this.groupBox保养信息.PerformLayout();
-            this.groupBox保养前照片.ResumeLayout(false);
-            this.groupBox保养前照片.PerformLayout();
             this.groupBox保养后照片.ResumeLayout(false);
             this.groupBox保养后照片.PerformLayout();
+            this.groupBox保养前照片.ResumeLayout(false);
+            this.groupBox保养前照片.PerformLayout();
             this.groupBox验收信息.ResumeLayout(false);
             this.groupBox验收信息.PerformLayout();
             this.groupBox保养标准.ResumeLayout(false);
@@ -855,8 +887,8 @@ namespace EquipmentManageSystem.设备保养
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox单据信息;
-        private SLControls.SLDateTimePicker slDateTimePicker过期日期;
-        private System.Windows.Forms.Label label过期日期;
+        private SLControls.SLDateTimePicker slDateTimePicker过期时间;
+        private System.Windows.Forms.Label label过期时间;
         private SLControls.SLTextBox slTextBox过期状态;
         private System.Windows.Forms.Label label过期状态;
         private SLControls.SLTextBox slTextBox执行状态;
@@ -890,8 +922,6 @@ namespace EquipmentManageSystem.设备保养
         private System.Windows.Forms.Label label保养人员图标;
         private System.Windows.Forms.Label label保养人员;
         private System.Windows.Forms.Label label保养开始时间;
-        private System.Windows.Forms.TextBox textBox保养开始时间;
-        private System.Windows.Forms.TextBox textBox保养结束时间;
         private System.Windows.Forms.Label label保养结束时间;
         private System.Windows.Forms.Label label保养前照片;
         private System.Windows.Forms.GroupBox groupBox保养前照片;
@@ -913,8 +943,10 @@ namespace EquipmentManageSystem.设备保养
         private System.Windows.Forms.Label label验收状态;
         private SLControls.SLComboBox slComboBox验收状态;
         private System.Windows.Forms.GroupBox groupBox保养标准;
-        private uc保养任务标准 uc保养任务标准1;
+        private uc保养任务标准 uc保养任务标准;
         private System.Windows.Forms.Label label无效单据;
         private System.Windows.Forms.ComboBox comboBox无效单据;
+        private SLControls.SLTextBox slTextBox保养开始时间;
+        private SLControls.SLTextBox slTextBox保养结束时间;
     }
 }

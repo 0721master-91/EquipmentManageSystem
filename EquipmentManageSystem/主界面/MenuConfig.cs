@@ -49,7 +49,19 @@ namespace EquipmentManageSystem.主界面
                     {
                         new SubMenuConfig {Text = "保养任务", FormType = typeof(设备保养.ctn保养任务) },
                         new SubMenuConfig {Text = "任务接取", FormType = typeof(设备保养.ctn保养任务接取) },
-                        new SubMenuConfig {Text = "任务验收", FormType = typeof(设备保养.ctn保养任务验收) }
+                        new SubMenuConfig {Text = "保养验收", FormType = typeof(设备保养.ctn保养任务验收) }
+                    }
+                },
+                new MenuConfig
+                {
+                    Name = "设备维修",
+                    Text = "设备报修",
+                    SubMenus =
+                    {
+                        new SubMenuConfig {Text = "故障报修"},
+                        new SubMenuConfig {Text = "维修任务"},
+                        new SubMenuConfig {Text = "任务接取"},
+                        new SubMenuConfig {Text = "维修验收"}
                     }
                 }
             };
