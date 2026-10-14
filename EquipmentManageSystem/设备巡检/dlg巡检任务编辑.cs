@@ -342,6 +342,7 @@ namespace EquipmentManageSystem.设备巡检
             }
             catch(Exception ex)
             {
+                PopUpUtil.ShowError("保存失败：" + ex.Message);
                 SLControls.SLDbService.SLOnlyInstOleDb.Services.RollBack(); // 回滚事务
             }
 

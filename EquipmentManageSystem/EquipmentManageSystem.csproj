@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global\CurrentUser.cs" />
+    <Compile Include="Global\DataTrack.cs" />
     <Compile Include="Global\dlg人员选择.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +338,30 @@
     <Compile Include="设备管理\uc标准信息.Designer.cs">
       <DependentUpon>uc标准信息.cs</DependentUpon>
     </Compile>
+    <Compile Include="设备维修\ctn报修工单.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备维修\ctn报修工单.Designer.cs">
+      <DependentUpon>ctn报修工单.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备维修\ctn维修任务.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备维修\ctn维修任务.Designer.cs">
+      <DependentUpon>ctn维修任务.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备维修\dlg报修工单编辑.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备维修\dlg报修工单编辑.Designer.cs">
+      <DependentUpon>dlg报修工单编辑.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备维修\dlg维修任务编辑.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备维修\dlg维修任务编辑.Designer.cs">
+      <DependentUpon>dlg维修任务编辑.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Global\dlg人员选择.resx">
       <DependentUpon>dlg人员选择.cs</DependentUpon>
     </EmbeddedResource>
@@ -461,6 +486,15 @@
     <EmbeddedResource Include="设备管理\uc标准信息.resx">
       <DependentUpon>uc标准信息.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="设备维修\ctn报修工单.resx">
+      <DependentUpon>ctn报修工单.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备维修\ctn维修任务.resx">
+      <DependentUpon>ctn维修任务.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备维修\dlg报修工单编辑.resx">
+      <DependentUpon>dlg报修工单编辑.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -475,7 +509,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pictures\" />
-    <Folder Include="设备维修\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

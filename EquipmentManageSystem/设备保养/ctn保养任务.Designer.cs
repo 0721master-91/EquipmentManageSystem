@@ -1,4 +1,6 @@
 ﻿
+using grproLib;
+
 namespace EquipmentManageSystem.设备保养
 {
     partial class ctn保养任务
@@ -30,7 +32,6 @@ namespace EquipmentManageSystem.设备保养
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            IGridppReport gridppReportClass1 = new IGridppReport();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctn保养任务));
             SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息 slpInfoStop同时停启用相关信息1 = new SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息();
             SLQLControls.控件.控件公用类.SlpInfoStop启用前判断 slpInfoStop启用前判断1 = new SLQLControls.控件.控件公用类.SlpInfoStop启用前判断();
@@ -246,7 +247,7 @@ namespace EquipmentManageSystem.设备保养
             // slDataTablePrinter1
             // 
             this.slDataTablePrinter1.TheDataTable = null;
-            this.slDataTablePrinter1.ThePrintInfo.GridReport = gridppReportClass1;
+            this.slDataTablePrinter1.ThePrintInfo.GridReport = null;
             this.slDataTablePrinter1.ThePrintInfo.PageFooter.RtfBox1 = null;
             this.slDataTablePrinter1.ThePrintInfo.PageFooter.RtfBox2 = null;
             this.slDataTablePrinter1.ThePrintInfo.PageFooter.RtfBox3 = null;

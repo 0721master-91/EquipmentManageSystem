@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,7 +48,7 @@ namespace EquipmentManageSystem.设备巡检
             long currentMemberId = UserSession.CurrentUser.MemberID;
             if(currentMemberId > 0)
             {
-                sql += " and CHARINDEX(',' + " + currentMemberId + " + ',', ',' + t.巡检人员IDs + ',') > 0";
+                sql += " and CHARINDEX(',' + '" + currentMemberId + "' + ',', ',' + t.巡检人员IDs + ',') > 0";
             }
 
             this.Sql查询 = sql;

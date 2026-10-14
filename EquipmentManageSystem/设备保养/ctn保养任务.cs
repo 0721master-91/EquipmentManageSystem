@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -60,7 +60,7 @@ namespace EquipmentManageSystem.设备保养
             string personID = personIDObj == null ? "" : personIDObj.ToString();
             if (!string.IsNullOrEmpty(personID))
             {
-                sql += "and CHARINDEX(',' + " + personID + " + ',', ',' + m.保养人员IDs + ',') > 0 ";
+                sql += "and CHARINDEX(',' + '" + personID + "' + ',', ',' + m.保养人员IDs + ',') > 0 ";
             }
 
             object maintenanceStatusCodeObj = this.comboBox保养状态.SelectedValue;

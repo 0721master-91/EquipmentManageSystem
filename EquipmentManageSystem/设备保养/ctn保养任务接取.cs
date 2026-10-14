@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,7 +38,7 @@ namespace EquipmentManageSystem.设备保养
             long currentMemberId = UserSession.CurrentUser.MemberID;
             if(currentMemberId != 0)
             {
-                sql += " and CHARINDEX(',' + " + currentMemberId + " + ',', ',' + m.保养人员IDs + ',') > 0";
+                sql += " and CHARINDEX(',' + '" + currentMemberId.ToString() + "' + ',', ',' + m.保养人员IDs + ',') > 0";
             }
 
 

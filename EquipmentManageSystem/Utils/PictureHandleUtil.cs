@@ -101,6 +101,55 @@ namespace EquipmentManageSystem.Utils
         }
 
         /// <summary>
+        /// 选择图片并加载到面板
+        /// </summary>
+        /// <param name="panel">目标画板</param>
+        public static void SelectPicturesToPanel(FlowLayoutPanel panel)
+        {
+            using (var ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "图片文件|*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.jfif";
+                ofd.Multiselect = true;
+                ofd.Title = "选择上传图片";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    panel.Controls.Clear();
+                    foreach (var path in ofd.FileNames)
+                    {
+                        var pic = new PictureBox()
+                        {
+                            Image = Image.FromFile(path),
+                            SizeMode = PictureBoxSizeMode.Zoom,
+                            Size = new Size(100, 60),
+                            Tag = path,
+                            Margin = new Padding(5),
+                            BorderStyle = BorderStyle.FixedSingle
+                        };
+                        pic.Click += (s, e2) => {
+                            var frm = new Form
+                            {
+                                Text = "查看图片",
+                                StartPosition = FormStartPosition.CenterScreen,
+                                WindowState = FormWindowState.Normal,
+                                Size = new Size(900, 700)
+                            };
+                            var big = new PictureBox
+                            {
+                                Dock = DockStyle.Fill,
+                                SizeMode = PictureBoxSizeMode.Zoom,
+                                Image = pic.Image
+                            };
+                            frm.Controls.Add(big);
+                            frm.ShowDialog();
+                        };
+                        panel.Controls.Add(pic);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// 加载图片到面板
         /// </summary>
         /// <param name="panel">目标面板</param>
