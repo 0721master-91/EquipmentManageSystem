@@ -60,8 +60,8 @@ namespace EquipmentManageSystem.主界面
                     {
                         new SubMenuConfig {Text = "故障报修", FormType = typeof(设备维修.ctn报修工单)},
                         new SubMenuConfig {Text = "维修任务", FormType = typeof(设备维修.ctn维修任务)},
-                        new SubMenuConfig {Text = "任务接取"},
-                        new SubMenuConfig {Text = "维修验收"}
+                        new SubMenuConfig {Text = "任务接取与提交", FormType = typeof(设备维修.ctn维修任务接取与提交)},
+                        new SubMenuConfig {Text = "维修验收", FormType = typeof(设备维修.ctn维修任务验收)}
                     }
                 }
             };

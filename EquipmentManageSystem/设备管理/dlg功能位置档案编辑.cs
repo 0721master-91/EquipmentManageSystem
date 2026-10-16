@@ -28,6 +28,7 @@ namespace EquipmentManageSystem.设备管理
             {
                 string billCode = SqlCommonUtil.GenerateCode("WZDA", "设备功能位置档案", "单据号");
                 this.slTextBox单据号.Text = billCode;
+                this.TempBillCode = billCode;
             }
 
             RemoveVerticalLines();
@@ -174,8 +175,7 @@ namespace EquipmentManageSystem.设备管理
             object person = this.comboBox责任人.Tag;
             if (person != null)
             {
-                long responsiblePerson = Convert.ToInt64(person);
-                if (responsiblePerson > 0)
+                if (person != null && long.TryParse(person.ToString(), out long responsiblePerson) && responsiblePerson > 0)
                 {
                     this.OtherFields["责任人ID"] = responsiblePerson.ToString();
                 }
@@ -204,12 +204,12 @@ namespace EquipmentManageSystem.设备管理
 
         private void dlg功能位置档案编辑_AfterFillControls()
         {
-            this.TempBillCode = this.slTextBox单据号.Text;
             if (this.OperFlag == SleOperFlag.Modify)
             {
                 FillComBox();
                 FillStandardData();
-            } 
+                this.TempBillCode = this.slTextBox单据号.Text;
+            }
         }
 
         /// <summary>

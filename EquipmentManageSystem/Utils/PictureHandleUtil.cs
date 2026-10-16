@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿using System;
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Drawing;
@@ -85,18 +85,18 @@ namespace EquipmentManageSystem.Utils
                 if (string.IsNullOrEmpty(path)) continue;
 
                 try
-                {
-                    string fullPath = Path.IsPathRooted(path)
-                        ? path
-                        : Path.Combine(root, path);
+            {
+                string fullPath = Path.IsPathRooted(path)
+                    ? path
+                    : Path.Combine(root, path);
 
-                    if (File.Exists(fullPath))
-                        File.Delete(fullPath);
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine(ex.Message);
-                }
+                if (File.Exists(fullPath))
+                    File.Delete(fullPath);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
             }
         }
 
@@ -173,7 +173,7 @@ namespace EquipmentManageSystem.Utils
                 {
                     var pic = new PictureBox()
                     {
-                        Image = Image.FromFile(fullPath),
+                        Image = LoadImageWithoutLock(fullPath),
                         SizeMode = PictureBoxSizeMode.Zoom,
                         Size = new Size(100, 60),
                         Tag = fullPath,
@@ -187,6 +187,20 @@ namespace EquipmentManageSystem.Utils
                 {
                     System.Diagnostics.Debug.WriteLine(ex.Message);
                 }
+            }
+        }
+
+        /// <summary>
+        /// 通过内存流读取图片，避免锁定源文件
+        /// </summary>
+        private static Image LoadImageWithoutLock(string fullPath)
+        {
+            using (FileStream fs = new FileStream(fullPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (MemoryStream ms = new MemoryStream())
+            {
+                fs.CopyTo(ms);
+                ms.Position = 0;
+                return Image.FromStream(ms);
             }
         }
 
@@ -212,6 +226,52 @@ namespace EquipmentManageSystem.Utils
             };
             frm.Controls.Add(big);
             frm.ShowDialog();
+        }
+
+        /// <summary>
+        /// 判断两组照片路径是否完全相同
+        /// </summary>
+        /// <param name="currentPicturePaths">当前面板中的图片路径</param>
+        /// <param name="oldPicturePaths">  旧图片路径集合</param>
+        /// <returns>相同返回 true，否则 false</returns>
+        public static bool IsSamePictures(IEnumerable<string> currentPicturePaths, IEnumerable<string> oldPicturePaths)
+        {
+
+
+            // 当前图片：统一转绝对路径 -> 排序
+            List<string> currentPaths = (currentPicturePaths ?? Enumerable.Empty<string>())
+                .Where(p => !string.IsNullOrWhiteSpace(p))
+                .Select(p => ToAbsolutePicturePath(p))
+                .Where(s => !string.IsNullOrEmpty(s))
+                .OrderBy(s => s, StringComparer.OrdinalIgnoreCase)
+                .ToList();
+
+            // 旧图片：统一转绝对路径 -> 排序
+            List<string> oldPaths = (oldPicturePaths ?? Enumerable.Empty<string>())
+                .Where(s => !string.IsNullOrWhiteSpace(s))
+                .Select(s => ToAbsolutePicturePath(s.Trim()))
+                .Where(s => !string.IsNullOrEmpty(s))
+                .OrderBy(s => s, StringComparer.OrdinalIgnoreCase)
+                .ToList();
+
+            // 排序后逐个比较
+            return currentPaths.SequenceEqual(oldPaths, StringComparer.OrdinalIgnoreCase);
+        }
+
+        /// <summary>
+        /// 将相对路径转为绝对路径
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private static string ToAbsolutePicturePath(string path)
+        {
+            if (string.IsNullOrEmpty(path)) return string.Empty;
+            string s = path.Replace('/', '\\').Trim();
+            if (Path.IsPathRooted(s))           // 已是绝对路径
+            {
+                return s;
+            }
+            return Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, s));
         }
     }
 }

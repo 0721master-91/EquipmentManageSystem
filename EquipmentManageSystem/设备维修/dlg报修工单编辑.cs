@@ -173,7 +173,7 @@ namespace EquipmentManageSystem.设备维修
         /// </summary>
         private void OpenMemberSelectedDialog(object sender, EventArgs e)
         {
-            using (dlg人员选择 dlg = new dlg人员选择("保养人员选择") { IsMultiSelect = true })
+            using (dlg人员选择 dlg = new dlg人员选择("维修人员选择") { IsMultiSelect = true })
             {
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
@@ -210,8 +210,12 @@ namespace EquipmentManageSystem.设备维修
             }
             else
             {
+
                 if(this.OperFlag == SleOperFlag.Modify)
+                {
                     PictureHandleUtil.DeletePictures(this.OldPicturePath.Split(','));
+                }
+                    
                 return PictureHandleUtil.SavePicturesAndGetSavePath(paths,"故障照片");
             }
 

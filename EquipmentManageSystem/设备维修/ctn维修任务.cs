@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using SLQLControls.模板;
+using EquipmentManageSystem.Utils;
+using EquipmentManageSystem.Global;
 
 namespace EquipmentManageSystem.设备维修
 {
@@ -22,13 +24,14 @@ namespace EquipmentManageSystem.设备维修
             this.slDevGridControlMain.RowFont = new Font("宋体", 11f);
             this.slDevGridControlMain.ColumnFont = new Font("宋体", 11f);
             this.Type编辑窗口 = typeof(dlg维修任务编辑);
+            this.EmployeeName = UserSession.CurrentUser.MemberID.ToString();
         }
 
         private bool ctn维修任务_BeforeChangeDataSource()
         {
-            string sql = "select rwo.ID,rwo.维修工单编码,ul.程度 as 紧急程度,dbo.fn_CountRepairRecords(rwo.维修工单编码) as 维修次数,rwo.故障现象,dbo.fn_GetMemberNamesByIds(rwo.维修人员IDs) as 维修人员,rs.状态 as 维修状态,rwo.创建时间, " +
-                            "p.功能位置编码,p.功能位置描述,p.位置简称, " +
-                            "r.维修人,r.维修结果,r.验收人,r.验收状态,r.验收时间 " +
+            string sql = "select rwo.ID,rwo.维修工单编码 as 单据号,p.功能位置编码,p.功能位置描述,p.位置简称,ul.程度 as 紧急程度,dbo.fn_CountRepairRecords(rwo.维修工单编码) as 维修次数,rwo.故障现象, " +
+                            "dbo.fn_GetMemberNamesByIds(rwo.维修人员IDs) as 维修人员,rs.状态 as 维修状态, " +
+                            "r.维修人,r.维修结果,r.验收人,r.验收状态,r.验收时间,rwo.创建时间 " +
                          "from 维修工单 as rwo " +
                          "left join 设备功能位置档案 as p on rwo.功能位置编码=p.功能位置编码 " + 
                          "left join 紧急程度 as ul on rwo.紧急程度编码 = ul.编码 " +
@@ -44,7 +47,5 @@ namespace EquipmentManageSystem.设备维修
         {
             this.slDevGridControlMain.MainGridView.BestFitColumns();
         }
-
-
     }
 }
