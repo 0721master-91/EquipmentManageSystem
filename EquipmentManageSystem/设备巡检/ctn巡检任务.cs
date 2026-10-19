@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using EquipmentManageSystem.Utils;
 using SLQLControls.模板;
+using EquipmentManageSystem.Global;
 
 namespace EquipmentManageSystem.设备巡检
 {
@@ -24,6 +25,7 @@ namespace EquipmentManageSystem.设备巡检
             this.slDevGridControlMain.RowFont = new Font("宋体", 11f);
             this.slDevGridControlMain.ColumnFont = new Font("宋体", 11f);
             this.Type编辑窗口 = typeof(dlg巡检任务编辑);
+            this.EmployeeName = UserSession.CurrentUser.MemberID.ToString();
 
             CommonFilter.InitCombox(this.comboBox执行状态,"状态","编码","执行状态");
             CommonFilter.InitCombox(this.comboBox过期状态, "状态", "编码", "过期状态");
@@ -106,7 +108,12 @@ namespace EquipmentManageSystem.设备巡检
             {
                 dlg.ShowDialog();
             }
-            this.RefreshData();
+            this.button刷新.PerformClick();
+        }
+
+        private void ctn巡检任务_After操作(object sender, SLQLControls.控件.控件公用类.AfterEventArgs e)
+        {
+            this.button刷新.PerformClick();
         }
     }
 }

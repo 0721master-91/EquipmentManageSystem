@@ -10,6 +10,7 @@ using SLControls;
 using SLControls.SLGlobal;
 using EquipmentManageSystem.Utils;
 using EquipmentManageSystem.Global;
+using SLControls.SLDbService;
 
 namespace EquipmentManageSystem.设备维修
 {
@@ -41,6 +42,12 @@ namespace EquipmentManageSystem.设备维修
 
         private bool dlg报修工单编辑_PreOK(FieldArray aryFields)
         {
+            if(this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
+            {
+                this.slTextBox单据号.Text = SqlCommonUtil.GenerateCode("BXGD", "报修工单", "报修工单编码"); // 重新获取一次单据号，减少重复的情况
+            }
+
+
             this.OtherFields.Clear();
 
             object repairPeopleIDsObj = this.textBox维修人员.Tag;
@@ -79,14 +86,29 @@ namespace EquipmentManageSystem.设备维修
 
         private void dlg报修工单编辑_AfterExecuteOKSql(object sender, AfterOKSqlEventArgs e)
         {
+            var services = SLControls.SLDbService.SLOnlyInstOleDb.Services;
             try
             {
-                SLControls.SLDbService.SLOnlyInstOleDb.Services.Commit(); // 提交事务
+                this.UpdateRepairdWorkOrder(services);
+
+                if (this.OperFlag == SleOperFlag.Modify)
+                {
+
+
+                    List<string> oldPaths = string.IsNullOrEmpty(this.OldPicturePath) ? new List<string>() : this.OldPicturePath.Split(',').ToList();
+                    List<string> newPaths = string.IsNullOrEmpty(this.NewPicturePath) ? new List<string>() : this.NewPicturePath.Split(',').ToList();
+                    if (PictureHandleUtil.IsSamePictures(oldPaths, newPaths) == false)
+                    {
+                        PictureHandleUtil.DeletePictures(this.OldPicturePath.Split(','));
+                    }
+                }
+
+                services.Commit(); // 提交事务
             }
             catch (Exception ex)
             {
                 PopUpUtil.ShowError("保存失败：" + ex.Message);
-                SLControls.SLDbService.SLOnlyInstOleDb.Services.RollBack(); // 回滚事务
+                services.RollBack(); // 回滚事务
             }
         }
 
@@ -209,14 +231,70 @@ namespace EquipmentManageSystem.设备维修
                 return this.OldPicturePath;
             }
             else
-            {
-
-                if(this.OperFlag == SleOperFlag.Modify)
-                {
-                    PictureHandleUtil.DeletePictures(this.OldPicturePath.Split(','));
-                }
-                    
+            {       
                 return PictureHandleUtil.SavePicturesAndGetSavePath(paths,"故障照片");
+            }
+
+        }
+
+        /// <summary>
+        /// 更新维修工单
+        /// </summary>
+        private void UpdateRepairdWorkOrder(SLOnlyInstOleDb services)
+        {
+            string billCode = SqlCommonUtil.GenerateCode("WXGD", "维修工单", "维修工单编码");
+            string billType = "维修工单";
+            string billSource = "自动创建";
+            string upStreamBillCode = this.slTextBox单据号.Text;
+            string reportor = UserSession.CurrentUser.MemberID.ToString();
+            string executeStatusCode = "WAITING";
+            string positionCode = this.slTextBox功能位置编码.Text;
+            object repairdPersonIDsObj = this.textBox维修人员.Tag;
+            string repairdPersonIDs = repairdPersonIDsObj == null ? string.Empty : repairdPersonIDsObj.ToString();
+            DataRow row = this.slComboBox紧急程度.SelectedRow;
+            string urgencyLevelCode = row["编码"].ToString();
+            string faultStartTime = this.slDateTimePicker故障开始时间.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            string faultPhenomenon = this.slTextBox故障现象.Text;
+            string faultRemark = this.slTextBox故障备注.Text;
+            string newPicturePath = this.NewPicturePath;
+            long currentPersonID = UserSession.CurrentUser.MemberID;
+
+            if(this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
+            {
+                // 创建维修工单
+                string sql = "insert into 维修工单(维修工单编码, 单据类型, 单据来源, 上游单据号, 报修人ID, 执行状态编码, 功能位置编码, " +
+                                                  "维修人员IDs, 紧急程度编码, 故障开始时间, 故障现象, 故障备注信息, 故障照片路径, 创建人, 最后修改人) " +
+                             "values('" + billCode + "', '" + billType + "', '" + billSource + "', '" + upStreamBillCode + "', '" + reportor + "', " +
+                             "'" + executeStatusCode + "', '" + positionCode + "', '" + repairdPersonIDs + "', '" + urgencyLevelCode + "', " +
+                             "'" + faultStartTime + "', '" + faultPhenomenon + "', '" + faultRemark + "', '" + newPicturePath + "','" + currentPersonID + "'," + currentPersonID + ")";
+                int num = services.ExecuteSql(sql);
+                if (num <= 0) throw new Exception("创建维修工单失败！");
+
+                // 创建维修记录
+                sql = "insert into 维修记录(维修工单编码) values('" + billCode + "')";
+                num = services.ExecuteSql(sql);
+                if (num <= 0) throw new Exception("创建维修记录失败！");
+
+                // 更新报修工单,绑定维修工单编码
+                sql = "update 报修工单 set 维修工单编码 = '" + billCode + "' where 报修工单编码 = '" + upStreamBillCode +"'";
+                num = services.ExecuteSql(sql);
+                if (num <= 0) throw new Exception("更新报修工单失败！");
+            }
+            else if (this.OperFlag == SleOperFlag.Modify)
+            {
+                string sql = "update 维修工单 " +
+                             "set 功能位置编码 = '" + positionCode + "' " +
+                             ", 维修人员IDs = '" + repairdPersonIDs + "' " +
+                             ", 紧急程度编码 = '" + urgencyLevelCode + "' " +
+                             ", 故障开始时间 = '" + faultStartTime + "' " +
+                             ", 故障现象 = '" + faultPhenomenon + "' " +
+                             ", 故障备注信息 = '" + faultRemark + "' " +
+                             ", 故障照片路径 = '" + newPicturePath + "' " +
+                             ", 最后修改人 = '" + currentPersonID + "' " +
+                             ", 最后修改时间 = getdate() " +
+                             "where 上游单据号 = '" + upStreamBillCode + "'";
+                int num = services.ExecuteSql(sql);
+                if (num <= 0) throw new Exception("更新维修工单失败！");
             }
 
         }

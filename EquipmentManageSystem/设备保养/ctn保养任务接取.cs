@@ -28,7 +28,7 @@ namespace EquipmentManageSystem.设备保养
         private bool ctn保养任务接取_BeforeChangeDataSource()
         {
             TaskStatusManager.UpdateMaintenanceTaskExpiredStatus();
-            string sql = "select m.ID,m.保养任务编码,m.设备功能位置编码,p.功能位置描述,p.位置简称,m.计划执行日期,m.保养开始时间,m.过期时间,dbo.fn_GetMemberNamesByIds(保养人员IDs) as 保养人员,m.创建时间 " +
+            string sql = "select m.ID,m.保养任务编码,m.设备功能位置编码,p.功能位置描述,p.位置简称,m.计划执行日期,m.保养开始时间,m.过期时间,dbo.fn_GetMemberNamesByIds(m.保养人员IDs) as 保养人员,m.创建时间 " +
                          "from 保养任务 as m " +
                          "left join 设备功能位置档案 as p on m.设备功能位置编码 = p.功能位置编码 " +
                          "where m.IsDelete = 0 " +
@@ -38,7 +38,12 @@ namespace EquipmentManageSystem.设备保养
             long currentMemberId = UserSession.CurrentUser.MemberID;
             if(currentMemberId != 0)
             {
-                sql += " and CHARINDEX(',' + '" + currentMemberId.ToString() + "' + ',', ',' + m.保养人员IDs + ',') > 0";
+                // 先看保养任务里面保养人员是否包含当前用户，如果不包含，则看设备功能位置档案里面保养人员是否包含当前用户，都没有则不显示
+                sql += "and ( " + 
+                                "((m.保养人员IDs is not null and len(trim(m.保养人员IDs)) > 0) and CHARINDEX(',' + '" + currentMemberId + "' + ',', ',' + m.保养人员IDs + ',') > 0) " +
+                            "or " +
+                                "((m.保养人员IDs is null or len(trim(m.保养人员IDs)) = 0) and CHARINDEX(',' + '" + currentMemberId + "' + ',', ',' + p.维保人员IDs + ',') > 0 )" +
+                           ") ";
             }
 
 
@@ -115,6 +120,8 @@ namespace EquipmentManageSystem.设备保养
                 };
                 dlg.ShowDialog();
             }
+            
+            this.button刷新.PerformClick();
         }
     }
 }

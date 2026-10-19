@@ -46,6 +46,7 @@ namespace EquipmentManageSystem.设备保养
             this.textBox模糊查询 = new System.Windows.Forms.TextBox();
             this.label模糊查询 = new System.Windows.Forms.Label();
             this.slDataTablePrinter1 = new SLControls.SLPrinter.SlDataTablePrinter(this.components);
+            this.slFlatButton导出 = new SLQLControls.控件.SLFlatButton();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -103,16 +104,19 @@ namespace EquipmentManageSystem.设备保养
             // 
             this.button定位.FlatAppearance.BorderSize = 0;
             this.button定位.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button定位.Location = new System.Drawing.Point(169, 10);
             // 
             // button筛选
             // 
             this.button筛选.FlatAppearance.BorderSize = 0;
             this.button筛选.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button筛选.Location = new System.Drawing.Point(91, 10);
             // 
             // button刷新
             // 
             this.button刷新.FlatAppearance.BorderSize = 0;
             this.button刷新.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button刷新.Location = new System.Drawing.Point(14, 10);
             // 
             // panel3
             // 
@@ -142,8 +146,13 @@ namespace EquipmentManageSystem.设备保养
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(1184, 0);
-            this.panel4.Size = new System.Drawing.Size(268, 72);
+            this.panel4.Controls.Add(this.slFlatButton导出);
+            this.panel4.Location = new System.Drawing.Point(1174, 0);
+            this.panel4.Size = new System.Drawing.Size(278, 72);
+            this.panel4.Controls.SetChildIndex(this.button刷新, 0);
+            this.panel4.Controls.SetChildIndex(this.button筛选, 0);
+            this.panel4.Controls.SetChildIndex(this.button定位, 0);
+            this.panel4.Controls.SetChildIndex(this.slFlatButton导出, 0);
             // 
             // label位置简称
             // 
@@ -261,6 +270,20 @@ namespace EquipmentManageSystem.设备保养
             this.slDataTablePrinter1.ThePrintInfo.ReportHeader.RtfBox2 = null;
             this.slDataTablePrinter1.ThePrintInfo.ReportHeader.RtfBox3 = null;
             // 
+            // slFlatButton导出
+            // 
+            this.slFlatButton导出.FlatAppearance.BorderSize = 0;
+            this.slFlatButton导出.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.slFlatButton导出.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.slFlatButton导出.GetFocusControl = null;
+            this.slFlatButton导出.Location = new System.Drawing.Point(9, 36);
+            this.slFlatButton导出.Name = "slFlatButton导出";
+            this.slFlatButton导出.Size = new System.Drawing.Size(90, 32);
+            this.slFlatButton导出.TabIndex = 10;
+            this.slFlatButton导出.Text = "✅️ 导出";
+            this.slFlatButton导出.UseVisualStyleBackColor = true;
+            this.slFlatButton导出.Click += new System.EventHandler(this.slFlatButton导出_Click);
+            // 
             // ctn保养任务
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -319,5 +342,6 @@ namespace EquipmentManageSystem.设备保养
         private System.Windows.Forms.ComboBox comboBox保养状态;
         private System.Windows.Forms.Label label保养状态;
         private SLControls.SLPrinter.SlDataTablePrinter slDataTablePrinter1;
+        private SLQLControls.控件.SLFlatButton slFlatButton导出;
     }
 }

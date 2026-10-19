@@ -127,6 +127,7 @@ namespace EquipmentManageSystem.设备保养
             // 
             this.button接取任务.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(124)))), ((int)(((byte)(208)))));
             this.button接取任务.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button接取任务.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button接取任务.Font = new System.Drawing.Font("宋体", 9F);
             this.button接取任务.ForeColor = System.Drawing.Color.White;
             this.button接取任务.Location = new System.Drawing.Point(20, 16);

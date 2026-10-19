@@ -17,7 +17,8 @@ namespace EquipmentManageSystem.设备保养
     {
         private OperationType OperType; // 当前操作类型
         private string TaskCode; // 当前任务编码
-        private DataTable TaskStatusData; // 记录修改前数据状态，便于开启事务后进行判断
+        private string PicturePathBeforeMaintenance = string.Empty; // 保养前照片路径
+        private string PicturePathAfterMaintenance = string.Empty; // 保养后照片路径
         public dlg保养任务编辑()
         {
             InitializeComponent();
@@ -61,8 +62,17 @@ namespace EquipmentManageSystem.设备保养
                 this.slTextBox单据来源.Text = "自建";
                 this.slTextBox执行状态.Text = "待执行";
                 this.slTextBox过期状态.Text = "未过期";
-                this.slDateTimePicker过期时间.Value = DateTime.Now.Date;
                 this.slDateTimePicker计划执行日期.Value = DateTime.Now.Date;
+
+                // 过期时间默认初始值为下午17:30，根据当前时间是否超过当天下午17:30，则默认过期时间为次日下午17:30
+                if (DateTime.Now.Hour >= 17 && DateTime.Now.Minute >= 30)
+                {
+                    this.slDateTimePicker过期时间.Value = DateTime.Now.AddDays(1).Date.AddHours(17).AddMinutes(30);
+                }
+                else
+                {
+                    this.slDateTimePicker过期时间.Value = DateTime.Today.AddHours(17).AddMinutes(30);
+                }
             }
             else if (this.OperFlag == SleOperFlag.Modify)
             {
@@ -74,24 +84,44 @@ namespace EquipmentManageSystem.设备保养
             this.ChangeApplicationScene(this.OperType);
         }
 
-        // 点击确认前前为额外字段添加值
+        // 点击确认前为额外字段添加值
         private bool dlg保养任务编辑_PreOK(FieldArray aryFields)
         {
+            if(this.VerifyData() == false)
+            {
+                return false;
+            }
+
+            if(this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
+            {
+                this.slTextBox保养任务编码.Text = SqlCommonUtil.GenerateCode("BYRW", "保养任务", "保养任务编码"); // 重新获取一次最新保养任务编码，减少重复概率
+            }
+
+            this.OtherFields.Clear();
+
             if(this.OperType == OperationType.Common)
             {
+                object maintenancePersonIDsObj = this.textBox保养人员.Tag;
+                string maintenancePersonIDs = maintenancePersonIDsObj == null ? "" : maintenancePersonIDsObj.ToString();
                 this.OtherFields.Add(new SlcFieldInfo
                 {
                     OperatorMode = SleOperatorMode.Write,
                     KeyName = "保养人员IDs",
-                    KeyValue = this.textBox保养人员.Tag.ToString(),
+                    KeyValue = maintenancePersonIDs,
                     KeyType = SleDataType.String
                 });
 
+                DateTime planExecuteDate = this.slDateTimePicker计划执行日期.Value;
+                DateTime startTime = DateTime.Parse(planExecuteDate.ToString("yyyy-MM-dd") + " 08:30:00");
+                if(startTime < DateTime.Now)
+                {
+                    startTime = DateTime.Now;
+                }
                 this.OtherFields.Add(new SlcFieldInfo
                 {
                     OperatorMode = SleOperatorMode.Write,
                     KeyName = "保养开始时间",
-                    KeyValue = this.slDateTimePicker计划执行日期.Value.ToString("yyyy-MM-dd") + " 08:30:00",
+                    KeyValue = startTime,
                     KeyType = SleDataType.DateTime
                 });
             }
@@ -114,18 +144,13 @@ namespace EquipmentManageSystem.设备保养
                 });
             }
 
-
+            DataTrack.AddTrack(this.OtherFields, this.OperFlag);
             return true;
         }
 
         // 执行SQL前操作
         private bool dlg保养任务编辑_PreExecuteOKSql(object sender, PreOKSqlEventArgs e)
         {
-            // 开启事务前获取保养任务的实时状态
-            string sql = "select 执行状态编码,过期时间,保养状态编码,验收状态编码 from 保养任务 where 保养任务编码 = '" + this.TaskCode + "' and IsDelete = 0";
-            DataTable dt = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteForDataTable(sql);
-            this.TaskStatusData = dt;
-
             // 开启事务
             SLControls.SLDbService.SLOnlyInstOleDb.Services.BeginTran();
             return true;
@@ -136,6 +161,7 @@ namespace EquipmentManageSystem.设备保养
         {
             try
             {
+
                 if (this.OperType == OperationType.Common)
                 {
                     // 保存保养标准
@@ -155,9 +181,9 @@ namespace EquipmentManageSystem.设备保养
                 // 提交事务
                 SLControls.SLDbService.SLOnlyInstOleDb.Services.Commit();
             }
-            catch
+            catch(Exception ex)
             {
-                PopUpUtil.ShowWarning("操作失败，请重试！");
+                PopUpUtil.ShowWarning(ex.Message);
                 // 回滚
                 SLControls.SLDbService.SLOnlyInstOleDb.Services.RollBack();
             }
@@ -177,7 +203,8 @@ namespace EquipmentManageSystem.设备保养
         private void OpenFunctionPositionDialog(object sender, EventArgs e)
         {
             string positionCode = this.slTextBox功能位置编码.Text;
-            using(dlg设备功能位置选择 dlg = new dlg设备功能位置选择())
+            List<string> equipmetStatusCodeList = new List<string>() { "NORMAL", "REPAIRING", "ABNORMAL"};
+            using(dlg设备功能位置选择 dlg = new dlg设备功能位置选择(equipmetStatusCodeList))
             {
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
@@ -256,6 +283,7 @@ namespace EquipmentManageSystem.设备保养
                   "' and ID not in (" + string.Join(",", ids) + ")";
             services.ExecuteSql(deleteSql);
 
+
             // 逐行保存：已有行UPDATE，新行INSERT
             foreach (DataRow row in dt.Rows)
             {
@@ -318,8 +346,6 @@ namespace EquipmentManageSystem.设备保养
         /// </summary>
         private void UpdateMaintenanceTaskSubmitStatus()
         {
-            if (!this.Verify()) throw new Exception();
-
             string maintenanceStatusCode;
             string executeStatusCode = "EXECUTING";
             if (this.comboBox无效单据.Text == "是")
@@ -336,8 +362,12 @@ namespace EquipmentManageSystem.设备保养
                          "set 执行状态编码 = '" + executeStatusCode + "', " +
                              "保养状态编码 = '" + maintenanceStatusCode + "', " +
                              "任务接取人ID = " + UserSession.CurrentUser.MemberID + ", " +
-                             "保养结束时间 = '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
-                             "where 保养任务编码 = '" + this.TaskCode + "' ";
+                             "保养结束时间 = getDate() " +
+                             "where 保养任务编码 = '" + this.TaskCode + "' " +
+                                 "and IsDelete = 0 " +
+                                 "and 执行状态编码 != 'COMPLETED' " +
+                                 "and 保养状态编码 in ('DUE', 'REDUE') " +
+                                 "and 过期时间 >= getDate() ";
 
             int num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql);
             if (num <= 0) throw new Exception();
@@ -348,8 +378,6 @@ namespace EquipmentManageSystem.设备保养
         /// </summary>
         private void UpdateMaintenanceTaskAcceptStatus()
         {
-            if (!this.Verify()) throw new Exception();
-
             DataRow row = this.slComboBox验收状态.SelectedRow;
             string acceptCode = row["编码"].ToString();
             
@@ -376,48 +404,15 @@ namespace EquipmentManageSystem.设备保养
                          "set 执行状态编码 = '" + executeStatusCode + "', " +
                              "保养状态编码 = '" + maintenanceStatusCode + "', " +
                              "验收人ID = " + UserSession.CurrentUser.MemberID + ", " +
-                             "验收时间 = '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', " +
+                             "验收时间 = getDate(), " +
                              "验收状态编码 = '" + acceptCode + "' " +
-                             "where 保养任务编码 = '" + this.TaskCode + "' ";
+                             "where 保养任务编码 = '" + this.TaskCode + "' " +
+                                 "and IsDelete = 0 " +
+                                 "and 执行状态编码 != 'COMPLETED' " +
+                                 "and 保养状态编码 = 'PENDING' " +
+                                 "and 验收状态编码 != 'PASSED' ";
             int num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql);
             if (num <= 0) throw new Exception();
-        }
-
-        /// <summary>
-        /// 验证保养任务是否可以提交
-        /// </summary>
-        private bool Verify()
-        {
-            DataTable dt = this.TaskStatusData;
-            if (dt.Rows.Count == 0) return false;
-
-            // 用过期时间与当前时间比更准确
-            DateTime expiredTime = dt.Rows[0]["过期时间"] == DBNull.Value ? DateTime.MinValue : Convert.ToDateTime(dt.Rows[0]["过期时间"]);
-            if (expiredTime < DateTime.Now) return false;
-
-            switch (this.OperType)
-            {
-                case OperationType.TaskSubmit:
-                    {
-                        string executeStatusCode = dt.Rows[0]["执行状态编码"].ToString();
-                        string maintenanceStatusCode = dt.Rows[0]["保养状态编码"].ToString();
-                        if (executeStatusCode != "COMPLETED" && (maintenanceStatusCode == "DUE" || maintenanceStatusCode == "REDUE"))
-                            return true;
-                        else
-                            return false;
-                    }
-                case OperationType.AcceptanceSubmit:
-                    {
-                        string executeStatusCode = dt.Rows[0]["执行状态编码"].ToString();
-                        string maintenanceStatusCode = dt.Rows[0]["保养状态编码"].ToString();
-                        string verifyStatusCode = dt.Rows[0]["验收状态编码"].ToString();
-                        if(executeStatusCode != "COMPLETED" && maintenanceStatusCode == "PENDING" && verifyStatusCode != "PASSED")
-                            return true;
-                        else
-                            return false;
-                    }
-                default: return false;
-            }
         }
 
         /// <summary>
@@ -530,6 +525,80 @@ namespace EquipmentManageSystem.设备保养
                                 .Select(p => p.Tag.ToString())
                                 .ToList();
             return PictureHandleUtil.SavePicturesAndGetSavePath(paths, pictureSubDir);
+        }
+
+        /// <summary>
+        /// 数据验证
+        /// </summary>
+        /// <returns>是否通过</returns>
+        private bool VerifyData()
+        {
+            DateTime expiredTime = this.slDateTimePicker过期时间.Value;
+
+            if (this.OperType == OperationType.Common)
+            {
+                // 时间验证
+                if (expiredTime < DateTime.Now) 
+                {
+                    PopUpUtil.ShowInfo("当前时间已超过期时间");
+                    return false;
+                };
+
+                expiredTime = this.slDateTimePicker过期时间.Value;
+                DateTime planTime = this.slDateTimePicker计划执行日期.Value;
+                if (expiredTime.Date < planTime.Date)
+                {
+                    PopUpUtil.ShowWarning("过期时间不能早于计划执行时间");
+                    return false;
+                }
+
+                // 功能位置编码
+                string functionPositionCode = this.slTextBox功能位置编码.Text;
+                if (string.IsNullOrEmpty(functionPositionCode))
+                {
+                    PopUpUtil.ShowWarning("功能位置编码不能为空");
+                    return false;
+                }
+
+            }
+            else if(this.OperType == OperationType.TaskSubmit)
+            {
+                if (expiredTime < DateTime.Now)
+                {
+                    PopUpUtil.ShowInfo("当前时间已超过期时间，无法提交任务");
+                    return false;
+                };
+
+                // 照片路径验证，不能为空
+                this.PicturePathBeforeMaintenance = this.HandlePictureData(this.flowLayoutPanel保养前照片, "保养前照片");
+                if (string.IsNullOrEmpty(this.PicturePathBeforeMaintenance))
+                {
+                    PopUpUtil.ShowWarning("保养前照片不能为空");
+                    return false;
+                }
+
+                this.PicturePathAfterMaintenance = this.HandlePictureData(this.flowLayoutPanel保养后照片, "保养后照片");
+                if (string.IsNullOrEmpty(this.PicturePathAfterMaintenance))
+                {
+                    PopUpUtil.ShowWarning("保养后照片不能为空");
+                    if (!string.IsNullOrEmpty(this.PicturePathBeforeMaintenance))
+                    {
+                        PictureHandleUtil.DeletePictures(this.PicturePathBeforeMaintenance.Split(','));
+                    }
+                    return false;
+                }
+            }
+            else if(this.OperType == OperationType.AcceptanceSubmit)
+            {
+                // 验收状态验证
+                if (this.slComboBox验收状态.SelectedIndex == -1)
+                {
+                    PopUpUtil.ShowWarning("验收状态不能为空");
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

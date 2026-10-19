@@ -98,7 +98,7 @@ namespace EquipmentManageSystem.设备维修
         }
 
         /// <summary>
-        /// 记载维修信息
+        /// 加载维修信息
         /// </summary>
         /// <param name="billCode"></param>
         public void LoadRepairdInfo(string billCode)
@@ -281,6 +281,14 @@ namespace EquipmentManageSystem.设备维修
             num = 0;
             num = services.ExecuteSql(sql);
             if (num <= 0) throw new Exception("更新维修工单失败");
+
+            sql = "update 设备功能位置档案 " +
+                  "set 设备状态编码 = 'NORMAL', " + // 设备状态为正常状态
+                      "最后修改时间 = getDate(), " +
+                      "最后修改人 = " + UserSession.CurrentUser.MemberID + " " +
+                      "where 功能位置编码 = (select 功能位置编码 from 维修工单 where 维修工单编码 = '" + billCode + "')";
+            num = services.ExecuteSql(sql); // 更新设备状态
+            if (num <= 0) throw new Exception("更新设备状态失败");
         }
 
         /// <summary>

@@ -17,7 +17,6 @@ namespace EquipmentManageSystem.设备巡检
     {
 
         private string InspectionPicturePaths; //巡检照片路径
-        private DateTime EndTime; //巡检结束时间
         private string FaultPicturePaths; //故障照片路径
         private bool IsReceivingTask = false; //是否是接收任务
         private string TaskCode; //任务编码
@@ -34,7 +33,6 @@ namespace EquipmentManageSystem.设备巡检
 
         private void dlg巡检任务编辑_Load(object sender, EventArgs e)
         {
-
             if(this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
             {
                 this.slTextBox巡检任务编码.Text = SqlCommonUtil.GenerateCode("XJRW", "巡检任务", "巡检任务编码");
@@ -42,15 +40,8 @@ namespace EquipmentManageSystem.设备巡检
                 this.slTextBox单据来源.Text = "自建";
                 this.slTextBox执行状态.Text = "待执行";
                 this.slTextBox过期状态.Text = "未过期";
+                this.slDateTimePicker计划执行日期.Value = DateTime.Now.Date;
             }
-
-            DataTable isFault = new DataTable();
-            isFault.Columns.Add("是否故障", typeof(string));
-            isFault.Rows.Add("否");
-            isFault.Rows.Add("是");
-            this.slComboBox是否故障.DataSource = isFault;
-            this.slComboBox是否故障.DisplayMember = "是否故障";
-            this.slComboBox是否故障.ValueMember = "是否故障";
 
             // 默认为添加页面，如果是任务提交界面，需要启用和禁用部分控件
             if (this.IsReceivingTask)
@@ -90,7 +81,7 @@ namespace EquipmentManageSystem.设备巡检
 
             // 其他项禁用
             this.slDateTimePicker计划执行日期.Enabled = false;
-            this.slDateTimePicker过期日期.Enabled = false;
+            this.slDateTimePicker过期时间.Enabled = false;
             this.slTextBox提前提醒天数.ReadOnly = true;
             this.uc巡检任务标准.panel巡检任务标准操作区.Visible = false;
             this.uc巡检任务标准.dataGridView巡检任务标准数据.ReadOnly = true;
@@ -105,50 +96,21 @@ namespace EquipmentManageSystem.设备巡检
             Control[] found = btn.Parent.Controls.Find(panelName, true);
 
             FlowLayoutPanel panel = found[0] as FlowLayoutPanel;
+            PictureHandleUtil.SelectPicturesToPanel(panel);
+        }
 
-            using (var ofd = new OpenFileDialog())
-            {
-                ofd.Filter = "图片文件|*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.jfif";
-                ofd.Multiselect = true;
-                ofd.Title = "选择上传图片";
+        private bool dlg巡检任务编辑_PreFillControls(FieldArray aryFields)
+        {
+            DataTable isFault = new DataTable();
+            isFault.Columns.Add("值", typeof(string));
+            isFault.Columns.Add("显示", typeof(string));
+            isFault.Rows.Add("否", "否");
+            isFault.Rows.Add("是", "是");
+            this.slComboBox是否故障.DataSource = isFault;
+            this.slComboBox是否故障.DisplayMember = "显示";
+            this.slComboBox是否故障.ValueMember = "值";
 
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    panel.Controls.Clear();
-                    foreach (var path in ofd.FileNames)
-                    {
-                        var pic = new PictureBox()
-                        {
-                            Image = Image.FromFile(path),
-                            SizeMode = PictureBoxSizeMode.Zoom,
-                            Size = new Size(100, 60),
-                            Tag = path,
-                            Margin = new Padding(5),
-                            BorderStyle = BorderStyle.FixedSingle
-                        };
-                        pic.Click += (s, e2) => {
-                            var frm = new Form
-                            {
-                                Text = "查看图片",
-                                StartPosition = FormStartPosition.CenterScreen,
-                                WindowState = FormWindowState.Normal,
-                                Size = new Size(900, 700)
-                            };
-                            var big = new PictureBox
-                            {
-                                Dock = DockStyle.Fill,
-                                SizeMode = PictureBoxSizeMode.Zoom,
-                                Image = pic.Image
-                            };
-                            frm.Controls.Add(big);
-                            frm.ShowDialog();
-                        };
-                        panel.Controls.Add(pic);
-                    }
-
-
-                }
-            }
+            return true;
         }
 
         private void dlg巡检任务编辑_AfterFillControls()
@@ -156,7 +118,17 @@ namespace EquipmentManageSystem.设备巡检
             this.TaskCode = this.slTextBox巡检任务编码.Text;
             string taskCode = this.slTextBox巡检任务编码.Text;
             
-            if(this.OperFlag == SleOperFlag.Modify)
+            if (this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
+            {
+                // 新增时过期时间默认为当天17:30，如果当天已过17:30则默认为次日17:30
+                DateTime expiredTime = DateTime.Now.Date.AddHours(17).AddMinutes(30);
+                if(expiredTime < DateTime.Now)
+                {
+                    expiredTime = expiredTime.AddDays(1);
+                }
+                this.slDateTimePicker过期时间.Value = expiredTime;
+            }
+            else if(this.OperFlag == SleOperFlag.Modify)
             {
                 string positionCode = this.slTextBox功能位置编码.Text;
                 if (string.IsNullOrEmpty(positionCode))
@@ -170,8 +142,9 @@ namespace EquipmentManageSystem.设备巡检
         /// 填充其他控件
         /// </summary>
         /// <param name="code">单据编码</param>
-        private void FillOtherControls(String code)
+        private void FillOtherControls(string code)
         {
+
             string sql = "select s.功能位置编码,s.功能位置描述,s.位置简称,r.名称 as 所属区域,d.部门名称 as 管理部门,m.姓名 as 设备责任人, " +
                          "dbo.fn_GetMemberNamesByIds(xjrw.巡检人员IDs) as 巡检人员, xjrw.巡检人员IDs, " +
                          "xjrw.巡检照片路径,xjrw.故障照片路径,xjrw.巡检结束时间 " +
@@ -193,9 +166,6 @@ namespace EquipmentManageSystem.设备巡检
             this.textBox巡检人员.Tag = dt.Rows[0]["巡检人员IDs"].ToString();
 
             // 图片加载
-            object endTimeObj = dt.Rows[0]["巡检结束时间"];
-            this.EndTime = (endTimeObj == null || endTimeObj == DBNull.Value) ? DateTime.Now : Convert.ToDateTime(endTimeObj);
-            
             this.InspectionPicturePaths = dt.Rows[0]["巡检照片路径"]?.ToString();
             this.FaultPicturePaths = dt.Rows[0]["故障照片路径"]?.ToString();
             PictureHandleUtil.LoadPicturesToPanel(this.flowLayoutPanel巡检照片, dt.Rows[0]["巡检照片路径"].ToString());
@@ -204,7 +174,7 @@ namespace EquipmentManageSystem.设备巡检
             // 标准加载
             sql = "select s.ID,s.巡检部位,s.巡检内容,s.巡检类型,s.判断标准,s.巡检周期,s.周期单位,s.提前提醒天数,s.开始执行日期,s.下次执行日期 " +
                   "from 巡检任务标准 as s " +
-                  "where s.所属巡检任务编码 = '" + code + "'";
+                  "where s.所属巡检任务编码 = '" + code + "' and IsDelete = 0 ";
             DataTable sd = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteForDataTable(sql);
             DataTable standardTable = this.uc巡检任务标准.StandardDataTable;
             standardTable.Rows.Clear();
@@ -264,9 +234,8 @@ namespace EquipmentManageSystem.设备巡检
         /// </summary>
         /// <param name="panel">图片面板</param>
         /// <param name="pictureSubDir">保存子路径</param>
-        /// <param name="sourcePaths">旧图片源路径</param>
         /// <returns>保存地址</returns>
-        private string HandlePictureData(FlowLayoutPanel panel,string pictureSubDir, List<string> sourcePaths = null)
+        private string HandlePictureData(FlowLayoutPanel panel,string pictureSubDir)
         {
 
             List<string> paths = panel.Controls
@@ -275,23 +244,7 @@ namespace EquipmentManageSystem.设备巡检
                 .Select(p => p.Tag.ToString())
                 .ToList();
 
-            if(this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
-            {
-                // 新增或复制新增，直接保存图片
-                return PictureHandleUtil.SavePicturesAndGetSavePath(paths,pictureSubDir);
-            }
-            else if(this.OperFlag == SleOperFlag.Modify)
-            {
-                // 修改，则先删除原有图片，再保存新图片
-                string endDateStr = this.EndTime.ToString("yyyyMMdd");
-
-                PictureHandleUtil.DeletePictures(sourcePaths);
-                return PictureHandleUtil.SavePicturesAndGetSavePath(paths,pictureSubDir, endDateStr);
-            }
-            else
-            {
-                return null;
-            }
+            return PictureHandleUtil.SavePicturesAndGetSavePath(paths, pictureSubDir);
         }
 
         // 添加其他附属信息
@@ -299,40 +252,21 @@ namespace EquipmentManageSystem.设备巡检
         {
             try
             {
-                // 增量保存巡检任务标准
+                // 保存巡检任务标准
                 this.UpdateInspectionTaskStandard();
 
                 if (this.IsReceivingTask)
                 {
                     // 接取任务时，更新巡检任务状态
 
-                    string sql = "select 执行状态编码,过期状态编码 from 巡检任务 where 巡检任务编码 = '" + this.TaskCode + "'";
-                    DataTable dt = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteForDataTable(sql);
-
-                    if (dt == null || dt.Rows.Count == 0)
-                    {
-                        PopUpUtil.ShowWarning("未找到巡检任务编码为 " + this.TaskCode + " 的记录");
-                        throw new Exception("未找到巡检任务编码为 " + this.TaskCode + " 的记录");
-                    }
-
-                    string executeStatusCode = dt.Rows[0]["执行状态编码"].ToString();
-                    if(executeStatusCode != "WAITING")
-                    {
-                        PopUpUtil.ShowWarning("该巡检任务已被接取执行，请刷新重试！");
-                        throw new Exception("该巡检任务已被接取执行，请刷新重试！");
-                    }
-                    string expireStatusCode = dt.Rows[0]["过期状态编码"].ToString();
-                    if (expireStatusCode != "UNEXPIRED")
-                    {
-                        PopUpUtil.ShowWarning("该巡检任务已过期，无法提交！");
-                        throw new Exception("该巡检任务已过期，无法提交！");
-                    }
-
-                    sql = "update 巡检任务 " +
-                          "set 执行状态编码='COMPLETED'," +
-                          "    任务接取人ID=" + UserSession.CurrentUser.MemberID + "," +
-                          "    巡检结束时间='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm") + "' " +
-                          "where 巡检任务编码='" + this.TaskCode + "'";
+                    string sql = "update 巡检任务 " +
+                                 "set 执行状态编码 ='COMPLETED'," +
+                                 "    任务接取人ID =" + UserSession.CurrentUser.MemberID + "," +
+                                 "    巡检结束时间 = getDate() " +
+                                 "where 巡检任务编码 ='" + this.TaskCode + "' " +
+                                    "and IsDelete = 0 " +
+                                    "and 执行状态编码 = 'WAITING' " +
+                                    "and 过期时间 > getDate() ";
                     int num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql);
                     if(num <= 0)
                         throw new Exception("更新巡检任务状态失败！");
@@ -420,27 +354,43 @@ namespace EquipmentManageSystem.设备巡检
 
         private bool dlg巡检任务编辑_PreOK(FieldArray aryFields)
         {
+            if (!this.VerifyData()) return false;
+
+            if(this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
+            {
+                // 尽可能减少重复的情况导致添加失败
+                this.slTextBox巡检任务编码.Text = SqlCommonUtil.GenerateCode("XJRW", "巡检任务", "巡检任务编码");
+            }
+
+
+
             // 添加额外字段信息
-            this.OtherFields["巡检人员IDs"] = this.textBox巡检人员.Tag.ToString();
+            object inspectPersonIDsObj = this.textBox巡检人员.Tag;
+            string inspectPersonIDs = inspectPersonIDsObj == null ? "" : inspectPersonIDsObj.ToString();
+            this.OtherFields["巡检人员IDs"] = inspectPersonIDs;
 
-            // 添加图片信息
-            List<string> inspectionPicturePaths = null;
-            if (!string.IsNullOrEmpty(this.InspectionPicturePaths))
+            // 添加巡检与结束时间
+            DateTime planTime = this.slDateTimePicker计划执行日期.Value;
+            DateTime startTime = DateTime.Parse(planTime.ToString("yyyy-MM-dd") + " 08:30:00");
+            if(startTime < DateTime.Now)
             {
-                inspectionPicturePaths = this.InspectionPicturePaths.Split(',').ToList();
+                startTime = DateTime.Now;
             }
-            List<string> faultPicturePaths = null;
-            if (!string.IsNullOrEmpty(this.FaultPicturePaths))
+            this.OtherFields["巡检开始时间"] = startTime;
+            if (this.IsReceivingTask)
             {
-                faultPicturePaths = this.FaultPicturePaths.Split(',').ToList();
+                // 巡检结束时间
+                this.OtherFields["巡检结束时间"] = this.slDateTimePicker过期时间.Value;
+
+                // 添加图片信息
+                this.OtherFields["巡检照片路径"] = this.InspectionPicturePaths;
+                if (this.slComboBox是否故障.SelectedValue.ToString() == "是")
+                {
+                    this.OtherFields["故障照片路径"] = this.FaultPicturePaths;
+                }
             }
-            this.OtherFields["巡检照片路径"] = this.HandlePictureData(this.flowLayoutPanel巡检照片, "巡检任务", inspectionPicturePaths);
-            this.OtherFields["故障照片路径"] = this.HandlePictureData(this.flowLayoutPanel故障照片, "巡检任务故障",faultPicturePaths);
 
-            // 添加巡检开始时间（这里先默认为计划时间当天的工作开始时间）
-            this.OtherFields["巡检开始时间"] = this.slDateTimePicker计划执行日期.Value.ToString("yyyy-MM-dd") + " 08:30";
-            this.OtherFields["巡检结束时间"] = this.slDateTimePicker过期日期.Value.ToString("yyyy-MM-dd") + " 17:30";
-
+            DataTrack.AddTrack(this.OtherFields, this.OperFlag);
             return true;
         }
 
@@ -458,8 +408,45 @@ namespace EquipmentManageSystem.设备巡检
             {
                 this.slTextBox故障现象.ReadOnly = true;
                 this.button添加故障照片.Visible = false;
+                this.slTextBox故障现象.Text = string.Empty;
                 this.flowLayoutPanel故障照片.BackColor = Color.FromArgb(240, 240, 240);
             }
+        }
+
+        /// <summary>
+        /// 验证数据合法性
+        /// </summary>
+        /// <returns></returns>
+        private bool VerifyData()
+        {
+            if (this.IsReceivingTask)
+            {
+                this.InspectionPicturePaths = this.HandlePictureData(this.flowLayoutPanel巡检照片, "巡检任务");
+                if (string.IsNullOrEmpty(this.InspectionPicturePaths))
+                {
+                    PopUpUtil.ShowError("请添加巡检照片");
+                    return false;
+                }
+                this.FaultPicturePaths = this.HandlePictureData(this.flowLayoutPanel故障照片, "巡检任务故障");
+                if(this.slComboBox是否故障.SelectedValue.ToString() == "是" && string.IsNullOrEmpty(this.FaultPicturePaths))
+                {
+                    PopUpUtil.ShowError("请添加故障照片");
+                    if (!string.IsNullOrEmpty(this.InspectionPicturePaths)) PictureHandleUtil.DeletePictures(this.InspectionPicturePaths.Split(','));
+                    return false;
+                }
+            }
+            else
+            {
+                DateTime palnTime = this.slDateTimePicker计划执行日期.Value;
+                DateTime endTime = this.slDateTimePicker过期时间.Value;
+                if(palnTime.Date > endTime.Date)
+                {
+                    PopUpUtil.ShowError("计划执行日期不能大于过期时间");
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

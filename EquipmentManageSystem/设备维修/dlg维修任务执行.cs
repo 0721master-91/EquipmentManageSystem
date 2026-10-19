@@ -84,6 +84,9 @@ namespace EquipmentManageSystem.设备维修
             this.uc维修工单基本信息.LoadRepairdOrderBaseData(this.BillCode);
         }
 
+        /// <summary>
+        /// 接取任务
+        /// </summary>
         private bool RecieveTask()
         {
             SLControls.SLDbService.SLOnlyInstOleDb.Services.BeginTran(); // 开启事务
@@ -92,8 +95,12 @@ namespace EquipmentManageSystem.设备维修
                 string sql = "update 维修记录 " +
                              "set 维修人ID = " + UserSession.CurrentUser.MemberID + ", " +
                                 "维修开始时间 = getDate() " +
-                             "where ID = (select top 1 ID from dbo.fn_GetDirectiveRepairRecord('" + this.BillCode + "')) " +
-                                   "and (维修人ID is null or 维修人ID = " + UserSession.CurrentUser.MemberID + ")";
+                             "where ID = (select top 1 ID from dbo.fn_GetDirectiveRepairRecord('" + this.BillCode + "')) ";
+                if(UserSession.CurrentUser.MemberID != 0)
+                {
+                    sql += "and (维修人ID is null or 维修人ID = " + UserSession.CurrentUser.MemberID + ")";
+                }
+
                 int num = 0;
                 num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql); // 更新维修记录状态
                 if (num <= 0) throw new Exception("接取任务失败！");
@@ -105,6 +112,14 @@ namespace EquipmentManageSystem.设备维修
                           "最后修改时间 = getDate() " +
                       "where 维修工单编码 = '" + this.BillCode + "'";
                 num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql); // 更新维修工单状态
+                if (num <= 0) throw new Exception("接取任务失败！");
+
+                sql = "update 设备功能位置档案 " +
+                      "set 设备状态编码 = 'REPAIRING', " + // 设备状态为维修中
+                          "最后修改时间 = getDate(), " +
+                          "最后修改人 = " + UserSession.CurrentUser.MemberID + " " +
+                          "where 功能位置编码 = (select 功能位置编码 from 维修工单 where 维修工单编码 = '" + this.BillCode + "')";
+                num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql); // 更新设备状态
                 if (num <= 0) throw new Exception("接取任务失败！");
 
                 SLControls.SLDbService.SLOnlyInstOleDb.Services.Commit(); // 提交事务

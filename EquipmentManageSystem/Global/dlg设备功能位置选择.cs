@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using EquipmentManageSystem.Utils;
 using EquipmentManageSystem.模板.选择窗口模版;
 
@@ -19,26 +20,36 @@ namespace EquipmentManageSystem.Global
         public string MaintenancePeople; // 维保人员
         public string CheckePeople; // 检验人员
 
-        public dlg设备功能位置选择()
+        private List<string> EquipmentStatusCodeList; // 设备状态编码列表
+
+        public dlg设备功能位置选择(List<string> equipmentStatusCodeList = null)
         {
             InitializeComponent();
+            this.EquipmentStatusCodeList = equipmentStatusCodeList;
         }
 
         private bool dlg设备功能位置选择_BeforeQuery()
         {
-            this.Sql = "select s.ID,s.功能位置编码,s.功能位置描述,s.位置简称,t.类型名称 as 设备类型,r.名称 as 所属区域,o.组织名称 as 组织,d.部门名称 as 管理部门,m.姓名 as 责任人,st.状态 as 设备状态," +
-                       "dbo.fn_GetMemberNamesByIds(s.巡检人员IDs) as 巡检人员," +
-                       "dbo.fn_GetMemberNamesByIds(s.维保人员IDs) as 维保人员," +
-                       "dbo.fn_GetMemberNamesByIds(s.检验人员IDs) as 检验人员 " +
-                       "from 设备功能位置档案 as s " +
-                       "left join 设备类型 as t on s.设备类型编码 = t.类型编码 " +
-                       "left join 区域 as r on s.所属区域编码 = r.编码 " +
-                       "left join 组织 as o on s.组织编码 = o.组织编码 " +
-                       "left join 部门 as d on s.管理部门编码 = d.部门编码 " +
-                       "left join 成员 as m on s.责任人ID = m.ID " +
-                       "left join 设备状态 as st on s.设备状态编码 = st.编码 " +
-                       "where s.Isdelete = 0 ";
+            string sql = "select s.ID,s.功能位置编码,s.功能位置描述,s.位置简称,t.类型名称 as 设备类型,r.名称 as 所属区域,o.组织名称 as 组织,d.部门名称 as 管理部门,m.姓名 as 责任人,st.状态 as 设备状态," +
+                         "dbo.fn_GetMemberNamesByIds(s.巡检人员IDs) as 巡检人员," +
+                         "dbo.fn_GetMemberNamesByIds(s.维保人员IDs) as 维保人员," +
+                         "dbo.fn_GetMemberNamesByIds(s.检验人员IDs) as 检验人员 " +
+                         "from 设备功能位置档案 as s " +
+                         "left join 设备类型 as t on s.设备类型编码 = t.类型编码 " +
+                         "left join 区域 as r on s.所属区域编码 = r.编码 " +
+                         "left join 组织 as o on s.组织编码 = o.组织编码 " +
+                         "left join 部门 as d on s.管理部门编码 = d.部门编码 " +
+                         "left join 成员 as m on s.责任人ID = m.ID " +
+                         "left join 设备状态 as st on s.设备状态编码 = st.编码 " +
+                         "where s.Isdelete = 0 ";
 
+            if(this.EquipmentStatusCodeList != null && this.EquipmentStatusCodeList.Count > 0)
+            {
+               sql += "and s.设备状态编码 in ('" + string.Join("','",this.EquipmentStatusCodeList) +"') ";
+            }
+
+
+            this.Sql = sql;
             return true;
         }
 

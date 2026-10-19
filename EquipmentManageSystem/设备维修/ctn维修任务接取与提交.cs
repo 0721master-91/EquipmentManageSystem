@@ -1,4 +1,4 @@
-﻿﻿﻿using System;
+﻿﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,12 +39,22 @@ namespace EquipmentManageSystem.设备维修
                             "and rwo.维修状态编码 in ('REPAIR','REWORK','REPAIRING')";
 
             long memberID = UserSession.CurrentUser.MemberID;
-            if(memberID != 0)
+            if (memberID != 0)
             {
+                // 第一层可见条件（任务接取）：
+                //   a) 维修人员IDs有值：含当前用户，
+                //   b) 维修人员IDs为空(null/'')：去设备功能位置档案的维保人员IDs认证是否包含当前用户
+                //   c) 维修人ID有值：等于当前用户（兜底，驳回情况下没有更换维修人仍然指定前维修人，如果此时修改了设备功能位置与维修工单的人员信息，会让这个人查不到记录）
+                // 第二层可见条件（任务提交）：只能看见维修人是当前用户的或还没有维修人信息的数据，保证接取与提交的人是同一个
                 sql += "and (" +
-                            "(rwo.维修人员IDs is null or rwo.维修人员IDs = '' or ',' + rwo.维修人员IDs + ',' like '%," + memberID + ",%') " +
-                            "and " +
-                            "(r.维修人ID = " + memberID + " or r.维修人ID is null) " +
+                            "( " +
+                                "(rwo.维修人员IDs is not null and rwo.维修人员IDs <> '' and (CHARINDEX(',' + '" + memberID + "' + ',', ',' + rwo.维修人员IDs + ',') > 0 )) " +
+                                "or " +
+                                "((rwo.维修人员IDs is null or rwo.维修人员IDs = '') and CHARINDEX(',' + '" + memberID + "' + ',', ',' + p.维保人员IDs + ',') > 0) " +
+                                "or " +
+                                "r.维修人ID = " + memberID + " " +
+                            ") " +
+                            "and (r.维修人ID = " + memberID + " or r.维修人ID is null) " +
                        ") ";
             }
 
@@ -83,7 +93,7 @@ namespace EquipmentManageSystem.设备维修
             using (dlg维修任务执行 dlg = new dlg维修任务执行(billCode, TaskExecuteStatus.Receive))
             {
                 dlg.ShowDialog();
-                this.RefreshData();
+                this.button刷新.PerformClick();
             }
         }
 
@@ -106,7 +116,7 @@ namespace EquipmentManageSystem.设备维修
             using (dlg维修任务执行 dlg = new dlg维修任务执行(billCode, TaskExecuteStatus.Submit))
             {
                 dlg.ShowDialog();
-                this.RefreshData();
+                this.button刷新.PerformClick();
             }
         }
 

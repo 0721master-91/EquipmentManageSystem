@@ -54,8 +54,8 @@ namespace EquipmentManageSystem.设备管理
                 // 这里感觉有点多此一举，直接使用selectRow其实也可以，这样写感觉方便理解。
                 this.comboBox所属组织.Tag = dlg.OrganizationCode;
                 this.comboBox所属组织.Text = dlg.OrganizationName;
-                this.textBox一级编码.Text = dlg.Code;
-                this.textBox公司名称.Text = dlg.CompanyName;
+                this.textBox一级编码.Text = dlg.OrgCode;
+                this.textBox公司名称.Text = dlg.OrgName;
                 GeneratePositionCode();
             }
             this.ActiveControl = null;// 关闭选择弹窗后取消选中状态，防止slComboBox控件的输入事件
@@ -69,10 +69,10 @@ namespace EquipmentManageSystem.设备管理
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     this.comboBox功能主设备.Tag = dlg.ID;
-                    this.comboBox功能主设备.Text = dlg.Name;
+                    this.comboBox功能主设备.Text = dlg.EquName;
                     this.textBox二级编码.Text = dlg.ModuleCode;
                     this.textBox模块名称.Text = dlg.ModuleName;
-                    this.textBox三级编码.Text = dlg.Code;
+                    this.textBox三级编码.Text = dlg.EquCode;
 
                     GeneratePositionCode();
                 }
@@ -127,8 +127,8 @@ namespace EquipmentManageSystem.设备管理
             {
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    comboBox.Tag = dlg.Code;
-                    comboBox.Text = dlg.Name;
+                    comboBox.Tag = dlg.DepCode;
+                    comboBox.Text = dlg.DepName;
                 }
                 this.ActiveControl = null;
             }

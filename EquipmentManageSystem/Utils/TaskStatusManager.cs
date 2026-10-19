@@ -18,9 +18,8 @@ namespace EquipmentManageSystem.Utils
         {
             string sql = "update 巡检任务 " +
                          "set 过期状态编码='EXPIRED' " +
-                         "where 执行状态编码='WAITING' " +
-                         "and 过期状态编码='UNEXPIRED' " +
-                         "and CONVERT(date, 过期时间) < CONVERT(date, GETDATE())";
+                         "where 过期状态编码='UNEXPIRED' " + 
+                            "and 过期时间 < getDate() ";
             SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql);
         }
 

@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,11 +44,19 @@ namespace EquipmentManageSystem.设备巡检
                          "and t.执行状态编码 = 'WAITING' " +
                          "and t.过期状态编码 = 'UNEXPIRED' ";
 
-            // 如果成员ID大于0，则为非管理员用户，只显示指定了该用户的任务单
-            long currentMemberId = UserSession.CurrentUser.MemberID;
-            if(currentMemberId > 0)
+            long currentMemberID = UserSession.CurrentUser.MemberID;
+            if(currentMemberID != 0)
             {
-                sql += " and CHARINDEX(',' + '" + currentMemberId + "' + ',', ',' + t.巡检人员IDs + ',') > 0";
+                //巡检任务巡检人员IDs非空：必须包含当前用户
+                //巡检任务巡检人员IDs为空(null/'')：去设备功能位置档案的巡检人员IDs判断是否包含当前用户
+                sql += " and (" +
+                            "(t.巡检人员IDs is not null and t.巡检人员IDs <> '' " +
+                                "and CHARINDEX(',' + '" + currentMemberID + "' + ',', ',' + t.巡检人员IDs + ',') > 0) " +
+                            "or " +
+                            "(t.巡检人员IDs is null or t.巡检人员IDs = '' " +
+                                "and p.巡检人员IDs is not null " +
+                                "and CHARINDEX(',' + '" + currentMemberID + "' + ',', ',' + p.巡检人员IDs + ',') > 0) " +
+                       ") ";
             }
 
             this.Sql查询 = sql;
@@ -117,6 +125,7 @@ namespace EquipmentManageSystem.设备巡检
                 };
                 dlg.ShowDialog();
             }
+            this.button刷新.PerformClick();
         }
     }
 }

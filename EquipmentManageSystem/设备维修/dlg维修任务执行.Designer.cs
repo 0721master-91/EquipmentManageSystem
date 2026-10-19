@@ -30,11 +30,11 @@ namespace EquipmentManageSystem.设备维修
         private void InitializeComponent()
         {
             this.panel内容区 = new System.Windows.Forms.Panel();
+            this.uc维修任务执行 = new EquipmentManageSystem.设备维修.uc维修任务执行();
+            this.uc维修工单基本信息 = new EquipmentManageSystem.设备维修.uc维修工单基本信息();
             this.button取消 = new System.Windows.Forms.Button();
             this.button确认 = new System.Windows.Forms.Button();
             this.panel操作区 = new System.Windows.Forms.Panel();
-            this.uc维修任务执行 = new EquipmentManageSystem.设备维修.uc维修任务执行();
-            this.uc维修工单基本信息 = new EquipmentManageSystem.设备维修.uc维修工单基本信息();
             this.panel内容区.SuspendLayout();
             this.panel操作区.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +53,26 @@ namespace EquipmentManageSystem.设备维修
             this.panel内容区.Name = "panel内容区";
             this.panel内容区.Size = new System.Drawing.Size(1312, 688);
             this.panel内容区.TabIndex = 0;
+            // 
+            // uc维修任务执行
+            // 
+            this.uc维修任务执行.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uc维修任务执行.AutoSize = true;
+            this.uc维修任务执行.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.uc维修任务执行.Location = new System.Drawing.Point(0, 465);
+            this.uc维修任务执行.Name = "uc维修任务执行";
+            this.uc维修任务执行.Size = new System.Drawing.Size(1283, 220);
+            this.uc维修任务执行.TabIndex = 1;
+            // 
+            // uc维修工单基本信息
+            // 
+            this.uc维修工单基本信息.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uc维修工单基本信息.Location = new System.Drawing.Point(0, 0);
+            this.uc维修工单基本信息.Name = "uc维修工单基本信息";
+            this.uc维修工单基本信息.Size = new System.Drawing.Size(1302, 465);
+            this.uc维修工单基本信息.TabIndex = 0;
             // 
             // button取消
             // 
@@ -95,26 +115,6 @@ namespace EquipmentManageSystem.设备维修
             this.panel操作区.Name = "panel操作区";
             this.panel操作区.Size = new System.Drawing.Size(1312, 62);
             this.panel操作区.TabIndex = 3;
-            // 
-            // uc维修任务执行
-            // 
-            this.uc维修任务执行.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uc维修任务执行.AutoSize = true;
-            this.uc维修任务执行.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.uc维修任务执行.Location = new System.Drawing.Point(0, 465);
-            this.uc维修任务执行.Name = "uc维修任务执行";
-            this.uc维修任务执行.Size = new System.Drawing.Size(1283, 220);
-            this.uc维修任务执行.TabIndex = 1;
-            // 
-            // uc维修工单基本信息
-            // 
-            this.uc维修工单基本信息.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uc维修工单基本信息.Location = new System.Drawing.Point(0, 0);
-            this.uc维修工单基本信息.Name = "uc维修工单基本信息";
-            this.uc维修工单基本信息.Size = new System.Drawing.Size(1302, 465);
-            this.uc维修工单基本信息.TabIndex = 0;
             // 
             // dlg维修任务执行
             // 

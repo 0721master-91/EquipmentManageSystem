@@ -34,6 +34,11 @@ namespace EquipmentManageSystem.设备维修
 
         private bool dlg维修任务编辑_PreOK(FieldArray aryFields)
         {
+            if (this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
+            {
+                this.slTextBox单据号.Text = SqlCommonUtil.GenerateCode("WXGD", "维修工单", "维修工单编码"); // 重新获取一次单据号，减少重复的情况
+            }
+
             this.OtherFields.Clear();
 
             object repairPeopleIDsObj = this.textBox维修人员.Tag;
@@ -84,6 +89,18 @@ namespace EquipmentManageSystem.设备维修
                 {
                     this.GenerateRepairdOrder();
                 }
+                else if(this.OperFlag == SleOperFlag.Modify)
+                {
+                    this.UpdateReportOrder();
+
+                    List<string> oldPaths = string.IsNullOrEmpty(this.OldPicturePath) ? new List<string>() : this.OldPicturePath.Split(',').ToList();
+                    List<string> newPaths = string.IsNullOrEmpty(this.NewPicturePath) ? new List<string>() : this.NewPicturePath.Split(',').ToList();
+                    if(PictureHandleUtil.IsSamePictures(oldPaths, newPaths) == false)
+                    {
+                        PictureHandleUtil.DeletePictures(this.OldPicturePath.Split(',')); // 更新后需要删除原照片
+                    }
+                }
+
                 SLControls.SLDbService.SLOnlyInstOleDb.Services.Commit(); // 提交事务
             }
             catch (Exception ex)
@@ -165,10 +182,6 @@ namespace EquipmentManageSystem.设备维修
             }
             else
             {
-                if (this.OperFlag == SleOperFlag.Modify)
-                {
-                    PictureHandleUtil.DeletePictures(this.OldPicturePath.Split(','));
-                }
                 return PictureHandleUtil.SavePicturesAndGetSavePath(paths, "故障照片");
             }
 
@@ -233,6 +246,40 @@ namespace EquipmentManageSystem.设备维修
             int num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql);
 
             if (num <= 0) throw new Exception("创建维修记录失败！");
+        }
+
+        /// <summary>
+        /// 更新报修工单
+        /// </summary>
+        private void UpdateReportOrder()
+        {
+            string upStreamBillCode = this.slTextBox上游单据号.Text;
+            if (string.IsNullOrEmpty(upStreamBillCode)) return;
+
+            string positionCode = this.slTextBox功能位置编码.Text;
+            object repairdPersonIDsObj = this.textBox维修人员.Tag;
+            string repairdPersonIDs = repairdPersonIDsObj == null ? "" : repairdPersonIDsObj.ToString();
+            DataRow row = this.slComboBox紧急程度.SelectedRow;
+            string urgencyLevelCode = row["编码"].ToString();
+            string faultStartTime = this.slDateTimePicker故障开始时间.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            string faultPhenomenon = this.slTextBox故障现象.Text;
+            string faultRemark = this.slTextBox故障备注.Text;
+            string newPicturePath = this.NewPicturePath;
+            long currentPersonID = UserSession.CurrentUser.MemberID;
+
+            string sql = "update 报修工单 " +
+                         "set 功能位置编码 = '" + positionCode + "' " +
+                         ", 维修人员IDs = '" + repairdPersonIDs + "' " +
+                         ", 紧急程度编码 = '" + urgencyLevelCode + "' " +
+                         ", 故障开始时间 = '" + faultStartTime + "' " +
+                         ", 故障现象 = '" + faultPhenomenon + "' " +
+                         ", 故障备注信息 = '" + faultRemark + "' " +
+                         ", 故障照片路径 = '" + newPicturePath + "' " +
+                         ", 最后修改人 = '" + currentPersonID + "' " +
+                         ", 最后修改时间 = getdate() " +
+                         "where 报修工单编码 = '" + upStreamBillCode + "'";
+            int num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql);
+            if (num <= 0) throw new Exception("更新报修工单失败！");
         }
     }
 }

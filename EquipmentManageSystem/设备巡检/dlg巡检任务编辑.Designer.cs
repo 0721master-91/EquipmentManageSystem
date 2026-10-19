@@ -33,9 +33,10 @@ namespace EquipmentManageSystem.设备巡检
             SLControls.SLGlobal.SlcFieldInfo slcFieldInfo2 = new SLControls.SLGlobal.SlcFieldInfo();
             SLControls.SLGlobal.SlcFieldInfo slcFieldInfo3 = new SLControls.SLGlobal.SlcFieldInfo();
             SLControls.SLGlobal.SlcFieldInfo slcFieldInfo4 = new SLControls.SLGlobal.SlcFieldInfo();
+            SLControls.SLGlobal.SlcFieldInfo slcFieldInfo5 = new SLControls.SLGlobal.SlcFieldInfo();
             this.groupBox单据信息 = new System.Windows.Forms.GroupBox();
-            this.slDateTimePicker过期日期 = new SLControls.SLDateTimePicker();
-            this.label过期日期 = new System.Windows.Forms.Label();
+            this.slDateTimePicker过期时间 = new SLControls.SLDateTimePicker();
+            this.label过期时间 = new System.Windows.Forms.Label();
             this.slTextBox过期状态 = new SLControls.SLTextBox();
             this.label过期状态 = new System.Windows.Forms.Label();
             this.slTextBox执行状态 = new SLControls.SLTextBox();
@@ -110,8 +111,8 @@ namespace EquipmentManageSystem.设备巡检
             // 
             this.groupBox单据信息.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox单据信息.Controls.Add(this.slDateTimePicker过期日期);
-            this.groupBox单据信息.Controls.Add(this.label过期日期);
+            this.groupBox单据信息.Controls.Add(this.slDateTimePicker过期时间);
+            this.groupBox单据信息.Controls.Add(this.label过期时间);
             this.groupBox单据信息.Controls.Add(this.slTextBox过期状态);
             this.groupBox单据信息.Controls.Add(this.label过期状态);
             this.groupBox单据信息.Controls.Add(this.slTextBox执行状态);
@@ -133,30 +134,29 @@ namespace EquipmentManageSystem.设备巡检
             this.groupBox单据信息.TabStop = false;
             this.groupBox单据信息.Text = "单据信息";
             // 
-            // slDateTimePicker过期日期
+            // slDateTimePicker过期时间
             // 
-            this.slDateTimePicker过期日期.CalendarMonthBackground = System.Drawing.SystemColors.Control;
-            this.slDateTimePicker过期日期.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.slDateTimePicker过期日期.CustomFormat = "yyyy-MM-dd";
-            this.slDateTimePicker过期日期.DataType = SLControls.SLGlobal.SleDataType.String;
-            this.slDateTimePicker过期日期.FieldName = "过期时间";
-            this.slDateTimePicker过期日期.FindCondition = SLControls.SLGlobal.SleFindCondition.MoreThanOrEqual;
-            this.slDateTimePicker过期日期.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.slDateTimePicker过期日期.FormatForStore = "yyyy-MM-dd";
-            this.slDateTimePicker过期日期.Location = new System.Drawing.Point(465, 59);
-            this.slDateTimePicker过期日期.Name = "slDateTimePicker过期日期";
-            this.slDateTimePicker过期日期.Size = new System.Drawing.Size(200, 28);
-            this.slDateTimePicker过期日期.TabIndex = 13;
-            this.slDateTimePicker过期日期.Value = new System.DateTime(2026, 10, 9, 0, 0, 0, 0);
+            this.slDateTimePicker过期时间.CalendarMonthBackground = System.Drawing.SystemColors.Control;
+            this.slDateTimePicker过期时间.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.slDateTimePicker过期时间.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.slDateTimePicker过期时间.DataType = SLControls.SLGlobal.SleDataType.String;
+            this.slDateTimePicker过期时间.FieldName = "过期时间";
+            this.slDateTimePicker过期时间.FindCondition = SLControls.SLGlobal.SleFindCondition.MoreThanOrEqual;
+            this.slDateTimePicker过期时间.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.slDateTimePicker过期时间.Location = new System.Drawing.Point(465, 59);
+            this.slDateTimePicker过期时间.Name = "slDateTimePicker过期时间";
+            this.slDateTimePicker过期时间.Size = new System.Drawing.Size(246, 28);
+            this.slDateTimePicker过期时间.TabIndex = 13;
+            this.slDateTimePicker过期时间.Value = new System.DateTime(2026, 10, 9, 0, 0, 0, 0);
             // 
-            // label过期日期
+            // label过期时间
             // 
-            this.label过期日期.AutoSize = true;
-            this.label过期日期.Location = new System.Drawing.Point(369, 64);
-            this.label过期日期.Name = "label过期日期";
-            this.label过期日期.Size = new System.Drawing.Size(104, 19);
-            this.label过期日期.TabIndex = 12;
-            this.label过期日期.Text = "过期日期：";
+            this.label过期时间.AutoSize = true;
+            this.label过期时间.Location = new System.Drawing.Point(369, 64);
+            this.label过期时间.Name = "label过期时间";
+            this.label过期时间.Size = new System.Drawing.Size(104, 19);
+            this.label过期时间.TabIndex = 12;
+            this.label过期时间.Text = "过期时间：";
             // 
             // slTextBox过期状态
             // 
@@ -433,6 +433,7 @@ namespace EquipmentManageSystem.设备巡检
             // 
             // slTextBox功能位置编码
             // 
+            this.slTextBox功能位置编码.AllowEmpty = false;
             this.slTextBox功能位置编码.BeforeFormatControlTextHandler = null;
             this.slTextBox功能位置编码.Cursor = System.Windows.Forms.Cursors.Hand;
             this.slTextBox功能位置编码.DataType = SLControls.SLGlobal.SleDataType.String;
@@ -788,12 +789,18 @@ namespace EquipmentManageSystem.设备巡检
             slcFieldInfo4.KeyType = SLControls.SLGlobal.SleDataType.DateTime;
             slcFieldInfo4.KeyValue = null;
             slcFieldInfo4.OperatorMode = SLControls.SLGlobal.SleOperatorMode.ReadWrite;
+            slcFieldInfo5.KeyName = "巡检结束时间";
+            slcFieldInfo5.KeyType = SLControls.SLGlobal.SleDataType.DateTime;
+            slcFieldInfo5.KeyValue = null;
+            slcFieldInfo5.OperatorMode = SLControls.SLGlobal.SleOperatorMode.ReadWrite;
             this.OtherFields.Add(slcFieldInfo1);
             this.OtherFields.Add(slcFieldInfo2);
             this.OtherFields.Add(slcFieldInfo3);
             this.OtherFields.Add(slcFieldInfo4);
+            this.OtherFields.Add(slcFieldInfo5);
             this.Text = "巡检任务";
             this.UseTransation = false;
+            this.PreFillControls += new SLControls.PreFillControlsHandler(this.dlg巡检任务编辑_PreFillControls);
             this.AfterFillControls += new SLControls.AfterFillControlsHandler(this.dlg巡检任务编辑_AfterFillControls);
             this.PreOK += new SLControls.PreOKHandler(this.dlg巡检任务编辑_PreOK);
             this.PreExecuteOKSql += new SLControls.PreExecuteOKSqlHandler(this.dlg巡检任务编辑_PreExecuteOKSql);
@@ -836,8 +843,8 @@ namespace EquipmentManageSystem.设备巡检
         private SLControls.SLTextBox slTextBox过期状态;
         private System.Windows.Forms.Label label过期状态;
         private SLControls.SLTextBox slTextBox执行状态;
-        private System.Windows.Forms.Label label过期日期;
-        private SLControls.SLDateTimePicker slDateTimePicker过期日期;
+        private System.Windows.Forms.Label label过期时间;
+        private SLControls.SLDateTimePicker slDateTimePicker过期时间;
         private System.Windows.Forms.GroupBox groupBox基本信息;
         private System.Windows.Forms.Label label功能位置编码;
         private SLControls.SLTextBox slTextBox功能位置编码;

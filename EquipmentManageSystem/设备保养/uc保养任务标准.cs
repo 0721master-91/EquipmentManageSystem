@@ -178,7 +178,7 @@ namespace EquipmentManageSystem.设备保养
         {
             string sql = "select mts.保养内容,mts.给油类型,mts.润换方式,mts.润滑脂型号,mts.执行周期,mts.周期单位,mts.保养开始日期,mts.下次保养日期 " +
                          "from 保养任务标准 as mts " +
-                         "where mts.所属保养任务编码 = '" + taskCode + "'";
+                         "where mts.所属保养任务编码 = '" + taskCode + "' and IsDelete = 0";
             DataTable dt = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteForDataTable(sql);
             DataTable standardDt = this.dataGridView保养任务标准数据.DataSource as DataTable;
 

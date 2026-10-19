@@ -34,7 +34,6 @@ namespace EquipmentManageSystem.设备保养
                          "from 保养任务 as m " +
                          "left join 设备功能位置档案 as p on m.设备功能位置编码 = p.功能位置编码 " +
                          "where m.IsDelete = 0 " +
-                            "and m.过期状态编码 = 'UNEXPIRED' " +
                             "and m.保养状态编码 = 'PENDING' ";
             long currentMemberId = UserSession.CurrentUser.MemberID;
             if (currentMemberId != 0)
@@ -92,7 +91,7 @@ namespace EquipmentManageSystem.设备保养
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button验收任务_Click(object sender, EventArgs e)
         {
             var gv = this.slDevGridControlMain.MainGridView;
             if (gv.FocusedRowHandle < 0)
@@ -118,6 +117,8 @@ namespace EquipmentManageSystem.设备保养
                 };
                 dlg.ShowDialog();
             }
+
+            this.button刷新.PerformClick();
         }
     }
 }

@@ -34,12 +34,18 @@ namespace EquipmentManageSystem.设备维修
         private void LoadBillCodeInfo(string billCode)
         {
             string sql = "select rwo.单据类型,rwo.单据来源,rwo.上游单据号,es.状态 as 执行状态,dbo.fn_GetMemberNamesByIds(rwo.维修人员IDs) as 维修人员,ul.程度 as 紧急程度,rwo.故障开始时间," +
-                            "rwo.故障现象,rwo.故障开始时间,rwo.故障照片路径 " +
+                            "rwo.故障现象,rwo.故障备注信息,rwo.故障开始时间,rwo.故障照片路径 " +
                          "from 维修工单 as rwo " +
                          "left join 执行状态 as es on rwo.执行状态编码 = es.编码 " +
                          "left join 紧急程度 as ul on rwo.紧急程度编码 = ul.编码 " +
                          "where rwo.维修工单编码 = '" + billCode + "'";
             DataTable dt = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteForDataTable(sql);
+
+            if(dt.Rows.Count == 0)
+            {
+                PopUpUtil.ShowWarning("未找到该维修工单的信息！");
+                return;
+            }
 
             this.textBox单据号.Text = billCode;
             this.textBox单据类型.Text = dt.Rows[0]["单据类型"].ToString();
@@ -50,6 +56,7 @@ namespace EquipmentManageSystem.设备维修
             this.textBox紧急程度.Text = dt.Rows[0]["紧急程度"].ToString();
             this.textBox故障开始时间.Text = dt.Rows[0]["故障开始时间"].ToString();
             this.textBox故障现象.Text = dt.Rows[0]["故障现象"].ToString();
+            this.textBox故障备注.Text = dt.Rows[0]["故障备注信息"].ToString();
 
             object pathsObj = dt.Rows[0]["故障照片路径"];
             string paths = pathsObj == null ? "" : pathsObj.ToString();

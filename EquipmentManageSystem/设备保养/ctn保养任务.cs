@@ -24,6 +24,8 @@ namespace EquipmentManageSystem.设备保养
             this.slDevGridControlMain.RowFont = new Font("宋体", 11f);
             this.slDevGridControlMain.ColumnFont = new Font("宋体", 11f);
             this.Type编辑窗口 = typeof(dlg保养任务编辑);
+            this.EmployeeName = UserSession.CurrentUser.MemberID.ToString(); 
+
 
             CommonFilter.InitCombox(this.comboBox过期状态, "状态", "编码", "过期状态");
             CommonFilter.InitCombox(this.comboBox保养状态, "状态", "编码", "保养状态");
@@ -122,6 +124,21 @@ namespace EquipmentManageSystem.设备保养
                     this.comboBox保养人员.Tag = dlg.SelectedMemberIDs;
                 }
                 this.ActiveControl = null;
+            }
+        }
+
+        private void slFlatButton导出_Click(object sender, EventArgs e)
+        {
+            DataTable outData = this.CurrentDataSource.DefaultView.ToTable();
+            if (outData.Rows.Count == 0)
+            {
+                PopUpUtil.ShowInfo("没有数据可以导出");
+            }
+
+            using(dlg保养任务导出 dlg = new dlg保养任务导出(outData))
+            {
+                dlg.ShowDialog();
+                this.button刷新.PerformClick();
             }
         }
     }

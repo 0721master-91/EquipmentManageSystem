@@ -37,9 +37,9 @@ namespace EquipmentManageSystem.设备维修
             if (memberID != 0)
             {
                 sql += "and ( " +
-                            "检验人员IDs is null " +
-                            "or 检验人员IDs = '' " +
-                            "or (',' + 检验人员IDs + ',' like '%,' + '" + memberID + "' + ',%') " +
+                            "p.检验人员IDs is null " +
+                            "or p.检验人员IDs = '' " +
+                            "or (',' + p.检验人员IDs + ',' like '%,' + '" + memberID + "' + ',%') " +
                         ") ";
             }
 
@@ -59,6 +59,7 @@ namespace EquipmentManageSystem.设备维修
         {
             this.slDevGridControlMain.RowFont = new Font("宋体", 11f);
             this.slDevGridControlMain.ColumnFont = new Font("宋体", 11f);
+            this.EmployeeName = UserSession.CurrentUser.MemberID.ToString();
         }
 
         private void button验收任务_Click(object sender, EventArgs e)

@@ -94,6 +94,12 @@
     <Compile Include="Global\dlg人员选择.Designer.cs">
       <DependentUpon>dlg人员选择.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global\dlg组织选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Global\dlg组织选择.Designer.cs">
+      <DependentUpon>dlg组织选择.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global\dlg设备功能位置选择.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +213,12 @@
     <Compile Include="设备保养\ctn保养任务验收.Designer.cs">
       <DependentUpon>ctn保养任务验收.cs</DependentUpon>
     </Compile>
+    <Compile Include="设备保养\dlg保养任务导出.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备保养\dlg保养任务导出.Designer.cs">
+      <DependentUpon>dlg保养任务导出.cs</DependentUpon>
+    </Compile>
     <Compile Include="设备保养\dlg保养任务编辑.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,12 +246,37 @@
     <Compile Include="设备维修\ctn维修任务验收.Designer.cs">
       <DependentUpon>ctn维修任务验收.cs</DependentUpon>
     </Compile>
+    <Compile Include="设备维修\dlg报修工单导出.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备维修\dlg报修工单导出.Designer.cs">
+      <DependentUpon>dlg报修工单导出.cs</DependentUpon>
+    </Compile>
     <Compile Include="设备维修\dlg维修任务执行.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="设备维修\dlg维修任务执行.Designer.cs">
       <DependentUpon>dlg维修任务执行.cs</DependentUpon>
     </Compile>
+    <Compile Include="设备维修\dlg维修工单导出.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备维修\dlg维修工单导出.Designer.cs">
+      <DependentUpon>dlg维修工单导出.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备维修\dlg维修工单维修过程.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备维修\dlg维修工单维修过程.Designer.cs">
+      <DependentUpon>dlg维修工单维修过程.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备维修\dlg维修工单详细信息.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="设备维修\dlg维修工单详细信息.Designer.cs">
+      <DependentUpon>dlg维修工单详细信息.cs</DependentUpon>
+    </Compile>
+    <Compile Include="设备维修\GridInit.cs" />
     <Compile Include="设备维修\uc维修任务执行.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -399,8 +436,17 @@
     <Compile Include="设备维修\uc维修工单维修信息.Designer.cs">
       <DependentUpon>uc维修工单维修信息.cs</DependentUpon>
     </Compile>
+    <Compile Include="设备维修\uc维修工单维修记录.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="设备维修\uc维修工单维修记录.Designer.cs">
+      <DependentUpon>uc维修工单维修记录.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Global\dlg人员选择.resx">
       <DependentUpon>dlg人员选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Global\dlg组织选择.resx">
+      <DependentUpon>dlg组织选择.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Global\dlg设备功能位置选择.resx">
       <DependentUpon>dlg设备功能位置选择.cs</DependentUpon>
@@ -460,6 +506,9 @@
     <EmbeddedResource Include="设备保养\ctn保养任务验收.resx">
       <DependentUpon>ctn保养任务验收.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="设备保养\dlg保养任务导出.resx">
+      <DependentUpon>dlg保养任务导出.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="设备保养\dlg保养任务编辑.resx">
       <DependentUpon>dlg保养任务编辑.cs</DependentUpon>
     </EmbeddedResource>
@@ -472,8 +521,20 @@
     <EmbeddedResource Include="设备维修\ctn维修任务验收.resx">
       <DependentUpon>ctn维修任务验收.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="设备维修\dlg报修工单导出.resx">
+      <DependentUpon>dlg报修工单导出.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="设备维修\dlg维修任务执行.resx">
       <DependentUpon>dlg维修任务执行.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备维修\dlg维修工单导出.resx">
+      <DependentUpon>dlg维修工单导出.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备维修\dlg维修工单维修过程.resx">
+      <DependentUpon>dlg维修工单维修过程.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备维修\dlg维修工单详细信息.resx">
+      <DependentUpon>dlg维修工单详细信息.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="设备维修\uc维修任务执行.resx">
       <DependentUpon>uc维修任务执行.cs</DependentUpon>
@@ -552,6 +613,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="设备维修\uc维修工单维修信息.resx">
       <DependentUpon>uc维修工单维修信息.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="设备维修\uc维修工单维修记录.resx">
+      <DependentUpon>uc维修工单维修记录.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config" />

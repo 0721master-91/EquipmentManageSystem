@@ -26,12 +26,12 @@ namespace EquipmentManageSystem.设备管理
         /// <summary>
         /// 选择的组织编码
         /// </summary>
-        public string Code { get; set; }
+        public string OrgCode { get; set; }
 
         /// <summary>
         /// 公司名称
         /// </summary>
-        public string CompanyName { get; set; }
+        public string OrgName { get; set; }
 
         public dlg功能位置档案编辑组织选择()
         {
@@ -58,8 +58,8 @@ namespace EquipmentManageSystem.设备管理
             {
                 this.OrganizationCode = this.SelectedRows[0]["组织编码"];
                 this.OrganizationName = this.SelectedRows[0]["公司地址"].ToString();
-                this.Code = this.SelectedRows[0]["组织编码"].ToString().PadLeft(3, '0');
-                this.CompanyName = this.SelectedRows[0]["组织名称"].ToString();
+                this.OrgCode = this.SelectedRows[0]["组织编码"].ToString().PadLeft(3, '0');
+                this.OrgName = this.SelectedRows[0]["组织名称"].ToString();
             }
             else
             {

@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿using System;
+﻿﻿﻿﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -106,6 +106,9 @@ namespace EquipmentManageSystem.模板.选择窗口模版
 
             this.dataGridView数据表.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             this.dataGridView数据表.ClearSelection();
+
+            // 数据绑定会触发 RowEnter，导致单选时第一行被加入选中集合，这里同步清空
+            this.SelectedRows.Clear();
 
             OnAfterFillControls();
         }

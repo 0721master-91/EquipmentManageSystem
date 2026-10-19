@@ -13,6 +13,8 @@ namespace EquipmentManageSystem.Global
 {
     public partial class dlg人员选择 : temp选择窗口
     {
+        public bool IsAlowEmpty = true; // 是否允许空选择
+
         public string SelectedMemberIDs; // 选中的成员ID
         public string SelectedMemberNames; // 选中的成员名称
 
@@ -42,10 +44,21 @@ namespace EquipmentManageSystem.Global
 
         private bool dlg人员选择_PreOK()
         {
-            if (this.SelectedRows.Count == 0)
+
+            if (this.IsAlowEmpty)
             {
-                PopUpUtil.ShowWarning("请选择成员");
-                return false;
+                if(this.SelectedRows.Count == 0)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if (this.SelectedRows.Count == 0)
+                {
+                    PopUpUtil.ShowWarning("请选择成员");
+                    return false;
+                }
             }
 
             this.SelectedMemberIDs = string.Join(",", this.SelectedRows.Select(row => row["ID"]?.ToString()));

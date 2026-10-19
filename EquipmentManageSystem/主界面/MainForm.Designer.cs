@@ -31,13 +31,13 @@ namespace EquipmentManageSystem.主界面
         {
             this.panel菜单栏区 = new System.Windows.Forms.Panel();
             this.panel菜单选项区 = new System.Windows.Forms.Panel();
+            this.panel设备巡检二级菜单区 = new System.Windows.Forms.Panel();
             this.panel标准管理菜单区 = new System.Windows.Forms.Panel();
             this.panel标准管理二级菜单区 = new System.Windows.Forms.Panel();
             this.panel设备管理菜单区 = new System.Windows.Forms.Panel();
             this.panel设备管理二级菜单区 = new System.Windows.Forms.Panel();
             this.panel菜单Logo区 = new System.Windows.Forms.Panel();
             this.panel内容显示区 = new System.Windows.Forms.Panel();
-            this.panel设备巡检二级菜单区 = new System.Windows.Forms.Panel();
             this.panel菜单栏区.SuspendLayout();
             this.panel菜单选项区.SuspendLayout();
             this.panel标准管理菜单区.SuspendLayout();
@@ -69,6 +69,16 @@ namespace EquipmentManageSystem.主界面
             this.panel菜单选项区.Name = "panel菜单选项区";
             this.panel菜单选项区.Size = new System.Drawing.Size(200, 602);
             this.panel菜单选项区.TabIndex = 1;
+            // 
+            // panel设备巡检二级菜单区
+            // 
+            this.panel设备巡检二级菜单区.AutoSize = true;
+            this.panel设备巡检二级菜单区.BackColor = System.Drawing.Color.White;
+            this.panel设备巡检二级菜单区.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel设备巡检二级菜单区.Location = new System.Drawing.Point(0, 0);
+            this.panel设备巡检二级菜单区.Name = "panel设备巡检二级菜单区";
+            this.panel设备巡检二级菜单区.Size = new System.Drawing.Size(200, 0);
+            this.panel设备巡检二级菜单区.TabIndex = 2;
             // 
             // panel标准管理菜单区
             // 
@@ -135,16 +145,6 @@ namespace EquipmentManageSystem.主界面
             this.panel内容显示区.Size = new System.Drawing.Size(1605, 791);
             this.panel内容显示区.TabIndex = 1;
             // 
-            // panel设备巡检二级菜单区
-            // 
-            this.panel设备巡检二级菜单区.AutoSize = true;
-            this.panel设备巡检二级菜单区.BackColor = System.Drawing.Color.White;
-            this.panel设备巡检二级菜单区.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel设备巡检二级菜单区.Location = new System.Drawing.Point(0, 0);
-            this.panel设备巡检二级菜单区.Name = "panel设备巡检二级菜单区";
-            this.panel设备巡检二级菜单区.Size = new System.Drawing.Size(200, 0);
-            this.panel设备巡检二级菜单区.TabIndex = 2;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -155,6 +155,7 @@ namespace EquipmentManageSystem.主界面
             this.Controls.Add(this.panel菜单栏区);
             this.Font = new System.Drawing.Font("宋体", 11F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "设备管理系统-主页面";

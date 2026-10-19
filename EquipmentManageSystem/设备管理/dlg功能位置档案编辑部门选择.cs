@@ -13,8 +13,8 @@ namespace EquipmentManageSystem.设备管理
 {
     public partial class dlg功能位置档案编辑部门选择 : temp选择窗口
     {
-        public string Code;//部门编码
-        public string Name;//部门名称
+        public string DepCode;//部门编码
+        public string DepName;//部门名称
 
         public dlg功能位置档案编辑部门选择()
         {
@@ -44,8 +44,8 @@ namespace EquipmentManageSystem.设备管理
                 return false;
             }
 
-            this.Code = this.SelectedRows[0]["部门编码"].ToString();
-            this.Name = this.SelectedRows[0]["部门"].ToString();
+            this.DepCode = this.SelectedRows[0]["部门编码"].ToString();
+            this.DepName = this.SelectedRows[0]["部门"].ToString();
 
             return true;
         }
