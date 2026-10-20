@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using EquipmentManageSystem.Utils;
 using SLQLControls.模板;
+using EquipmentManageSystem.Global;
 
 namespace EquipmentManageSystem.标准管理
 {
@@ -23,22 +24,23 @@ namespace EquipmentManageSystem.标准管理
             this.slDevGridControlMain.RowFont = new Font("宋体", 11f);
             this.slDevGridControlMain.ColumnFont = new Font("宋体", 11f);
             this.Type编辑窗口 = typeof(dlg巡检标准编辑);
+            this.EmployeeName = UserSession.CurrentUser.MemberID.ToString();
             this.slDevGridControlMain.ShowFooter = true;
             LoadFilter();
         }
 
         private bool ctn巡检标准_BeforeChangeDataSource()
         {
-            string sql = "select x.ID,x.巡检部位编码,x.巡检部位,x.巡检内容,x.巡检类型,x.判断标准,x.巡检周期,z.单位名称,x.提前提醒天数, " +
+            string sql = "select x.ID,x.巡检标准编码,x.巡检部位,x.巡检内容,x.巡检类型,x.判断标准,x.巡检周期,z.单位名称,x.提前提醒天数, " +
                              "case when x.IsEnabled = 1 then '启用' else '停用' end as 启用状态,x.创建时间 " +
                          "from 巡检标准 as x " +
                          "join 周期单位 as z on x.周期单位编码 = z.单位编码 " +
-                         "where 1 = 1";
+                         "where IsDelete = 0 ";
 
 /*            string partCode = this.textBox巡检部位编码.Text.Trim();*/
             if (this.textBox巡检部位编码.Text.Trim() != "")
             {
-                sql += " and x.巡检部位编码 like '%" + this.textBox巡检部位编码.Text.Trim() + "%' ";
+                sql += " and x.巡检标准编码 like '%" + this.textBox巡检部位编码.Text.Trim() + "%' ";
             }
 
             if (this.textBox巡检部位.Text.Trim() != "")
@@ -58,9 +60,7 @@ namespace EquipmentManageSystem.标准管理
                 sql += " and x.IsEnabled = " + Convert.ToInt32(status);
             }
 
-
-            sql += " and IsDelete = 0 " +
-                   " order by x.创建时间 desc ";
+            sql += " order by x.创建时间 desc ";
             this.Sql查询 = sql;
 
             return true;
@@ -144,6 +144,11 @@ namespace EquipmentManageSystem.标准管理
             dlg巡检标准导入导出 dlg = new dlg巡检标准导入导出(outData);
             dlg.ShowDialog();
             this.RefreshData();
+        }
+
+        private void ctn巡检标准_After操作(object sender, SLQLControls.控件.控件公用类.AfterEventArgs e)
+        {
+            this.button刷新.PerformClick();
         }
     }
 }

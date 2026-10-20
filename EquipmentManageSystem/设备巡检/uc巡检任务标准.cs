@@ -13,6 +13,7 @@ namespace EquipmentManageSystem.设备巡检
     public partial class uc巡检任务标准 : UserControl
     {
         public string PositionCode; // 设备功能位置编码
+        private DateTime PlanStartTime; // 计划开始时间
 
         /// <summary>
         /// 巡检任务标准表格数据表
@@ -20,6 +21,11 @@ namespace EquipmentManageSystem.设备巡检
         public DataTable StandardDataTable
         {
             get { return this.dataGridView巡检任务标准数据.DataSource as DataTable; }
+        }
+
+        public void SetPlanStartTime(DateTime planStartTime)
+        {
+            this.PlanStartTime = planStartTime;
         }
 
         public uc巡检任务标准()
@@ -129,12 +135,42 @@ namespace EquipmentManageSystem.设备巡检
                     row.Cells["周期单位"].Value = dlg.unit;
                     if (int.TryParse(dlg.remind, out int remindVal))
                         row.Cells["提前提醒天数"].Value = remindVal;
-                    if (DateTime.TryParse(dlg.start, out DateTime startDate))
-                        row.Cells["开始执行日期"].Value = startDate;
 
-                    row.Cells["下次执行日期"].Value = CalculateUtil.CalculateNextDateTime(startDate, cycVal, dlg.unit);
+                    row.Cells["开始执行日期"].Value = this.PlanStartTime;
+                    row.Cells["下次执行日期"].Value = CalculateUtil.CalculateNextDateTime(this.PlanStartTime, cycVal, dlg.unit);
                 }
                 this.ActiveControl = null;
+            }
+        }
+
+        public void UpdateDateTime()
+        {
+            DataTable dt = dataGridView巡检任务标准数据.DataSource as DataTable;
+            if(dt == null) return;
+
+            foreach(DataRow row in dt.Rows)
+            {
+                row["开始执行日期"] = this.PlanStartTime;
+
+                decimal cycVal;
+                if (row["巡检周期"] == DBNull.Value)
+                {
+                    continue;
+                }
+                else
+                {
+                    cycVal = Convert.ToDecimal(row["巡检周期"]);
+                }
+
+                string unit = row["周期单位"].ToString();
+                if (string.IsNullOrEmpty(unit))
+                {
+                    continue;
+                }
+                else
+                {
+                    row["下次执行日期"] = CalculateUtil.CalculateNextDateTime(this.PlanStartTime, cycVal, unit);
+                }
             }
         }
     }

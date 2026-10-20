@@ -42,12 +42,14 @@ namespace EquipmentManageSystem.设备巡检
                 this.slTextBox过期状态.Text = "未过期";
                 this.slDateTimePicker计划执行日期.Value = DateTime.Now.Date;
             }
+            this.uc巡检任务标准.SetPlanStartTime(this.slDateTimePicker计划执行日期.Value);
 
             // 默认为添加页面，如果是任务提交界面，需要启用和禁用部分控件
             if (this.IsReceivingTask)
             {
                 this.ChangeToReceivingTaskMode();
             }
+
         }
 
         /// <summary>
@@ -136,6 +138,12 @@ namespace EquipmentManageSystem.设备巡检
 
                 this.FillOtherControls(taskCode);
             }
+        }
+
+        private void slDateTimePicker计划执行日期_ValueChanged(object sender, EventArgs e)
+        {
+            this.uc巡检任务标准.SetPlanStartTime(this.slDateTimePicker计划执行日期.Value);
+            this.uc巡检任务标准.UpdateDateTime();
         }
 
         /// <summary>

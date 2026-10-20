@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using EquipmentManageSystem.Utils;
 using SLQLControls.模板;
+using EquipmentManageSystem.Global;
 
 namespace EquipmentManageSystem.标准管理
 {
@@ -23,6 +24,7 @@ namespace EquipmentManageSystem.标准管理
             this.slDevGridControlMain.RowFont = new Font("宋体", 11f);
             this.slDevGridControlMain.ColumnFont = new Font("宋体", 11f);
             this.Type编辑窗口 = typeof(dlg保养标准编辑);
+            this.EmployeeName = UserSession.CurrentUser.MemberID.ToString();
             this.slDevGridControlMain.ShowFooter = true;
             this.LodeFilter();
 
@@ -36,34 +38,10 @@ namespace EquipmentManageSystem.标准管理
             var severe = SLControls.SLDbService.SLOnlyInstOleDb.Services;
 
             // 加载给油类型选项
-            DataTable dt1 = severe.ExecuteForDataTable("select 编码,类型 FROM 给油类型");
-            DataRow dr1 = dt1.NewRow();
-            dr1["编码"] = null;
-            dr1["类型"] = "全部";
-            dt1.Rows.InsertAt(dr1, 0);
-            DataRow dr2 = dt1.NewRow();
-            dr2["编码"] = "";
-            dr2["类型"] = "空";
-            dt1.Rows.InsertAt(dr2, 1);
-            this.comboBox给油类型.DisplayMember = "类型";
-            this.comboBox给油类型.ValueMember = "编码";
-            this.comboBox给油类型.SelectedValue = null;
-            this.comboBox给油类型.DataSource = dt1;
+            CommonFilter.InitCombox(this.comboBox给油类型, "类型", "编码", "给油类型");
 
             //加载润换方式选项
-            DataTable dt2 = severe.ExecuteForDataTable("select 编码,方式 from 润换方式");
-            DataRow dr3 = dt2.NewRow();
-            dr3["编码"] = null;
-            dr3["方式"] = "全部";
-            dt2.Rows.InsertAt(dr3, 0);
-            DataRow dr4 = dt2.NewRow();
-            dr4["编码"] = "";
-            dr4["方式"] = "空";
-            dt2.Rows.InsertAt(dr4, 1);
-            this.comboBox润换方式.DisplayMember = "方式";
-            this.comboBox润换方式.ValueMember = "编码";
-            this.comboBox润换方式.SelectedValue = null;
-            this.comboBox润换方式.DataSource = dt2;
+            CommonFilter.InitCombox(this.comboBox润换方式, "方式", "编码", "润换方式");
 
             //加载启用选项
             this.comboBox启用状态.DisplayMember = "状态";
@@ -80,7 +58,7 @@ namespace EquipmentManageSystem.标准管理
                          "left join 给油类型 as g on b.给油类型编码 = g.编码 " +
                          "left join 润换方式 as r on b.润换方式编码 = r.编码 " +
                          "join 周期单位 as z on b.周期单位编码 = z.单位编码 " +
-                         "where 1=1 ";
+                         "where b.IsDelete = 0 ";
 
             if(this.textBox保养标准编码.Text.Trim() != "")
             {
@@ -112,7 +90,6 @@ namespace EquipmentManageSystem.标准管理
             {
                 sql += " and b.IsEnabled = " + enabledStatusStr;
             }
-            sql += " and b.IsDelete = 0";
 
             this.Sql查询 = sql;
             return true;
@@ -177,7 +154,12 @@ namespace EquipmentManageSystem.标准管理
             DataTable outData = this.CurrentDataSource.DefaultView.ToTable();
             dlg保养标准导出 dlg = new dlg保养标准导出(outData);
             dlg.ShowDialog();
-            this.RefreshData();
+            this.button刷新.PerformClick();
+        }
+
+        private void ctn保养标准_After操作(object sender, SLQLControls.控件.控件公用类.AfterEventArgs e)
+        {
+            this.button刷新.PerformClick();
         }
     }
 }

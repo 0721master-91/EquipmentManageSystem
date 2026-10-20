@@ -606,6 +606,7 @@ namespace EquipmentManageSystem.设备巡检
             this.slDateTimePicker计划执行日期.Size = new System.Drawing.Size(200, 28);
             this.slDateTimePicker计划执行日期.TabIndex = 14;
             this.slDateTimePicker计划执行日期.Value = new System.DateTime(2026, 10, 9, 0, 0, 0, 0);
+            this.slDateTimePicker计划执行日期.ValueChanged += new System.EventHandler(this.slDateTimePicker计划执行日期_ValueChanged);
             // 
             // label任务接取人
             // 

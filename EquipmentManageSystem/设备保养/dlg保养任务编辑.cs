@@ -78,7 +78,7 @@ namespace EquipmentManageSystem.设备保养
             {
                 this.FillOtherControls(this.slTextBox保养任务编码.Text);
             }
-
+            MessageBox.Show(this.slTextBox保养任务编码.Text);
             this.TaskCode = this.slTextBox保养任务编码.Text;
 
             this.ChangeApplicationScene(this.OperType);
@@ -370,7 +370,7 @@ namespace EquipmentManageSystem.设备保养
                                  "and 过期时间 >= getDate() ";
 
             int num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql);
-            if (num <= 0) throw new Exception();
+            if (num <= 0) throw new Exception("更新保养任务提交状态失败");
         }
 
         /// <summary>
@@ -410,9 +410,10 @@ namespace EquipmentManageSystem.设备保养
                                  "and IsDelete = 0 " +
                                  "and 执行状态编码 != 'COMPLETED' " +
                                  "and 保养状态编码 = 'PENDING' " +
-                                 "and 验收状态编码 != 'PASSED' ";
+                                 "and (验收状态编码 is null or 验收状态编码 != 'PASSED') ";
             int num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql);
-            if (num <= 0) throw new Exception();
+            MessageBox.Show(sql);
+            if (num <= 0) throw new Exception("更新保养任务验收状态失败");
         }
 
         /// <summary>

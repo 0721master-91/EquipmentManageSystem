@@ -90,6 +90,7 @@ namespace EquipmentManageSystem.设备管理
             this.slTextBox设备编码.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.slTextBox设备编码.Location = new System.Drawing.Point(115, 36);
             this.slTextBox设备编码.Name = "slTextBox设备编码";
+            this.slTextBox设备编码.ReadOnly = true;
             this.slTextBox设备编码.Size = new System.Drawing.Size(163, 27);
             this.slTextBox设备编码.TabIndex = 9;
             this.slTextBox设备编码.TextStyle = SLControls.SLStyle.INVALID;
@@ -110,7 +111,9 @@ namespace EquipmentManageSystem.设备管理
             this.slComboBox设备模块.BeforeFormatControlTextHandler = null;
             this.slComboBox设备模块.DataType = SLControls.SLGlobal.SleDataType.String;
             this.slComboBox设备模块.DispField = "模块名称";
+            this.slComboBox设备模块.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.slComboBox设备模块.FieldName = "设备模块编码";
+            this.slComboBox设备模块.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.slComboBox设备模块.ForeignKey = "模块编码";
             this.slComboBox设备模块.ForeignTable = "设备模块";
             this.slComboBox设备模块.FormattingEnabled = true;
@@ -137,7 +140,10 @@ namespace EquipmentManageSystem.设备管理
             this.slComboBox设备类型.BeforeFormatControlTextHandler = null;
             this.slComboBox设备类型.DataType = SLControls.SLGlobal.SleDataType.String;
             this.slComboBox设备类型.DispField = "类型名称";
+            this.slComboBox设备类型.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.slComboBox设备类型.FieldName = "设备类型编码";
+            this.slComboBox设备类型.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.slComboBox设备类型.ForeColor = System.Drawing.Color.Black;
             this.slComboBox设备类型.ForeignKey = "类型编码";
             this.slComboBox设备类型.ForeignTable = "设备类型";
             this.slComboBox设备类型.FormattingEnabled = true;
@@ -181,6 +187,7 @@ namespace EquipmentManageSystem.设备管理
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(383, 376);
+            this.CloseFormAfterNew = true;
             this.Controls.Add(this.groupBox1);
             this.Name = "dlg功能主设备档案编辑";
             slcFieldInfo1.KeyName = "IsEnabled";

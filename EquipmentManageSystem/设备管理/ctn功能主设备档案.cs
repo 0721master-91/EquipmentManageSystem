@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using EquipmentManageSystem.Global;
 
 namespace EquipmentManageSystem.设备管理
 {
@@ -24,8 +25,8 @@ namespace EquipmentManageSystem.设备管理
             this.TableName = "设备档案";
             this.slDevGridControlMain.RowFont = new System.Drawing.Font("宋体", 11f);
             this.slDevGridControlMain.ColumnFont = new System.Drawing.Font("宋体", 11f);
-            /*this.slDevGridControlMain.MainGridView.OptionsView.ColumnAutoWidth = true;*/
             this.Type编辑窗口 = typeof(dlg功能主设备档案编辑);
+            this.EmployeeName = UserSession.CurrentUser.MemberID.ToString();
             this.slDevGridControlMain.ShowFooter = true;
 
             this.LoadFilter();
@@ -37,7 +38,7 @@ namespace EquipmentManageSystem.设备管理
                               "from 设备档案 as e " +
                               "join 设备类型 as t on e.设备类型编码 = t.类型编码 " +
                               "join 设备模块 as m on e.设备模块编码 = m.模块编码 " +
-                              "where 1 = 1 ";
+                              "where IsDelete = 0 ";
 
                 string name = this.textBox设备名称.Text.Trim();
                 if (!string.IsNullOrEmpty(name))
@@ -65,7 +66,6 @@ namespace EquipmentManageSystem.设备管理
                     sql += " and e.IsEnabled = " + Convert.ToInt32(status);
                 }
 
-                sql += "and IsDelete = 0";
                 this.Sql查询 = sql;
 
                 return true;
@@ -75,19 +75,7 @@ namespace EquipmentManageSystem.设备管理
 
         private void LoadFilter()
         {
-            string sql = "select 类型编码,类型名称 from 设备类型";
-            DataTable dtType = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteForDataTable(sql);
-
-            // 插入"全部"选项
-            DataRow rowAll = dtType.NewRow();
-            rowAll["类型编码"] = "";
-            rowAll["类型名称"] = "全部";
-            dtType.Rows.InsertAt(rowAll, 0);
-
-            this.slComboBox设备类型.DisplayMember = "类型名称";
-            this.slComboBox设备类型.SelectedValue = "";
-            this.slComboBox设备类型.ValueMember = "类型编码";
-            this.slComboBox设备类型.DataSource = dtType;
+            CommonFilter.InitCombox(this.slComboBox设备类型,"类型名称","类型编码","设备类型");
 
             // 设置设备状态下拉框选项
             this.slComboBox启用状态.DisplayMember = "状态";
@@ -138,7 +126,12 @@ namespace EquipmentManageSystem.设备管理
             DataTable outData = this.CurrentDataSource.DefaultView.ToTable();
             dlg功能主设备档案导入导出 dialog = new dlg功能主设备档案导入导出(outData);
             dialog.ShowDialog();
-            this.RefreshData();
+            this.button刷新.PerformClick();
+        }
+
+        private void ctn功能主设备档案_After操作(object sender, SLQLControls.控件.控件公用类.AfterEventArgs e)
+        {
+            this.button刷新.PerformClick();
         }
     }
 }

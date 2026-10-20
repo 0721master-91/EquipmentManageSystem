@@ -13,7 +13,7 @@ namespace EquipmentManageSystem.设备保养
     public partial class uc保养任务标准 : UserControl
     {
         private string PositionCode; // 功能位置编码
-        private DateTime PlantStartTime; // 计划开始时间  
+        private DateTime PlanStartTime; // 计划开始时间  
 
         // 获取保养任务标准数据
         public DataTable MaintenanceTaskStandardData 
@@ -122,8 +122,8 @@ namespace EquipmentManageSystem.设备保养
                     if (decimal.TryParse(dlg.Cycle, out decimal cycVal))
                         row.Cells["执行周期"].Value = cycVal;
                     row.Cells["周期单位"].Value = dlg.Unit;
-                    row.Cells["保养开始日期"].Value = this.PlantStartTime;
-                    row.Cells["下次保养日期"].Value = CalculateUtil.CalculateNextDateTime(this.PlantStartTime, cycVal,dlg.Unit);
+                    row.Cells["保养开始日期"].Value = this.PlanStartTime;
+                    row.Cells["下次保养日期"].Value = CalculateUtil.CalculateNextDateTime(this.PlanStartTime, cycVal,dlg.Unit);
                 }
                 this.ActiveControl = null;
             }
@@ -137,9 +137,28 @@ namespace EquipmentManageSystem.设备保养
             DataTable dt = this.dataGridView保养任务标准数据.DataSource as DataTable;
             foreach(DataRow dr in dt.Rows)
             {
-                dr["保养开始日期"] = this.PlantStartTime;
-                decimal cycVal = Convert.ToDecimal(dr["执行周期"]);
-                dr["下次保养日期"] = CalculateUtil.CalculateNextDateTime(this.PlantStartTime, cycVal, dr["周期单位"] as string);
+                dr["保养开始日期"] = this.PlanStartTime;
+
+                decimal cycVal;
+                if(dr["执行周期"] == DBNull.Value)
+                {
+                    continue;
+                }
+                else
+                {
+                    cycVal = Convert.ToDecimal(dr["执行周期"]);
+                }
+
+                string unit = dr["周期单位"].ToString();
+                if (string.IsNullOrEmpty(unit))
+                {
+                    continue;
+                }
+                else
+                {
+                    dr["下次保养日期"] = CalculateUtil.CalculateNextDateTime(this.PlanStartTime, cycVal, unit);
+                }
+
             }
         }
 
@@ -156,7 +175,7 @@ namespace EquipmentManageSystem.设备保养
         /// </summary>
         public void SetPlantStartTime(DateTime plantStartTime)
         {
-            this.PlantStartTime = plantStartTime;
+            this.PlanStartTime = plantStartTime;
         }
 
         /// <summary>

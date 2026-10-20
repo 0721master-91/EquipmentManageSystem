@@ -306,6 +306,7 @@ namespace EquipmentManageSystem.标准管理
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(788, 355);
+            this.CloseFormAfterNew = true;
             this.Controls.Add(this.groupBox基本信息);
             this.Name = "dlg保养标准编辑";
             slcFieldInfo1.KeyName = "IsEnabled";

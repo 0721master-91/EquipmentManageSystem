@@ -30,8 +30,8 @@ namespace EquipmentManageSystem.设备管理
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctn功能主设备档案));
-            SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息 slpInfoStop同时停启用相关信息1 = new SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息();
-            SLQLControls.控件.控件公用类.SlpInfoStop启用前判断 slpInfoStop启用前判断1 = new SLQLControls.控件.控件公用类.SlpInfoStop启用前判断();
+            SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息 slpInfoStop同时停启用相关信息2 = new SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息();
+            SLQLControls.控件.控件公用类.SlpInfoStop启用前判断 slpInfoStop启用前判断2 = new SLQLControls.控件.控件公用类.SlpInfoStop启用前判断();
             this.label设备编码 = new System.Windows.Forms.Label();
             this.textBox设备编码 = new System.Windows.Forms.TextBox();
             this.label设备名称 = new System.Windows.Forms.Label();
@@ -197,6 +197,8 @@ namespace EquipmentManageSystem.设备管理
             | System.Windows.Forms.AnchorStyles.Left)));
             this.slComboBox设备类型.BeforeFormatControlTextHandler = null;
             this.slComboBox设备类型.DataType = SLControls.SLGlobal.SleDataType.String;
+            this.slComboBox设备类型.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.slComboBox设备类型.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.slComboBox设备类型.FormattingEnabled = true;
             this.slComboBox设备类型.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.slComboBox设备类型.Location = new System.Drawing.Point(647, 12);
@@ -222,6 +224,8 @@ namespace EquipmentManageSystem.设备管理
             | System.Windows.Forms.AnchorStyles.Left)));
             this.slComboBox启用状态.BeforeFormatControlTextHandler = null;
             this.slComboBox启用状态.DataType = SLControls.SLGlobal.SleDataType.String;
+            this.slComboBox启用状态.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.slComboBox启用状态.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.slComboBox启用状态.FormattingEnabled = true;
             this.slComboBox启用状态.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.slComboBox启用状态.Location = new System.Drawing.Point(904, 12);
@@ -278,12 +282,12 @@ namespace EquipmentManageSystem.设备管理
             this.Info停用启用.ColName停用 = "";
             this.Info停用启用.Color停用 = System.Drawing.Color.Red;
             this.Info停用启用.FieldName停用 = "";
-            slpInfoStop同时停启用相关信息1.停用时提示信息 = "";
-            slpInfoStop同时停启用相关信息1.启用时提示信息 = "";
-            this.Info停用启用.Info同时停启用相关信息 = slpInfoStop同时停启用相关信息1;
-            slpInfoStop启用前判断1.ColName启用时需要判断 = "";
-            slpInfoStop启用前判断1.不能启用时提示信息 = "";
-            this.Info停用启用.Info启用前判断 = slpInfoStop启用前判断1;
+            slpInfoStop同时停启用相关信息2.停用时提示信息 = "";
+            slpInfoStop同时停启用相关信息2.启用时提示信息 = "";
+            this.Info停用启用.Info同时停启用相关信息 = slpInfoStop同时停启用相关信息2;
+            slpInfoStop启用前判断2.ColName启用时需要判断 = "";
+            slpInfoStop启用前判断2.不能启用时提示信息 = "";
+            this.Info停用启用.Info启用前判断 = slpInfoStop启用前判断2;
             this.Info列配置.CurUserID = ((long)(0));
             this.Info列配置.列配置信息 = "";
             this.Info列配置.标识 = "";
@@ -298,6 +302,7 @@ namespace EquipmentManageSystem.设备管理
             this.Info数据编辑.Type编辑窗口 = null;
             this.Name = "ctn功能主设备档案";
             this.Text = "功能主设备档案";
+            this.After操作 += new SLQLControls.控件.控件公用类.SlkEditGridEventHandle.AfterEventHandler(this.ctn功能主设备档案_After操作);
             this.AfterChangeDataSource += new SLQLControls.模板.temp标准报表GridControl.AfterChangeDataSourceEventHandle(this.ctn功能主设备档案_AfterChangeDataSource);
             this.Load += new System.EventHandler(this.ctn功能主设备档案_Load);
             this.Controls.SetChildIndex(this.panel2, 0);

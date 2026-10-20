@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using EquipmentManageSystem.Utils;
 using SLControls;
+using SLControls.SLGlobal;
+using EquipmentManageSystem.Global;
 
 namespace EquipmentManageSystem.标准管理
 {
@@ -21,7 +23,7 @@ namespace EquipmentManageSystem.标准管理
         private void dlg保养标准编辑_Load(object sender, EventArgs e)
         {
             //新增与复制新增的时候自动添加编码值
-            if(this.OperFlag == SLControls.SLGlobal.SleOperFlag.New || this.OperFlag == SLControls.SLGlobal.SleOperFlag.CopyNew)
+            if(this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
             {
                 this.slTextBox保养标准编码.Text = SqlCommonUtil.GenerateCode("BYBZ","保养标准","保养标准编码");
                 this.checkBox启用状态.Checked = true; // 默认启用
@@ -29,35 +31,17 @@ namespace EquipmentManageSystem.标准管理
         }
 
         // 保存前验证数据合法性
-        private bool dlg保养标准编辑_PreOK(SLControls.SLGlobal.FieldArray aryFields)
+        private bool dlg保养标准编辑_PreOK(FieldArray aryFields)
         {
-            string cycle = this.slTextBox执行周期.Text;
-            if(decimal.TryParse(cycle,out decimal cycleValue))
-            {
-                if (cycleValue <= 0)
-                {
-                    PopUpUtil.ShowWarning("执行周期必须大于0");
-                }
-            }
-            else
-            {
-                PopUpUtil.ShowWarning("执行周期必须为数字");
-            }
+            if(!VerifyData()) return false;
 
-            string preDays = this.slTextBox提前提醒天数.Text;
-            if(int.TryParse(preDays,out int preDaysValue))
+            if(this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
             {
-                if (preDaysValue < 0)
-                {
-                    PopUpUtil.ShowWarning("提前提醒天数必须大于等于0");
-                }
-            }
-            else
-            {
-                PopUpUtil.ShowWarning("提前提醒天数必须为数字");
+                this.slTextBox保养标准编码.Text = SqlCommonUtil.GenerateCode("BYBZ", "保养标准", "保养标准编码");
             }
 
             this.OtherFields["IsEnabled"] = this.checkBox启用状态.Checked;
+            DataTrack.AddTrack(this.OtherFields, this.OperFlag);
             return true;
         }
 
@@ -69,6 +53,59 @@ namespace EquipmentManageSystem.标准管理
             {
                 this.checkBox启用状态.Checked = Convert.ToBoolean(val);
             }
+        }
+
+        /// <summary>
+        /// 验证数据合法性
+        /// </summary>
+        /// <returns>是否通过</returns>
+        private bool VerifyData()
+        {
+            // 保养内容验证
+            string content = this.slTextBox保养内容.Text;
+            if (string.IsNullOrEmpty(content))
+            {
+                PopUpUtil.ShowWarning("保养内容不能为空");
+                return false;
+            }
+
+            // 执行周期验证
+            string cycle = this.slTextBox执行周期.Text;
+            if (decimal.TryParse(cycle, out decimal cycleValue))
+            {
+                if (cycleValue <= 0)
+                {
+                    PopUpUtil.ShowWarning("执行周期必须大于0");
+                    return false;
+                }
+            }
+            else
+            {
+                PopUpUtil.ShowWarning("执行周期必须为数字");
+                return false;
+            }
+
+            // 提前提醒天数验证
+            string preDays = this.slTextBox提前提醒天数.Text;
+            if (!string.IsNullOrEmpty(preDays))
+            {
+                if (int.TryParse(preDays, out int preDaysValue))
+                {
+                    if (preDaysValue < 0)
+                    {
+                        PopUpUtil.ShowWarning("提前提醒天数必须大于等于0");
+                        return false;
+                    }
+                }
+                else
+                {
+                    PopUpUtil.ShowWarning("提前提醒天数必须为整数");
+                    return false;
+                }
+            } 
+            
+
+            return true;
         }
     }
 

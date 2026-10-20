@@ -49,8 +49,8 @@ namespace EquipmentManageSystem.标准管理
             this.label巡检内容 = new System.Windows.Forms.Label();
             this.slTextBox巡检部位 = new SLControls.SLTextBox();
             this.label巡检部位 = new System.Windows.Forms.Label();
-            this.slTextBox巡检部位编码 = new SLControls.SLTextBox();
-            this.label巡检部位编码 = new System.Windows.Forms.Label();
+            this.slTextBox巡检标准编码 = new SLControls.SLTextBox();
+            this.label巡检标准编码 = new System.Windows.Forms.Label();
             this.groupBox巡检信息.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,8 +82,8 @@ namespace EquipmentManageSystem.标准管理
             this.groupBox巡检信息.Controls.Add(this.label巡检内容);
             this.groupBox巡检信息.Controls.Add(this.slTextBox巡检部位);
             this.groupBox巡检信息.Controls.Add(this.label巡检部位);
-            this.groupBox巡检信息.Controls.Add(this.slTextBox巡检部位编码);
-            this.groupBox巡检信息.Controls.Add(this.label巡检部位编码);
+            this.groupBox巡检信息.Controls.Add(this.slTextBox巡检标准编码);
+            this.groupBox巡检信息.Controls.Add(this.label巡检标准编码);
             this.groupBox巡检信息.Font = new System.Drawing.Font("宋体", 11F);
             this.groupBox巡检信息.Location = new System.Drawing.Point(12, 12);
             this.groupBox巡检信息.Name = "groupBox巡检信息";
@@ -292,27 +292,27 @@ namespace EquipmentManageSystem.标准管理
             this.label巡检部位.TabIndex = 2;
             this.label巡检部位.Text = "巡检部位：";
             // 
-            // slTextBox巡检部位编码
+            // slTextBox巡检标准编码
             // 
-            this.slTextBox巡检部位编码.BeforeFormatControlTextHandler = null;
-            this.slTextBox巡检部位编码.DataType = SLControls.SLGlobal.SleDataType.String;
-            this.slTextBox巡检部位编码.FieldName = "巡检部位编码";
-            this.slTextBox巡检部位编码.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.slTextBox巡检部位编码.Location = new System.Drawing.Point(152, 28);
-            this.slTextBox巡检部位编码.Name = "slTextBox巡检部位编码";
-            this.slTextBox巡检部位编码.ReadOnly = true;
-            this.slTextBox巡检部位编码.Size = new System.Drawing.Size(204, 28);
-            this.slTextBox巡检部位编码.TabIndex = 1;
-            this.slTextBox巡检部位编码.TextStyle = SLControls.SLStyle.INVALID;
+            this.slTextBox巡检标准编码.BeforeFormatControlTextHandler = null;
+            this.slTextBox巡检标准编码.DataType = SLControls.SLGlobal.SleDataType.String;
+            this.slTextBox巡检标准编码.FieldName = "巡检标准编码";
+            this.slTextBox巡检标准编码.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.slTextBox巡检标准编码.Location = new System.Drawing.Point(152, 28);
+            this.slTextBox巡检标准编码.Name = "slTextBox巡检标准编码";
+            this.slTextBox巡检标准编码.ReadOnly = true;
+            this.slTextBox巡检标准编码.Size = new System.Drawing.Size(204, 28);
+            this.slTextBox巡检标准编码.TabIndex = 1;
+            this.slTextBox巡检标准编码.TextStyle = SLControls.SLStyle.INVALID;
             // 
-            // label巡检部位编码
+            // label巡检标准编码
             // 
-            this.label巡检部位编码.AutoSize = true;
-            this.label巡检部位编码.Location = new System.Drawing.Point(21, 33);
-            this.label巡检部位编码.Name = "label巡检部位编码";
-            this.label巡检部位编码.Size = new System.Drawing.Size(142, 19);
-            this.label巡检部位编码.TabIndex = 0;
-            this.label巡检部位编码.Text = "巡检部位编码：";
+            this.label巡检标准编码.AutoSize = true;
+            this.label巡检标准编码.Location = new System.Drawing.Point(21, 33);
+            this.label巡检标准编码.Name = "label巡检标准编码";
+            this.label巡检标准编码.Size = new System.Drawing.Size(142, 19);
+            this.label巡检标准编码.TabIndex = 0;
+            this.label巡检标准编码.Text = "巡检标准编码：";
             // 
             // dlg巡检标准编辑
             // 
@@ -344,8 +344,8 @@ namespace EquipmentManageSystem.标准管理
 
         private System.Windows.Forms.GroupBox groupBox巡检信息;
         private System.Windows.Forms.Label label巡检部位;
-        private SLControls.SLTextBox slTextBox巡检部位编码;
-        private System.Windows.Forms.Label label巡检部位编码;
+        private SLControls.SLTextBox slTextBox巡检标准编码;
+        private System.Windows.Forms.Label label巡检标准编码;
         private SLControls.SLTextBox slTextBox巡检类型;
         private System.Windows.Forms.Label label巡检类型;
         private SLControls.SLTextBox slTextBox巡检内容;

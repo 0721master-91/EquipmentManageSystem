@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿using System;
+﻿﻿﻿﻿﻿﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -161,7 +161,11 @@ namespace EquipmentManageSystem.模板.选择窗口模版
                 checkCol.Name = "col选择";
                 checkCol.Width = 50;
                 checkCol.Frozen = true;
+                checkCol.SortMode = DataGridViewColumnSortMode.NotSortable;
                 this.dataGridView数据表.Columns.Insert(0, checkCol);
+
+                // 表头排序完成后，非绑定复选框列会被重置，需根据 SelectedRows 恢复勾选状态
+                this.dataGridView数据表.Sorted += (s, e) => RestoreCheckBoxState();
 
                 // 点击行任意位置时切换复选框状态
                 this.dataGridView数据表.CellDoubleClick += (s, e) =>
@@ -218,6 +222,25 @@ namespace EquipmentManageSystem.模板.选择窗口模版
                         this.SelectedRows.Add(row);
                     }
                 };
+            }
+        }
+
+        /// <summary>
+        /// 排序/重置后根据 SelectedRows 重新恢复复选框勾选状态
+        /// </summary>
+        private void RestoreCheckBoxState()
+        {
+            if (!this.IsMultiSelect) return;
+
+            foreach (DataGridViewRow row in this.dataGridView数据表.Rows)
+            {
+                DataGridViewCheckBoxCell cell = row.Cells["col选择"] as DataGridViewCheckBoxCell;
+                if (cell == null) continue;
+
+                DataRow r = (row.DataBoundItem as DataRowView)?.Row;
+                bool shouldCheck = r != null && this.SelectedRows.Contains(r);
+                cell.Value = shouldCheck;
+                row.Selected = shouldCheck;
             }
         }
 

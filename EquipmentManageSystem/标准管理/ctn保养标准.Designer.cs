@@ -115,16 +115,19 @@ namespace EquipmentManageSystem.标准管理
             // 
             this.button定位.FlatAppearance.BorderSize = 0;
             this.button定位.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button定位.Location = new System.Drawing.Point(168, 10);
             // 
             // button筛选
             // 
             this.button筛选.FlatAppearance.BorderSize = 0;
             this.button筛选.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button筛选.Location = new System.Drawing.Point(90, 10);
             // 
             // button刷新
             // 
             this.button刷新.FlatAppearance.BorderSize = 0;
             this.button刷新.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button刷新.Location = new System.Drawing.Point(13, 10);
             // 
             // panel3
             // 
@@ -156,9 +159,9 @@ namespace EquipmentManageSystem.标准管理
             // panel4
             // 
             this.panel4.Controls.Add(this.slFlatButton导入);
-            this.panel4.Location = new System.Drawing.Point(1277, 0);
+            this.panel4.Location = new System.Drawing.Point(1268, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.panel4.Size = new System.Drawing.Size(238, 96);
+            this.panel4.Size = new System.Drawing.Size(247, 96);
             this.panel4.Controls.SetChildIndex(this.button刷新, 0);
             this.panel4.Controls.SetChildIndex(this.button筛选, 0);
             this.panel4.Controls.SetChildIndex(this.button定位, 0);
@@ -293,10 +296,10 @@ namespace EquipmentManageSystem.标准管理
             this.slFlatButton导入.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.slFlatButton导入.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.slFlatButton导入.GetFocusControl = null;
-            this.slFlatButton导入.Location = new System.Drawing.Point(0, 38);
+            this.slFlatButton导入.Location = new System.Drawing.Point(5, 38);
             this.slFlatButton导入.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.slFlatButton导入.Name = "slFlatButton导入";
-            this.slFlatButton导入.Size = new System.Drawing.Size(102, 29);
+            this.slFlatButton导入.Size = new System.Drawing.Size(99, 29);
             this.slFlatButton导入.TabIndex = 8;
             this.slFlatButton导入.Text = "✅️ 导出";
             this.slFlatButton导入.UseVisualStyleBackColor = true;
@@ -332,7 +335,8 @@ namespace EquipmentManageSystem.标准管理
             this.Margin = new System.Windows.Forms.Padding(21);
             this.Name = "ctn保养标准";
             this.TableName = "保养标准";
-            this.Text = "ctn保养标准";
+            this.Text = "保养标准";
+            this.After操作 += new SLQLControls.控件.控件公用类.SlkEditGridEventHandle.AfterEventHandler(this.ctn保养标准_After操作);
             this.AfterChangeDataSource += new SLQLControls.模板.temp标准报表GridControl.AfterChangeDataSourceEventHandle(this.ctn保养标准_AfterChangeDataSource);
             this.BeforeChangeDataSource += new SLQLControls.公用类.SlcQLPublic.BoolEventHandle(this.ctn保养标准_BeforeChangeDataSource);
             this.Load += new System.EventHandler(this.ctn保养标准_Load);
