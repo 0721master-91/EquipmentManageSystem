@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using SLQLControls.模板;
 using EquipmentManageSystem.Utils;
 using EquipmentManageSystem.Global;
+using DevExpress.Data;
 
 namespace EquipmentManageSystem.设备维修
 {
@@ -25,6 +26,7 @@ namespace EquipmentManageSystem.设备维修
             this.slDevGridControlMain.ColumnFont = new Font("宋体", 11f);
             this.Type编辑窗口 = typeof(dlg报修工单编辑);
             this.EmployeeName = UserSession.CurrentUser.MemberID.ToString();
+            this.slDevGridControlMain.ShowFooter = true;
 
             CommonFilter.InitCombox(this.comboBox执行状态, "状态", "编码", "执行状态");
             CommonFilter.InitCombox(this.comboBox维修状态, "状态", "编码", "维修状态");
@@ -90,6 +92,8 @@ namespace EquipmentManageSystem.设备维修
             this.textBox模糊查询.Text = string.Empty;
             this.CurrentDataSource = newTable;
             this.slDevGridControlMain.MainGridView.BestFitColumns();
+
+            this.slDevGridControlMain.SetSummaryItem("单据号", "合计：{0}", SummaryItemType.Count);
         }
 
         private void FuzzyQuery(object sender, EventArgs e)

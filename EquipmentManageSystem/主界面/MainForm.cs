@@ -7,6 +7,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using EquipmentManageSystem.数据报表;
+using EquipmentManageSystem.Utils;
 
 namespace EquipmentManageSystem.主界面
 {
@@ -25,6 +27,8 @@ namespace EquipmentManageSystem.主界面
         {
             InitializeComponent();
             InitMenuItems(); //初始化菜单项
+            LoadLogo();
+            ShowOverallSystemSatus();
         }
 
         //页面加载时设置页面样式
@@ -33,6 +37,15 @@ namespace EquipmentManageSystem.主界面
             Rectangle workingArea = Screen.PrimaryScreen.WorkingArea;
             this.Width = workingArea.Width;
             this.Height = workingArea.Height;
+
+        }
+
+        /// <summary>
+        /// 加载系统logo
+        /// </summary>
+        private void LoadLogo()
+        {
+            PictureHandleUtil.LoadPictureToPictureBox(this.pictureBoxLogo图片, "Resources\\图层.png");
         }
 
         /// <summary>
@@ -83,11 +96,38 @@ namespace EquipmentManageSystem.主界面
             currentForm.FormBorderStyle = FormBorderStyle.None;
             currentForm.Dock = DockStyle.Fill;
 
+            string title = this.Text.Split('-')[0] + "-" + subButton.Text;
+            this.Text = title;
+
             this.panel内容显示区.Controls.Clear();
             this.panel内容显示区.Controls.Add(currentForm);
 
             this.lastShowForm = currentForm;
             currentForm.Show();
+        }
+
+        // 点击图片显示主界面
+        private void pictureBoxLogo图片_Click(object sender, EventArgs e)
+        {
+            this.ShowOverallSystemSatus();
+        }
+
+        /// <summary>
+        /// 显示系统整体状态界面
+        /// </summary>
+        private void ShowOverallSystemSatus()
+        {
+            this.panel内容显示区.Controls.Clear();
+
+            Form form = new ctn设备总体概况();
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+
+            this.Text = "设备管理系统-首页";
+
+            this.panel内容显示区.Controls.Add(form);
+            form.Show();
         }
     }   
 

@@ -30,8 +30,8 @@ namespace EquipmentManageSystem.设备维修
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctn维修任务));
-            SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息 slpInfoStop同时停启用相关信息1 = new SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息();
-            SLQLControls.控件.控件公用类.SlpInfoStop启用前判断 slpInfoStop启用前判断1 = new SLQLControls.控件.控件公用类.SlpInfoStop启用前判断();
+            SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息 slpInfoStop同时停启用相关信息2 = new SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息();
+            SLQLControls.控件.控件公用类.SlpInfoStop启用前判断 slpInfoStop启用前判断2 = new SLQLControls.控件.控件公用类.SlpInfoStop启用前判断();
             this.button查看详细 = new System.Windows.Forms.Button();
             this.button查看维修过程 = new System.Windows.Forms.Button();
             this.label位置简称 = new System.Windows.Forms.Label();
@@ -47,6 +47,10 @@ namespace EquipmentManageSystem.设备维修
             this.textBox模糊查询 = new System.Windows.Forms.TextBox();
             this.label模糊查询 = new System.Windows.Forms.Label();
             this.slFlatButton导出 = new SLQLControls.控件.SLFlatButton();
+            this.dateTimePicker创建时间结束时间 = new System.Windows.Forms.DateTimePicker();
+            this.label创建时间连接符 = new System.Windows.Forms.Label();
+            this.dateTimePicker创建时间起始时间 = new System.Windows.Forms.DateTimePicker();
+            this.label创建时间 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -92,6 +96,10 @@ namespace EquipmentManageSystem.设备维修
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.dateTimePicker创建时间结束时间);
+            this.panel2.Controls.Add(this.label创建时间连接符);
+            this.panel2.Controls.Add(this.dateTimePicker创建时间起始时间);
+            this.panel2.Controls.Add(this.label创建时间);
             this.panel2.Controls.Add(this.textBox模糊查询);
             this.panel2.Controls.Add(this.label模糊查询);
             this.panel2.Controls.Add(this.comboBox维修结果);
@@ -104,7 +112,7 @@ namespace EquipmentManageSystem.设备维修
             this.panel2.Controls.Add(this.label所属组织);
             this.panel2.Controls.Add(this.textBox位置简称);
             this.panel2.Controls.Add(this.label位置简称);
-            this.panel2.Size = new System.Drawing.Size(1495, 81);
+            this.panel2.Size = new System.Drawing.Size(1495, 111);
             this.panel2.Controls.SetChildIndex(this.panel4, 0);
             this.panel2.Controls.SetChildIndex(this.buttonFocus, 0);
             this.panel2.Controls.SetChildIndex(this.label位置简称, 0);
@@ -119,6 +127,10 @@ namespace EquipmentManageSystem.设备维修
             this.panel2.Controls.SetChildIndex(this.comboBox维修结果, 0);
             this.panel2.Controls.SetChildIndex(this.label模糊查询, 0);
             this.panel2.Controls.SetChildIndex(this.textBox模糊查询, 0);
+            this.panel2.Controls.SetChildIndex(this.label创建时间, 0);
+            this.panel2.Controls.SetChildIndex(this.dateTimePicker创建时间起始时间, 0);
+            this.panel2.Controls.SetChildIndex(this.label创建时间连接符, 0);
+            this.panel2.Controls.SetChildIndex(this.dateTimePicker创建时间结束时间, 0);
             // 
             // button定位
             // 
@@ -140,8 +152,8 @@ namespace EquipmentManageSystem.设备维修
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(0, 81);
-            this.panel3.Size = new System.Drawing.Size(1495, 528);
+            this.panel3.Location = new System.Drawing.Point(0, 111);
+            this.panel3.Size = new System.Drawing.Size(1495, 498);
             // 
             // slDataTablePrinter
             // 
@@ -168,7 +180,7 @@ namespace EquipmentManageSystem.设备维修
             // 
             this.panel4.Controls.Add(this.slFlatButton导出);
             this.panel4.Location = new System.Drawing.Point(1212, 0);
-            this.panel4.Size = new System.Drawing.Size(283, 81);
+            this.panel4.Size = new System.Drawing.Size(283, 111);
             this.panel4.Controls.SetChildIndex(this.button刷新, 0);
             this.panel4.Controls.SetChildIndex(this.button筛选, 0);
             this.panel4.Controls.SetChildIndex(this.button定位, 0);
@@ -307,7 +319,7 @@ namespace EquipmentManageSystem.设备维修
             // textBox模糊查询
             // 
             this.textBox模糊查询.Font = new System.Drawing.Font("宋体", 11F);
-            this.textBox模糊查询.Location = new System.Drawing.Point(380, 45);
+            this.textBox模糊查询.Location = new System.Drawing.Point(109, 77);
             this.textBox模糊查询.Name = "textBox模糊查询";
             this.textBox模糊查询.Size = new System.Drawing.Size(258, 28);
             this.textBox模糊查询.TabIndex = 28;
@@ -317,7 +329,7 @@ namespace EquipmentManageSystem.设备维修
             // 
             this.label模糊查询.AutoSize = true;
             this.label模糊查询.Font = new System.Drawing.Font("宋体", 11F);
-            this.label模糊查询.Location = new System.Drawing.Point(283, 50);
+            this.label模糊查询.Location = new System.Drawing.Point(16, 82);
             this.label模糊查询.Name = "label模糊查询";
             this.label模糊查询.Size = new System.Drawing.Size(104, 19);
             this.label模糊查询.TabIndex = 27;
@@ -337,6 +349,48 @@ namespace EquipmentManageSystem.设备维修
             this.slFlatButton导出.UseVisualStyleBackColor = true;
             this.slFlatButton导出.Click += new System.EventHandler(this.slFlatButton导出_Click);
             // 
+            // dateTimePicker创建时间结束时间
+            // 
+            this.dateTimePicker创建时间结束时间.CalendarFont = new System.Drawing.Font("宋体", 11F);
+            this.dateTimePicker创建时间结束时间.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dateTimePicker创建时间结束时间.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker创建时间结束时间.Location = new System.Drawing.Point(603, 47);
+            this.dateTimePicker创建时间结束时间.Name = "dateTimePicker创建时间结束时间";
+            this.dateTimePicker创建时间结束时间.Size = new System.Drawing.Size(200, 25);
+            this.dateTimePicker创建时间结束时间.TabIndex = 42;
+            this.dateTimePicker创建时间结束时间.ValueChanged += new System.EventHandler(this.VerifyCreateTime);
+            // 
+            // label创建时间连接符
+            // 
+            this.label创建时间连接符.AutoSize = true;
+            this.label创建时间连接符.Font = new System.Drawing.Font("宋体", 14F);
+            this.label创建时间连接符.Location = new System.Drawing.Point(580, 47);
+            this.label创建时间连接符.Name = "label创建时间连接符";
+            this.label创建时间连接符.Size = new System.Drawing.Size(22, 24);
+            this.label创建时间连接符.TabIndex = 41;
+            this.label创建时间连接符.Text = "-";
+            // 
+            // dateTimePicker创建时间起始时间
+            // 
+            this.dateTimePicker创建时间起始时间.CalendarFont = new System.Drawing.Font("宋体", 11F);
+            this.dateTimePicker创建时间起始时间.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dateTimePicker创建时间起始时间.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker创建时间起始时间.Location = new System.Drawing.Point(378, 47);
+            this.dateTimePicker创建时间起始时间.Name = "dateTimePicker创建时间起始时间";
+            this.dateTimePicker创建时间起始时间.Size = new System.Drawing.Size(200, 25);
+            this.dateTimePicker创建时间起始时间.TabIndex = 40;
+            this.dateTimePicker创建时间起始时间.ValueChanged += new System.EventHandler(this.VerifyCreateTime);
+            // 
+            // label创建时间
+            // 
+            this.label创建时间.AutoSize = true;
+            this.label创建时间.Font = new System.Drawing.Font("宋体", 11F);
+            this.label创建时间.Location = new System.Drawing.Point(283, 50);
+            this.label创建时间.Name = "label创建时间";
+            this.label创建时间.Size = new System.Drawing.Size(104, 19);
+            this.label创建时间.TabIndex = 39;
+            this.label创建时间.Text = "创建时间：";
+            // 
             // ctn维修任务
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -346,12 +400,12 @@ namespace EquipmentManageSystem.设备维修
             this.Info停用启用.ColName停用 = "";
             this.Info停用启用.Color停用 = System.Drawing.Color.Red;
             this.Info停用启用.FieldName停用 = "";
-            slpInfoStop同时停启用相关信息1.停用时提示信息 = "";
-            slpInfoStop同时停启用相关信息1.启用时提示信息 = "";
-            this.Info停用启用.Info同时停启用相关信息 = slpInfoStop同时停启用相关信息1;
-            slpInfoStop启用前判断1.ColName启用时需要判断 = "";
-            slpInfoStop启用前判断1.不能启用时提示信息 = "";
-            this.Info停用启用.Info启用前判断 = slpInfoStop启用前判断1;
+            slpInfoStop同时停启用相关信息2.停用时提示信息 = "";
+            slpInfoStop同时停启用相关信息2.启用时提示信息 = "";
+            this.Info停用启用.Info同时停启用相关信息 = slpInfoStop同时停启用相关信息2;
+            slpInfoStop启用前判断2.ColName启用时需要判断 = "";
+            slpInfoStop启用前判断2.不能启用时提示信息 = "";
+            this.Info停用启用.Info启用前判断 = slpInfoStop启用前判断2;
             this.Info列配置.CurUserID = ((long)(0));
             this.Info列配置.列配置信息 = "";
             this.Info列配置.标识 = "";
@@ -400,5 +454,9 @@ namespace EquipmentManageSystem.设备维修
         private System.Windows.Forms.TextBox textBox模糊查询;
         private System.Windows.Forms.Label label模糊查询;
         private SLQLControls.控件.SLFlatButton slFlatButton导出;
+        private System.Windows.Forms.DateTimePicker dateTimePicker创建时间结束时间;
+        private System.Windows.Forms.Label label创建时间连接符;
+        private System.Windows.Forms.DateTimePicker dateTimePicker创建时间起始时间;
+        private System.Windows.Forms.Label label创建时间;
     }
 }

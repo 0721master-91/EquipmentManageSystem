@@ -30,8 +30,8 @@ namespace EquipmentManageSystem.设备管理
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctn功能位置档案));
-            SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息 slpInfoStop同时停启用相关信息2 = new SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息();
-            SLQLControls.控件.控件公用类.SlpInfoStop启用前判断 slpInfoStop启用前判断2 = new SLQLControls.控件.控件公用类.SlpInfoStop启用前判断();
+            SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息 slpInfoStop同时停启用相关信息3 = new SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息();
+            SLQLControls.控件.控件公用类.SlpInfoStop启用前判断 slpInfoStop启用前判断3 = new SLQLControls.控件.控件公用类.SlpInfoStop启用前判断();
             this.label设备类型 = new System.Windows.Forms.Label();
             this.comboBox设备类型 = new System.Windows.Forms.ComboBox();
             this.label组织 = new System.Windows.Forms.Label();
@@ -39,6 +39,17 @@ namespace EquipmentManageSystem.设备管理
             this.label模糊查询 = new System.Windows.Forms.Label();
             this.textBox模糊查询 = new System.Windows.Forms.TextBox();
             this.slFlatButton导入 = new SLQLControls.控件.SLFlatButton();
+            this.button查看详细 = new System.Windows.Forms.Button();
+            this.label责任人 = new System.Windows.Forms.Label();
+            this.comboBox责任人 = new System.Windows.Forms.ComboBox();
+            this.label设备状态 = new System.Windows.Forms.Label();
+            this.comboBox设备状态 = new System.Windows.Forms.ComboBox();
+            this.comboBox巡检人员 = new System.Windows.Forms.ComboBox();
+            this.label巡检人员 = new System.Windows.Forms.Label();
+            this.comboBox维保人员 = new System.Windows.Forms.ComboBox();
+            this.label维保人员 = new System.Windows.Forms.Label();
+            this.comboBox检验人员 = new System.Windows.Forms.ComboBox();
+            this.label检验人员 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -47,9 +58,22 @@ namespace EquipmentManageSystem.设备管理
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button查看详细);
             this.panel1.Location = new System.Drawing.Point(0, 641);
             this.panel1.Margin = new System.Windows.Forms.Padding(9);
             this.panel1.Size = new System.Drawing.Size(1498, 62);
+            this.panel1.Controls.SetChildIndex(this.panel5, 0);
+            this.panel1.Controls.SetChildIndex(this.button停用, 0);
+            this.panel1.Controls.SetChildIndex(this.button查询条件, 0);
+            this.panel1.Controls.SetChildIndex(this.button修改, 0);
+            this.panel1.Controls.SetChildIndex(this.button复制新增, 0);
+            this.panel1.Controls.SetChildIndex(this.button删除, 0);
+            this.panel1.Controls.SetChildIndex(this.button新增, 0);
+            this.panel1.Controls.SetChildIndex(this.button查看详细, 0);
+            // 
+            // button查询条件
+            // 
+            this.button查询条件.Location = new System.Drawing.Point(838, 14);
             // 
             // panel5
             // 
@@ -76,6 +100,16 @@ namespace EquipmentManageSystem.设备管理
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.comboBox检验人员);
+            this.panel2.Controls.Add(this.label检验人员);
+            this.panel2.Controls.Add(this.comboBox维保人员);
+            this.panel2.Controls.Add(this.label维保人员);
+            this.panel2.Controls.Add(this.comboBox巡检人员);
+            this.panel2.Controls.Add(this.label巡检人员);
+            this.panel2.Controls.Add(this.comboBox设备状态);
+            this.panel2.Controls.Add(this.label设备状态);
+            this.panel2.Controls.Add(this.comboBox责任人);
+            this.panel2.Controls.Add(this.label责任人);
             this.panel2.Controls.Add(this.textBox模糊查询);
             this.panel2.Controls.Add(this.label模糊查询);
             this.panel2.Controls.Add(this.comboBox组织名称);
@@ -83,7 +117,7 @@ namespace EquipmentManageSystem.设备管理
             this.panel2.Controls.Add(this.comboBox设备类型);
             this.panel2.Controls.Add(this.label设备类型);
             this.panel2.Margin = new System.Windows.Forms.Padding(9);
-            this.panel2.Size = new System.Drawing.Size(1498, 74);
+            this.panel2.Size = new System.Drawing.Size(1498, 104);
             this.panel2.Controls.SetChildIndex(this.panel4, 0);
             this.panel2.Controls.SetChildIndex(this.buttonFocus, 0);
             this.panel2.Controls.SetChildIndex(this.label设备类型, 0);
@@ -92,6 +126,16 @@ namespace EquipmentManageSystem.设备管理
             this.panel2.Controls.SetChildIndex(this.comboBox组织名称, 0);
             this.panel2.Controls.SetChildIndex(this.label模糊查询, 0);
             this.panel2.Controls.SetChildIndex(this.textBox模糊查询, 0);
+            this.panel2.Controls.SetChildIndex(this.label责任人, 0);
+            this.panel2.Controls.SetChildIndex(this.comboBox责任人, 0);
+            this.panel2.Controls.SetChildIndex(this.label设备状态, 0);
+            this.panel2.Controls.SetChildIndex(this.comboBox设备状态, 0);
+            this.panel2.Controls.SetChildIndex(this.label巡检人员, 0);
+            this.panel2.Controls.SetChildIndex(this.comboBox巡检人员, 0);
+            this.panel2.Controls.SetChildIndex(this.label维保人员, 0);
+            this.panel2.Controls.SetChildIndex(this.comboBox维保人员, 0);
+            this.panel2.Controls.SetChildIndex(this.label检验人员, 0);
+            this.panel2.Controls.SetChildIndex(this.comboBox检验人员, 0);
             // 
             // button定位
             // 
@@ -110,9 +154,9 @@ namespace EquipmentManageSystem.设备管理
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(0, 74);
+            this.panel3.Location = new System.Drawing.Point(0, 104);
             this.panel3.Margin = new System.Windows.Forms.Padding(9);
-            this.panel3.Size = new System.Drawing.Size(1498, 567);
+            this.panel3.Size = new System.Drawing.Size(1498, 537);
             // 
             // slDataTablePrinter
             // 
@@ -140,7 +184,7 @@ namespace EquipmentManageSystem.设备管理
             this.panel4.Controls.Add(this.slFlatButton导入);
             this.panel4.Location = new System.Drawing.Point(1230, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(9);
-            this.panel4.Size = new System.Drawing.Size(268, 74);
+            this.panel4.Size = new System.Drawing.Size(268, 104);
             this.panel4.Controls.SetChildIndex(this.button刷新, 0);
             this.panel4.Controls.SetChildIndex(this.button筛选, 0);
             this.panel4.Controls.SetChildIndex(this.button定位, 0);
@@ -198,7 +242,7 @@ namespace EquipmentManageSystem.设备管理
             // 
             this.label模糊查询.AutoSize = true;
             this.label模糊查询.Font = new System.Drawing.Font("宋体", 11F);
-            this.label模糊查询.Location = new System.Drawing.Point(20, 44);
+            this.label模糊查询.Location = new System.Drawing.Point(20, 75);
             this.label模糊查询.Name = "label模糊查询";
             this.label模糊查询.Size = new System.Drawing.Size(104, 19);
             this.label模糊查询.TabIndex = 23;
@@ -207,7 +251,7 @@ namespace EquipmentManageSystem.设备管理
             // textBox模糊查询
             // 
             this.textBox模糊查询.Font = new System.Drawing.Font("宋体", 11F);
-            this.textBox模糊查询.Location = new System.Drawing.Point(113, 39);
+            this.textBox模糊查询.Location = new System.Drawing.Point(113, 70);
             this.textBox模糊查询.Name = "textBox模糊查询";
             this.textBox模糊查询.Size = new System.Drawing.Size(189, 28);
             this.textBox模糊查询.TabIndex = 24;
@@ -227,6 +271,138 @@ namespace EquipmentManageSystem.设备管理
             this.slFlatButton导入.UseVisualStyleBackColor = true;
             this.slFlatButton导入.Click += new System.EventHandler(this.slFlatButton导入_Click);
             // 
+            // button查看详细
+            // 
+            this.button查看详细.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button查看详细.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button查看详细.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button查看详细.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button查看详细.ForeColor = System.Drawing.Color.White;
+            this.button查看详细.Location = new System.Drawing.Point(527, 19);
+            this.button查看详细.Name = "button查看详细";
+            this.button查看详细.Size = new System.Drawing.Size(100, 29);
+            this.button查看详细.TabIndex = 32;
+            this.button查看详细.Text = "查看详细";
+            this.button查看详细.UseVisualStyleBackColor = false;
+            this.button查看详细.Click += new System.EventHandler(this.button查看详细_Click);
+            // 
+            // label责任人
+            // 
+            this.label责任人.AutoSize = true;
+            this.label责任人.Font = new System.Drawing.Font("宋体", 11F);
+            this.label责任人.Location = new System.Drawing.Point(562, 13);
+            this.label责任人.Name = "label责任人";
+            this.label责任人.Size = new System.Drawing.Size(85, 19);
+            this.label责任人.TabIndex = 25;
+            this.label责任人.Text = "责任人：";
+            // 
+            // comboBox责任人
+            // 
+            this.comboBox责任人.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox责任人.DropDownHeight = 1;
+            this.comboBox责任人.DropDownWidth = 1;
+            this.comboBox责任人.Font = new System.Drawing.Font("宋体", 11F);
+            this.comboBox责任人.FormattingEnabled = true;
+            this.comboBox责任人.IntegralHeight = false;
+            this.comboBox责任人.Location = new System.Drawing.Point(637, 9);
+            this.comboBox责任人.Name = "comboBox责任人";
+            this.comboBox责任人.Size = new System.Drawing.Size(121, 26);
+            this.comboBox责任人.TabIndex = 26;
+            this.comboBox责任人.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberSingleSelectDialog);
+            // 
+            // label设备状态
+            // 
+            this.label设备状态.AutoSize = true;
+            this.label设备状态.Font = new System.Drawing.Font("宋体", 11F);
+            this.label设备状态.Location = new System.Drawing.Point(796, 13);
+            this.label设备状态.Name = "label设备状态";
+            this.label设备状态.Size = new System.Drawing.Size(104, 19);
+            this.label设备状态.TabIndex = 27;
+            this.label设备状态.Text = "设备状态：";
+            // 
+            // comboBox设备状态
+            // 
+            this.comboBox设备状态.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox设备状态.Font = new System.Drawing.Font("宋体", 11F);
+            this.comboBox设备状态.FormattingEnabled = true;
+            this.comboBox设备状态.IntegralHeight = false;
+            this.comboBox设备状态.Location = new System.Drawing.Point(890, 10);
+            this.comboBox设备状态.Name = "comboBox设备状态";
+            this.comboBox设备状态.Size = new System.Drawing.Size(145, 26);
+            this.comboBox设备状态.TabIndex = 28;
+            // 
+            // comboBox巡检人员
+            // 
+            this.comboBox巡检人员.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox巡检人员.DropDownHeight = 1;
+            this.comboBox巡检人员.DropDownWidth = 1;
+            this.comboBox巡检人员.Font = new System.Drawing.Font("宋体", 11F);
+            this.comboBox巡检人员.FormattingEnabled = true;
+            this.comboBox巡检人员.IntegralHeight = false;
+            this.comboBox巡检人员.Location = new System.Drawing.Point(113, 40);
+            this.comboBox巡检人员.Name = "comboBox巡检人员";
+            this.comboBox巡检人员.Size = new System.Drawing.Size(290, 26);
+            this.comboBox巡检人员.TabIndex = 30;
+            this.comboBox巡检人员.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberMuiltySelectDialog);
+            // 
+            // label巡检人员
+            // 
+            this.label巡检人员.AutoSize = true;
+            this.label巡检人员.Font = new System.Drawing.Font("宋体", 11F);
+            this.label巡检人员.Location = new System.Drawing.Point(20, 43);
+            this.label巡检人员.Name = "label巡检人员";
+            this.label巡检人员.Size = new System.Drawing.Size(104, 19);
+            this.label巡检人员.TabIndex = 29;
+            this.label巡检人员.Text = "巡检人员：";
+            // 
+            // comboBox维保人员
+            // 
+            this.comboBox维保人员.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox维保人员.DropDownHeight = 1;
+            this.comboBox维保人员.DropDownWidth = 1;
+            this.comboBox维保人员.Font = new System.Drawing.Font("宋体", 11F);
+            this.comboBox维保人员.FormattingEnabled = true;
+            this.comboBox维保人员.IntegralHeight = false;
+            this.comboBox维保人员.Location = new System.Drawing.Point(525, 40);
+            this.comboBox维保人员.Name = "comboBox维保人员";
+            this.comboBox维保人员.Size = new System.Drawing.Size(290, 26);
+            this.comboBox维保人员.TabIndex = 32;
+            this.comboBox维保人员.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberMuiltySelectDialog);
+            // 
+            // label维保人员
+            // 
+            this.label维保人员.AutoSize = true;
+            this.label维保人员.Font = new System.Drawing.Font("宋体", 11F);
+            this.label维保人员.Location = new System.Drawing.Point(432, 43);
+            this.label维保人员.Name = "label维保人员";
+            this.label维保人员.Size = new System.Drawing.Size(104, 19);
+            this.label维保人员.TabIndex = 31;
+            this.label维保人员.Text = "维保人员：";
+            // 
+            // comboBox检验人员
+            // 
+            this.comboBox检验人员.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox检验人员.DropDownHeight = 1;
+            this.comboBox检验人员.DropDownWidth = 1;
+            this.comboBox检验人员.Font = new System.Drawing.Font("宋体", 11F);
+            this.comboBox检验人员.FormattingEnabled = true;
+            this.comboBox检验人员.IntegralHeight = false;
+            this.comboBox检验人员.Location = new System.Drawing.Point(934, 40);
+            this.comboBox检验人员.Name = "comboBox检验人员";
+            this.comboBox检验人员.Size = new System.Drawing.Size(290, 26);
+            this.comboBox检验人员.TabIndex = 34;
+            this.comboBox检验人员.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberMuiltySelectDialog);
+            // 
+            // label检验人员
+            // 
+            this.label检验人员.AutoSize = true;
+            this.label检验人员.Font = new System.Drawing.Font("宋体", 11F);
+            this.label检验人员.Location = new System.Drawing.Point(841, 43);
+            this.label检验人员.Name = "label检验人员";
+            this.label检验人员.Size = new System.Drawing.Size(104, 19);
+            this.label检验人员.TabIndex = 33;
+            this.label检验人员.Text = "检验人员：";
+            // 
             // ctn功能位置档案
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -236,12 +412,12 @@ namespace EquipmentManageSystem.设备管理
             this.Info停用启用.ColName停用 = "";
             this.Info停用启用.Color停用 = System.Drawing.Color.Red;
             this.Info停用启用.FieldName停用 = "";
-            slpInfoStop同时停启用相关信息2.停用时提示信息 = "";
-            slpInfoStop同时停启用相关信息2.启用时提示信息 = "";
-            this.Info停用启用.Info同时停启用相关信息 = slpInfoStop同时停启用相关信息2;
-            slpInfoStop启用前判断2.ColName启用时需要判断 = "";
-            slpInfoStop启用前判断2.不能启用时提示信息 = "";
-            this.Info停用启用.Info启用前判断 = slpInfoStop启用前判断2;
+            slpInfoStop同时停启用相关信息3.停用时提示信息 = "";
+            slpInfoStop同时停启用相关信息3.启用时提示信息 = "";
+            this.Info停用启用.Info同时停启用相关信息 = slpInfoStop同时停启用相关信息3;
+            slpInfoStop启用前判断3.ColName启用时需要判断 = "";
+            slpInfoStop启用前判断3.不能启用时提示信息 = "";
+            this.Info停用启用.Info启用前判断 = slpInfoStop启用前判断3;
             this.Info列配置.CurUserID = ((long)(0));
             this.Info列配置.列配置信息 = "";
             this.Info列配置.标识 = "";
@@ -282,5 +458,16 @@ namespace EquipmentManageSystem.设备管理
         private System.Windows.Forms.Label label模糊查询;
         private System.Windows.Forms.TextBox textBox模糊查询;
         private SLQLControls.控件.SLFlatButton slFlatButton导入;
+        private System.Windows.Forms.Button button查看详细;
+        private System.Windows.Forms.Label label责任人;
+        private System.Windows.Forms.ComboBox comboBox责任人;
+        private System.Windows.Forms.Label label设备状态;
+        private System.Windows.Forms.ComboBox comboBox设备状态;
+        private System.Windows.Forms.ComboBox comboBox巡检人员;
+        private System.Windows.Forms.Label label巡检人员;
+        private System.Windows.Forms.ComboBox comboBox检验人员;
+        private System.Windows.Forms.Label label检验人员;
+        private System.Windows.Forms.ComboBox comboBox维保人员;
+        private System.Windows.Forms.Label label维保人员;
     }
 }

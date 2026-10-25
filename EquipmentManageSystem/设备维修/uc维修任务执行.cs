@@ -335,8 +335,8 @@ namespace EquipmentManageSystem.设备维修
                 int num = services.ExecuteSql(sql);
                 if (num <= 0) throw new Exception("更新维修工单失败");
 
-                sql = "insert into 维修记录 (维修工单编码, 维修人ID) " +
-                      "values ('" + billCode + "', '" + repairdPersonIDs + "') ";
+                sql = "insert into 维修记录 (维修工单编码) " +
+                      "values ('" + billCode + "') ";
                 num = services.ExecuteSql(sql);
                 if (num <= 0) throw new Exception("创建新的维修记录失败");
 

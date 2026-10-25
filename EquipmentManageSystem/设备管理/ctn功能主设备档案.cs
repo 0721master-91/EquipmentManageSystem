@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using EquipmentManageSystem.Global;
+using DevExpress.Data;
 
 namespace EquipmentManageSystem.设备管理
 {
@@ -93,9 +94,12 @@ namespace EquipmentManageSystem.设备管理
             {
                 colEnabled.Visible = false;
             }
+
+            this.slDevGridControlMain.SetSummaryItem("设备编码", "合计：{0}", SummaryItemType.Count);
             this.CurrentDataSource = newTable;//将数据的地址保存，以便在模糊查询时使用
             // 数据加载后，根据内容自动调整列宽
             this.slDevGridControlMain.MainGridView.BestFitColumns();
+
             FuzzyQuery(null,null);
         }
 
@@ -132,6 +136,15 @@ namespace EquipmentManageSystem.设备管理
         private void ctn功能主设备档案_After操作(object sender, SLQLControls.控件.控件公用类.AfterEventArgs e)
         {
             this.button刷新.PerformClick();
+        }
+
+        private void button查看详细_Click(object sender, EventArgs e)
+        {
+            using(dlg功能主设备档案编辑 dlg = SLEditDialogUtil.GetDetaisDialogObj(this, typeof(dlg功能主设备档案编辑)) as dlg功能主设备档案编辑)
+            {
+                dlg.IsCloseModify = true;
+                dlg.ShowDialog();
+            }
         }
     }
 }

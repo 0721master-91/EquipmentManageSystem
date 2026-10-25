@@ -31,6 +31,17 @@ namespace EquipmentManageSystem.设备巡检
             this.IsReceivingTask = isReceivingTask;
         }
 
+        public bool IsCloseModify = false;
+        private void CloseModify()
+        {
+            if (IsCloseModify)
+            {
+                this.Text = "查看巡检任务";
+                this.button确定.Visible = false;
+                this.button取消.Visible = false;
+                this.uc巡检任务标准.panel巡检任务标准操作区.Visible = false;
+            }
+        }
         private void dlg巡检任务编辑_Load(object sender, EventArgs e)
         {
             if(this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
@@ -50,6 +61,7 @@ namespace EquipmentManageSystem.设备巡检
                 this.ChangeToReceivingTaskMode();
             }
 
+            this.CloseModify();
         }
 
         /// <summary>

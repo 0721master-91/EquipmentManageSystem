@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.Data;
 using EquipmentManageSystem.Global;
 using EquipmentManageSystem.Utils;
 using SLQLControls.模板;
@@ -23,6 +24,7 @@ namespace EquipmentManageSystem.设备保养
         {
             this.slDevGridControlMain.RowFont = new Font("宋体", 11f);
             this.slDevGridControlMain.ColumnFont = new Font("宋体", 11f);
+            this.slDevGridControlMain.ShowFooter = true;
         }
 
         private bool ctn保养任务接取_BeforeChangeDataSource()
@@ -69,6 +71,8 @@ namespace EquipmentManageSystem.设备保养
             this.textBox模糊查询.Text = string.Empty;
             this.CurrentDataSource = newTable;
             this.slDevGridControlMain.MainGridView.BestFitColumns();
+
+            this.slDevGridControlMain.SetSummaryItem("保养任务编码", "合计：{0}", SummaryItemType.Count);
         }
 
         private void FuzzyQuery(object sender, EventArgs e)

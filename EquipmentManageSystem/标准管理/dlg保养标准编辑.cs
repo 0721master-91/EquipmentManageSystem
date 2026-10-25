@@ -20,6 +20,16 @@ namespace EquipmentManageSystem.标准管理
             InitializeComponent();
         }
 
+        public bool IsCloseModify = false;
+        private void CloseModify()
+        {
+            if (IsCloseModify)
+            {
+                this.Text = "查看保养标准";
+                this.button确定.Visible = false;
+                this.button取消.Visible = false;
+            }
+        }
         private void dlg保养标准编辑_Load(object sender, EventArgs e)
         {
             //新增与复制新增的时候自动添加编码值
@@ -28,6 +38,8 @@ namespace EquipmentManageSystem.标准管理
                 this.slTextBox保养标准编码.Text = SqlCommonUtil.GenerateCode("BYBZ","保养标准","保养标准编码");
                 this.checkBox启用状态.Checked = true; // 默认启用
             }
+
+            this.CloseModify();
         }
 
         // 保存前验证数据合法性

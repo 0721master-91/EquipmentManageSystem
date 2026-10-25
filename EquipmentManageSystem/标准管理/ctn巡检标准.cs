@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using EquipmentManageSystem.Utils;
 using SLQLControls.模板;
 using EquipmentManageSystem.Global;
+using DevExpress.Data;
 
 namespace EquipmentManageSystem.标准管理
 {
@@ -100,6 +101,7 @@ namespace EquipmentManageSystem.标准管理
             var colJudge = this.slDevGridControlMain.MainGridView.Columns.ColumnByFieldName("判断标准");
             colJudge.Width = 300;
 
+            this.slDevGridControlMain.SetSummaryItem("巡检标准编码", "合计：{0}", SummaryItemType.Count);
         }
 
         /// <summary>
@@ -149,6 +151,15 @@ namespace EquipmentManageSystem.标准管理
         private void ctn巡检标准_After操作(object sender, SLQLControls.控件.控件公用类.AfterEventArgs e)
         {
             this.button刷新.PerformClick();
+        }
+
+        private void button查看详细_Click(object sender, EventArgs e)
+        {
+            using(dlg巡检标准编辑 dlg = SLEditDialogUtil.GetDetaisDialogObj(this,typeof(dlg巡检标准编辑)) as dlg巡检标准编辑)
+            {
+                dlg.IsCloseModify = true;
+                dlg.ShowDialog();
+            }
         }
     }
 }

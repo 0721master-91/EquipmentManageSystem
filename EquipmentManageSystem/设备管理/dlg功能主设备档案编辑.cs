@@ -44,6 +44,7 @@ namespace EquipmentManageSystem.设备管理
             if(this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
             {
                 this.slTextBox设备编码.Text = SqlCommonUtil.GenerateCode("SBDA","设备档案","设备编码");
+                this.checkBox启用状态.Checked = true;
             }
 
             // 将数据库中的 IsEnabled 字段值回填到复选框
@@ -53,5 +54,22 @@ namespace EquipmentManageSystem.设备管理
                 this.checkBox启用状态.Checked = Convert.ToBoolean(val);
             }
         }
+
+        public bool IsCloseModify = false;
+        private void CloseModify()
+        {
+            if (IsCloseModify)
+            {
+                this.Text = "查看设备档案";
+                this.button确定.Visible = false;
+                this.button取消.Visible = false;
+            }
+        }
+
+        private void dlg功能主设备档案编辑_Load(object sender, EventArgs e)
+        {
+            this.CloseModify();
+        }
+
     }
 }

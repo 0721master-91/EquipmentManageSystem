@@ -57,6 +57,7 @@ namespace EquipmentManageSystem.主界面
                         Height = SubButtonHeight,
                         Width = Width,
                         Margin = new Padding(0),
+                        TextAlign = ContentAlignment.MiddleRight,
                         Tag = sub.FormType   
                     };
                     subBtn.Click += owner.selectSubButton;

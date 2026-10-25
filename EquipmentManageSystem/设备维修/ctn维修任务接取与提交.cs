@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.Data;
 using EquipmentManageSystem.Global;
 using EquipmentManageSystem.Utils;
 using SLQLControls.模板;
@@ -23,6 +24,7 @@ namespace EquipmentManageSystem.设备维修
         {
             this.slDevGridControlMain.RowFont = new Font("宋体", 11f);
             this.slDevGridControlMain.ColumnFont = new Font("宋体", 11f);
+            this.slDevGridControlMain.ShowFooter = true;
         }
 
         private bool ctn维修任务接取与提交_BeforeChangeDataSource()
@@ -68,6 +70,7 @@ namespace EquipmentManageSystem.设备维修
             this.textBox模糊查询.Text = string.Empty;
             this .CurrentDataSource = newTable;
             this.slDevGridControlMain.MainGridView.BestFitColumns();
+            this.slDevGridControlMain.SetSummaryItem("单据号", "合计：{0}", SummaryItemType.Count);
         }
 
         private void button接取任务_Click(object sender, EventArgs e)

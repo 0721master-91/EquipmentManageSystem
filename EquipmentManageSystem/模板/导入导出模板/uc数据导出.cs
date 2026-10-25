@@ -435,8 +435,6 @@ namespace EquipmentManageSystem.模板.导入导出模板
                     this.MainTable,
                     field.ForeignTable);
 
-                MessageBox.Show(field.ToString());
-
 
                 for(int i = 0; i < field.Relationships.Count; i++)
                 {

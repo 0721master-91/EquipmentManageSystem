@@ -19,6 +19,7 @@ namespace EquipmentManageSystem.设备保养
         private string TaskCode; // 当前任务编码
         private string PicturePathBeforeMaintenance = string.Empty; // 保养前照片路径
         private string PicturePathAfterMaintenance = string.Empty; // 保养后照片路径
+
         public dlg保养任务编辑()
         {
             InitializeComponent();
@@ -78,7 +79,6 @@ namespace EquipmentManageSystem.设备保养
             {
                 this.FillOtherControls(this.slTextBox保养任务编码.Text);
             }
-            MessageBox.Show(this.slTextBox保养任务编码.Text);
             this.TaskCode = this.slTextBox保养任务编码.Text;
 
             this.ChangeApplicationScene(this.OperType);
@@ -153,6 +153,21 @@ namespace EquipmentManageSystem.设备保养
         {
             // 开启事务
             SLControls.SLDbService.SLOnlyInstOleDb.Services.BeginTran();
+
+            // 验收设计多个状态变更，执行前先查看任务状态
+            if(this.OperType == OperationType.AcceptanceSubmit)
+            {
+                DataTable dt = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteForDataTable("select * from 保养任务 where 保养任务编码 = '" + this.TaskCode + "' ");
+                string maintenanceStatusCode = dt.Rows[0]["保养状态编码"].ToString();
+                string executeStatusCode = dt.Rows[0]["执行状态编码"].ToString();
+                string acceptStatusCode = dt.Rows[0]["验收状态编码"].ToString();
+                if (maintenanceStatusCode == "PASSED" || executeStatusCode == "COMPLETED" || acceptStatusCode != "PENDING")
+                {
+                    PopUpUtil.ShowWarning("该保养任务已验收，无法修改！");
+                    return false;
+                }
+            }
+
             return true;
         }
 
@@ -188,6 +203,23 @@ namespace EquipmentManageSystem.设备保养
                 SLControls.SLDbService.SLOnlyInstOleDb.Services.RollBack();
             }
 
+        }
+
+        public bool IsCloseModify = false;
+        private void CloseModify()
+        {
+            if (IsCloseModify)
+            {
+                this.Text = "查看保养任务";
+                this.button确定.Visible = false;
+                this.button取消.Visible = false;
+                this.CloseCommonControls();
+            }
+        }
+
+        private void dlg保养任务编辑_Load(object sender, EventArgs e)
+        {
+            this.CloseModify();
         }
 
         // 计划时间改变时触发的事件
@@ -348,10 +380,12 @@ namespace EquipmentManageSystem.设备保养
         {
             string maintenanceStatusCode;
             string executeStatusCode = "EXECUTING";
+            string acceptStatusCode = "PENDING";
             if (this.comboBox无效单据.Text == "是")
             {
                 maintenanceStatusCode = "VOID"; // 无效单据
                 executeStatusCode = "COMPLETED";
+                acceptStatusCode = string.Empty; // 无效单据不需要验收
             }
             else
             {
@@ -361,6 +395,7 @@ namespace EquipmentManageSystem.设备保养
             string sql = "update 保养任务 " +
                          "set 执行状态编码 = '" + executeStatusCode + "', " +
                              "保养状态编码 = '" + maintenanceStatusCode + "', " +
+                             "验收状态编码 = '" + acceptStatusCode + "', " +
                              "任务接取人ID = " + UserSession.CurrentUser.MemberID + ", " +
                              "保养结束时间 = getDate() " +
                              "where 保养任务编码 = '" + this.TaskCode + "' " +
@@ -404,15 +439,14 @@ namespace EquipmentManageSystem.设备保养
                          "set 执行状态编码 = '" + executeStatusCode + "', " +
                              "保养状态编码 = '" + maintenanceStatusCode + "', " +
                              "验收人ID = " + UserSession.CurrentUser.MemberID + ", " +
-                             "验收时间 = getDate(), " +
-                             "验收状态编码 = '" + acceptCode + "' " +
+                             "验收时间 = getDate() " +
                              "where 保养任务编码 = '" + this.TaskCode + "' " +
                                  "and IsDelete = 0 " +
                                  "and 执行状态编码 != 'COMPLETED' " +
-                                 "and 保养状态编码 = 'PENDING' " +
-                                 "and (验收状态编码 is null or 验收状态编码 != 'PASSED') ";
+                                 "and 保养状态编码 = 'PENDING' ";
             int num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql);
             MessageBox.Show(sql);
+            Console.WriteLine(sql);
             if (num <= 0) throw new Exception("更新保养任务验收状态失败");
         }
 
@@ -448,9 +482,12 @@ namespace EquipmentManageSystem.设备保养
 
             // 照片加载
             string beforePath = dt.Rows[0]["保养前照片路径"]?.ToString();
-            PictureHandleUtil.LoadPicturesToPanel(this.flowLayoutPanel保养前照片, beforePath);
             string afterPath = dt.Rows[0]["保养后照片路径"]?.ToString();
-            PictureHandleUtil.LoadPicturesToPanel(this.flowLayoutPanel保养后照片, afterPath);
+            if(this.OperType != OperationType.TaskSubmit)
+            {
+                PictureHandleUtil.LoadPicturesToPanel(this.flowLayoutPanel保养前照片, beforePath);
+                PictureHandleUtil.LoadPicturesToPanel(this.flowLayoutPanel保养后照片, afterPath);
+            }
 
 
         }
@@ -510,6 +547,7 @@ namespace EquipmentManageSystem.设备保养
 
             // 关闭保养标准选择
             this.uc保养任务标准.ForbiddenOpenDialog();
+
         }
 
         /// <summary>

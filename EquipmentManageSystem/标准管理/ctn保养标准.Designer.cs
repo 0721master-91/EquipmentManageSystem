@@ -45,6 +45,7 @@ namespace EquipmentManageSystem.标准管理
             this.textBox模糊查询 = new System.Windows.Forms.TextBox();
             this.label模糊查询 = new System.Windows.Forms.Label();
             this.slFlatButton导入 = new SLQLControls.控件.SLFlatButton();
+            this.button查看详细 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -53,9 +54,22 @@ namespace EquipmentManageSystem.标准管理
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button查看详细);
             this.panel1.Location = new System.Drawing.Point(0, 612);
             this.panel1.Margin = new System.Windows.Forms.Padding(9);
             this.panel1.Size = new System.Drawing.Size(1515, 62);
+            this.panel1.Controls.SetChildIndex(this.panel5, 0);
+            this.panel1.Controls.SetChildIndex(this.button停用, 0);
+            this.panel1.Controls.SetChildIndex(this.button查询条件, 0);
+            this.panel1.Controls.SetChildIndex(this.button修改, 0);
+            this.panel1.Controls.SetChildIndex(this.button复制新增, 0);
+            this.panel1.Controls.SetChildIndex(this.button删除, 0);
+            this.panel1.Controls.SetChildIndex(this.button新增, 0);
+            this.panel1.Controls.SetChildIndex(this.button查看详细, 0);
+            // 
+            // button查询条件
+            // 
+            this.button查询条件.Location = new System.Drawing.Point(881, 19);
             // 
             // panel5
             // 
@@ -305,6 +319,21 @@ namespace EquipmentManageSystem.标准管理
             this.slFlatButton导入.UseVisualStyleBackColor = true;
             this.slFlatButton导入.Click += new System.EventHandler(this.slFlatButton导入_Click);
             // 
+            // button查看详细
+            // 
+            this.button查看详细.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button查看详细.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button查看详细.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button查看详细.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button查看详细.ForeColor = System.Drawing.Color.White;
+            this.button查看详细.Location = new System.Drawing.Point(497, 19);
+            this.button查看详细.Name = "button查看详细";
+            this.button查看详细.Size = new System.Drawing.Size(100, 29);
+            this.button查看详细.TabIndex = 33;
+            this.button查看详细.Text = "查看详细";
+            this.button查看详细.UseVisualStyleBackColor = false;
+            this.button查看详细.Click += new System.EventHandler(this.button查看详细_Click);
+            // 
             // ctn保养标准
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -367,5 +396,6 @@ namespace EquipmentManageSystem.标准管理
         private System.Windows.Forms.TextBox textBox模糊查询;
         private System.Windows.Forms.Label label模糊查询;
         private SLQLControls.控件.SLFlatButton slFlatButton导入;
+        private System.Windows.Forms.Button button查看详细;
     }
 }

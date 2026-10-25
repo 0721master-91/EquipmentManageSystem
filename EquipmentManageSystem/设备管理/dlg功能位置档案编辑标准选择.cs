@@ -55,7 +55,7 @@ namespace EquipmentManageSystem.设备管理
         }
 
 
-        private string InspectionStandardSql = "select s.巡检部位编码,s.巡检部位,s.巡检内容,s.巡检类型,判断标准,s.巡检周期,s.周期单位编码,z.单位名称 as 周期单位,s.提前提醒天数  " +
+        private string InspectionStandardSql = "select s.巡检标准编码,s.巡检部位,s.巡检内容,s.巡检类型,判断标准,s.巡检周期,s.周期单位编码,z.单位名称 as 周期单位,s.提前提醒天数  " +
                                                "from 巡检标准 as s " +
                                                "left join 周期单位 as z on z.单位编码 = s.周期单位编码 " +
                                                "where IsDelete = 0"; // 巡检标准查询sql

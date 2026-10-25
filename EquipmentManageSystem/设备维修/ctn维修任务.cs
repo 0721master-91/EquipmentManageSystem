@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using SLQLControls.模板;
 using EquipmentManageSystem.Utils;
 using EquipmentManageSystem.Global;
+using DevExpress.Data;
 
 namespace EquipmentManageSystem.设备维修
 {
@@ -25,9 +26,15 @@ namespace EquipmentManageSystem.设备维修
             this.slDevGridControlMain.ColumnFont = new Font("宋体", 11f);
             this.Type编辑窗口 = typeof(dlg维修任务编辑);
             this.EmployeeName = UserSession.CurrentUser.MemberID.ToString();
+            this.slDevGridControlMain.ShowFooter = true;
 
             CommonFilter.InitCombox(this.comboBox维修结果,"结果","编码","维修结果");
             CommonFilter.InitCombox(this.comboBox验收状态, "状态", "编码", "验收状态");
+
+            DateTime startDate = DateTime.Today.AddDays(-7);
+            DateTime endDate = DateTime.Today;
+            this.dateTimePicker创建时间起始时间.Value = startDate;
+            this.dateTimePicker创建时间结束时间.Value = endDate.AddHours(23).AddMinutes(59).AddSeconds(59);
         }
 
         private bool ctn维修任务_BeforeChangeDataSource()
@@ -75,10 +82,23 @@ namespace EquipmentManageSystem.设备维修
                 sql += " and r.维修结果编码 = '" + repairdResultCode + "' ";
             }
 
+            sql += GetTimeRangeSql(this.dateTimePicker创建时间起始时间, this.dateTimePicker创建时间结束时间, "创建时间");
+
+            sql += " order by rwo.创建时间 desc";
             this.Sql查询 = sql;
             return true;
         }
 
+        /// <summary>
+        /// / 获取时间范围查询条件
+        /// </summary>
+        private string GetTimeRangeSql(DateTimePicker startTimePicker, DateTimePicker endTimePicker, string fileName)
+        {
+            DateTime startTime = startTimePicker.Value;
+            DateTime endTime = endTimePicker.Value;
+
+            return " and rwo." + fileName + " between '" + startTime.ToString("yyyy-MM-dd HH:mm:ss") + "' and  '" + endTime.ToString("yyyy-MM-dd HH:mm:ss") + "'";
+        }
 
         private DataTable CurrentDataSource;
         private void ctn维修任务_AfterChangeDataSource(DataTable newTable)
@@ -94,6 +114,7 @@ namespace EquipmentManageSystem.设备维修
             this.CurrentDataSource = newTable;
             this.textBox模糊查询.Text = string.Empty;
             this.slDevGridControlMain.MainGridView.BestFitColumns();
+            this.slDevGridControlMain.SetSummaryItem("单据号", "合计：{0}", SummaryItemType.Count);
         }
 
 
@@ -114,6 +135,16 @@ namespace EquipmentManageSystem.设备维修
             }
         }
 
+        private void VerifyCreateTime(object sender, EventArgs e)
+        {
+            DateTime start = this.dateTimePicker创建时间起始时间.Value;
+            DateTime end = this.dateTimePicker创建时间结束时间.Value;
+            if (start > end)
+            {
+                PopUpUtil.ShowInfo("创建时间起始时间不能大于结束时间");
+                this.dateTimePicker创建时间起始时间.Value = end.AddDays(-7);
+            }
+        }
         private void button查看维修过程_Click(object sender, EventArgs e)
         {
             var gv = slDevGridControlMain.MainGridView;

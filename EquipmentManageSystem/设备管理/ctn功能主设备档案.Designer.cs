@@ -30,8 +30,8 @@ namespace EquipmentManageSystem.设备管理
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctn功能主设备档案));
-            SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息 slpInfoStop同时停启用相关信息2 = new SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息();
-            SLQLControls.控件.控件公用类.SlpInfoStop启用前判断 slpInfoStop启用前判断2 = new SLQLControls.控件.控件公用类.SlpInfoStop启用前判断();
+            SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息 slpInfoStop同时停启用相关信息1 = new SLQLControls.控件.控件公用类.SlpInfoStop同时停启用相关信息();
+            SLQLControls.控件.控件公用类.SlpInfoStop启用前判断 slpInfoStop启用前判断1 = new SLQLControls.控件.控件公用类.SlpInfoStop启用前判断();
             this.label设备编码 = new System.Windows.Forms.Label();
             this.textBox设备编码 = new System.Windows.Forms.TextBox();
             this.label设备名称 = new System.Windows.Forms.Label();
@@ -43,6 +43,7 @@ namespace EquipmentManageSystem.设备管理
             this.label1 = new System.Windows.Forms.Label();
             this.slTextBox模糊查询 = new SLControls.SLTextBox();
             this.slFlatButton导入 = new SLQLControls.控件.SLFlatButton();
+            this.button查看详细 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -51,12 +52,33 @@ namespace EquipmentManageSystem.设备管理
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button查看详细);
             this.panel1.Location = new System.Drawing.Point(0, 664);
-            this.panel1.Size = new System.Drawing.Size(1805, 62);
+            this.panel1.Size = new System.Drawing.Size(1554, 62);
+            this.panel1.Controls.SetChildIndex(this.panel5, 0);
+            this.panel1.Controls.SetChildIndex(this.button停用, 0);
+            this.panel1.Controls.SetChildIndex(this.button查询条件, 0);
+            this.panel1.Controls.SetChildIndex(this.button修改, 0);
+            this.panel1.Controls.SetChildIndex(this.button复制新增, 0);
+            this.panel1.Controls.SetChildIndex(this.button删除, 0);
+            this.panel1.Controls.SetChildIndex(this.button新增, 0);
+            this.panel1.Controls.SetChildIndex(this.button查看详细, 0);
+            // 
+            // button查询条件
+            // 
+            this.button查询条件.Location = new System.Drawing.Point(1164, 19);
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(1206, 0);
+            this.panel5.Location = new System.Drawing.Point(955, 0);
+            // 
+            // button退出
+            // 
+            this.button退出.Visible = false;
+            // 
+            // button帮助
+            // 
+            this.button帮助.Visible = false;
             // 
             // button打印
             // 
@@ -75,7 +97,7 @@ namespace EquipmentManageSystem.设备管理
             this.panel2.Controls.Add(this.textBox设备编码);
             this.panel2.Controls.Add(this.label设备编码);
             this.panel2.Font = new System.Drawing.Font("宋体", 10F);
-            this.panel2.Size = new System.Drawing.Size(1805, 84);
+            this.panel2.Size = new System.Drawing.Size(1554, 84);
             this.panel2.Controls.SetChildIndex(this.label设备编码, 0);
             this.panel2.Controls.SetChildIndex(this.textBox设备编码, 0);
             this.panel2.Controls.SetChildIndex(this.label设备名称, 0);
@@ -107,7 +129,7 @@ namespace EquipmentManageSystem.设备管理
             // panel3
             // 
             this.panel3.Location = new System.Drawing.Point(0, 84);
-            this.panel3.Size = new System.Drawing.Size(1805, 580);
+            this.panel3.Size = new System.Drawing.Size(1554, 580);
             // 
             // slDataTablePrinter
             // 
@@ -133,7 +155,7 @@ namespace EquipmentManageSystem.设备管理
             // panel4
             // 
             this.panel4.Controls.Add(this.slFlatButton导入);
-            this.panel4.Location = new System.Drawing.Point(1537, 0);
+            this.panel4.Location = new System.Drawing.Point(1286, 0);
             this.panel4.Size = new System.Drawing.Size(268, 84);
             this.panel4.Controls.SetChildIndex(this.button刷新, 0);
             this.panel4.Controls.SetChildIndex(this.button筛选, 0);
@@ -273,21 +295,36 @@ namespace EquipmentManageSystem.设备管理
             this.slFlatButton导入.UseVisualStyleBackColor = true;
             this.slFlatButton导入.Click += new System.EventHandler(this.OpenImportOutDialog);
             // 
+            // button查看详细
+            // 
+            this.button查看详细.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button查看详细.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button查看详细.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button查看详细.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button查看详细.ForeColor = System.Drawing.Color.White;
+            this.button查看详细.Location = new System.Drawing.Point(525, 19);
+            this.button查看详细.Name = "button查看详细";
+            this.button查看详细.Size = new System.Drawing.Size(100, 29);
+            this.button查看详细.TabIndex = 33;
+            this.button查看详细.Text = "查看详细";
+            this.button查看详细.UseVisualStyleBackColor = false;
+            this.button查看详细.Click += new System.EventHandler(this.button查看详细_Click);
+            // 
             // ctn功能主设备档案
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1805, 726);
+            this.ClientSize = new System.Drawing.Size(1554, 726);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Info停用启用.ColName停用 = "";
             this.Info停用启用.Color停用 = System.Drawing.Color.Red;
             this.Info停用启用.FieldName停用 = "";
-            slpInfoStop同时停启用相关信息2.停用时提示信息 = "";
-            slpInfoStop同时停启用相关信息2.启用时提示信息 = "";
-            this.Info停用启用.Info同时停启用相关信息 = slpInfoStop同时停启用相关信息2;
-            slpInfoStop启用前判断2.ColName启用时需要判断 = "";
-            slpInfoStop启用前判断2.不能启用时提示信息 = "";
-            this.Info停用启用.Info启用前判断 = slpInfoStop启用前判断2;
+            slpInfoStop同时停启用相关信息1.停用时提示信息 = "";
+            slpInfoStop同时停启用相关信息1.启用时提示信息 = "";
+            this.Info停用启用.Info同时停启用相关信息 = slpInfoStop同时停启用相关信息1;
+            slpInfoStop启用前判断1.ColName启用时需要判断 = "";
+            slpInfoStop启用前判断1.不能启用时提示信息 = "";
+            this.Info停用启用.Info启用前判断 = slpInfoStop启用前判断1;
             this.Info列配置.CurUserID = ((long)(0));
             this.Info列配置.列配置信息 = "";
             this.Info列配置.标识 = "";
@@ -301,6 +338,7 @@ namespace EquipmentManageSystem.设备管理
             this.Info数据编辑.Params = null;
             this.Info数据编辑.Type编辑窗口 = null;
             this.Name = "ctn功能主设备档案";
+            this.TableName = "设备档案";
             this.Text = "功能主设备档案";
             this.After操作 += new SLQLControls.控件.控件公用类.SlkEditGridEventHandle.AfterEventHandler(this.ctn功能主设备档案_After操作);
             this.AfterChangeDataSource += new SLQLControls.模板.temp标准报表GridControl.AfterChangeDataSourceEventHandle(this.ctn功能主设备档案_AfterChangeDataSource);
@@ -330,5 +368,6 @@ namespace EquipmentManageSystem.设备管理
         private SLControls.SLTextBox slTextBox模糊查询;
         private System.Windows.Forms.Label label1;
         private SLQLControls.控件.SLFlatButton slFlatButton导入;
+        private System.Windows.Forms.Button button查看详细;
     }
 }

@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +42,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -48,13 +52,26 @@
     <PlatformTarget>x86</PlatformTarget>
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Charts.v15.1.Core, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Ctrls\DevExpress.Charts.v15.1.Core.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Ctrls\DevExpress.XtraCharts.v15.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v15.1.UI, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Ctrls\DevExpress.XtraCharts.v15.1.UI.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.XtraEditors.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGrid.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EPPlus, Version=4.5.3.3, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
@@ -63,6 +80,12 @@
     <Reference Include="Interop.grproLib">
       <HintPath>Ctrls\Interop.grproLib.dll</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="OxyPlot, Version=1.0.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.Core.1.0.0\lib\net40\OxyPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.WindowsForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=245eacd6b5d2d338, processorArchitecture=MSIL">
+      <HintPath>..\packages\OxyPlot.WindowsForms.1.0.0\lib\net40\OxyPlot.WindowsForms.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="SLControls">
@@ -76,6 +99,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -113,10 +137,54 @@
     <Compile Include="Utils\CommonFilter.cs" />
     <Compile Include="Utils\PictureHandleUtil.cs" />
     <Compile Include="Utils\PopUpUtil.cs" />
+    <Compile Include="Utils\SLEditDialogUtil.cs" />
     <Compile Include="Utils\SqlCommonUtil.cs" />
     <Compile Include="Utils\TaskStatusManager.cs" />
     <Compile Include="主界面\MenuBuilder.cs" />
     <Compile Include="主界面\MenuConfig.cs" />
+    <Compile Include="数据报表\AggregateType.cs" />
+    <Compile Include="数据报表\ctn设备总体概况.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="数据报表\ctn设备总体概况.Designer.cs">
+      <DependentUpon>ctn设备总体概况.cs</DependentUpon>
+    </Compile>
+    <Compile Include="数据报表\dlg导出.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="数据报表\dlg导出.Designer.cs">
+      <DependentUpon>dlg导出.cs</DependentUpon>
+    </Compile>
+    <Compile Include="数据报表\dlg组织部门选择.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="数据报表\dlg组织部门选择.Designer.cs">
+      <DependentUpon>dlg组织部门选择.cs</DependentUpon>
+    </Compile>
+    <Compile Include="数据报表\ExcelExportUtil.cs" />
+    <Compile Include="数据报表\ExportConfig.cs" />
+    <Compile Include="数据报表\ExportDataType.cs" />
+    <Compile Include="数据报表\ExportEntrance.cs" />
+    <Compile Include="数据报表\OrderType.cs" />
+    <Compile Include="数据报表\QueryData.cs" />
+    <Compile Include="数据报表\uc设备总体概况业务单据汇总.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="数据报表\uc设备总体概况业务单据汇总.Designer.cs">
+      <DependentUpon>uc设备总体概况业务单据汇总.cs</DependentUpon>
+    </Compile>
+    <Compile Include="数据报表\uc设备总体概况人员工作量.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="数据报表\uc设备总体概况人员工作量.Designer.cs">
+      <DependentUpon>uc设备总体概况人员工作量.cs</DependentUpon>
+    </Compile>
+    <Compile Include="数据报表\uc设备总体概况状态分布.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="数据报表\uc设备总体概况状态分布.Designer.cs">
+      <DependentUpon>uc设备总体概况状态分布.cs</DependentUpon>
+    </Compile>
     <Compile Include="标准管理\ctn保养标准.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -459,7 +527,26 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="数据报表\ctn设备总体概况.resx">
+      <DependentUpon>ctn设备总体概况.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="数据报表\dlg导出.resx">
+      <DependentUpon>dlg导出.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="数据报表\dlg组织部门选择.resx">
+      <DependentUpon>dlg组织部门选择.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="数据报表\uc设备总体概况业务单据汇总.resx">
+      <DependentUpon>uc设备总体概况业务单据汇总.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="数据报表\uc设备总体概况人员工作量.resx">
+      <DependentUpon>uc设备总体概况人员工作量.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="数据报表\uc设备总体概况状态分布.resx">
+      <DependentUpon>uc设备总体概况状态分布.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="标准管理\ctn保养标准.resx">
       <DependentUpon>ctn保养标准.cs</DependentUpon>
     </EmbeddedResource>
@@ -616,6 +703,7 @@
     <EmbeddedResource Include="设备维修\uc维修工单维修记录.resx">
       <DependentUpon>uc维修工单维修记录.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -627,6 +715,38 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Go.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\图层.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\故障停机.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\正常运行.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\箭头-向右.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\箭头-向左.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\箭头-首页.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\箭头_最后一页.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\维修中.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\设备设施.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

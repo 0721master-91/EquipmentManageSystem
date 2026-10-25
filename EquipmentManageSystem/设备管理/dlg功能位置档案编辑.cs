@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using EquipmentManageSystem.Utils;
 using SLControls;
 using SLControls.SLGlobal;
+using EquipmentManageSystem.Global;
 
 namespace EquipmentManageSystem.设备管理
 {
@@ -22,6 +23,23 @@ namespace EquipmentManageSystem.设备管理
             this.comboBox所属组织.KeyPress += (s, args) => args.Handled = true;
         }
 
+        /// <summary>
+        /// 关闭修改操作键开关，默认为false
+        /// </summary>
+        public bool IsCloseModify = false;
+        /// <summary>
+        /// 关闭数据修改方法,窗口加载后执行
+        /// </summary>
+        private void CloseModify()
+        {
+            if (IsCloseModify)
+            {
+                this.Text = "查看功能位置档案";
+                this.button确定.Visible = false;
+                this.button取消.Visible = false;
+            }
+        }
+
         private void dlg功能位置档案编辑_Load(object sender, EventArgs e)
         {
             if(this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
@@ -32,6 +50,7 @@ namespace EquipmentManageSystem.设备管理
             }
 
             RemoveVerticalLines();
+            CloseModify(); // 默认空逻辑
         }
 
         /// <summary>
@@ -92,14 +111,40 @@ namespace EquipmentManageSystem.设备管理
                 string level2Code = this.textBox二级编码.Text;
                 string level3Code = this.textBox三级编码.Text;
 
-                this.slTextBox功能位置编码.Text = level3Code + level2Code + level1Code;
+                string positionCode = level3Code + level2Code + level1Code;
+                if (this.VerifyPositionCode(positionCode))
+                {
+                    this.slTextBox功能位置编码.Text = positionCode;
+                }        
             }
         }
 
         /// <summary>
-        /// 打开人员选择弹窗界面
+        /// 验证功能位置编码
         /// </summary>
-        private void OpenMemberSelectDialog(object sender, MouseEventArgs e)
+        /// <returns></returns>
+        private bool VerifyPositionCode(string code)
+        {
+            string sql = "select count(1) from 设备功能位置档案 where 功能位置编码 = '" + code + "'";
+            if(this.OperFlag == SleOperFlag.Modify)
+            {
+                sql += " and 单据号 <> '" + this.TempBillCode + "'";
+            }
+
+            int num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteForInt(sql);
+            if (num != 0)
+            {
+                PopUpUtil.ShowWarning("功能位置编码已存在，请重新选择组织和主设备信息");
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// 打开人员选择弹窗界面(多选)
+        /// </summary>
+        private void OpenMemberSelectDialogMultiple(object sender, MouseEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
             string name = comboBox.Name.Replace("comboBox", "");
@@ -116,14 +161,43 @@ namespace EquipmentManageSystem.设备管理
         }
 
         /// <summary>
-        /// 打开部门选择框
+        /// 打开人员选择弹窗界面(单选)
         /// </summary>
-        private void OpenDepartmentSelectDialog(object sender, MouseEventArgs e)
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenMemberSelectDialogSingle(object sender, MouseEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
             string name = comboBox.Name.Replace("comboBox", "");
 
-            using (dlg功能位置档案编辑部门选择 dlg = new dlg功能位置档案编辑部门选择())
+            using (dlg功能位置档案编辑成员选择 dlg = new dlg功能位置档案编辑成员选择(name + "选择") { IsMultiSelect = false })
+            {
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    comboBox.Tag = dlg.SelectedMemberIDs;
+                    comboBox.Text = dlg.SelectedMemberNames;
+                }
+            }
+            this.ActiveControl = null;
+        }
+
+        /// <summary>
+        /// 打开部门选择框
+        /// </summary>
+        private void OpenDepartmentSelectDialog(object sender, MouseEventArgs e)
+        {
+            object orgCodeObj = this.comboBox所属组织.Tag;
+            string orgCode = orgCodeObj == null ? "" : orgCodeObj.ToString();
+            if (string.IsNullOrEmpty(orgCode))
+            {
+                PopUpUtil.ShowWarning("请先选择所属组织");
+                return;
+            }
+
+            ComboBox comboBox = (ComboBox)sender;
+            string name = comboBox.Name.Replace("comboBox", "");
+
+            using (dlg功能位置档案编辑部门选择 dlg = new dlg功能位置档案编辑部门选择(orgCode) {Text = name + "选择" })
             {
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
@@ -136,10 +210,18 @@ namespace EquipmentManageSystem.设备管理
 
         private bool dlg功能位置档案编辑_PreOK(FieldArray aryFields)
         {
+            if (this.VerifyPositionCode(this.slTextBox功能位置编码.Text) == false) return false;
+
+            if (this.VerifyData() == false) return false;
+
+            if (this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
+            {
+                this.slTextBox单据号.Text = SqlCommonUtil.GenerateCode("WZDA", "设备功能位置档案", "单据号");
+            }
+
             BandExtraFields();// 将额外添加的字段交于控件管理
 
-
-
+            DataTrack.AddTrack(this.OtherFields, this.OperFlag);
             return true;
         }
 
@@ -148,67 +230,101 @@ namespace EquipmentManageSystem.设备管理
         /// </summary>
         private void BandExtraFields()
         {
-            string organizationCode = this.comboBox所属组织.Tag as string;
-            if (!string.IsNullOrEmpty(organizationCode))
+            this.OtherFields["组织编码"] = this.comboBox所属组织.Tag as string;
+
+            this.OtherFields["绑定主设备ID"] = Convert.ToInt64(this.comboBox功能主设备.Tag);
+
+            this.OtherFields["管理部门编码"] = this.comboBox管理部门.Tag as string;
+
+            this.OtherFields["使用部门编码"] = this.comboBox使用部门.Tag as string;
+
+            this.OtherFields["责任人ID"] = Convert.ToInt64(this.comboBox责任人.Tag);
+
+            this.OtherFields["巡检人员IDs"] = this.comboBox巡检人员.Tag as string;
+
+            this.OtherFields["维保人员IDs"] = this.comboBox维保人员.Tag as string;
+
+            this.OtherFields["检验人员IDs"] = this.comboBox检验人员.Tag as string;
+        }
+
+        /// <summary>
+        /// 验证数据合法性
+        /// </summary>
+        /// <returns></returns>
+        private bool VerifyData()
+        {
+            // 功能位置编码不能为空
+            string positionCode = this.slTextBox功能位置编码.Text;
+            if (string.IsNullOrEmpty(positionCode))
             {
-                this.OtherFields["组织编码"] = organizationCode;
+                PopUpUtil.ShowWarning("功能位置编码不能为空");
+                return false;
             }
 
-            long equipmentID = Convert.ToInt64(this.comboBox功能主设备.Tag);
-            if (equipmentID > 0)
+            // 功能位置描述
+            string positionDesc = this.slTextBox功能位置描述.Text;
+            if (string.IsNullOrEmpty(positionDesc))
             {
-                this.OtherFields["绑定主设备ID"] = equipmentID;
+                PopUpUtil.ShowWarning("功能位置描述不能为空");
+                return false;
             }
 
-            string ManageDepartment = this.comboBox管理部门.Tag as string;
-            if (!string.IsNullOrEmpty(ManageDepartment))
+            // 管理部门
+            string manageDepartmentIDs = this.comboBox管理部门.Tag as string;
+            if (string.IsNullOrEmpty(manageDepartmentIDs))
             {
-                this.OtherFields["管理部门编码"] = ManageDepartment;
+                PopUpUtil.ShowWarning("管理部门不能为空");
+                return false;
             }
 
-            string UseDepartment = this.comboBox使用部门.Tag as string;
-            if (!string.IsNullOrEmpty(UseDepartment))
+            // 使用部门
+            string useDepartmentIDs = this.comboBox使用部门.Tag as string;
+            if (string.IsNullOrEmpty(useDepartmentIDs))
             {
-                this.OtherFields["使用部门编码"] = UseDepartment;
+                PopUpUtil.ShowWarning("使用部门不能为空");
+                return false;
             }
 
-            object person = this.comboBox责任人.Tag;
-            if (person != null)
+            // 责任人
+            string responsiblePersonIDs = this.comboBox责任人.Tag as string;
+            if (string.IsNullOrEmpty(responsiblePersonIDs))
             {
-                if (person != null && long.TryParse(person.ToString(), out long responsiblePerson) && responsiblePerson > 0)
-                {
-                    this.OtherFields["责任人ID"] = responsiblePerson.ToString();
-                }
+                PopUpUtil.ShowWarning("责任人不能为空");
+                return false;
             }
 
-
+            // 巡检、维保、检验人员
             string inspectors = this.comboBox巡检人员.Tag as string;
-            if (!string.IsNullOrEmpty(inspectors))
+            if (string.IsNullOrEmpty(inspectors))
             {
-                this.OtherFields["巡检人员IDs"] = inspectors;
+                PopUpUtil.ShowWarning("巡检人员不能为空");
+                return false;
             }
 
             string maintainers = this.comboBox维保人员.Tag as string;
-            if (!string.IsNullOrEmpty(maintainers))
+            if (string.IsNullOrEmpty(maintainers))
             {
-                this.OtherFields["维保人员IDs"] = maintainers;
+                PopUpUtil.ShowWarning("维保人员不能为空");
+                return false;
             }
 
             string checkers = this.comboBox检验人员.Tag as string;
-            if (!string.IsNullOrEmpty(checkers))
+            if (string.IsNullOrEmpty(checkers))
             {
-                this.OtherFields["检验人员IDs"] = checkers;
+                PopUpUtil.ShowWarning("检验人员不能为空");
+                return false;
             }
-        }
 
+            return true;
+        }
 
         private void dlg功能位置档案编辑_AfterFillControls()
         {
             if (this.OperFlag == SleOperFlag.Modify)
             {
+                this.TempBillCode = this.slTextBox单据号.Text;
                 FillComBox();
                 FillStandardData();
-                this.TempBillCode = this.slTextBox单据号.Text;
             }
         }
 

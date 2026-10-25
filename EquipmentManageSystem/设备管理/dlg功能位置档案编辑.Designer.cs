@@ -476,7 +476,7 @@ namespace EquipmentManageSystem.设备管理
             this.comboBox检验人员.Name = "comboBox检验人员";
             this.comboBox检验人员.Size = new System.Drawing.Size(426, 26);
             this.comboBox检验人员.TabIndex = 34;
-            this.comboBox检验人员.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberSelectDialog);
+            this.comboBox检验人员.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberSelectDialogMultiple);
             // 
             // label检验人员
             // 
@@ -494,7 +494,7 @@ namespace EquipmentManageSystem.设备管理
             this.comboBox维保人员.Name = "comboBox维保人员";
             this.comboBox维保人员.Size = new System.Drawing.Size(426, 26);
             this.comboBox维保人员.TabIndex = 32;
-            this.comboBox维保人员.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberSelectDialog);
+            this.comboBox维保人员.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberSelectDialogMultiple);
             // 
             // label维保人员
             // 
@@ -512,7 +512,7 @@ namespace EquipmentManageSystem.设备管理
             this.comboBox巡检人员.Name = "comboBox巡检人员";
             this.comboBox巡检人员.Size = new System.Drawing.Size(426, 26);
             this.comboBox巡检人员.TabIndex = 30;
-            this.comboBox巡检人员.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberSelectDialog);
+            this.comboBox巡检人员.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberSelectDialogMultiple);
             // 
             // label巡检人员
             // 
@@ -620,7 +620,7 @@ namespace EquipmentManageSystem.设备管理
             this.comboBox责任人.Name = "comboBox责任人";
             this.comboBox责任人.Size = new System.Drawing.Size(426, 26);
             this.comboBox责任人.TabIndex = 28;
-            this.comboBox责任人.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberSelectDialog);
+            this.comboBox责任人.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OpenMemberSelectDialogSingle);
             // 
             // label责任人
             // 
@@ -642,6 +642,7 @@ namespace EquipmentManageSystem.设备管理
             // 
             // slComboBox所属区域
             // 
+            this.slComboBox所属区域.AllowEmpty = false;
             this.slComboBox所属区域.BeforeFormatControlTextHandler = null;
             this.slComboBox所属区域.DataType = SLControls.SLGlobal.SleDataType.String;
             this.slComboBox所属区域.DispField = "名称";

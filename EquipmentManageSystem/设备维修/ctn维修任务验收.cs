@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.Data;
 using EquipmentManageSystem.Global;
 using EquipmentManageSystem.Utils;
 using SLQLControls.模板;
@@ -53,6 +54,7 @@ namespace EquipmentManageSystem.设备维修
             colCheckPerson.Visible = false;
 
             this.slDevGridControlMain.MainGridView.BestFitColumns();
+            this.slDevGridControlMain.SetSummaryItem("单据号", "合计：{0}", SummaryItemType.Count);
         }
 
         private void ctn维修任务验收_Load(object sender, EventArgs e)
@@ -60,6 +62,7 @@ namespace EquipmentManageSystem.设备维修
             this.slDevGridControlMain.RowFont = new Font("宋体", 11f);
             this.slDevGridControlMain.ColumnFont = new Font("宋体", 11f);
             this.EmployeeName = UserSession.CurrentUser.MemberID.ToString();
+            this.slDevGridControlMain.ShowFooter = true;
         }
 
         private void button验收任务_Click(object sender, EventArgs e)

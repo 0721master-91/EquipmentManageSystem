@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿using System;
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Drawing;
@@ -187,6 +187,42 @@ namespace EquipmentManageSystem.Utils
                 {
                     System.Diagnostics.Debug.WriteLine(ex.Message);
                 }
+            }
+        }
+
+        /// <summary>
+        /// 加载图片到图片框控件
+        /// </summary>
+        /// <param name="pictureBox">pictureBox控件对象</param>
+        /// <param name="picturePath">图片相对路径</param>
+        public static void LoadPictureToPictureBox(PictureBox pictureBox, string picturePath)
+        {
+            if (string.IsNullOrEmpty(picturePath)) return;
+
+            // 统一分隔符：\ 、\、//、/ 都归一化为当前系统的目录分隔符
+            string clean = picturePath.Trim().Replace('\\', Path.DirectorySeparatorChar).Replace('/', Path.DirectorySeparatorChar);
+            clean = clean.Replace(string.Concat(Path.DirectorySeparatorChar, Path.DirectorySeparatorChar), Path.DirectorySeparatorChar.ToString());
+
+            string fullPath;
+            if (Path.IsPathRooted(clean))
+            {
+                // 已是绝对路径，直接使用
+                fullPath = clean;
+            }
+            else
+            {
+                // 相对路径：与程序启动目录正确拼接
+                fullPath = Path.Combine(Application.StartupPath, clean.TrimStart(Path.DirectorySeparatorChar));
+            }
+
+            if (File.Exists(fullPath))
+            {
+                if (pictureBox.Image != null)
+                {
+                    pictureBox.Image.Dispose();
+                }
+                pictureBox.Image = Image.FromFile(fullPath);
+                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
         }
 

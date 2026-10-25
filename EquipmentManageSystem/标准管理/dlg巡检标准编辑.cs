@@ -20,6 +20,17 @@ namespace EquipmentManageSystem.标准管理
             InitializeComponent();
         }
 
+        public bool IsCloseModify = false;
+        private void CloseModify()
+        {
+            if (IsCloseModify)
+            {
+                this.Text = "查看巡检标准";
+                this.button确定.Visible = false;
+                this.button取消.Visible = false;
+            }
+        }
+
         //加载窗口的时候就自动获取编码值
         private void dlg巡检标准编辑_Load(object sender, EventArgs e)
         {
@@ -29,6 +40,8 @@ namespace EquipmentManageSystem.标准管理
                 this.checkBox启用状态.Checked = true; // 默认启用
                 this.slDateTimePicker开始执行日期.Value = DateTime.Now.Date;
             }
+
+            this.CloseModify();
         }
 
         // 检查值是否合法

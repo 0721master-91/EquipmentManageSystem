@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using EquipmentManageSystem.Utils;
 using SLQLControls.模板;
 using EquipmentManageSystem.Global;
+using DevExpress.Data;
 
 namespace EquipmentManageSystem.标准管理
 {
@@ -28,6 +29,15 @@ namespace EquipmentManageSystem.标准管理
             this.slDevGridControlMain.ShowFooter = true;
             this.LodeFilter();
 
+        }
+
+        private void button查看详细_Click(object sender, EventArgs e)
+        {
+            using(dlg保养标准编辑 dlg = SLEditDialogUtil.GetDetaisDialogObj(this,typeof(dlg保养标准编辑)) as dlg保养标准编辑)
+            {
+                dlg.IsCloseModify = true;
+                dlg.ShowDialog();
+            }
         }
 
         /// <summary>
@@ -113,6 +123,8 @@ namespace EquipmentManageSystem.标准管理
 
             var colContent = this.slDevGridControlMain.MainGridView.Columns.ColumnByFieldName("保养内容");
             colContent.Width = 200;
+
+            this.slDevGridControlMain.SetSummaryItem("保养标准编码", "合计：{0}", SummaryItemType.Count);
         }
 
         /// <summary>

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using EquipmentManageSystem.Utils;
 using SLQLControls.模板;
 using EquipmentManageSystem.Global;
+using DevExpress.Data;
 
 namespace EquipmentManageSystem.设备巡检
 {
@@ -26,9 +27,20 @@ namespace EquipmentManageSystem.设备巡检
             this.slDevGridControlMain.ColumnFont = new Font("宋体", 11f);
             this.Type编辑窗口 = typeof(dlg巡检任务编辑);
             this.EmployeeName = UserSession.CurrentUser.MemberID.ToString();
+            this.slDevGridControlMain.ShowFooter = true;
 
             CommonFilter.InitCombox(this.comboBox执行状态,"状态","编码","执行状态");
             CommonFilter.InitCombox(this.comboBox过期状态, "状态", "编码", "过期状态");
+
+            DateTime startDate = DateTime.Today.AddDays(-7);
+            DateTime endDate = DateTime.Today;
+
+            this.dateTimePicker计划执行日期开始日期.Value = startDate;
+            this.dateTimePicker计划执行日期结束日期.Value = endDate;
+            this.dateTimePicker巡检开始时间起始时间.Value = startDate;
+            this.dateTimePicker巡检开始时间结束时间.Value = endDate.AddHours(23).AddMinutes(59).AddSeconds(59);
+            this.dateTimePicker创建时间起始时间.Value = startDate;
+            this.dateTimePicker创建时间结束时间.Value = endDate.AddHours(23).AddMinutes(59).AddSeconds(59);
         }
 
         private bool ctn巡检任务_BeforeChangeDataSource()
@@ -45,6 +57,21 @@ namespace EquipmentManageSystem.设备巡检
                          "left join 过期状态 as os on t.过期状态编码 = os.编码 " +
                          "where t.IsDelete = 0";
 
+            object orgCodeObj = this.comboBox所属组织.Tag;
+            string orgCode = orgCodeObj == null ? "" : orgCodeObj.ToString();
+            if (!string.IsNullOrEmpty(orgCode))
+            {
+                sql += " and p.组织编码 = '" + orgCode + "'";
+            }
+            
+            string positionSimpleName = this.textBox位置简称.Text.Trim();
+            if (!string.IsNullOrEmpty(positionSimpleName))
+            {
+                sql += " and p.位置简称 like '%" + positionSimpleName + "%'";
+            }
+
+            sql += GetTimeRangeSql(this.dateTimePicker计划执行日期开始日期, this.dateTimePicker计划执行日期结束日期, "计划执行日期");
+
             object executeStatusObj = this.comboBox执行状态.SelectedValue;
             string executeStatus = executeStatusObj == null ? "" : executeStatusObj.ToString();
             if (!string.IsNullOrEmpty(executeStatus))
@@ -59,8 +86,47 @@ namespace EquipmentManageSystem.设备巡检
                 sql += " and t.过期状态编码 = '" + overStatus + "'";
             }
 
+            object inspectorIDsObj = this.comboBox巡检人员.Tag;
+            string inspectorIDs = inspectorIDsObj == null ? "" : inspectorIDsObj.ToString();
+            if (!string.IsNullOrEmpty(inspectorIDs))
+            {
+                sql += GetMemberQuerySql(inspectorIDs.Split(','), "巡检人员IDs");
+            }
+
+            sql += GetTimeRangeSql(this.dateTimePicker巡检开始时间起始时间, this.dateTimePicker巡检开始时间结束时间, "巡检开始时间");
+            sql += GetTimeRangeSql(this.dateTimePicker创建时间起始时间, this.dateTimePicker创建时间结束时间, "创建时间");
+
+            sql += " order by t.创建时间 desc";
+
+            Console.WriteLine(sql);
             this.Sql查询 = sql;
             return true;
+        }
+
+        /// <summary>
+        /// / 获取时间范围查询条件
+        /// </summary>
+        private string GetTimeRangeSql(DateTimePicker startTimePicker, DateTimePicker endTimePicker,string fileName)
+        {
+            DateTime startTime = startTimePicker.Value;
+            DateTime endTime = endTimePicker.Value;
+
+            return " and t." + fileName + " between '" + startTime.ToString("yyyy-MM-dd HH:mm:ss") + "' and  '" + endTime.ToString("yyyy-MM-dd HH:mm:ss") + "'";
+        }
+
+        /// <summary>
+        /// 将成员ID组合成SQL语句，用于查询
+        /// </summary>
+
+        private string GetMemberQuerySql(string[] memberIDList, string fileName)
+        {
+            List<string> conditions = new List<string>();
+            foreach (string id in memberIDList)
+            {
+                conditions.Add("charindex(',' + '" + id + "' + ',' , ',' + t." + fileName + " + ',') > 0");
+            }
+            string sqlCondition = "(" + string.Join(" and ", conditions) + ")";
+            return " and " + sqlCondition;
         }
 
         private DataTable CurrentDataSource;
@@ -77,6 +143,8 @@ namespace EquipmentManageSystem.设备巡检
             this.textBox模糊查询.Text = string.Empty;
             this.CurrentDataSource = newTable;
             this.slDevGridControlMain.MainGridView.BestFitColumns();
+
+            this.slDevGridControlMain.SetSummaryItem("巡检任务编码", "合计：{0}", SummaryItemType.Count);
         }
 
         private void FuzzyQuery(object sender, EventArgs e)
@@ -114,6 +182,72 @@ namespace EquipmentManageSystem.设备巡检
         private void ctn巡检任务_After操作(object sender, SLQLControls.控件.控件公用类.AfterEventArgs e)
         {
             this.button刷新.PerformClick();
+        }
+
+        private void button查看详细_Click(object sender, EventArgs e)
+        {
+            using(dlg巡检任务编辑 dlg = SLEditDialogUtil.GetDetaisDialogObj(this,typeof(dlg巡检任务编辑)) as dlg巡检任务编辑)
+            {
+                dlg.IsCloseModify = true;
+                dlg.ShowDialog();
+            }
+        }
+
+        private void comboBox所属组织_MouseDown(object sender, MouseEventArgs e)
+        {
+            using(dlg组织选择 dlg = new dlg组织选择())
+            {
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    this.comboBox所属组织.Text = dlg.OrgName;
+                    this.comboBox所属组织.Tag = dlg.OrgCode;
+                }
+            }
+        }
+
+        private void VerifyPlanExecuteDate(object sender, EventArgs e)
+        {
+            DateTime start = this.dateTimePicker计划执行日期开始日期.Value;
+            DateTime end = this.dateTimePicker计划执行日期结束日期.Value;
+            if (start > end)
+            {
+                PopUpUtil.ShowInfo("计划执行日期开始日期不能大于结束日期");
+                this.dateTimePicker计划执行日期开始日期.Value = end.AddDays(-7);
+            }
+        }
+
+        private void VerifyInspectStartTime(object sender, EventArgs e)
+        {
+            DateTime start = this.dateTimePicker巡检开始时间起始时间.Value;
+            DateTime end = this.dateTimePicker巡检开始时间结束时间.Value;
+            if (start > end)
+            {
+                PopUpUtil.ShowInfo("巡检开始时间起始时间不能大于结束时间");
+                this.dateTimePicker巡检开始时间起始时间.Value = end.AddDays(-7);
+            }
+        }
+
+        private void VerifyCreateTime(object sender, EventArgs e)
+        {
+            DateTime start = this.dateTimePicker创建时间起始时间.Value;
+            DateTime end = this.dateTimePicker创建时间结束时间.Value;
+            if (start > end)
+            {
+                PopUpUtil.ShowInfo("创建时间起始时间不能大于结束时间");
+                this.dateTimePicker创建时间起始时间.Value = end.AddDays(-7);
+            }
+        }
+
+        private void comboBox巡检人员_MouseDown(object sender, MouseEventArgs e)
+        {
+            using (dlg人员选择 dlg = new dlg人员选择("选择巡检人员") { IsMultiSelect = true })
+            {
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    this.comboBox巡检人员.Text = dlg.SelectedMemberNames;
+                    this.comboBox巡检人员.Tag = dlg.SelectedMemberIDs;
+                }
+            }
         }
     }
 }

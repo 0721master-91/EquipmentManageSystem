@@ -198,6 +198,7 @@ namespace EquipmentManageSystem.设备管理
             this.Text = "功能主设备档案";
             this.AfterFillControls += new SLControls.AfterFillControlsHandler(this.dlg功能主设备档案编辑_AfterFillControls);
             this.PreOK += new SLControls.PreOKHandler(this.dlg功能主设备档案编辑_PreOK);
+            this.Load += new System.EventHandler(this.dlg功能主设备档案编辑_Load);
             this.Controls.SetChildIndex(this.button确定, 0);
             this.Controls.SetChildIndex(this.button取消, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);

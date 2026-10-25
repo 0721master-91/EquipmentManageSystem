@@ -28,7 +28,8 @@ namespace EquipmentManageSystem.设备管理
                        "from 成员 as c " +
                        "left join 部门 as b on c.部门编码 = b.部门编码 " +
                        "left join 组织 as z on b.组织编码 = z.组织编码 " +
-                       "where c.IsDelete = 0";
+                       "where c.IsDelete = 0 " +
+                       "and c.ID <> 0"; 
 
             return true;
         }

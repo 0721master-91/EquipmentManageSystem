@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.Data;
 using EquipmentManageSystem.Global;
 using EquipmentManageSystem.Utils;
 using SLQLControls.模板;
@@ -24,11 +25,20 @@ namespace EquipmentManageSystem.设备保养
             this.slDevGridControlMain.RowFont = new Font("宋体", 11f);
             this.slDevGridControlMain.ColumnFont = new Font("宋体", 11f);
             this.Type编辑窗口 = typeof(dlg保养任务编辑);
-            this.EmployeeName = UserSession.CurrentUser.MemberID.ToString(); 
+            this.EmployeeName = UserSession.CurrentUser.MemberID.ToString();
+            this.slDevGridControlMain.ShowFooter = true;
 
 
             CommonFilter.InitCombox(this.comboBox过期状态, "状态", "编码", "过期状态");
             CommonFilter.InitCombox(this.comboBox保养状态, "状态", "编码", "保养状态");
+
+            DateTime startDate = DateTime.Today.AddDays(-7);
+            DateTime endDate = DateTime.Today;
+
+            this.dateTimePicker计划执行日期开始日期.Value = startDate;
+            this.dateTimePicker计划执行日期结束日期.Value = endDate;
+            this.dateTimePicker保养结束时间起始时间.Value = startDate;
+            this.dateTimePicker保养结束时间结束时间.Value = endDate.AddHours(23).AddMinutes(59).AddSeconds(59);
         }
 
         private bool ctn保养任务_BeforeChangeDataSource()
@@ -45,35 +55,72 @@ namespace EquipmentManageSystem.设备保养
                          "left join 验收状态 as ys on m.验收状态编码 = ys.编码 " +
                          "where m.IsDelete = 0";
 
+            object orgCodeObj = this.comboBox所属组织.Tag;
+            string orgCode = orgCodeObj == null ? "" : orgCodeObj.ToString();
+            if (!string.IsNullOrEmpty(orgCode))
+            {
+                sql += " and p.组织编码 = '" + orgCode + "'";
+            }
+
             string positionAbbreviation = this.textBox位置简称.Text.Trim();
             if (!string.IsNullOrEmpty(positionAbbreviation))
             {
-                sql += "and p.位置简称 like '%" + positionAbbreviation + "%' ";
+                sql += " and p.位置简称 like '%" + positionAbbreviation + "%' ";
             }
+
+            sql += GetTimeRangeSql(this.dateTimePicker计划执行日期开始日期, this.dateTimePicker计划执行日期结束日期, "计划执行日期");
 
             object expiredStatusCodeObj = this.comboBox过期状态.SelectedValue;
             string expiredStatusCode = expiredStatusCodeObj == null ? "" : expiredStatusCodeObj.ToString();
             if (!string.IsNullOrEmpty(expiredStatusCode))
             {
-                sql += "and m.过期状态编码 = '" + expiredStatusCode + "' ";
+                sql += " and m.过期状态编码 = '" + expiredStatusCode + "' ";
             }
 
             object personIDObj = this.comboBox保养人员.Tag;
             string personID = personIDObj == null ? "" : personIDObj.ToString();
             if (!string.IsNullOrEmpty(personID))
             {
-                sql += "and CHARINDEX(',' + '" + personID + "' + ',', ',' + m.保养人员IDs + ',') > 0 ";
+                sql += GetMemberQuerySql(personID.Split(','), "保养人员IDs");
             }
 
             object maintenanceStatusCodeObj = this.comboBox保养状态.SelectedValue;
             string maintenanceStatusCode = maintenanceStatusCodeObj == null ? "" : maintenanceStatusCodeObj.ToString();
             if (!string.IsNullOrEmpty(maintenanceStatusCode))
             {
-                sql += "and m.保养状态编码 = '" + maintenanceStatusCode + "' ";
+                sql += " and m.保养状态编码 = '" + maintenanceStatusCode + "' ";
             }
 
+            sql += GetTimeRangeSql(this.dateTimePicker保养结束时间起始时间, this.dateTimePicker保养结束时间结束时间, "保养结束时间");
+
+            sql += " order by m.创建时间 desc";
             this.Sql查询 = sql;
             return true;
+        }
+
+        /// <summary>
+        /// / 获取时间范围查询条件
+        /// </summary>
+        private string GetTimeRangeSql(DateTimePicker startTimePicker, DateTimePicker endTimePicker, string fileName)
+        {
+            DateTime startTime = startTimePicker.Value;
+            DateTime endTime = endTimePicker.Value;
+
+            return " and m." + fileName + " between '" + startTime.ToString("yyyy-MM-dd HH:mm:ss") + "' and  '" + endTime.ToString("yyyy-MM-dd HH:mm:ss") + "'";
+        }
+
+        /// <summary>
+        /// 将成员ID组合成SQL语句，用于查询
+        /// </summary>
+        private string GetMemberQuerySql(string[] memberIDList, string fileName)
+        {
+            List<string> conditions = new List<string>();
+            foreach (string id in memberIDList)
+            {
+                conditions.Add("charindex(',' + '" + id + "' + ',' , ',' + m." + fileName + " + ',') > 0");
+            }
+            string sqlCondition = "(" + string.Join(" and ", conditions) + ")";
+            return " and " + sqlCondition;
         }
 
         private DataTable CurrentDataSource;
@@ -86,6 +133,7 @@ namespace EquipmentManageSystem.设备保养
             this.CurrentDataSource = newTable;
             this.textBox模糊查询.Text = string.Empty;
             this.slDevGridControlMain.MainGridView.BestFitColumns();
+            this.slDevGridControlMain.SetSummaryItem("保养任务编码", "合计：{0}", SummaryItemType.Count);
         }
 
         private void FuzzyQuery(object sender, EventArgs e)
@@ -116,7 +164,7 @@ namespace EquipmentManageSystem.设备保养
 
         private void comboBox保养人员_MouseDown(object sender, MouseEventArgs e)
         {
-            using (dlg人员选择 dlg = new dlg人员选择("保养人员选择"))
+            using (dlg人员选择 dlg = new dlg人员选择("保养人员选择") { IsMultiSelect = true})
             {
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
@@ -139,6 +187,49 @@ namespace EquipmentManageSystem.设备保养
             {
                 dlg.ShowDialog();
                 this.button刷新.PerformClick();
+            }
+        }
+
+        private void button查看详细_Click(object sender, EventArgs e)
+        {
+            using(dlg保养任务编辑 dlg = SLEditDialogUtil.GetDetaisDialogObj(this,typeof(dlg保养任务编辑)) as dlg保养任务编辑)
+            {
+                dlg.IsCloseModify = true;
+                dlg.ShowDialog();
+            }
+        }
+
+        private void comboBox所属组织_MouseDown(object sender, MouseEventArgs e)
+        {
+           using(dlg组织选择 dlg = new dlg组织选择())
+            {
+                if(dlg.ShowDialog() == DialogResult.OK)
+                {
+                    this.comboBox所属组织.Text = dlg.OrgName;
+                    this.comboBox所属组织.Tag = dlg.OrgCode;
+                }
+            }
+        }
+
+        private void VerifyPlanExecuteDate(object sender, EventArgs e)
+        {
+            DateTime start = this.dateTimePicker计划执行日期开始日期.Value;
+            DateTime end = this.dateTimePicker计划执行日期结束日期.Value;
+            if (start > end)
+            {
+                PopUpUtil.ShowInfo("计划执行日期开始日期不能大于结束日期");
+                this.dateTimePicker计划执行日期开始日期.Value = end.AddDays(-7);
+            }
+        }
+
+        private void VerifyMaintenanceEndDateTime(object sender, EventArgs e)
+        {
+            DateTime start = this.dateTimePicker保养结束时间起始时间.Value;
+            DateTime end = this.dateTimePicker保养结束时间结束时间.Value;
+            if (start > end)
+            {
+                PopUpUtil.ShowInfo("保养结束时间起始时间不能大于结束时间");
+                this.dateTimePicker保养结束时间起始时间.Value = end.AddDays(-7);
             }
         }
     }

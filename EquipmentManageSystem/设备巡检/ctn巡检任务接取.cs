@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.Data;
 using EquipmentManageSystem.Global;
 using EquipmentManageSystem.Utils;
 using SLControls.SLGlobal;
@@ -23,6 +24,7 @@ namespace EquipmentManageSystem.设备巡检
         private void ctn巡检任务接取_Load(object sender, EventArgs e)
         {
             this.Type编辑窗口 = typeof(dlg巡检任务编辑);
+            this.slDevGridControlMain.ShowFooter = true;
 
             this.slDevGridControlMain.RowFont = new Font("宋体", 11f);
             this.slDevGridControlMain.ColumnFont = new Font("宋体", 11f);
@@ -74,6 +76,8 @@ namespace EquipmentManageSystem.设备巡检
             this.textBox模糊查询.Text = string.Empty;
             this.CurrentDataSource = newTable;
             this.slDevGridControlMain.MainGridView.BestFitColumns();
+
+            this.slDevGridControlMain.SetSummaryItem("巡检任务编码", "合计：{0}", SummaryItemType.Count);
         }
 
         private void FuzzyQuery(object sender, EventArgs e)
