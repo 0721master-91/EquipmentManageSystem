@@ -164,6 +164,7 @@ namespace EquipmentManageSystem.设备保养
                 if (maintenanceStatusCode == "PASSED" || executeStatusCode == "COMPLETED" || acceptStatusCode != "PENDING")
                 {
                     PopUpUtil.ShowWarning("该保养任务已验收，无法修改！");
+                    SLControls.SLDbService.SLOnlyInstOleDb.Services.RollBack(); // 因为开启了事务，这里需要关闭事务
                     return false;
                 }
             }
@@ -445,9 +446,21 @@ namespace EquipmentManageSystem.设备保养
                                  "and 执行状态编码 != 'COMPLETED' " +
                                  "and 保养状态编码 = 'PENDING' ";
             int num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql);
-            MessageBox.Show(sql);
             Console.WriteLine(sql);
             if (num <= 0) throw new Exception("更新保养任务验收状态失败");
+
+            if (acceptCode == "REJECTED")
+            {
+                // 驳回情况下，需要重新设置过期时间（以保养任务标准最近时间为准，如果没有保养标准，默认以当天时间往后延长1天）
+                sql = "update 保养任务 " +
+                      "set 过期状态编码 = 'UNEXPIRED', " +
+                          "过期时间 = convert(datetime, convert(varchar(10), dateAdd(day, 1, getDate()), 120) + ' 17:30:00') " +
+                      "where 保养任务编码 = '" + this.TaskCode + "' " +
+                          "and (过期时间 < getDate() or datediff(day, getDate(), 过期时间) < 1)";
+                num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql);
+                Console.WriteLine(sql);
+                Console.WriteLine(num);
+            }
         }
 
         /// <summary>
@@ -511,6 +524,7 @@ namespace EquipmentManageSystem.设备保养
                 this.label保养后照片图标.Click += new EventHandler(this.OpenPictureSelectedDialog);
                 this.flowLayoutPanel保养后照片.BackColor = Color.White;
                 this.slTextBox备注信息.ReadOnly = false;
+                this.slTextBox备注信息.Text = string.Empty;
             }
             else if(type == OperationType.AcceptanceSubmit)
             {

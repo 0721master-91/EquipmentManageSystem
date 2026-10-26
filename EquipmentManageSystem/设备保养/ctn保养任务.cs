@@ -94,6 +94,7 @@ namespace EquipmentManageSystem.设备保养
             sql += GetTimeRangeSql(this.dateTimePicker保养结束时间起始时间, this.dateTimePicker保养结束时间结束时间, "保养结束时间");
 
             sql += " order by m.创建时间 desc";
+            Console.WriteLine(sql);
             this.Sql查询 = sql;
             return true;
         }
@@ -106,7 +107,7 @@ namespace EquipmentManageSystem.设备保养
             DateTime startTime = startTimePicker.Value;
             DateTime endTime = endTimePicker.Value;
 
-            return " and m." + fileName + " between '" + startTime.ToString("yyyy-MM-dd HH:mm:ss") + "' and  '" + endTime.ToString("yyyy-MM-dd HH:mm:ss") + "'";
+            return " and (m." + fileName + " is null or  m." + fileName + " between '" + startTime.ToString("yyyy-MM-dd HH:mm:ss") + "' and  '" + endTime.ToString("yyyy-MM-dd HH:mm:ss") + "')";
         }
 
         /// <summary>

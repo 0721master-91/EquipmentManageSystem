@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using EquipmentManageSystem.Global;
+﻿﻿﻿﻿﻿﻿using EquipmentManageSystem.Global;
 using EquipmentManageSystem.Utils;
 using SLControls;
 using SLControls.SLGlobal;
@@ -90,8 +90,8 @@ namespace EquipmentManageSystem.设备巡检
 
             // 禁用巡检人员选择
             this.textBox巡检人员.ReadOnly = true;
-            this.textBox巡检人员.Click -= new EventHandler(OpenMemberSelectedDialog);
-            this.label巡检人员图标.Click -= new EventHandler(OpenMemberSelectedDialog);
+            this.textBox巡检人员.Click -= new EventHandler(OpenInspectMemberSelectedDialog);
+            this.label巡检人员图标.Click -= new EventHandler(OpenInspectMemberSelectedDialog);
 
             // 其他项禁用
             this.slDateTimePicker计划执行日期.Enabled = false;
@@ -123,6 +123,8 @@ namespace EquipmentManageSystem.设备巡检
             this.slComboBox是否故障.DataSource = isFault;
             this.slComboBox是否故障.DisplayMember = "显示";
             this.slComboBox是否故障.ValueMember = "值";
+
+            CommonFilter.InitCombox(this.comboBox紧急程度, "程度", "编码", "紧急程度", false);
 
             return true;
         }
@@ -230,7 +232,7 @@ namespace EquipmentManageSystem.设备巡检
         /// <summary>
         /// 点击选择成员
         /// </summary>
-        private void OpenMemberSelectedDialog(object sender, EventArgs e)
+        private void OpenInspectMemberSelectedDialog(object sender, EventArgs e)
         {
             using(dlg人员选择 dlg = new dlg人员选择("巡检人员选择") { IsMultiSelect = true })
             {
@@ -238,6 +240,22 @@ namespace EquipmentManageSystem.设备巡检
                 {
                     this.textBox巡检人员.Text = dlg.SelectedMemberNames;
                     this.textBox巡检人员.Tag = dlg.SelectedMemberIDs;
+                }
+                this.ActiveControl = null;
+            }
+        }
+
+        /// <summary>
+        /// 点击选择维修人员
+        /// </summary>
+        private void OpenRepairPersonSelectedDialog(object sender, EventArgs e)
+        {
+            using (dlg人员选择 dlg = new dlg人员选择("维修人员选择") { IsMultiSelect = true })
+            {
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    this.textBox维修人员.Text = dlg.SelectedMemberNames;
+                    this.textBox维修人员.Tag = dlg.SelectedMemberIDs;
                 }
                 this.ActiveControl = null;
             }
@@ -288,8 +306,13 @@ namespace EquipmentManageSystem.设备巡检
                                     "and 执行状态编码 = 'WAITING' " +
                                     "and 过期时间 > getDate() ";
                     int num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql);
-                    if(num <= 0)
-                        throw new Exception("更新巡检任务状态失败！");
+                    if(num <= 0) throw new Exception("更新巡检任务状态失败！");
+
+                    // 如果发现故障，自动生成对应的报修工单
+                    if(this.slComboBox是否故障.SelectedValue.ToString() == "是")
+                    {
+                        this.CreateReportAndRepairOrder();
+                    }
                 }
 
                 SLControls.SLDbService.SLOnlyInstOleDb.Services.Commit(); // 提交事务
@@ -420,9 +443,13 @@ namespace EquipmentManageSystem.设备巡检
             string isFault = this.slComboBox是否故障.SelectedValue.ToString();
             if(isFault == "是")
             {
+                if (!this.IsReceivingTask) return; // 如果不是任务提交状态下不需要开启添加
+
                 this.slTextBox故障现象.ReadOnly = false;
                 this.button添加故障照片.Visible = true;
                 this.flowLayoutPanel故障照片.BackColor = Color.White;
+
+                this.panel报修信息区.Visible = true;
             }
             else
             {
@@ -430,6 +457,8 @@ namespace EquipmentManageSystem.设备巡检
                 this.button添加故障照片.Visible = false;
                 this.slTextBox故障现象.Text = string.Empty;
                 this.flowLayoutPanel故障照片.BackColor = Color.FromArgb(240, 240, 240);
+
+                this.panel报修信息区.Visible = false;
             }
         }
 
@@ -467,6 +496,60 @@ namespace EquipmentManageSystem.设备巡检
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// 创建报修与维修工单
+        /// </summary>
+        private void CreateReportAndRepairOrder()
+        {
+            // 通用数据
+            string currentMemberID = UserSession.CurrentUser.MemberID.ToString(); // 报修人
+            string executeStatusCode = "WAITING"; // 执行状态
+            string positionCode = this.slTextBox功能位置编码.Text; // 功能位置编码
+            object repairdPersonIDsObj = this.textBox维修人员.Tag; 
+            string repairdPersonIDs = repairdPersonIDsObj == null ? string.Empty : repairdPersonIDsObj.ToString(); // 维修人员
+            string urgencyLevelCode = this.comboBox紧急程度.SelectedValue.ToString(); // 紧急程度
+            string faultStartTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); // 故障开始时间
+            string faultPhenomenon = this.slTextBox故障现象.Text; // 故障现象
+            string faultPicturePath = this.FaultPicturePaths; // 故障照片路径
+
+            // 报修工单信息
+            string reportOrderCode = SqlCommonUtil.GenerateCode("BXGD", "报修工单", "报修工单编码"); // 报修工单编码
+            string billType = "报修工单"; // 单据类型
+            string billResource = "巡检任务"; // 单据来源
+            string upStreamBillCode = this.slTextBox巡检任务编码.Text; // 上游单据号
+            
+            string createReportOrderSql = string.Format("insert into 报修工单(创建人,报修工单编码,单据类型,单据来源,上游单据号,报修人ID,功能位置编码,维修人员IDs,故障现象,紧急程度编码,故障照片路径,最后修改人)" +
+                                                        " values({0},'{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}',{11})",
+                                                        currentMemberID,reportOrderCode,billType,billResource,upStreamBillCode,currentMemberID,positionCode,repairdPersonIDs,faultPhenomenon,urgencyLevelCode,
+                                                        faultPicturePath,currentMemberID);
+            int num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(createReportOrderSql);
+            if(num <= 0) throw new Exception("创建报修工单失败，请重试");
+
+            // 维修工单信息
+            string repairOrderCode = SqlCommonUtil.GenerateCode("WXGD", "维修工单", "维修工单编码"); // 维修工单编码
+            billType = "维修工单"; // 单据类型
+            billResource = "报修工单"; // 单据来源
+
+            string createRepairOrderSql = string.Format("insert into 维修工单(创建人,维修工单编码,单据类型,单据来源,上游单据号,报修人ID,功能位置编码,紧急程度编码,故障现象," +
+                                                                             "故障开始时间,故障照片路径,维修人员IDs,最后修改人)" +
+                                                        "values ({0},'{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}','{9}','{10}','{11}',{12})",
+                                                         currentMemberID,repairOrderCode,billType,billResource,reportOrderCode,currentMemberID,positionCode,urgencyLevelCode,faultPhenomenon,
+                                                         faultStartTime,faultPicturePath,repairdPersonIDs,currentMemberID);
+            num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(createRepairOrderSql);
+            if(num <= 0) throw new Exception("创建维修工单失败，请重试");
+
+            // 创建维修记录
+            string createRepairRecordSql = "insert into 维修记录(维修工单编码) values('" + repairOrderCode + "')";
+            num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(createRepairRecordSql);
+            if (num <= 0) throw new Exception("创建维修记录失败！");
+
+            // 更新报修工单信息
+            string updateReportCodeSql = "update 报修工单 set 维修工单编码 = '" + repairOrderCode + "' where 报修工单编码 = '" + reportOrderCode + "'";
+            num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(updateReportCodeSql);
+            if (num <= 0) throw new Exception("更新报修工单失败！");
+
         }
     }
 }

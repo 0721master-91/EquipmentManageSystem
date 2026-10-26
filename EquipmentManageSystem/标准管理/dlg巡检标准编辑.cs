@@ -54,6 +54,12 @@ namespace EquipmentManageSystem.标准管理
                 this.slTextBox巡检标准编码.Text = SqlCommonUtil.GenerateCode("XJBZ", "巡检标准", "巡检标准编码");
             }
 
+            string preDays = this.slTextBox提前提醒天数.Text;
+            if (string.IsNullOrEmpty(preDays))
+            {
+                this.slTextBox提前提醒天数.Text = "0";
+            }
+
             this.OtherFields["IsEnabled"] = this.checkBox启用状态.Checked;
             DataTrack.AddTrack(this.OtherFields, this.OperFlag);
             return true;
@@ -135,5 +141,6 @@ namespace EquipmentManageSystem.标准管理
             }
             return true;
         }
+
     }
 }

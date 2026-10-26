@@ -35,7 +35,7 @@ namespace EquipmentManageSystem.设备管理
             this.BeforeChangeDataSource += () =>
             {
                 string sql = "select e.ID,e.设备编码,e.设备名称,t.类型名称 as 设备类型,m.模块名称 as 设备模块,  " +
-                                "case when e.IsEnabled = 1 then '启用' else '停用' end as 状态 " +
+                                "case when e.IsEnabled = 1 then '启用' else '停用' end as 状态, e.创建时间 " +
                               "from 设备档案 as e " +
                               "join 设备类型 as t on e.设备类型编码 = t.类型编码 " +
                               "join 设备模块 as m on e.设备模块编码 = m.模块编码 " +
@@ -67,6 +67,7 @@ namespace EquipmentManageSystem.设备管理
                     sql += " and e.IsEnabled = " + Convert.ToInt32(status);
                 }
 
+                sql += "order by e.创建时间 desc";
                 this.Sql查询 = sql;
 
                 return true;
@@ -93,6 +94,13 @@ namespace EquipmentManageSystem.设备管理
             if (colEnabled != null)
             {
                 colEnabled.Visible = false;
+            }
+
+            var colCreateTime = slDevGridControlMain.MainGridView.Columns.ColumnByFieldName("创建时间");
+            if (colCreateTime != null)
+            {
+                colCreateTime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+                colCreateTime.DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";             
             }
 
             this.slDevGridControlMain.SetSummaryItem("设备编码", "合计：{0}", SummaryItemType.Count);

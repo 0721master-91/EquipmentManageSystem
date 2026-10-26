@@ -244,7 +244,7 @@ namespace EquipmentManageSystem.设备维修
         {
             string billCode = SqlCommonUtil.GenerateCode("WXGD", "维修工单", "维修工单编码");
             string billType = "维修工单";
-            string billSource = "自动创建";
+            string billSource = "报修工单";
             string upStreamBillCode = this.slTextBox单据号.Text;
             string reportor = UserSession.CurrentUser.MemberID.ToString();
             string executeStatusCode = "WAITING";

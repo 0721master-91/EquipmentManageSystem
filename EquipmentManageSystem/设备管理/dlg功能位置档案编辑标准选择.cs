@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,9 +39,9 @@ namespace EquipmentManageSystem.设备管理
             public string GiveOilTypeCode; // 给油类型编码
             public string LubricantModel; // 润滑脂型号
             public string LubricantChangeTypeCode; // 润换方式型号
-            public string Cycle; // 执行周期
+            public decimal Cycle; // 执行周期
             public string CycleUnitCode; // 执行周期单位编码
-            public string PreNoticeDays; // 提前提醒天数
+            public int PreNoticeDays; // 提前提醒天数
             public DateTime StartTime; // 开始执行时间
         }
 
@@ -118,9 +118,9 @@ namespace EquipmentManageSystem.设备管理
                 this.ChosenMaintenanceStandard.GiveOilTypeCode = row["给油类型编码"].ToString();
                 this.ChosenMaintenanceStandard.LubricantModel = row["润滑脂型号"].ToString();
                 this.ChosenMaintenanceStandard.LubricantChangeTypeCode = row["润换方式编码"].ToString();
-                this.ChosenMaintenanceStandard.Cycle = row["执行周期"].ToString();
+                this.ChosenMaintenanceStandard.Cycle = row["执行周期"] != DBNull.Value ? Convert.ToDecimal(row["执行周期"]) : 0;
                 this.ChosenMaintenanceStandard.CycleUnitCode = row["周期单位编码"].ToString();
-                this.ChosenMaintenanceStandard.PreNoticeDays = row["提前提醒天数"].ToString();
+                this.ChosenMaintenanceStandard.PreNoticeDays = row["提前提醒天数"] != DBNull.Value ? Convert.ToInt32(row["提前提醒天数"]) : 0;
                 return true;
             }
             else

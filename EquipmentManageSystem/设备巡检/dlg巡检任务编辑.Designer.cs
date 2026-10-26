@@ -80,6 +80,12 @@ namespace EquipmentManageSystem.设备巡检
             this.label巡检人员 = new System.Windows.Forms.Label();
             this.label计划执行日期 = new System.Windows.Forms.Label();
             this.groupBox故障信息 = new System.Windows.Forms.GroupBox();
+            this.panel报修信息区 = new System.Windows.Forms.Panel();
+            this.comboBox紧急程度 = new System.Windows.Forms.ComboBox();
+            this.textBox维修人员 = new System.Windows.Forms.TextBox();
+            this.label维修人员 = new System.Windows.Forms.Label();
+            this.label维修人员图标 = new System.Windows.Forms.Label();
+            this.label紧急程度 = new System.Windows.Forms.Label();
             this.slComboBox是否故障 = new SLControls.SLComboBox();
             this.groupBox故障照片 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel故障照片 = new System.Windows.Forms.FlowLayoutPanel();
@@ -95,6 +101,7 @@ namespace EquipmentManageSystem.设备巡检
             this.groupBox巡检信息.SuspendLayout();
             this.groupBox巡检照片.SuspendLayout();
             this.groupBox故障信息.SuspendLayout();
+            this.panel报修信息区.SuspendLayout();
             this.groupBox故障照片.SuspendLayout();
             this.groupBox巡检标准.SuspendLayout();
             this.SuspendLayout();
@@ -109,8 +116,6 @@ namespace EquipmentManageSystem.设备巡检
             // 
             // groupBox单据信息
             // 
-            this.groupBox单据信息.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox单据信息.Controls.Add(this.slDateTimePicker过期时间);
             this.groupBox单据信息.Controls.Add(this.label过期时间);
             this.groupBox单据信息.Controls.Add(this.slTextBox过期状态);
@@ -577,7 +582,7 @@ namespace EquipmentManageSystem.设备巡检
             this.textBox巡检人员.Name = "textBox巡检人员";
             this.textBox巡检人员.Size = new System.Drawing.Size(305, 28);
             this.textBox巡检人员.TabIndex = 15;
-            this.textBox巡检人员.Click += new System.EventHandler(this.OpenMemberSelectedDialog);
+            this.textBox巡检人员.Click += new System.EventHandler(this.OpenInspectMemberSelectedDialog);
             // 
             // label巡检人员图标
             // 
@@ -589,7 +594,7 @@ namespace EquipmentManageSystem.设备巡检
             this.label巡检人员图标.Size = new System.Drawing.Size(38, 27);
             this.label巡检人员图标.TabIndex = 16;
             this.label巡检人员图标.Text = "📅";
-            this.label巡检人员图标.Click += new System.EventHandler(this.OpenMemberSelectedDialog);
+            this.label巡检人员图标.Click += new System.EventHandler(this.OpenInspectMemberSelectedDialog);
             // 
             // slDateTimePicker计划执行日期
             // 
@@ -637,6 +642,7 @@ namespace EquipmentManageSystem.设备巡检
             // 
             // groupBox故障信息
             // 
+            this.groupBox故障信息.Controls.Add(this.panel报修信息区);
             this.groupBox故障信息.Controls.Add(this.slComboBox是否故障);
             this.groupBox故障信息.Controls.Add(this.groupBox故障照片);
             this.groupBox故障信息.Controls.Add(this.button添加故障照片);
@@ -650,6 +656,67 @@ namespace EquipmentManageSystem.设备巡检
             this.groupBox故障信息.TabIndex = 3;
             this.groupBox故障信息.TabStop = false;
             this.groupBox故障信息.Text = "故障信息";
+            // 
+            // panel报修信息区
+            // 
+            this.panel报修信息区.Controls.Add(this.comboBox紧急程度);
+            this.panel报修信息区.Controls.Add(this.textBox维修人员);
+            this.panel报修信息区.Controls.Add(this.label维修人员);
+            this.panel报修信息区.Controls.Add(this.label维修人员图标);
+            this.panel报修信息区.Controls.Add(this.label紧急程度);
+            this.panel报修信息区.Location = new System.Drawing.Point(390, 16);
+            this.panel报修信息区.Name = "panel报修信息区";
+            this.panel报修信息区.Size = new System.Drawing.Size(802, 44);
+            this.panel报修信息区.TabIndex = 33;
+            this.panel报修信息区.Visible = false;
+            // 
+            // comboBox紧急程度
+            // 
+            this.comboBox紧急程度.FormattingEnabled = true;
+            this.comboBox紧急程度.Location = new System.Drawing.Point(98, 8);
+            this.comboBox紧急程度.Name = "comboBox紧急程度";
+            this.comboBox紧急程度.Size = new System.Drawing.Size(142, 26);
+            this.comboBox紧急程度.TabIndex = 32;
+            // 
+            // textBox维修人员
+            // 
+            this.textBox维修人员.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.textBox维修人员.Location = new System.Drawing.Point(363, 7);
+            this.textBox维修人员.Name = "textBox维修人员";
+            this.textBox维修人员.Size = new System.Drawing.Size(305, 28);
+            this.textBox维修人员.TabIndex = 29;
+            this.textBox维修人员.Click += new System.EventHandler(this.OpenRepairPersonSelectedDialog);
+            // 
+            // label维修人员
+            // 
+            this.label维修人员.AutoSize = true;
+            this.label维修人员.Location = new System.Drawing.Point(270, 12);
+            this.label维修人员.Name = "label维修人员";
+            this.label维修人员.Size = new System.Drawing.Size(104, 19);
+            this.label维修人员.TabIndex = 28;
+            this.label维修人员.Text = "维修人员：";
+            // 
+            // label维修人员图标
+            // 
+            this.label维修人员图标.AutoSize = true;
+            this.label维修人员图标.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label维修人员图标.Font = new System.Drawing.Font("宋体", 16F);
+            this.label维修人员图标.Location = new System.Drawing.Point(666, 6);
+            this.label维修人员图标.Name = "label维修人员图标";
+            this.label维修人员图标.Size = new System.Drawing.Size(38, 27);
+            this.label维修人员图标.TabIndex = 30;
+            this.label维修人员图标.Text = "📅";
+            this.label维修人员图标.TextChanged += new System.EventHandler(this.OpenRepairPersonSelectedDialog);
+            this.label维修人员图标.Click += new System.EventHandler(this.OpenRepairPersonSelectedDialog);
+            // 
+            // label紧急程度
+            // 
+            this.label紧急程度.AutoSize = true;
+            this.label紧急程度.Location = new System.Drawing.Point(3, 12);
+            this.label紧急程度.Name = "label紧急程度";
+            this.label紧急程度.Size = new System.Drawing.Size(104, 19);
+            this.label紧急程度.TabIndex = 31;
+            this.label紧急程度.Text = "紧急程度：";
             // 
             // slComboBox是否故障
             // 
@@ -823,6 +890,8 @@ namespace EquipmentManageSystem.设备巡检
             this.groupBox巡检照片.ResumeLayout(false);
             this.groupBox故障信息.ResumeLayout(false);
             this.groupBox故障信息.PerformLayout();
+            this.panel报修信息区.ResumeLayout(false);
+            this.panel报修信息区.PerformLayout();
             this.groupBox故障照片.ResumeLayout(false);
             this.groupBox巡检标准.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -887,5 +956,11 @@ namespace EquipmentManageSystem.设备巡检
         private System.Windows.Forms.GroupBox groupBox巡检标准;
         private uc巡检任务标准 uc巡检任务标准;
         private SLControls.SLComboBox slComboBox是否故障;
+        private System.Windows.Forms.TextBox textBox维修人员;
+        private System.Windows.Forms.Label label维修人员图标;
+        private System.Windows.Forms.Label label维修人员;
+        private System.Windows.Forms.Panel panel报修信息区;
+        private System.Windows.Forms.ComboBox comboBox紧急程度;
+        private System.Windows.Forms.Label label紧急程度;
     }
 }

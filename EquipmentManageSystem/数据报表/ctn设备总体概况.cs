@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using EquipmentManageSystem.Utils;
+using EquipmentManageSystem.Global;
 
 namespace EquipmentManageSystem.数据报表
 {
@@ -22,6 +23,11 @@ namespace EquipmentManageSystem.数据报表
 
         private void ctn系统总体概况_Load(object sender, EventArgs e)
         {
+            // 加载用户信息显示
+            string helloInfo = DateTime.Now > DateTime.Parse("05:00:00") ? "早上好" : 
+                                        DateTime.Now > DateTime.Parse("12:00:00") ? "中午好" : "晚上好";
+            this.label用户信息.Text = helloInfo + "，欢迎【" + UserSession.CurrentUser.Name + "】使用【设备管理系统】";
+
 
             // 初始化查询条件
             this.comboBox组织.Text = "全部";
@@ -29,6 +35,7 @@ namespace EquipmentManageSystem.数据报表
             this.dateTimePicker开始日期.Value = QueryDataInfo.StartTime.Date;
             this.dateTimePicker结束日期.Value = QueryDataInfo.EndTime.Date;
             this.RefreshData();
+
         }
 
         private void comboBox组织_MouseDown(object sender, MouseEventArgs e)
