@@ -66,6 +66,8 @@ namespace EquipmentManageSystem.数据报表
             this.comboBox组织 = new System.Windows.Forms.ComboBox();
             this.label组织 = new System.Windows.Forms.Label();
             this.panel分隔区0 = new System.Windows.Forms.Panel();
+            this.panel用户信息区 = new System.Windows.Forms.Panel();
+            this.label用户信息 = new System.Windows.Forms.Label();
             this.panel主内容区.SuspendLayout();
             this.panel业务单据汇总区.SuspendLayout();
             this.panel设备状态与工作量区.SuspendLayout();
@@ -79,6 +81,7 @@ namespace EquipmentManageSystem.数据报表
             this.panel设备总数区.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox设备总数图片)).BeginInit();
             this.panel条件筛选区.SuspendLayout();
+            this.panel用户信息区.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel主内容区
@@ -95,6 +98,7 @@ namespace EquipmentManageSystem.数据报表
             this.panel主内容区.Controls.Add(this.panel分隔区1);
             this.panel主内容区.Controls.Add(this.panel条件筛选区);
             this.panel主内容区.Controls.Add(this.panel分隔区0);
+            this.panel主内容区.Controls.Add(this.panel用户信息区);
             this.panel主内容区.Location = new System.Drawing.Point(3, 2);
             this.panel主内容区.Name = "panel主内容区";
             this.panel主内容区.Size = new System.Drawing.Size(1470, 750);
@@ -104,7 +108,7 @@ namespace EquipmentManageSystem.数据报表
             // 
             this.panel业务单据汇总区.Controls.Add(this.uc设备总体概况业务单据汇总);
             this.panel业务单据汇总区.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel业务单据汇总区.Location = new System.Drawing.Point(0, 654);
+            this.panel业务单据汇总区.Location = new System.Drawing.Point(0, 704);
             this.panel业务单据汇总区.Name = "panel业务单据汇总区";
             this.panel业务单据汇总区.Size = new System.Drawing.Size(1449, 482);
             this.panel业务单据汇总区.TabIndex = 6;
@@ -121,7 +125,7 @@ namespace EquipmentManageSystem.数据报表
             // panel分隔区3
             // 
             this.panel分隔区3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel分隔区3.Location = new System.Drawing.Point(0, 644);
+            this.panel分隔区3.Location = new System.Drawing.Point(0, 694);
             this.panel分隔区3.Name = "panel分隔区3";
             this.panel分隔区3.Size = new System.Drawing.Size(1449, 10);
             this.panel分隔区3.TabIndex = 4;
@@ -131,7 +135,7 @@ namespace EquipmentManageSystem.数据报表
             this.panel设备状态与工作量区.Controls.Add(this.panel人员工作量区);
             this.panel设备状态与工作量区.Controls.Add(this.panel设备状态分布区);
             this.panel设备状态与工作量区.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel设备状态与工作量区.Location = new System.Drawing.Point(0, 164);
+            this.panel设备状态与工作量区.Location = new System.Drawing.Point(0, 214);
             this.panel设备状态与工作量区.Name = "panel设备状态与工作量区";
             this.panel设备状态与工作量区.Size = new System.Drawing.Size(1449, 480);
             this.panel设备状态与工作量区.TabIndex = 5;
@@ -155,7 +159,7 @@ namespace EquipmentManageSystem.数据报表
             // panel分隔区2
             // 
             this.panel分隔区2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel分隔区2.Location = new System.Drawing.Point(0, 154);
+            this.panel分隔区2.Location = new System.Drawing.Point(0, 204);
             this.panel分隔区2.Name = "panel分隔区2";
             this.panel分隔区2.Size = new System.Drawing.Size(1449, 10);
             this.panel分隔区2.TabIndex = 4;
@@ -169,7 +173,7 @@ namespace EquipmentManageSystem.数据报表
             this.panel设备概况区.Controls.Add(this.panel设备总数区);
             this.panel设备概况区.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel设备概况区.Font = new System.Drawing.Font("宋体", 11F);
-            this.panel设备概况区.Location = new System.Drawing.Point(0, 77);
+            this.panel设备概况区.Location = new System.Drawing.Point(0, 127);
             this.panel设备概况区.Name = "panel设备概况区";
             this.panel设备概况区.Size = new System.Drawing.Size(1449, 77);
             this.panel设备概况区.TabIndex = 2;
@@ -333,7 +337,7 @@ namespace EquipmentManageSystem.数据报表
             // panel分隔区1
             // 
             this.panel分隔区1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel分隔区1.Location = new System.Drawing.Point(0, 67);
+            this.panel分隔区1.Location = new System.Drawing.Point(0, 117);
             this.panel分隔区1.Name = "panel分隔区1";
             this.panel分隔区1.Size = new System.Drawing.Size(1449, 10);
             this.panel分隔区1.TabIndex = 1;
@@ -353,7 +357,7 @@ namespace EquipmentManageSystem.数据报表
             this.panel条件筛选区.Controls.Add(this.label组织);
             this.panel条件筛选区.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel条件筛选区.Font = new System.Drawing.Font("宋体", 11F);
-            this.panel条件筛选区.Location = new System.Drawing.Point(0, 10);
+            this.panel条件筛选区.Location = new System.Drawing.Point(0, 60);
             this.panel条件筛选区.Name = "panel条件筛选区";
             this.panel条件筛选区.Size = new System.Drawing.Size(1449, 57);
             this.panel条件筛选区.TabIndex = 0;
@@ -458,10 +462,29 @@ namespace EquipmentManageSystem.数据报表
             // panel分隔区0
             // 
             this.panel分隔区0.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel分隔区0.Location = new System.Drawing.Point(0, 0);
+            this.panel分隔区0.Location = new System.Drawing.Point(0, 50);
             this.panel分隔区0.Name = "panel分隔区0";
             this.panel分隔区0.Size = new System.Drawing.Size(1449, 10);
             this.panel分隔区0.TabIndex = 3;
+            // 
+            // panel用户信息区
+            // 
+            this.panel用户信息区.Controls.Add(this.label用户信息);
+            this.panel用户信息区.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel用户信息区.Location = new System.Drawing.Point(0, 0);
+            this.panel用户信息区.Name = "panel用户信息区";
+            this.panel用户信息区.Size = new System.Drawing.Size(1449, 50);
+            this.panel用户信息区.TabIndex = 4;
+            // 
+            // label用户信息
+            // 
+            this.label用户信息.AutoSize = true;
+            this.label用户信息.Font = new System.Drawing.Font("宋体", 11F);
+            this.label用户信息.Location = new System.Drawing.Point(9, 17);
+            this.label用户信息.Name = "label用户信息";
+            this.label用户信息.Size = new System.Drawing.Size(389, 19);
+            this.label用户信息.TabIndex = 0;
+            this.label用户信息.Text = "早上好！欢迎【张三】使用【设备管理系统】";
             // 
             // ctn设备总体概况
             // 
@@ -490,6 +513,8 @@ namespace EquipmentManageSystem.数据报表
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox设备总数图片)).EndInit();
             this.panel条件筛选区.ResumeLayout(false);
             this.panel条件筛选区.PerformLayout();
+            this.panel用户信息区.ResumeLayout(false);
+            this.panel用户信息区.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -533,5 +558,7 @@ namespace EquipmentManageSystem.数据报表
         private System.Windows.Forms.Panel panel业务单据汇总区;
         private System.Windows.Forms.Panel panel分隔区3;
         private uc设备总体概况业务单据汇总 uc设备总体概况业务单据汇总;
+        private System.Windows.Forms.Panel panel用户信息区;
+        private System.Windows.Forms.Label label用户信息;
     }
 }

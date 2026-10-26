@@ -1,4 +1,4 @@
-﻿﻿﻿using DevExpress.Utils;
+﻿﻿﻿﻿﻿﻿﻿﻿﻿using DevExpress.Utils;
 using DevExpress.XtraCharts;
 using System;
 using System.Collections.Generic;
@@ -42,6 +42,18 @@ namespace EquipmentManageSystem.数据报表
         {
             this.QueryDataInfo = queryData;
             DataTable dt = this.GetBarChartData(queryData);
+            
+            // 限制最多显示4名人员
+            if (dt.Rows.Count > 4)
+            {
+                DataTable dtLimited = dt.Clone();
+                for (int i = 0; i < 4; i++)
+                {
+                    dtLimited.ImportRow(dt.Rows[i]);
+                }
+                dt = dtLimited;
+            }
+            
             this.GenerateBarChart(dt, this.panel柱状图内容区);
         }
 

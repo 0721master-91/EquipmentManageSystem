@@ -420,6 +420,8 @@ namespace EquipmentManageSystem.设备巡检
             string isFault = this.slComboBox是否故障.SelectedValue.ToString();
             if(isFault == "是")
             {
+                if (!this.IsReceivingTask) return; // 如果不是任务提交状态下不需要开启添加
+
                 this.slTextBox故障现象.ReadOnly = false;
                 this.button添加故障照片.Visible = true;
                 this.flowLayoutPanel故障照片.BackColor = Color.White;
