@@ -505,7 +505,6 @@ namespace EquipmentManageSystem.设备巡检
         {
             // 通用数据
             string currentMemberID = UserSession.CurrentUser.MemberID.ToString(); // 报修人
-            string executeStatusCode = "WAITING"; // 执行状态
             string positionCode = this.slTextBox功能位置编码.Text; // 功能位置编码
             object repairdPersonIDsObj = this.textBox维修人员.Tag; 
             string repairdPersonIDs = repairdPersonIDsObj == null ? string.Empty : repairdPersonIDsObj.ToString(); // 维修人员
