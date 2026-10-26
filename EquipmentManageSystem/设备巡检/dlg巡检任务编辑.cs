@@ -499,7 +499,7 @@ namespace EquipmentManageSystem.设备巡检
         }
 
         /// <summary>
-        /// 创建报修与维修工单
+        /// 创建报修与维修工单，
         /// </summary>
         private void CreateReportAndRepairOrder()
         {
