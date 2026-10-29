@@ -92,7 +92,21 @@ namespace EquipmentManageSystem.设备保养
                 return false;
             }
 
-            if(this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
+            // 验收设计多个状态变更，执行前先查看任务状态
+            if (this.OperType == OperationType.AcceptanceSubmit)
+            {
+                DataTable dt = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteForDataTable("select * from 保养任务 where 保养任务编码 = '" + this.TaskCode + "' ");
+                string maintenanceStatusCode = dt.Rows[0]["保养状态编码"].ToString();
+                string executeStatusCode = dt.Rows[0]["执行状态编码"].ToString();
+                string acceptStatusCode = dt.Rows[0]["验收状态编码"].ToString();
+                if (maintenanceStatusCode == "PASSED" || executeStatusCode == "COMPLETED" || acceptStatusCode != "PENDING")
+                {
+                    PopUpUtil.ShowWarning("该保养任务已验收，无法修改！");
+                    return false;
+                }
+            }
+
+            if (this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
             {
                 this.slTextBox保养任务编码.Text = SqlCommonUtil.GenerateCode("BYRW", "保养任务", "保养任务编码"); // 重新获取一次最新保养任务编码，减少重复概率
             }
@@ -148,61 +162,37 @@ namespace EquipmentManageSystem.设备保养
             return true;
         }
 
-        // 执行SQL前操作
-        private bool dlg保养任务编辑_PreExecuteOKSql(object sender, PreOKSqlEventArgs e)
-        {
-            // 开启事务
-            SLControls.SLDbService.SLOnlyInstOleDb.Services.BeginTran();
-
-            // 验收设计多个状态变更，执行前先查看任务状态
-            if(this.OperType == OperationType.AcceptanceSubmit)
-            {
-                DataTable dt = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteForDataTable("select * from 保养任务 where 保养任务编码 = '" + this.TaskCode + "' ");
-                string maintenanceStatusCode = dt.Rows[0]["保养状态编码"].ToString();
-                string executeStatusCode = dt.Rows[0]["执行状态编码"].ToString();
-                string acceptStatusCode = dt.Rows[0]["验收状态编码"].ToString();
-                if (maintenanceStatusCode == "PASSED" || executeStatusCode == "COMPLETED" || acceptStatusCode != "PENDING")
-                {
-                    PopUpUtil.ShowWarning("该保养任务已验收，无法修改！");
-                    SLControls.SLDbService.SLOnlyInstOleDb.Services.RollBack(); // 因为开启了事务，这里需要关闭事务
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
         // 指定主sql语句后进行的事件
         private void dlg保养任务编辑_AfterExecuteOKSql(object sender, AfterOKSqlEventArgs e)
         {
-            try
+            if (e.Successful)
             {
+                try
+                {
 
-                if (this.OperType == OperationType.Common)
-                {
-                    // 保存保养标准
-                    this.UpdateMaintenanceTaskStandard();
+                    if (this.OperType == OperationType.Common)
+                    {
+                        // 保存保养标准
+                        this.UpdateMaintenanceTaskStandard();
+                    }
+                    else if (this.OperType == OperationType.TaskSubmit)
+                    {
+                        // 更新任务状态信息
+                        this.UpdateMaintenanceTaskSubmitStatus();
+                    }
+                    else if (this.OperType == OperationType.AcceptanceSubmit)
+                    {
+                        // 更新验收状态
+                        this.UpdateMaintenanceTaskAcceptStatus();
+                    }
                 }
-                else if (this.OperType == OperationType.TaskSubmit)
+                catch (Exception ex)
                 {
-                    // 更新任务状态信息
-                    this.UpdateMaintenanceTaskSubmitStatus();
+                    e.LastError = ex.Message;
+                    e.Successful = false;
                 }
-                else if( this.OperType == OperationType.AcceptanceSubmit)
-                {
-                    // 更新验收状态
-                    this.UpdateMaintenanceTaskAcceptStatus();
-                }
-
-                // 提交事务
-                SLControls.SLDbService.SLOnlyInstOleDb.Services.Commit();
             }
-            catch(Exception ex)
-            {
-                PopUpUtil.ShowWarning(ex.Message);
-                // 回滚
-                SLControls.SLDbService.SLOnlyInstOleDb.Services.RollBack();
-            }
+            
 
         }
 

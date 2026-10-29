@@ -867,11 +867,9 @@ namespace EquipmentManageSystem.设备巡检
             this.OtherFields.Add(slcFieldInfo4);
             this.OtherFields.Add(slcFieldInfo5);
             this.Text = "巡检任务";
-            this.UseTransation = false;
             this.PreFillControls += new SLControls.PreFillControlsHandler(this.dlg巡检任务编辑_PreFillControls);
             this.AfterFillControls += new SLControls.AfterFillControlsHandler(this.dlg巡检任务编辑_AfterFillControls);
             this.PreOK += new SLControls.PreOKHandler(this.dlg巡检任务编辑_PreOK);
-            this.PreExecuteOKSql += new SLControls.PreExecuteOKSqlHandler(this.dlg巡检任务编辑_PreExecuteOKSql);
             this.AfterExecuteOKSql += new SLControls.AfterExecuteOKSqlHandler(this.dlg巡检任务编辑_AfterExecuteOKSql);
             this.Load += new System.EventHandler(this.dlg巡检任务编辑_Load);
             this.Controls.SetChildIndex(this.groupBox单据信息, 0);

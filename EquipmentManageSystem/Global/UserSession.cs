@@ -42,7 +42,7 @@ namespace EquipmentManageSystem.Global
         /// </summary>
         public static void TestInit()
         {
-            CurrentUser = new CurrentUser("1", "admin", "123456", "管理员", "男", "ADMIN", 1);
+            CurrentUser = new CurrentUser("1", "admin", "123456", "管理员", "男", "ADMIN", 5);
         }
     }
 }

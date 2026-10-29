@@ -31,7 +31,6 @@ namespace EquipmentManageSystem.数据报表
         {
             this.panel主内容区 = new System.Windows.Forms.Panel();
             this.panel业务单据汇总区 = new System.Windows.Forms.Panel();
-            this.uc设备总体概况业务单据汇总 = new EquipmentManageSystem.数据报表.uc设备总体概况业务单据汇总();
             this.panel分隔区3 = new System.Windows.Forms.Panel();
             this.panel设备状态与工作量区 = new System.Windows.Forms.Panel();
             this.panel人员工作量区 = new System.Windows.Forms.Panel();
@@ -56,7 +55,7 @@ namespace EquipmentManageSystem.数据报表
             this.pictureBox设备总数图片 = new System.Windows.Forms.PictureBox();
             this.panel分隔区1 = new System.Windows.Forms.Panel();
             this.panel条件筛选区 = new System.Windows.Forms.Panel();
-            this.button重置 = new System.Windows.Forms.Button();
+            this.button查询 = new System.Windows.Forms.Button();
             this.dateTimePicker结束日期 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker开始日期 = new System.Windows.Forms.DateTimePicker();
             this.label时间连接符 = new System.Windows.Forms.Label();
@@ -68,6 +67,8 @@ namespace EquipmentManageSystem.数据报表
             this.panel分隔区0 = new System.Windows.Forms.Panel();
             this.panel用户信息区 = new System.Windows.Forms.Panel();
             this.label用户信息 = new System.Windows.Forms.Label();
+            this.button重置 = new System.Windows.Forms.Button();
+            this.uc设备总体概况业务单据汇总 = new EquipmentManageSystem.数据报表.uc设备总体概况业务单据汇总();
             this.panel主内容区.SuspendLayout();
             this.panel业务单据汇总区.SuspendLayout();
             this.panel设备状态与工作量区.SuspendLayout();
@@ -112,15 +113,6 @@ namespace EquipmentManageSystem.数据报表
             this.panel业务单据汇总区.Name = "panel业务单据汇总区";
             this.panel业务单据汇总区.Size = new System.Drawing.Size(1449, 482);
             this.panel业务单据汇总区.TabIndex = 6;
-            // 
-            // uc设备总体概况业务单据汇总
-            // 
-            this.uc设备总体概况业务单据汇总.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.uc设备总体概况业务单据汇总.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uc设备总体概况业务单据汇总.Location = new System.Drawing.Point(0, 0);
-            this.uc设备总体概况业务单据汇总.Name = "uc设备总体概况业务单据汇总";
-            this.uc设备总体概况业务单据汇总.Size = new System.Drawing.Size(1449, 482);
-            this.uc设备总体概况业务单据汇总.TabIndex = 0;
             // 
             // panel分隔区3
             // 
@@ -347,6 +339,7 @@ namespace EquipmentManageSystem.数据报表
             this.panel条件筛选区.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel条件筛选区.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel条件筛选区.Controls.Add(this.button重置);
+            this.panel条件筛选区.Controls.Add(this.button查询);
             this.panel条件筛选区.Controls.Add(this.dateTimePicker结束日期);
             this.panel条件筛选区.Controls.Add(this.dateTimePicker开始日期);
             this.panel条件筛选区.Controls.Add(this.label时间连接符);
@@ -362,20 +355,20 @@ namespace EquipmentManageSystem.数据报表
             this.panel条件筛选区.Size = new System.Drawing.Size(1449, 57);
             this.panel条件筛选区.TabIndex = 0;
             // 
-            // button重置
+            // button查询
             // 
-            this.button重置.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button重置.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button重置.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button重置.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button重置.ForeColor = System.Drawing.Color.White;
-            this.button重置.Location = new System.Drawing.Point(1028, 10);
-            this.button重置.Name = "button重置";
-            this.button重置.Size = new System.Drawing.Size(75, 32);
-            this.button重置.TabIndex = 8;
-            this.button重置.Text = "重置";
-            this.button重置.UseVisualStyleBackColor = false;
-            this.button重置.Click += new System.EventHandler(this.button重置_Click);
+            this.button查询.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.button查询.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button查询.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button查询.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button查询.ForeColor = System.Drawing.Color.White;
+            this.button查询.Location = new System.Drawing.Point(1028, 10);
+            this.button查询.Name = "button查询";
+            this.button查询.Size = new System.Drawing.Size(75, 32);
+            this.button查询.TabIndex = 8;
+            this.button查询.Text = "查询";
+            this.button查询.UseVisualStyleBackColor = false;
+            this.button查询.Click += new System.EventHandler(this.button查询_Click);
             // 
             // dateTimePicker结束日期
             // 
@@ -486,6 +479,30 @@ namespace EquipmentManageSystem.数据报表
             this.label用户信息.TabIndex = 0;
             this.label用户信息.Text = "早上好！欢迎【张三】使用【设备管理系统】";
             // 
+            // button重置
+            // 
+            this.button重置.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button重置.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button重置.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button重置.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button重置.ForeColor = System.Drawing.Color.White;
+            this.button重置.Location = new System.Drawing.Point(1123, 10);
+            this.button重置.Name = "button重置";
+            this.button重置.Size = new System.Drawing.Size(75, 32);
+            this.button重置.TabIndex = 9;
+            this.button重置.Text = "重置";
+            this.button重置.UseVisualStyleBackColor = false;
+            this.button重置.Click += new System.EventHandler(this.button重置_Click);
+            // 
+            // uc设备总体概况业务单据汇总
+            // 
+            this.uc设备总体概况业务单据汇总.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.uc设备总体概况业务单据汇总.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uc设备总体概况业务单据汇总.Location = new System.Drawing.Point(0, 0);
+            this.uc设备总体概况业务单据汇总.Name = "uc设备总体概况业务单据汇总";
+            this.uc设备总体概况业务单据汇总.Size = new System.Drawing.Size(1449, 482);
+            this.uc设备总体概况业务单据汇总.TabIndex = 0;
+            // 
             // ctn设备总体概况
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -531,7 +548,7 @@ namespace EquipmentManageSystem.数据报表
         private System.Windows.Forms.DateTimePicker dateTimePicker结束日期;
         private System.Windows.Forms.DateTimePicker dateTimePicker开始日期;
         private System.Windows.Forms.Label label时间连接符;
-        private System.Windows.Forms.Button button重置;
+        private System.Windows.Forms.Button button查询;
         private System.Windows.Forms.Panel panel设备概况区;
         private System.Windows.Forms.Panel panel分隔区1;
         private System.Windows.Forms.Panel panel设备总数区;
@@ -560,5 +577,6 @@ namespace EquipmentManageSystem.数据报表
         private uc设备总体概况业务单据汇总 uc设备总体概况业务单据汇总;
         private System.Windows.Forms.Panel panel用户信息区;
         private System.Windows.Forms.Label label用户信息;
+        private System.Windows.Forms.Button button重置;
     }
 }

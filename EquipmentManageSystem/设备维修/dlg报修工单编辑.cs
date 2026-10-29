@@ -23,11 +23,6 @@ namespace EquipmentManageSystem.设备维修
             InitializeComponent();
         }
 
-        private bool dlg报修工单编辑_PreExecuteOKSql(object sender, PreOKSqlEventArgs e)
-        {
-            SLControls.SLDbService.SLOnlyInstOleDb.Services.BeginTran(); // 开启事务
-            return true;
-        }
 
         private void dlg报修工单编辑_AfterFillControls()
         {
@@ -86,30 +81,33 @@ namespace EquipmentManageSystem.设备维修
 
         private void dlg报修工单编辑_AfterExecuteOKSql(object sender, AfterOKSqlEventArgs e)
         {
-            var services = SLControls.SLDbService.SLOnlyInstOleDb.Services;
-            try
+            if (e.Successful)
             {
-                this.UpdateRepairdWorkOrder(services);
-
-                if (this.OperFlag == SleOperFlag.Modify)
+                var services = SLOnlyInstOleDb.Services;
+                try
                 {
+                    this.UpdateRepairdWorkOrder(services);
 
-
-                    List<string> oldPaths = string.IsNullOrEmpty(this.OldPicturePath) ? new List<string>() : this.OldPicturePath.Split(',').ToList();
-                    List<string> newPaths = string.IsNullOrEmpty(this.NewPicturePath) ? new List<string>() : this.NewPicturePath.Split(',').ToList();
-                    if (PictureHandleUtil.IsSamePictures(oldPaths, newPaths) == false)
+                    if (this.OperFlag == SleOperFlag.Modify)
                     {
-                        PictureHandleUtil.DeletePictures(this.OldPicturePath.Split(','));
-                    }
-                }
 
-                services.Commit(); // 提交事务
+
+                        List<string> oldPaths = string.IsNullOrEmpty(this.OldPicturePath) ? new List<string>() : this.OldPicturePath.Split(',').ToList();
+                        List<string> newPaths = string.IsNullOrEmpty(this.NewPicturePath) ? new List<string>() : this.NewPicturePath.Split(',').ToList();
+                        if (PictureHandleUtil.IsSamePictures(oldPaths, newPaths) == false)
+                        {
+                            PictureHandleUtil.DeletePictures(this.OldPicturePath.Split(','));
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    e.LastError = ex.Message;
+                    e.Successful = false;
+                }
             }
-            catch (Exception ex)
-            {
-                PopUpUtil.ShowError("保存失败：" + ex.Message);
-                services.RollBack(); // 回滚事务
-            }
+
         }
 
         /// <summary>

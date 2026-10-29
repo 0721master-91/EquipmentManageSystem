@@ -75,39 +75,35 @@ namespace EquipmentManageSystem.设备维修
             return true;
         }
 
-        private bool dlg维修任务编辑_PreExecuteOKSql(object sender, PreOKSqlEventArgs e)
-        {
-            SLControls.SLDbService.SLOnlyInstOleDb.Services.BeginTran(); // 开启事务
-            return true;
-        }
-
         private void dlg维修任务编辑_AfterExecuteOKSql(object sender, AfterOKSqlEventArgs e)
         {
-            try
+            if (e.Successful)
             {
-                if(this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
+                try
                 {
-                    this.GenerateRepairdOrder();
-                }
-                else if(this.OperFlag == SleOperFlag.Modify)
-                {
-                    this.UpdateReportOrder();
-
-                    List<string> oldPaths = string.IsNullOrEmpty(this.OldPicturePath) ? new List<string>() : this.OldPicturePath.Split(',').ToList();
-                    List<string> newPaths = string.IsNullOrEmpty(this.NewPicturePath) ? new List<string>() : this.NewPicturePath.Split(',').ToList();
-                    if(PictureHandleUtil.IsSamePictures(oldPaths, newPaths) == false)
+                    if (this.OperFlag == SleOperFlag.New || this.OperFlag == SleOperFlag.CopyNew)
                     {
-                        PictureHandleUtil.DeletePictures(this.OldPicturePath.Split(',')); // 更新后需要删除原照片
+                        this.GenerateRepairdOrder();
+                    }
+                    else if (this.OperFlag == SleOperFlag.Modify)
+                    {
+                        this.UpdateReportOrder();
+
+                        List<string> oldPaths = string.IsNullOrEmpty(this.OldPicturePath) ? new List<string>() : this.OldPicturePath.Split(',').ToList();
+                        List<string> newPaths = string.IsNullOrEmpty(this.NewPicturePath) ? new List<string>() : this.NewPicturePath.Split(',').ToList();
+                        if (PictureHandleUtil.IsSamePictures(oldPaths, newPaths) == false)
+                        {
+                            PictureHandleUtil.DeletePictures(this.OldPicturePath.Split(',')); // 更新后需要删除原照片
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    e.LastError = ex.Message;
+                    e.Successful = false;
+                }
+            }
 
-                SLControls.SLDbService.SLOnlyInstOleDb.Services.Commit(); // 提交事务
-            }
-            catch (Exception ex)
-            {
-                PopUpUtil.ShowError("保存失败：" + ex.Message);
-                SLControls.SLDbService.SLOnlyInstOleDb.Services.RollBack(); // 回滚事务
-            }
         }
 
         /// <summary>

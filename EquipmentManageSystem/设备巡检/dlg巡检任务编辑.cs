@@ -261,12 +261,6 @@ namespace EquipmentManageSystem.设备巡检
             }
         }
 
-        private bool dlg巡检任务编辑_PreExecuteOKSql(object sender, PreOKSqlEventArgs e)
-        {
-            SLControls.SLDbService.SLOnlyInstOleDb.Services.BeginTran(); // 开启事务
-            return true;
-        }
-
         /// <summary>
         /// 处理图片数据，将图片进行保存并返回保存位置（相对路径）
         /// </summary>
@@ -288,41 +282,41 @@ namespace EquipmentManageSystem.设备巡检
         // 添加其他附属信息
         private void dlg巡检任务编辑_AfterExecuteOKSql(object sender, AfterOKSqlEventArgs e)
         {
-            try
+            if (e.Successful)
             {
-                // 保存巡检任务标准
-                this.UpdateInspectionTaskStandard();
-
-                if (this.IsReceivingTask)
+                try
                 {
-                    // 接取任务时，更新巡检任务状态
+                    // 保存巡检任务标准
+                    this.UpdateInspectionTaskStandard();
 
-                    string sql = "update 巡检任务 " +
-                                 "set 执行状态编码 ='COMPLETED'," +
-                                 "    任务接取人ID =" + UserSession.CurrentUser.MemberID + "," +
-                                 "    巡检结束时间 = getDate() " +
-                                 "where 巡检任务编码 ='" + this.TaskCode + "' " +
-                                    "and IsDelete = 0 " +
-                                    "and 执行状态编码 = 'WAITING' " +
-                                    "and 过期时间 > getDate() ";
-                    int num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql);
-                    if(num <= 0) throw new Exception("更新巡检任务状态失败！");
-
-                    // 如果发现故障，自动生成对应的报修工单
-                    if(this.slComboBox是否故障.SelectedValue.ToString() == "是")
+                    if (this.IsReceivingTask)
                     {
-                        this.CreateReportAndRepairOrder();
+                        // 接取任务时，更新巡检任务状态
+
+                        string sql = "update 巡检任务 " +
+                                     "set 执行状态编码 ='COMPLETED'," +
+                                     "    任务接取人ID =" + UserSession.CurrentUser.MemberID + "," +
+                                     "    巡检结束时间 = getDate() " +
+                                     "where 巡检任务编码 ='" + this.TaskCode + "' " +
+                                        "and IsDelete = 0 " +
+                                        "and 执行状态编码 = 'WAITING' " +
+                                        "and 过期时间 > getDate() ";
+                        int num = SLControls.SLDbService.SLOnlyInstOleDb.Services.ExecuteSql(sql);
+                        if (num <= 0) throw new Exception("更新巡检任务状态失败！");
+
+                        // 如果发现故障，自动生成对应的报修工单
+                        if (this.slComboBox是否故障.SelectedValue.ToString() == "是")
+                        {
+                            this.CreateReportAndRepairOrder();
+                        }
                     }
                 }
-
-                SLControls.SLDbService.SLOnlyInstOleDb.Services.Commit(); // 提交事务
+                catch (Exception ex)
+                {
+                    e.LastError = ex.Message;
+                    e.Successful = false;
+                }
             }
-            catch(Exception ex)
-            {
-                PopUpUtil.ShowError("保存失败：" + ex.Message);
-                SLControls.SLDbService.SLOnlyInstOleDb.Services.RollBack(); // 回滚事务
-            }
-
 
         }
 

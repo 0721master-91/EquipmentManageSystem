@@ -645,10 +645,8 @@ namespace EquipmentManageSystem.设备维修
             this.Name = "dlg维修任务编辑";
             this.TableName = "维修工单";
             this.Text = "维修任务";
-            this.UseTransation = false;
             this.AfterFillControls += new SLControls.AfterFillControlsHandler(this.dlg维修任务编辑_AfterFillControls);
             this.PreOK += new SLControls.PreOKHandler(this.dlg维修任务编辑_PreOK);
-            this.PreExecuteOKSql += new SLControls.PreExecuteOKSqlHandler(this.dlg维修任务编辑_PreExecuteOKSql);
             this.AfterExecuteOKSql += new SLControls.AfterExecuteOKSqlHandler(this.dlg维修任务编辑_AfterExecuteOKSql);
             this.Controls.SetChildIndex(this.groupBox单据信息, 0);
             this.Controls.SetChildIndex(this.groupBox基本信息, 0);

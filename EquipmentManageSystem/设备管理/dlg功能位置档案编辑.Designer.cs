@@ -755,10 +755,8 @@ namespace EquipmentManageSystem.设备管理
             this.OtherFields.Add(slcFieldInfo8);
             this.TableName = "设备功能位置档案";
             this.Text = "功能位置档案";
-            this.UseTransation = false;
             this.AfterFillControls += new SLControls.AfterFillControlsHandler(this.dlg功能位置档案编辑_AfterFillControls);
             this.PreOK += new SLControls.PreOKHandler(this.dlg功能位置档案编辑_PreOK);
-            this.PreExecuteOKSql += new SLControls.PreExecuteOKSqlHandler(this.dlg功能位置档案编辑_PreExecuteOKSql);
             this.AfterExecuteOKSql += new SLControls.AfterExecuteOKSqlHandler(this.dlg功能位置档案编辑_AfterExecuteOKSql);
             this.Load += new System.EventHandler(this.dlg功能位置档案编辑_Load);
             this.Controls.SetChildIndex(this.panel主区域, 0);

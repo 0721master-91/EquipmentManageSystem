@@ -647,10 +647,8 @@ namespace EquipmentManageSystem.设备维修
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TableName = "报修工单";
             this.Text = "报修工单";
-            this.UseTransation = false;
             this.AfterFillControls += new SLControls.AfterFillControlsHandler(this.dlg报修工单编辑_AfterFillControls);
             this.PreOK += new SLControls.PreOKHandler(this.dlg报修工单编辑_PreOK);
-            this.PreExecuteOKSql += new SLControls.PreExecuteOKSqlHandler(this.dlg报修工单编辑_PreExecuteOKSql);
             this.AfterExecuteOKSql += new SLControls.AfterExecuteOKSqlHandler(this.dlg报修工单编辑_AfterExecuteOKSql);
             this.Controls.SetChildIndex(this.groupBox单据信息, 0);
             this.Controls.SetChildIndex(this.groupBox基本信息, 0);

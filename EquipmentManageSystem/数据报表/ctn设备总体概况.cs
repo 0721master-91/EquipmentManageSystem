@@ -52,8 +52,6 @@ namespace EquipmentManageSystem.数据报表
                         this.comboBox部门.Text = "全部";
                         QueryDataInfo.OrgCode = null;
                     }
-
-                    this.RefreshData();
                 }
             }
         }
@@ -80,8 +78,6 @@ namespace EquipmentManageSystem.数据报表
                         QueryDataInfo.DepCode = null;
                     }
                 }
-
-                this.RefreshData();
             }
         }
 
@@ -170,7 +166,6 @@ namespace EquipmentManageSystem.数据报表
             }
 
             QueryDataInfo.StartTime = startDate;
-            this.RefreshData();
         }
 
         private void dateTimePicker结束日期_ValueChanged(object sender, EventArgs e)
@@ -185,8 +180,6 @@ namespace EquipmentManageSystem.数据报表
             }
 
             QueryDataInfo.EndTime = endDate.AddDays(1).AddTicks(-1);
-
-            this.RefreshData();
         }
 
         private void button重置_Click(object sender, EventArgs e)
@@ -197,6 +190,13 @@ namespace EquipmentManageSystem.数据报表
             this.dateTimePicker开始日期.Value = QueryDataInfo.StartTime.Date;
             this.dateTimePicker结束日期.Value = QueryDataInfo.EndTime.Date;
             this.RefreshData();
+            this.ActiveControl = null;
+        }
+
+        private void button查询_Click(object sender, EventArgs e)
+        {
+            this.RefreshData();
+            this.ActiveControl = null;
         }
     }
 }

@@ -450,12 +450,6 @@ namespace EquipmentManageSystem.设备管理
             }
         }
 
-        private bool dlg功能位置档案编辑_PreExecuteOKSql(object sender, PreOKSqlEventArgs e)
-        {
-            SLControls.SLDbService.SLOnlyInstOleDb.Services.BeginTran();//开启事务
-            return true;
-        }
-
         private void dlg功能位置档案编辑_AfterExecuteOKSql(object sender, AfterOKSqlEventArgs e)
         {
             // 主表语句是否插入成功，如果成功则添加子表数据
@@ -471,20 +465,12 @@ namespace EquipmentManageSystem.设备管理
                     DataTable dtMaintenance = this.uc标准信息.MaintenanceStandardsTable;
                     if (dtMaintenance != null)
                         UpdateStandardData(dtMaintenance, "设备保养计划");
-
-                    SLControls.SLDbService.SLOnlyInstOleDb.Services.Commit();//提交
                 }
                 catch (Exception ex)
                 {
                     e.LastError = ex.Message;
                     e.Successful = false;
-                    SLControls.SLDbService.SLOnlyInstOleDb.Services.RollBack();//回滚
-                    PopUpUtil.ShowError("插入标准信息失败");
                 }
-            }
-            else
-            {
-                SLControls.SLDbService.SLOnlyInstOleDb.Services.RollBack();//回滚
             }
         }
 
@@ -538,7 +524,7 @@ namespace EquipmentManageSystem.设备管理
                         sets.Add(col.ColumnName + "=" + SqlCommonUtil.FormatSqlValue(row[col]));
                     }
                     int num = services.ExecuteSql("update " + tableName + " set " + string.Join(",", sets) + " where ID=" + idv);
-                    if (num <= 0) throw new Exception();
+                    if (num <= 0) throw new Exception("更新标准数据失败");
                 }
                 else
                 {
@@ -552,7 +538,7 @@ namespace EquipmentManageSystem.设备管理
                         vals.Add(SqlCommonUtil.FormatSqlValue(row[col]));
                     }
                     int num = services.ExecuteSql("insert into " + tableName + " (" + string.Join(",", colNames) + ") values (" + string.Join(",", vals) + ")");
-                    if (num <= 0) throw new Exception();
+                    if (num <= 0) throw new Exception("插入标准数据失败");
                 }
             }
         }

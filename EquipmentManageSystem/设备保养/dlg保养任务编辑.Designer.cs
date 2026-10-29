@@ -853,11 +853,9 @@ namespace EquipmentManageSystem.设备保养
             this.Controls.Add(this.groupBox单据信息);
             this.Name = "dlg保养任务编辑";
             this.Text = "保养任务";
-            this.UseTransation = false;
             this.PreFillControls += new SLControls.PreFillControlsHandler(this.dlg保养任务编辑_PreFillControls);
             this.AfterFillControls += new SLControls.AfterFillControlsHandler(this.dlg保养任务编辑_AfterFillControls);
             this.PreOK += new SLControls.PreOKHandler(this.dlg保养任务编辑_PreOK);
-            this.PreExecuteOKSql += new SLControls.PreExecuteOKSqlHandler(this.dlg保养任务编辑_PreExecuteOKSql);
             this.AfterExecuteOKSql += new SLControls.AfterExecuteOKSqlHandler(this.dlg保养任务编辑_AfterExecuteOKSql);
             this.Load += new System.EventHandler(this.dlg保养任务编辑_Load);
             this.Controls.SetChildIndex(this.groupBox单据信息, 0);

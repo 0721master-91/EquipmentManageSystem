@@ -142,6 +142,12 @@
     <Compile Include="Utils\TaskStatusManager.cs" />
     <Compile Include="主界面\MenuBuilder.cs" />
     <Compile Include="主界面\MenuConfig.cs" />
+    <Compile Include="系统管理\ctn任务生成配置.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统管理\ctn任务生成配置.Designer.cs">
+      <DependentUpon>ctn任务生成配置.cs</DependentUpon>
+    </Compile>
     <Compile Include="数据报表\AggregateType.cs" />
     <Compile Include="数据报表\ctn设备总体概况.cs">
       <SubType>Form</SubType>
@@ -262,6 +268,15 @@
     <Compile Include="登录界面\Form登录界面.Designer.cs">
       <DependentUpon>Form登录界面.cs</DependentUpon>
     </Compile>
+    <Compile Include="系统管理\dlg任务生成配置编辑.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="系统管理\dlg任务生成配置编辑.Designer.cs">
+      <DependentUpon>dlg任务生成配置编辑.cs</DependentUpon>
+    </Compile>
+    <Compile Include="系统管理\InspectionTaskGenerate.cs" />
+    <Compile Include="系统管理\MaintenanceTaskGenerate.cs" />
+    <Compile Include="系统管理\TaskAutoGenerate.cs" />
     <Compile Include="设备保养\ctn保养任务.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -518,7 +533,6 @@
     <EmbeddedResource Include="Global\dlg设备功能位置选择.resx">
       <DependentUpon>dlg设备功能位置选择.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -529,6 +543,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="系统管理\ctn任务生成配置.resx">
+      <DependentUpon>ctn任务生成配置.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="数据报表\ctn设备总体概况.resx">
       <DependentUpon>ctn设备总体概况.cs</DependentUpon>
     </EmbeddedResource>
@@ -582,6 +599,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="登录界面\Form登录界面.resx">
       <DependentUpon>Form登录界面.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="系统管理\dlg任务生成配置编辑.resx">
+      <DependentUpon>dlg任务生成配置编辑.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="设备保养\ctn保养任务.resx">
       <DependentUpon>ctn保养任务.cs</DependentUpon>

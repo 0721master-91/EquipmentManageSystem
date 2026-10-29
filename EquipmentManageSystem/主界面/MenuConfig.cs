@@ -63,6 +63,15 @@ namespace EquipmentManageSystem.主界面
                         new SubMenuConfig {Text = "任务接取与提交", FormType = typeof(设备维修.ctn维修任务接取与提交)},
                         new SubMenuConfig {Text = "维修验收", FormType = typeof(设备维修.ctn维修任务验收)}
                     }
+                },
+                new MenuConfig
+                {
+                    Name = "系统管理",
+                    Text = "系统管理",
+                    SubMenus =
+                    {
+                        new SubMenuConfig {Text = "任务生成配置", FormType = typeof(系统管理.ctn任务生成配置)}
+                    }
                 }
             };
             return configs;
